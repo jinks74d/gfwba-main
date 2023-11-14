@@ -210,7 +210,7 @@ export function HomeMain({ as: _Component = _Builtin.Section }) {
                 href: "#",
               }}
             >
-              {"MEMBERSHIP DIRECTORY"}
+              {"MEMBER DIRECTORY"}
             </_Builtin.Link>
           </_Builtin.Block>
           <_Builtin.Block

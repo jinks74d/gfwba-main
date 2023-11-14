@@ -1,3 +1,5 @@
+import Marq from "@/components/Marquee";
+
 import { HomeHero, HomeMain } from "@/devlink";
 
 export default function Home() {
@@ -5,6 +7,7 @@ export default function Home() {
     <main>
       <HomeHero />
       <HomeMain />
+      <Marq />
     </main>
   );
 }

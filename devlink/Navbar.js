@@ -45,7 +45,7 @@ export function Navbar({ as: _Component = _Builtin.NavbarWrapper }) {
                 href: "#",
               }}
             >
-              {"MEMBERship directory"}
+              {"MEMBER directory"}
             </_Builtin.Link>
             <_Builtin.Link
               className={_utils.cx(_styles, "mem-button")}

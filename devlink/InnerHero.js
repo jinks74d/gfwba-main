@@ -34,7 +34,7 @@ export function InnerHero({
             className={_utils.cx(_styles, "hero-btn-blk-item-text-2")}
             tag="div"
           >
-            {"membership"}
+            {"member"}
             <br />
             {"directory"}
           </_Builtin.Block>
