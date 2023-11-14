@@ -1,0 +1,78 @@
+import React from "react";
+import * as _Builtin from "./_Builtin";
+import * as _utils from "./utils";
+import _styles from "./InnerHero.module.css";
+
+export function InnerHero({
+  as: _Component = _Builtin.Section,
+  heroImage = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552a3bb6f2d2eaba84a5ea2_about-hero.jpg",
+}) {
+  return (
+    <_Component
+      className={_utils.cx(_styles, "section")}
+      grid={{
+        type: "section",
+      }}
+      tag="section"
+      id="homeHoro"
+    >
+      <_Builtin.Block className={_utils.cx(_styles, "hero-btn-blk")} tag="div">
+        <_Builtin.Link
+          className={_utils.cx(_styles, "hero-btn-blk-item", "item-blue")}
+          button={false}
+          options={{
+            href: "#",
+          }}
+        >
+          <_Builtin.Block
+            className={_utils.cx(_styles, "hero-btn-blk-item-text-1", "hide")}
+            tag="div"
+          >
+            {"find a professional"}
+          </_Builtin.Block>
+          <_Builtin.Block
+            className={_utils.cx(_styles, "hero-btn-blk-item-text-2")}
+            tag="div"
+          >
+            {"membership"}
+            <br />
+            {"directory"}
+          </_Builtin.Block>
+        </_Builtin.Link>
+        <_Builtin.Link
+          className={_utils.cx(_styles, "hero-btn-blk-item", "item-red")}
+          button={false}
+          options={{
+            href: "#",
+          }}
+        >
+          <_Builtin.Block
+            className={_utils.cx(_styles, "hero-btn-blk-item-text-1")}
+            tag="div"
+          >
+            {"become a member"}
+          </_Builtin.Block>
+          <_Builtin.Block
+            className={_utils.cx(_styles, "hero-btn-blk-item-text-2")}
+            tag="div"
+          >
+            {"join now"}
+          </_Builtin.Block>
+        </_Builtin.Link>
+      </_Builtin.Block>
+      <_Builtin.Block
+        className={_utils.cj(_utils.cx(_styles, ""), "w-clearfix")}
+        tag="div"
+      >
+        <_Builtin.Image
+          className={_utils.cx(_styles, "hero-img")}
+          loading="lazy"
+          width="auto"
+          height="auto"
+          alt=""
+          src={heroImage}
+        />
+      </_Builtin.Block>
+    </_Component>
+  );
+}

@@ -1,17 +1,7 @@
-import Head from "next/head";
-import { DevLinkProvider } from "@/devlink";
-import { Navbar } from "@/devlink/Navbar";
+import { DevLinkProvider, Navbar, Footer } from "@/devlink";
 
 import "./globals.css";
 import "@/devlink/global.css";
-
-<Head>
-  <link
-    rel="stylesheet"
-    href={`https://use.typekit.net/wso4vxx.css`}
-  />
-</Head>
-
 
 export const metadata = {
   title: "Create Next App",
@@ -25,6 +15,7 @@ export default function RootLayout({ children }) {
         <DevLinkProvider>
           <Navbar />
           {children}
+          <Footer />
         </DevLinkProvider>
       </body>
     </html>

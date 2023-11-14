@@ -1,9 +1,10 @@
-import React from "react";
+import { InnerHero } from "@/devlink";
 
-const About = () => {
-  return <div>
-    <h1>ABOUT</h1>
-  </div>;
-};
-
-export default About;
+export default function About() {
+  return (
+    <main>
+      <InnerHero />
+      
+    </main>
+  );
+}

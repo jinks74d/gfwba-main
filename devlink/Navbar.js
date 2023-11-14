@@ -24,7 +24,7 @@ export function Navbar({ as: _Component = _Builtin.NavbarWrapper }) {
       >
         <_Builtin.NavbarBrand
           options={{
-            href: "#",
+            href: "http://localhost:3000/",
           }}
         >
           <_Builtin.Image

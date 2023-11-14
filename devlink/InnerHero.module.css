@@ -1,0 +1,122 @@
+.section {
+  position: relative;
+  display: block;
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 479px) {
+  .section {
+    display: flex;
+    padding-top: 0px;
+    flex-direction: column-reverse;
+  }
+}
+
+.hero-btn-blk {
+  position: absolute;
+  left: 0%;
+  top: auto;
+  right: auto;
+  bottom: 15%;
+
+  display: flex;
+  align-items: stretch;
+
+  font-family: Montserrat, sans-serif;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 479px) {
+  .hero-btn-blk {
+    position: relative;
+    flex-direction: column;
+  }
+}
+
+.hero-btn-blk-item {
+  display: flex;
+  padding: 20px 40px;
+  flex-direction: column;
+  justify-content: center;
+
+  color: var(--white);
+  text-decoration: none;
+}
+
+.hero-btn-blk-item.item-blue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: var(--blue);
+
+  font-family: Montserrat, sans-serif;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-btn-blk-item.item-blue {
+    padding: 10px 20px;
+  }
+}
+
+.hero-btn-blk-item.item-red {
+  background-color: var(--red);
+}
+
+@media screen and (max-width: 991px) {
+  .hero-btn-blk-item.item-red {
+    padding: 10px 20px;
+  }
+}
+
+.hero-btn-blk-item-text-1 {
+  font-size: 27px;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-btn-blk-item-text-1 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-btn-blk-item-text-1 {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-btn-blk-item-text-1.hide {
+    display: none;
+  }
+}
+
+.hero-btn-blk-item-text-2 {
+  font-size: 44px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-btn-blk-item-text-2 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-btn-blk-item-text-2 {
+    font-size: 20px;
+  }
+}
+
+.hero-img {
+  float: right;
+}

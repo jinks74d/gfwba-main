@@ -2183,3 +2183,39 @@ textarea.w-select {
   --red: #c3271b;
   --text-gray: #404041;
 }
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  font-family: Montserrat, sans-serif;
+  color: var(--blue);
+  font-size: 5rem;
+  line-height: 1.25;
+  font-weight: 100;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 48px;
+  line-height: 1.25;
+  font-weight: 200;
+}
+
+.w-layout-blockcontainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+}
+@media screen and (max-width: 991px) {
+  .w-layout-blockcontainer {
+    max-width: 728px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .w-layout-blockcontainer {
+    max-width: none;
+  }
+}
