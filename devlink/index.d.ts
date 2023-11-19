@@ -10,3 +10,4 @@ export * from "./HomeHero";
 export * from "./HomeMain";
 export * from "./InnerHero";
 export * from "./Navbar";
+export * from "./OrganizationSection";

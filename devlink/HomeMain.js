@@ -182,7 +182,7 @@ export function HomeMain({ as: _Component = _Builtin.Section }) {
                 href: "#",
               }}
             >
-              {"JOINGFWBA"}
+              {"JOIN GFWBA"}
             </_Builtin.Link>
             <_Builtin.Heading
               className={_utils.cx(_styles, "heading-2")}

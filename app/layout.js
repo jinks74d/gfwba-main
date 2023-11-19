@@ -1,3 +1,4 @@
+import Marq from "@/components/Marquee";
 import { DevLinkProvider, Navbar, Footer } from "@/devlink";
 
 import "./globals.css";
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <DevLinkProvider>
           <Navbar />
           {children}
+          <Marq />
           <Footer />
         </DevLinkProvider>
       </body>

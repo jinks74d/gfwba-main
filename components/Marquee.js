@@ -8,8 +8,10 @@ import AtmosLogo from "../public/images/sponsors/Atmos_energy_logo.png";
 
 const Marq = () => {
   return (
+    <div className="w-full flex flex-col mt-20">
+    <h2 className="m-auto">OUR PLATINUM PARTNERS</h2>
     <Marquee
-        className="py-[100px]"
+        className="pb-[100px] pt-[50px]"
       >
         <Image
           src={FoxLogo}
@@ -37,6 +39,7 @@ const Marq = () => {
           className="pr-[300px]"
          />
       </Marquee>
+      </div>
   )
 }
 
