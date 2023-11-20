@@ -7,6 +7,17 @@
 body {
   font-family: "Montserrat", sans-serif;
   border-left: 50px solid #c3271b;
+  color: #102647;
+  @apply text-[#102647];
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-[#102647];
 }
 
 @media screen and (max-width: 768px) {
