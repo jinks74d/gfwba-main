@@ -181,7 +181,7 @@ export default function Directory() {
             <p className="text-2xl uppercase">Categories</p>
             <ul className="list-none p-0">
               {categories && categories.map((c) => (
-                <li className="flex gap-1 text-xl cursor-pointer" onClick={() => toggleFilter(c)}>{filter.includes(c) ? <p className="text-red-500">☒</p> : <p className="text-red-500">☐</p>}{c}</li>
+                <li className="flex gap-1 text-xl cursor-pointer" onClick={() => toggleFilter(c)} key={c}>{filter.includes(c) ? <p className="text-red-500">☒</p> : <p className="text-red-500">☐</p>}{c}</li>
               ))}
             </ul>
           </div>
@@ -196,12 +196,12 @@ export default function Directory() {
             <SearchBar onSearch={toggleFilter} />
           </div>
           {filter && <div className="flex gap-[20px] cursor-pointer">{filter.map((f) => (
-            <p className="text-l border border-red-500 p-[5px]" onClick={() => toggleFilter(f)}>{f} X</p>
+            <p className="text-l border border-red-500 p-[5px]" onClick={() => toggleFilter(f)} key={f}>{f} X</p>
           ))}</div>}
           <div className="grid grid-cols-3">
             {contacts ?
               contacts.map((c) => (
-                <Link href='/contact/[id]' as={`/contact/${c.Id}`} >
+                <Link href='/contact/[id]' as={`/contact/${c.Id}`} key={c.Id}>
                   <DirectoryItem id='person' name={c.DisplayName} organization={c.Organization} category={c.FieldValues[47]} />
                 </Link>
               ))

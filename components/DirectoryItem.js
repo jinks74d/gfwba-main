@@ -18,7 +18,7 @@ const DirectoryItem = ({ name, organization, category }) => {
       // console.log(arr)
       setChecked(true)
     }
-  })
+  }, [checked, category.Value])
 
   return (
     // *** LINK TO MEMBER PAGE
