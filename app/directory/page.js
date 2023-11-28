@@ -139,22 +139,44 @@ export default function Directory() {
   }
 
   const handleSearch = (searchTerm) => {
-    let filteredContacts = []
-    contacts.forEach(contact => {
-      let contactCat = [];
-      // console.log(contact)
-      Object.keys(contact.FieldValues[47].Value).forEach(function (key, index) {
-        // console.log(contact.FieldValues[47].Value)
-        contactCat.push(contact.FieldValues[47].Value[key].Label)
-      })
-      // Filter the data array based on the search term
-      if (contactCat.includes(searchTerm)) {
-        if (filteredContacts.indexOf(contact) == -1) {
-          filteredContacts.push(contact)
+    if (searchTerm != '') {
+      let filteredContacts = []
+      setContacts(allContacts)
+      let filters = filter;
+      // console.log(e)
+      for (let i = 0; i < categories.length; i++) {
+        let c = categories[i];
+        // console.log(c)
+        if (c) {
+          if (c.toUpperCase().indexOf(searchTerm.toUpperCase()) > -1) {
+            // console.log(c)
+            filters.push(c);
+          }
         }
       }
-    })
-    setContacts(filteredContacts);
+      if (filters == filter) {
+        filters.push(searchTerm);
+      }
+      setFilter(filters)
+      contacts.forEach(contact => {
+        let contactCat = [];
+        // console.log(contact)
+        Object.keys(contact.FieldValues[47].Value).forEach(function (key, index) {
+          // console.log(contact.FieldValues[47].Value)
+          contactCat.push(contact.FieldValues[47].Value[key].Label)
+        })
+        // Filter the data array based on the search term
+        for (let i = 0; i < contactCat.length; i++) {
+          let a = contactCat[i];
+          if (a) {
+            if (a.toUpperCase().indexOf(searchTerm.toUpperCase()) > -1) {
+              filteredContacts.push(contact)
+            }
+          }
+        }
+      })
+      setContacts(filteredContacts);
+    }
   };
 
   useEffect(() => {
@@ -191,9 +213,7 @@ export default function Directory() {
         <div className="w-[75%]">
           <div className="flex justify-between items-center pb-10">
             <h2>MEMBER DIRECTORY</h2>
-            {/* <p className="text-red-400 text-lg">SEARCH GOES HERE</p> */}
-            {/* <SearchBar onSearch={handleSearch} /> */}
-            <SearchBar onSearch={toggleFilter} />
+            <SearchBar onSearch={handleSearch} />
           </div>
           {filter && <div className="flex gap-[20px] cursor-pointer">{filter.map((f) => (
             <p className="text-l border border-red-500 p-[5px]" onClick={() => toggleFilter(f)} key={f}>{f} X</p>
@@ -201,11 +221,14 @@ export default function Directory() {
           <div className="grid grid-cols-3">
             {contacts ?
               contacts.map((c) => (
-                <Link href='/contact/[id]' as={`/contact/${c.Id}`} key={c.Id}>
+                <Link href='/profile/[id]' as={`/profile/${c.Id}`} key={c.Id}>
                   <DirectoryItem id='person' name={c.DisplayName} organization={c.Organization} category={c.FieldValues[47]} />
                 </Link>
               ))
-              : <p className='text-xl leading-normal'>Loading Directory</p>}
+              :
+              // <p className='text-xl leading-normal'>Loading Directory</p>
+              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>"><div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div><p className='text-xl leading-normal'>Loading Directory</p></div>
+            }
           </div>
           <BlueBtn text="load more" link="https://gfwba.com/directory" />
         </div>

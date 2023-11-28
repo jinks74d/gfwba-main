@@ -66,6 +66,10 @@
   margin-bottom: 40px;
 }
 
+.p-main.p-main-lh {
+  line-height: 1;
+}
+
 .text-link {
   color: var(--blue);
   font-size: 24px;
