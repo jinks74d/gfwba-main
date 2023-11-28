@@ -42,7 +42,7 @@ export function Navbar({ as: _Component = _Builtin.NavbarWrapper }) {
               className={_utils.cx(_styles, "dir-button")}
               button={false}
               options={{
-                href: "#",
+                href: "/directory",
               }}
             >
               {"MEMBER directory"}

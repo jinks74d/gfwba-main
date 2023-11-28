@@ -6,17 +6,22 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSearch = () => {
         onSearch(searchTerm);
+        setSearchTerm('')
     };
 
     return (
-        <div>
+        <div className='border border-[#B3B3B3] flex items-center'>
             <input
+                className='p-[5px] w-[365px] outline-none'
                 type="text"
-                placeholder="Search..."
+                // placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button
+                className='bg-[#B3B3B3] text-white p-[5px] text-[20px]'
+                onClick={handleSearch}
+            >🔎︎</button>
         </div>
     );
 };
