@@ -1,10 +1,11 @@
 "use client"
 import { InnerHero, ProfileSection, Footer } from "@/devlink";
 import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 
 export default function Profile({ imageData }) {
     // const { query } = useRouter()
+    const router = useRouter();
     const params = useParams()
     console.log(params)
     const [contact, setContact] = useState('');
@@ -16,9 +17,17 @@ export default function Profile({ imageData }) {
     const [logo, setLogo] = useState('')
     const [categories, setCategories] = useState('')
     const [area, setArea] = useState('')
+    const [updating, setUpdating] = useState(false)
+    const [newFName, setNewFName] = useState('');
+    const [newLName, setNewLName] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [loggedId, setLoggedId] = useState('')
     const [imageUrl, setImageUrl] = useState(null);
 
     const fetchContact = async () => {
+        var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+        setLoggedId(Id);
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/contact/${params.id}`, {
             method: 'GET',
@@ -70,29 +79,135 @@ export default function Profile({ imageData }) {
         }
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+        let changes = {}
+        // "if" cases to identify elements changed prior to sending to api
+        if (newFName !== '') { changes.FirstName = newFName }
+        if (newLName !== '') { changes.LastName = newLName }
+        // if (email !== '') { changes.Email = email }
+        // if (password !== '') { changes.Password = password }
+
+        let response = await fetch('/api/user/userInfo', {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json;charset=utf-8"
+            },
+            body: JSON.stringify({ token, changes, 'id': contact.Id, 'loggedId': Id })
+        });
+
+        const json = await response.json();
+        if (!response.ok) {
+            setError(json.error)
+            console.log('response not ok')
+        }
+        if (response.ok) {
+            console.log(json)
+            setUpdating(false)
+            setNewFName('')
+            setNewLName('')
+            setNewEmail('')
+            setNewPassword('')
+            const { accounts, critChange, token } = json
+            const { Id, DisplayName, Email, FirstName, LastName, IsAccountAdministrator, MembershipLevel, Status } = accounts
+            setContact(accounts)
+            const contact = { Id, DisplayName, Email, FirstName, LastName, IsAccountAdministrator, MembershipLevel: MembershipLevel.Name, Status, token }
+            console.log(contact)
+            localStorage.setItem("GFWBAUSER", JSON.stringify(contact));
+            if (critChange) {
+                // remove localStorage and redirect to a log back in page
+                localStorage.removeItem("GFWBAUSER");
+            }
+        }
+    }
+    function cancelUpdate() {
+        setUpdating(false)
+    }
+
     useEffect(() => {
-        if (contact === '') {
-            fetchContact();
+        if (!localStorage.getItem("GFWBAUSER")) {
+            router.push('/login');
+        } else {
+            // var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+            // if (Status === 'Lapsed') {
+            //     router.push('/login');
+            // }
+            if (contact === '') {
+                fetchContact();
+            }
         }
     })
 
     return (
         <main>
             <InnerHero />
-            <ProfileSection
-                profMainName={contact.DisplayName}
-                profMainComp={contact.Organization}
-                profTitle={title}
-                profOrganization={contact.Organization}
-                profAddress={address}
-                profOffice={office}
-                profCell={cell}
-                profEmail={contact.Email}
-                profWebsite={website}
-                profLogo={logo}
-                profCategories={categories}
-                profArea={area}
-            />
+            {updating ?
+                <div>
+                    <h3>Update</h3>
+                    {console.log(contact)}
+                    <form onSubmit={handleSubmit}>
+                        <label for='First Name'>First Name</label>
+                        <input
+                            className='hi'
+                            type="text"
+                            placeholder={contact.FirstName}
+                            value={newFName}
+                            onChange={(e) => { setNewFName(e.target.value) }}
+                        />
+                        <label for='Last Name'>Last Name</label>
+                        <input
+                            className='hi'
+                            type="text"
+                            placeholder={contact.LastName}
+                            value={newLName}
+                            onChange={(e) => { setNewLName(e.target.value) }}
+                        />
+                        <label for='Email'>Email</label>
+                        <input
+                            className='hi'
+                            type="text"
+                            placeholder={contact.Email}
+                            value={newEmail}
+                            onChange={(e) => { setNewEmail(e.target.value) }}
+                        />
+                        <label for='Password'>Password</label>
+                        <input
+                            className='hi'
+                            type="text"
+                            placeholder="Password"
+                            value={newPassword}
+                            onChange={(e) => { setNewPassword(e.target.value) }}
+                        />
+                        <input type='submit' />
+                    </form>
+                    {/* <p>{contact.DisplayName}</p>
+                    <p>{contact.Email}</p>
+                    <p>{contact.FirstName}</p>
+                    <p>{contact.LastName}</p> */}
+                    <p>Membership Status: {contact.Status}</p>
+                    {/* <p></p> */}
+                    <button onClick={cancelUpdate}>Cancel</button>
+                </div>
+                :
+                <>
+                    <ProfileSection
+                        profMainName={contact.DisplayName}
+                        profMainComp={contact.Organization}
+                        profTitle={title}
+                        profOrganization={contact.Organization}
+                        profAddress={address}
+                        profOffice={office}
+                        profCell={cell}
+                        profEmail={contact.Email}
+                        profWebsite={website}
+                        profLogo={logo}
+                        profCategories={categories}
+                        profArea={area}
+                    />
+                    {params.id == loggedId && <button onClick={() => setUpdating(true)}>Update</button>}
+                </>
+            }
         </main>
     );
 }
