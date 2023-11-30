@@ -1,5 +1,5 @@
 "use client"
-import { InnerHero, ProfileSection, Footer } from "@/devlink";
+import { InnerHero, ProfileSection } from "@/devlink";
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 
@@ -7,7 +7,7 @@ export default function Profile({ imageData }) {
     // const { query } = useRouter()
     const router = useRouter();
     const params = useParams()
-    console.log(params)
+    // console.log(params)
     const [contact, setContact] = useState('');
     const [address, setAddress] = useState('');
     const [title, setTitle] = useState('')
@@ -26,7 +26,7 @@ export default function Profile({ imageData }) {
     const [imageUrl, setImageUrl] = useState(null);
 
     const fetchContact = async () => {
-        var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+        var { Id } = JSON.parse(localStorage.getItem("GFWBAUSER"));
         setLoggedId(Id);
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/contact/${params.id}`, {
@@ -42,7 +42,7 @@ export default function Profile({ imageData }) {
             console.log('response not ok')
         }
         if (response.ok) {
-            console.log(json)
+            // console.log(json)
             setContact(json)
             setAddress(` ${json.FieldValues[43].Value}, ${json.FieldValues[44].Value}, ${json.FieldValues[45].Value} ${json.FieldValues[46].Value}`)
             setTitle(` ${json.FieldValues[39].Value}`)
@@ -64,7 +64,7 @@ export default function Profile({ imageData }) {
                     }
                 })
                 setCategories(categoryArr)
-                console.log(categoryArr)
+                // console.log(categoryArr)
             }
             let areaArr = []
             let areas = json.FieldValues[52];
@@ -103,7 +103,7 @@ export default function Profile({ imageData }) {
             console.log('response not ok')
         }
         if (response.ok) {
-            console.log(json)
+            // console.log(json)
             setUpdating(false)
             setNewFName('')
             setNewLName('')
@@ -113,7 +113,7 @@ export default function Profile({ imageData }) {
             const { Id, DisplayName, Email, FirstName, LastName, IsAccountAdministrator, MembershipLevel, Status } = accounts
             setContact(accounts)
             const contact = { Id, DisplayName, Email, FirstName, LastName, IsAccountAdministrator, MembershipLevel: MembershipLevel.Name, Status, token }
-            console.log(contact)
+            // console.log(contact)
             localStorage.setItem("GFWBAUSER", JSON.stringify(contact));
             if (critChange) {
                 // remove localStorage and redirect to a log back in page
@@ -145,7 +145,7 @@ export default function Profile({ imageData }) {
             {updating ?
                 <div>
                     <h3>Update</h3>
-                    {console.log(contact)}
+                    {/* {console.log(contact)} */}
                     <form onSubmit={handleSubmit}>
                         <label for='First Name'>First Name</label>
                         <input
