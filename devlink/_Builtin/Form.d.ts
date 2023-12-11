@@ -31,6 +31,7 @@ export declare function FormForm(props: FormProps<"form">): any;
 export declare function FormBlockLabel(props: FormProps<"label">): any;
 type FormInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   inputType?: string;
+  customClassName?: string;
 };
 export declare function FormTextInput({
   className,
@@ -58,6 +59,7 @@ export declare function FormBooleanInput({
   checked,
   type,
   inputType,
+  customClassName,
   ...props
 }: FormInputProps): JSX.Element;
 export declare function FormCheckboxInput({

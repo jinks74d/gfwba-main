@@ -208,23 +208,19 @@ export function ProfileSection({
               alt=""
               src={profLogo}
             />
-            {typeof profCategories == 'object' &&
-              <>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "p-main-bold")}
-                  tag="div"
-                >
-                  {"CATEGORIES"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "p-main", "p-main-lh")}
-                  tag="div"
-                >
-                  {profCategories.map((c) => (<p key={c}>{c}</p>))}
-                </_Builtin.Block>
-              </>
-            }
-            {/* <_Builtin.Block
+            <_Builtin.Block
+              className={_utils.cx(_styles, "p-main-bold")}
+              tag="div"
+            >
+              {"CATEGORIES"}
+            </_Builtin.Block>
+            <_Builtin.Block
+              className={_utils.cx(_styles, "p-main", "p-main-lh")}
+              tag="div"
+            >
+              {profCategories}
+            </_Builtin.Block>
+            <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "p-main-lh")}
               tag="div"
             >
@@ -247,29 +243,25 @@ export function ProfileSection({
               tag="div"
             >
               {"Outbuildings - Other structures"}
-            </_Builtin.Block> */}
-            {typeof profArea == 'object' &&
-              <>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "p-main-bold")}
-                  tag="div"
-                >
-                  {"SERVICEAREAS"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "p-main", "p-main-lh")}
-                  tag="div"
-                >
-                  {profArea.map((a) => (<p key={a}>{a}</p>))}
-                </_Builtin.Block>
-              </>
-            }
-            {/* <_Builtin.Block
+            </_Builtin.Block>
+            <_Builtin.Block
+              className={_utils.cx(_styles, "p-main-bold")}
+              tag="div"
+            >
+              {"SERVICEAREAS"}
+            </_Builtin.Block>
+            <_Builtin.Block
+              className={_utils.cx(_styles, "p-main", "p-main-lh")}
+              tag="div"
+            >
+              {profArea}
+            </_Builtin.Block>
+            <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "p-main-lh", "space-40")}
               tag="div"
             >
               {"SWTarrant"}
-            </_Builtin.Block> */}
+            </_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.BlockContainer>

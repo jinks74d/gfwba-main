@@ -136,6 +136,7 @@ export function FormBooleanInput({
   checked = false,
   type = "checkbox",
   inputType,
+  customClassName,
   ...props
 }) {
   const [isChecked, setIsChecked] = React.useState(checked);
@@ -171,7 +172,9 @@ export function FormBooleanInput({
   if (inputType === "custom") {
     const pseudoModeClasses = `${isChecked ? ` ${CHECKED_CLASS}` : ""}${
       isFocused ? ` ${FOCUSED_CLASS}` : ""
-    }${isFocusedVisible ? ` ${FOCUSED_CLASS} ${FOCUSED_VISIBLE_CLASS}` : ""}`;
+    }${isFocusedVisible ? ` ${FOCUSED_CLASS} ${FOCUSED_VISIBLE_CLASS}` : ""} ${
+      customClassName ?? ""
+    }`;
     const currentClassName = `${className}${pseudoModeClasses}`;
     return (
       <>
@@ -187,7 +190,7 @@ export function FormCheckboxInput({ className = "", ...props }) {
     <FormBooleanInput
       {...props}
       type="checkbox"
-      className={className + " w-checkbox"}
+      className={className + " w-checkbox-input"}
     />
   );
 }

@@ -10,6 +10,7 @@ export * from "./Footer";
 export * from "./HomeHero";
 export * from "./HomeMain";
 export * from "./InnerHero";
+export * from "./MemberListItem";
 export * from "./Navbar";
 export * from "./OrganizationSection";
 export * from "./ProfileSection";
