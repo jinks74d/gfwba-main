@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 // import useSWR from 'swr'
 
-import { InnerHero } from "@/devlink";
+import { InnerHero, MemberListItem } from "@/devlink";
 // const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 // *** METADATA
@@ -75,15 +75,19 @@ export default function Directory() {
       let categoryArr = [];
       let areaArr = [];
       console.log(json.Contacts)
+
       setContacts(json.Contacts)
       setAllContacts(json.Contacts)
       json.Contacts.forEach(element => {
         let cat = element.FieldValues[47]
+        let memberCat = []
         Object.keys(cat.Value).forEach(function (key, index) {
           if (categoryArr.indexOf(cat.Value[key].Label) == -1) {
             categoryArr.push(cat.Value[key].Label);
           }
+          memberCat.push(` ${cat.Value[key].Label}`);
         })
+        element.memberCat = memberCat
 
         // if (element.FieldValues.indexOf('Service Area') != -1) {
         //   let area = element.FieldValues[52]
@@ -218,12 +222,20 @@ export default function Directory() {
           {filter && <div className="flex gap-[20px] cursor-pointer">{filter.map((f) => (
             <p className="text-l border border-red-500 p-[5px]" onClick={() => toggleFilter(f)} key={f}>{f} X</p>
           ))}</div>}
-          <div className="grid grid-cols-3">
+          <div >
             {contacts ?
               contacts.map((c) => (
-                <Link href='/profile/[id]' as={`/profile/${c.Id}`} key={c.Id}>
-                  <DirectoryItem id='person' name={c.DisplayName} organization={c.Organization} category={c.FieldValues[47]} />
-                </Link>
+                <MemberListItem
+                  // memberListLogo={} 
+                  memberListName={`${c.DisplayName}`}
+                  memberListCompany={`${c.Organization}`}
+                  memberListTitle={` ${c.FieldValues[39].Value}`}
+                  memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
+                  memberListWebsite={`${c.FieldValues[48].Value}`}
+                  memberListCategory={`${c.memberCat}`}
+                  memberListItemLink={`/profile/${c.Id}`}
+                  key={c.Id}
+                />
               ))
               :
               // <p className='text-xl leading-normal'>Loading Directory</p>

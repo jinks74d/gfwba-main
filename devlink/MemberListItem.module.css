@@ -1,0 +1,125 @@
+.member-list-item {
+  display: flex;
+  align-items: flex-start;
+  border-style: none none solid;
+  border-width: 1px;
+  border-color: var(--text-gray) var(--text-gray) var(--lt-gray);
+}
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 479px) {
+  .member-list-item {
+    padding-right: 10px;
+    padding-left: 10px;
+    flex-direction: column;
+  }
+}
+
+.image-5 {
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 479px) {
+  .image-5 {
+    padding-right: 0px;
+    align-self: center;
+  }
+}
+
+.member-list-item-grid {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  grid-template-columns: 1.5fr 1fr 1fr 0.25fr;
+  grid-template-rows: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .member-list-item-grid {
+    grid-column-gap: 0px;
+    grid-row-gap: 20px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .member-list-item-grid {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    grid-row-gap: 10px;
+  }
+}
+
+.member-list-item-rt {
+  align-self: flex-start;
+}
+
+.member-list-item-rt.arrow-right {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+
+  background-color: var(--blue);
+
+  -webkit-text-stroke-color: var(--blue);
+}
+
+@media screen and (max-width: 479px) {
+  .member-list-item-rt.arrow-right {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.member-list-item-h3 {
+  margin-top: 0px;
+  font-family: Montserrat, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+.member-list-item-company {
+  color: var(--blue);
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+
+.member-list-item-company.space-40 {
+  margin-bottom: 40px;
+}
+
+.member-list-item-company.p-main-lh {
+  line-height: 1;
+}
+
+.member-list-item-list {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.member-list-item-list-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 479px) {
+  .link {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .image-7 {
+    height: 20px;
+  }
+}

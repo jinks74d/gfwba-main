@@ -465,6 +465,9 @@ input.w-button {
 html[data-w-dynpage] [data-w-cloak] {
   color: transparent !important;
 }
+.w-code-block {
+  margin: unset;
+}
 .w-webflow-badge,
 .w-webflow-badge * {
   position: static;
@@ -2178,10 +2181,11 @@ textarea.w-select {
 }
 
 :root {
-  --blue: #102647;
-  --white: white;
   --red: #c3271b;
+  --blue: #102647;
   --text-gray: #404041;
+  --white: white;
+  --lt-gray: hsla(0, 0.00%, 89.33%, 1.00);
 }
 
 h1 {
@@ -2218,6 +2222,14 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   max-width: 940px;
+}
+.w-layout-grid {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
 }
 @media screen and (max-width: 991px) {
   .w-layout-blockcontainer {
