@@ -113,7 +113,7 @@ export default function Events() {
                                     <p>Starts: {e.start}</p>
                                     <p>Ends: {e.end}</p>
                                     {e.Tags[0] && e.Tags.map((t) => (
-                                        <p>{t}</p>
+                                        <p key={t}>{t}</p>
                                     ))}
                                 </Link>
                             ))
