@@ -13,6 +13,10 @@ export function Navbar({
   navLogin = {
     href: "#",
   },
+
+  navHome = {
+    href: "#",
+  },
 }) {
   return (
     <_Component
@@ -29,11 +33,7 @@ export function Navbar({
       }}
     >
       <_Builtin.Block className={_utils.cx(_styles, "container")} tag="div">
-        <_Builtin.NavbarBrand
-          options={{
-            href: "http://localhost:3000/",
-          }}
-        >
+        <_Builtin.NavbarBrand options={navHome}>
           <_Builtin.Image
             className={_utils.cx(_styles, "image")}
             loading="lazy"
