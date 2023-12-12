@@ -193,7 +193,7 @@ export default function Directory() {
 
   return (
     <main>
-      <InnerHero />
+      <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
       <section className="pt-24 px-24 flex">
         {/* MAIN DIRECTORY LEFT */}
         <div className="w-[25%] pt-28">
