@@ -233,7 +233,7 @@ export default function Directory() {
                   memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
                   memberListWebsite={`${c.FieldValues[48].Value}`}
                   memberListCategory={`${c.memberCat}`}
-                  memberListItemLink={`/profile/${c.Id}`}
+                  memberListItemLink={{ href: `/profile/${c.Id}` }}
                   key={c.Id}
                 />
               ))

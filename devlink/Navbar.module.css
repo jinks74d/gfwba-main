@@ -19,6 +19,10 @@
   border-color: hsla(0, 85.19%, 48.96%, 1.00);
 }
 
+.container.hide {
+  display: none;
+}
+
 .image {
   width: 640px;
 }
