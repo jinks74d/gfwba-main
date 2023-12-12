@@ -21,6 +21,10 @@
   grid-template-rows: auto;
 }
 
+.container-1600.hide {
+  display: none;
+}
+
 .heading-1 {
   margin-bottom: 0px;
   font-weight: 200;
