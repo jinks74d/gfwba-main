@@ -26,8 +26,10 @@ export default function Profile({ imageData }) {
     const [imageUrl, setImageUrl] = useState(null);
 
     const fetchContact = async () => {
-        var { Id } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-        setLoggedId(Id);
+        if (localStorage.getItem("GFWBAUSER")) {
+            var { Id } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+            setLoggedId(Id);
+        }
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/contact/${params.id}`, {
             method: 'GET',
