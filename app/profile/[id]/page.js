@@ -62,7 +62,11 @@ export default function Profile({ imageData }) {
             if (typeof cat == 'object') {
                 Object.keys(cat.Value).forEach(function (key, index) {
                     if (categoryArr.indexOf(cat.Value[key].Label) == -1) {
-                        categoryArr.push(cat.Value[key].Label);
+                        if (index > 0) {
+                            categoryArr.push(`, ${cat.Value[key].Label}`);
+                        } else {
+                            categoryArr.push(cat.Value[key].Label);
+                        }
                     }
                 })
                 setCategories(categoryArr)
@@ -73,7 +77,11 @@ export default function Profile({ imageData }) {
             if (areas.FieldName == 'Service Area') {
                 Object.keys(areas.Value).forEach(function (key, index) {
                     if (areaArr.indexOf(areas.Value[key].Label) == -1) {
-                        areaArr.push(areas.Value[key].Label);
+                        if (index > 0) {
+                            areaArr.push(`, ${areas.Value[key].Label}`);
+                        } else {
+                            areaArr.push(areas.Value[key].Label);
+                        }
                     }
                 })
                 setArea(areaArr)
