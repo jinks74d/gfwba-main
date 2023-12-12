@@ -70,7 +70,7 @@ export default function Directory() {
       console.log('response not ok')
     }
     if (response.ok) {
-      // console.log(json)
+      console.log(response)
       // const alphaSorted = json.Contacts.sort();
       let categoryArr = [];
       let areaArr = [];
@@ -102,6 +102,15 @@ export default function Directory() {
       console.log(categoryArr)
       setCategories(categoryArr.sort());
       // setServiceAreas(areaArr);
+      json.Contacts.forEach(element => {
+        let img = element.FieldValues[49]
+        if (img.Value != '') {
+          console.log(`${element.DisplayName}'s image url is: ${img.Value.Url}`)
+        }
+        // Object.keys(img.Value).forEach(function (key, index) {
+        //   img.Value[key].Label
+        // })
+      })
     }
   }
 
