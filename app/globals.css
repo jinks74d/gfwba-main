@@ -20,6 +20,10 @@ h6 {
   @apply text-[#102647];
 }
 
+.w-nav {
+  background-color: hsla(0, 0.00%, 100.00%, 0.00) !IMPORTANT;
+}
+
 @media screen and (max-width: 768px) {
   body {
     border-left: 20px solid #c3271b;
