@@ -3,7 +3,17 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./HomeMain.module.css";
 
-export function HomeMain({ as: _Component = _Builtin.Section }) {
+export function HomeMain({
+  as: _Component = _Builtin.Section,
+
+  homeJoin = {
+    href: "#",
+  },
+
+  homeDirectory = {
+    href: "#",
+  },
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -175,9 +185,7 @@ export function HomeMain({ as: _Component = _Builtin.Section }) {
             <_Builtin.Link
               className={_utils.cx(_styles, "red-btn", "space-40")}
               button={false}
-              options={{
-                href: "#",
-              }}
+              options={homeJoin}
             >
               {"JOIN GFWBA"}
             </_Builtin.Link>
@@ -203,9 +211,7 @@ export function HomeMain({ as: _Component = _Builtin.Section }) {
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={false}
-              options={{
-                href: "#",
-              }}
+              options={homeDirectory}
             >
               {"MEMBER DIRECTORY"}
             </_Builtin.Link>

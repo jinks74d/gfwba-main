@@ -141,7 +141,7 @@ export default function Profile() {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
+            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
             {updating ?
                 <div>
                     <h3>Update</h3>

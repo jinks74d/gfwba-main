@@ -74,7 +74,7 @@ export default function Events() {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
+            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
             <section className="pt-24 px-24 flex">
                 {/* MAIN DIRECTORY LEFT */}
                 <div className="w-[25%] pt-28">

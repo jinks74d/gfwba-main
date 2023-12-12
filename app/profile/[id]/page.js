@@ -202,7 +202,9 @@ export default function Profile({ imageData }) {
                         profOffice={office}
                         profCell={cell}
                         profEmail={contact.Email}
+                        profEmailAddress={{ href: `mailto:${contact.Email}` }}
                         profWebsite={website}
+                        profWebsiteAddress={{ href: website, target: '_blank' }}
                         profLogo={logo}
                         profCategories={categories}
                         profArea={area}

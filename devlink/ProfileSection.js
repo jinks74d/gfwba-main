@@ -18,6 +18,15 @@ export function ProfileSection({
   profLogo = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/65661a5573f2e9c08f5352fb_elr11kio.png",
   profCategories = "Developer",
   profArea = "NWTarrant",
+
+  profEmailAddress = {
+    href: "mailto:mike@garabedian.us",
+  },
+
+  profWebsiteAddress = {
+    href: "#",
+    target: "_blank",
+  },
 }) {
   return (
     <_Component
@@ -149,9 +158,7 @@ export function ProfileSection({
                 <_Builtin.Link
                   button={false}
                   target="_blank"
-                  options={{
-                    href: "mailto:mike@garabedian.us",
-                  }}
+                  options={profEmailAddress}
                 >
                   {profEmail}
                 </_Builtin.Link>
@@ -174,9 +181,7 @@ export function ProfileSection({
                 <_Builtin.Link
                   button={false}
                   target="_blank"
-                  options={{
-                    href: "mailto:mike@garabedian.us",
-                  }}
+                  options={profWebsiteAddress}
                 >
                   {profWebsite}
                 </_Builtin.Link>

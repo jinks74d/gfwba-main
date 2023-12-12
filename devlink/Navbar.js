@@ -17,6 +17,22 @@ export function Navbar({
   navHome = {
     href: "#",
   },
+
+  navAbout = {
+    href: "http://localhost:3000/about",
+  },
+
+  navMembership = {
+    href: "#",
+  },
+
+  navResources = {
+    href: "#",
+  },
+
+  navContact = {
+    href: "#",
+  },
 }) {
   return (
     <_Component
@@ -67,33 +83,25 @@ export function Navbar({
           >
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "http://localhost:3000/about",
-              }}
+              options={navAbout}
             >
               {"ABOUT US"}
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "#",
-              }}
+              options={navMembership}
             >
               {"MEMBERSHIP"}
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "#",
-              }}
+              options={navResources}
             >
               {"RESOURCES"}
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "#",
-              }}
+              options={navContact}
             >
               {"CONTACTUS"}
             </_Builtin.NavbarLink>
