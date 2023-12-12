@@ -28,7 +28,7 @@ export function MemberListItem({
         src={memberListLogo}
       />
       <_Builtin.Grid
-        className={_utils.cx(_styles, "member-list-item-grid")}
+        className={_utils.cx(_styles, "member-list-item-grid", "hide")}
         tag="div"
       >
         <_Builtin.Block
@@ -100,10 +100,87 @@ export function MemberListItem({
           </_Builtin.List>
         </_Builtin.Block>
       </_Builtin.Grid>
+      <_Builtin.Block
+        className={_utils.cx(_styles, "member-list-item-grid")}
+        id={_utils.cx(
+          _styles,
+          "w-node-dc12aa47-3664-8463-15b0-01987724ce3d-5c4325d8"
+        )}
+        tag="div"
+      >
+        <_Builtin.Block
+          className={_utils.cx(_styles, "member-list-item-rt")}
+          tag="div"
+        >
+          <_Builtin.Heading
+            className={_utils.cx(_styles, "member-list-item-h3")}
+            tag="h3"
+          >
+            {memberListName}
+          </_Builtin.Heading>
+          <_Builtin.Block
+            className={_utils.cx(_styles, "member-list-item-company")}
+            tag="div"
+          >
+            {memberListCompany}
+          </_Builtin.Block>
+        </_Builtin.Block>
+        <_Builtin.Block
+          className={_utils.cx(_styles, "member-list-item-rt")}
+          tag="div"
+        >
+          <_Builtin.List
+            className={_utils.cx(_styles, "member-list-item-list")}
+            tag="ul"
+            unstyled={true}
+          >
+            <_Builtin.ListItem>
+              <_Builtin.Block
+                className={_utils.cx(_styles, "member-list-item-list-title")}
+                tag="div"
+              >
+                {memberListTitle}
+              </_Builtin.Block>
+            </_Builtin.ListItem>
+            <_Builtin.ListItem>
+              <_Builtin.Block tag="div">{memberListLocation}</_Builtin.Block>
+            </_Builtin.ListItem>
+            <_Builtin.ListItem>
+              <_Builtin.Block tag="div">
+                <_Builtin.Link
+                  className={_utils.cx(_styles, "link")}
+                  button={false}
+                  target="_blank"
+                  options={{
+                    href: "http://www.bigtexrenovations.com/",
+                  }}
+                >
+                  {memberListWebsite}
+                </_Builtin.Link>
+                {""}
+              </_Builtin.Block>
+            </_Builtin.ListItem>
+          </_Builtin.List>
+        </_Builtin.Block>
+        <_Builtin.Block
+          className={_utils.cx(_styles, "member-list-item-rt")}
+          tag="div"
+        >
+          <_Builtin.List
+            className={_utils.cx(_styles, "member-list-item-list")}
+            tag="ul"
+            unstyled={true}
+          >
+            <_Builtin.ListItem>
+              <_Builtin.Block tag="div">{memberListCategory}</_Builtin.Block>
+            </_Builtin.ListItem>
+          </_Builtin.List>
+        </_Builtin.Block>
+      </_Builtin.Block>
       <_Builtin.Link
         className={_utils.cx(_styles, "member-list-item-rt", "arrow-right")}
         button={false}
-        options={{ href: memberListItemLink }}
+        options={memberListItemLink}
       >
         <_Builtin.Image
           className={_utils.cx(_styles, "image-7")}
