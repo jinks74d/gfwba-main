@@ -63,6 +63,8 @@
 .biz-info-item {
   display: flex;
   margin-bottom: 20px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 }
 
 .p-main-bold {
@@ -109,6 +111,12 @@
 .profile-logo {
   max-width: 300px;
   margin-bottom: 40px;
+}
+
+.member-list-item-list {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
 }
 
 #w-node-f8646bb1-4b20-1190-de99-618fa8856e25-a8856e1e {

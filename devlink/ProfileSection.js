@@ -27,11 +27,8 @@ export function ProfileSection({
       }}
       tag="section"
     >
-      <_Builtin.BlockContainer
+      <_Builtin.Block
         className={_utils.cx(_styles, "container-1600")}
-        grid={{
-          type: "container",
-        }}
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
@@ -214,36 +211,20 @@ export function ProfileSection({
             >
               {"CATEGORIES"}
             </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh")}
-              tag="div"
+            <_Builtin.List
+              className={_utils.cx(_styles, "member-list-item-list")}
+              tag="ul"
+              unstyled={false}
             >
-              {profCategories}
-            </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh")}
-              tag="div"
-            >
-              {"Custom Builder"}
-            </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh")}
-              tag="div"
-            >
-              {"Build on Your Lot"}
-            </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh")}
-              tag="div"
-            >
-              {"Certified Master Builder"}
-            </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh", "space-40")}
-              tag="div"
-            >
-              {"Outbuildings - Other structures"}
-            </_Builtin.Block>
+              <_Builtin.ListItem>
+                <_Builtin.Block
+                  className={_utils.cx(_styles, "p-main", "p-main-lh")}
+                  tag="div"
+                >
+                  {profCategories}
+                </_Builtin.Block>
+              </_Builtin.ListItem>
+            </_Builtin.List>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main-bold")}
               tag="div"
@@ -256,15 +237,9 @@ export function ProfileSection({
             >
               {profArea}
             </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "p-main-lh", "space-40")}
-              tag="div"
-            >
-              {"SWTarrant"}
-            </_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>
-      </_Builtin.BlockContainer>
+      </_Builtin.Block>
     </_Component>
   );
 }

@@ -12,11 +12,8 @@ export function OrganizationSection({ as: _Component = _Builtin.Section }) {
       }}
       tag="section"
     >
-      <_Builtin.BlockContainer
+      <_Builtin.Block
         className={_utils.cx(_styles, "container-1600")}
-        grid={{
-          type: "container",
-        }}
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
@@ -225,7 +222,7 @@ export function OrganizationSection({ as: _Component = _Builtin.Section }) {
             </_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>
-      </_Builtin.BlockContainer>
+      </_Builtin.Block>
     </_Component>
   );
 }
