@@ -126,16 +126,8 @@ export default function Profile({ imageData }) {
     }
 
     useEffect(() => {
-        if (!localStorage.getItem("GFWBAUSER")) {
-            router.push('/login');
-        } else {
-            // var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-            // if (Status === 'Lapsed') {
-            //     router.push('/login');
-            // }
-            if (contact === '') {
-                fetchContact();
-            }
+        if (contact === '') {
+            fetchContact();
         }
     })
 
