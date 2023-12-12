@@ -141,7 +141,7 @@ export default function Profile({ imageData }) {
 
     return (
         <main>
-            <InnerHero />
+            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
             {updating ?
                 <div>
                     <h3>Update</h3>

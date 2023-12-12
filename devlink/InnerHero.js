@@ -6,6 +6,14 @@ import _styles from "./InnerHero.module.css";
 export function InnerHero({
   as: _Component = _Builtin.Section,
   heroImage = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552a3bb6f2d2eaba84a5ea2_about-hero.jpg",
+
+  heroDirectory = {
+    href: "#",
+  },
+
+  heroJoin = {
+    href: "#",
+  },
 }) {
   return (
     <_Component
@@ -20,9 +28,7 @@ export function InnerHero({
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-blue")}
           button={false}
-          options={{
-            href: "#",
-          }}
+          options={heroDirectory}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1", "hide")}
@@ -42,9 +48,7 @@ export function InnerHero({
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-red")}
           button={false}
-          options={{
-            href: "#",
-          }}
+          options={heroJoin}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1")}
