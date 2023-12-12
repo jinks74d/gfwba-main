@@ -18,10 +18,10 @@ export default function RootLayout({ children }) {
           {children}
           <Marq />
           <Footer
-            footerInsta={{ href: 'https://www.instagram.com/greaterfwbuildersassociation/' }}
-            footerFacebook={{ href: 'https://www.facebook.com/GFWBA' }}
-            footerX={{ href: 'https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc' }}
-            footerLinkedIn={{ href: 'https://www.linkedin.com/company/greater-fort-worth-builders-association/' }}
+            footerInsta={{ href: 'https://www.instagram.com/greaterfwbuildersassociation/', target: '_blank' }}
+            footerFacebook={{ href: 'https://www.facebook.com/GFWBA', target: '_blank' }}
+            footerX={{ href: 'https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc', target: '_blank' }}
+            footerLinkedIn={{ href: 'https://www.linkedin.com/company/greater-fort-worth-builders-association/', target: '_blank' }}
           />
         </DevLinkProvider>
       </body>

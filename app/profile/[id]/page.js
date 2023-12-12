@@ -204,7 +204,7 @@ export default function Profile({ imageData }) {
                         profEmail={contact.Email}
                         profEmailAddress={{ href: `mailto:${contact.Email}` }}
                         profWebsite={website}
-                        profWebsiteAddress={{ href: website }}
+                        profWebsiteAddress={{ href: website, target: '_blank' }}
                         profLogo={logo}
                         profCategories={categories}
                         profArea={area}
