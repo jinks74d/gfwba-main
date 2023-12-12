@@ -6,4 +6,8 @@ declare function Navbar(props: {
   navDirectory?: Types.Basic.Link;
   navLogin?: Types.Basic.Link;
   navHome?: Types.Basic.Link;
+  navAbout?: Types.Basic.Link;
+  navMembership?: Types.Basic.Link;
+  navResources?: Types.Basic.Link;
+  navContact?: Types.Basic.Link;
 }): React.JSX.Element;

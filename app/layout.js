@@ -17,7 +17,12 @@ export default function RootLayout({ children }) {
           <Navbar navHome={{ href: '/' }} navDirectory={{ href: '/directory' }} navLogin={{ href: '/login' }} />
           {children}
           <Marq />
-          <Footer />
+          <Footer
+            footerInsta={{ href: 'https://www.instagram.com/greaterfwbuildersassociation/' }}
+            footerFacebook={{ href: 'https://www.facebook.com/GFWBA' }}
+            footerX={{ href: 'https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc' }}
+            footerLinkedIn={{ href: 'https://www.linkedin.com/company/greater-fort-worth-builders-association/' }}
+          />
         </DevLinkProvider>
       </body>
     </html>

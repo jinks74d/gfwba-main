@@ -3,7 +3,29 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./Footer.module.css";
 
-export function Footer({ as: _Component = _Builtin.Section }) {
+export function Footer({
+  as: _Component = _Builtin.Section,
+
+  footerInsta = {
+    href: "#",
+    target: "_blank",
+  },
+
+  footerFacebook = {
+    href: "#",
+    target: "_blank",
+  },
+
+  footerX = {
+    href: "#",
+    target: "_blank",
+  },
+
+  footerLinkedIn = {
+    href: "#",
+    target: "_blank",
+  },
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-3")}
@@ -32,34 +54,42 @@ export function Footer({ as: _Component = _Builtin.Section }) {
             src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b303a3c6ebfd1a6e400d_gfwba-logo-text-white.png"
           />
           <_Builtin.Block className={_utils.cx(_styles, "icon-blk")} tag="div">
-            <_Builtin.Image
-              loading="lazy"
-              width="auto"
-              height="auto"
-              alt=""
-              src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3066485790a943747_insta-icon.png"
-            />
-            <_Builtin.Image
-              loading="lazy"
-              width="auto"
-              height="auto"
-              alt=""
-              src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3849f48fbf85a6440_facebook-icon.png"
-            />
-            <_Builtin.Image
-              loading="lazy"
-              width="auto"
-              height="auto"
-              alt=""
-              src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3df8f15551ef4c87b_x-icon.png"
-            />
-            <_Builtin.Image
-              loading="lazy"
-              width="auto"
-              height="auto"
-              alt=""
-              src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3ed5867b9b86646d7_linkedin-icon.png"
-            />
+            <_Builtin.Link button={false} options={footerInsta}>
+              <_Builtin.Image
+                loading="lazy"
+                width="auto"
+                height="auto"
+                alt=""
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3066485790a943747_insta-icon.png"
+              />
+            </_Builtin.Link>
+            <_Builtin.Link button={false} options={footerFacebook}>
+              <_Builtin.Image
+                loading="lazy"
+                width="auto"
+                height="auto"
+                alt=""
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3849f48fbf85a6440_facebook-icon.png"
+              />
+            </_Builtin.Link>
+            <_Builtin.Link button={false} options={footerX}>
+              <_Builtin.Image
+                loading="lazy"
+                width="auto"
+                height="auto"
+                alt=""
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3df8f15551ef4c87b_x-icon.png"
+              />
+            </_Builtin.Link>
+            <_Builtin.Link button={false} options={footerLinkedIn}>
+              <_Builtin.Image
+                loading="lazy"
+                width="auto"
+                height="auto"
+                alt=""
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552b6c3ed5867b9b86646d7_linkedin-icon.png"
+              />
+            </_Builtin.Link>
           </_Builtin.Block>
         </_Builtin.Block>
         <_Builtin.Block

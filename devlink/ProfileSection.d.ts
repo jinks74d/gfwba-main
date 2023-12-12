@@ -16,4 +16,6 @@ declare function ProfileSection(props: {
   profLogo?: Types.Asset.Image;
   profCategories?: React.ReactNode;
   profArea?: React.ReactNode;
+  profEmailAddress?: Types.Basic.Link;
+  profWebsiteAddress?: Types.Basic.Link;
 }): React.JSX.Element;

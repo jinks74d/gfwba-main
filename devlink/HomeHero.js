@@ -3,7 +3,17 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./HomeHero.module.css";
 
-export function HomeHero({ as: _Component = _Builtin.Section }) {
+export function HomeHero({
+  as: _Component = _Builtin.Section,
+
+  heroDirectory = {
+    href: "#",
+  },
+
+  heroJoin = {
+    href: "#",
+  },
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section")}
@@ -17,9 +27,7 @@ export function HomeHero({ as: _Component = _Builtin.Section }) {
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-blue")}
           button={false}
-          options={{
-            href: "#",
-          }}
+          options={heroDirectory}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1", "hide")}
@@ -39,9 +47,7 @@ export function HomeHero({ as: _Component = _Builtin.Section }) {
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-red")}
           button={false}
-          options={{
-            href: "#",
-          }}
+          options={heroJoin}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1")}
