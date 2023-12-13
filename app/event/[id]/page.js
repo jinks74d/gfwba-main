@@ -121,7 +121,7 @@ export default function Profile() {
             </div>
             <ul>
                 {event.Details && event.Details.RegistrationTypes.map(e =>
-                    <li>
+                    <li key={e.Id}>
                         <h4>{e.Name}</h4>
                         <p>{e.Description}</p>
                         <p>Price: ${e.BasePrice}</p>
