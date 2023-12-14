@@ -37,9 +37,60 @@ export default function handler(req, res) {
         const { registrationInfo, id } = req.body;
         console.log('start', accessToken == token);
         console.log('line 39: ', req.query.id);
-        console.log('line 40: ', req.body);
+        console.log('line 40: ', registrationInfo);
+        let registrationData = {
+            "Event": {
+                "Id": id
+            },
+            "Contact": {
+                "Id": registrationInfo.contactId
+            },
+            "RegistrationTypeId": registrationInfo.registrationType,
+            "IsCheckedIn": false,
+            "RegistrationFields": [
+                {
+                    "FieldName": "string",
+                    "SystemCode": "FirstName",
+                    "Value": registrationInfo.FirstName
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "LastName",
+                    "Value": registrationInfo.LastName
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "Organization",
+                    "Value": registrationInfo.Organization
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "Phone",
+                    "Value": registrationInfo.Phone
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "Email",
+                    "Value": registrationInfo.Email
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "custom-15246698",
+                    "Value": registrationInfo.billEmail
+                },
+                {
+                    "FieldName": "string",
+                    "SystemCode": "custom-15333462",
+                    "Value": registrationInfo.consent
+                }
+            ],
+            "ShowToPublic": false,
+            "RegistrationDate": new Date(),
+            "Memo": "string",
+            "RecreateInvoice": false
+        }
         axios
-            .put(`https://api.wildapricot.org/v2.2/accounts/191317/events/${id}/registrations`, registrationInfo, {
+            .post(`https://api.wildapricot.org/v2.2/accounts/191317/eventregistrations`, registrationData, {
                 headers: {
                     'User-Agent': 'MySampleApplication/0.1',
                     Accept: 'application/json',
