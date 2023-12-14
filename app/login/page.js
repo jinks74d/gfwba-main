@@ -65,7 +65,7 @@ export default function Login() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main >
-                <h1>Login Page</h1>
+                <h1>LOGIN</h1>
                 {!submitted ? <form onSubmit={handleSubmit}>
                     <label>username</label>
                     <input type='text' value={username} onChange={(e) => { setUsername(e.target.value) }} />

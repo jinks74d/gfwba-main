@@ -70,8 +70,35 @@
   margin-bottom: 40px;
 }
 
+.space-40 {
+  margin-bottom: 40px;
+}
+
 .p-main.p-main-lh {
   line-height: 1;
+}
+
+.p-main.space-20 {
+  margin-bottom: 20px;
+}
+
+.space-20 {
+  margin-bottom: 20px;
+}
+
+.p-main.border-green {
+  border-style: solid;
+  border-width: 5px;
+  border-color: hsla(107, 100.00%, 50.00%, 1.00);
+}
+
+.p-main.p-main-link {
+  text-decoration: none;
+}
+
+.p-main-link {
+  color: var(--text-gray);
+  text-decoration: none;
 }
 
 .text-link {
@@ -90,6 +117,7 @@
 .heading-2 {
   margin-bottom: 30px;
   color: var(--blue);
+  text-transform: uppercase;
 }
 
 .home-left-list {
@@ -127,7 +155,7 @@
   justify-content: flex-start;
   align-self: flex-start;
 
-  background-color: var(--red);
+  background-color: var(--blue);
 
   color: var(--white);
   font-size: 28px;

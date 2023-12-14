@@ -97,7 +97,7 @@ export default function Events() {
                 {/* MAIN DIRECTORY RIGHT */}
                 <div className="w-[75%]">
                     <div className="flex justify-between items-center pb-10">
-                        <h2>Events List</h2>
+                        <h2>EVENT LIST</h2>
                         {/* <SearchBar onSearch={handleSearch} /> */}
                     </div>
                     {/* {filter && <div className="flex gap-[20px] cursor-pointer">{filter.map((f) => (
