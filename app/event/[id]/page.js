@@ -23,7 +23,9 @@ export default function Profile() {
     const [newFName, setNewFName] = useState('');
     const [newLName, setNewLName] = useState('');
     const [newEmail, setNewEmail] = useState('');
-    const [loggedId, setLoggedId] = useState('')
+    const [loggedId, setLoggedId] = useState('');
+    const [registrationId, setRegistrationId] = useState('');
+    const [registered, setRegistered] = useState(false)
 
     const fetchEvent = async () => {
         var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
@@ -64,13 +66,20 @@ export default function Profile() {
             setEvent(json)
             setStart(startDate)
             setEnd(endDate)
+            // if(event.registrations){
+            //     let attendees = []
+            //     event.registrations.array.forEach(element => {
+            //         attendees.push(element.Contact.Id)
+            //     });
+            //     if(attendees.includes())
+            // }
         }
     }
 
     const handleRegistration = async (e) => {
         var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
         e.preventDefault();
-        let registrationInfo = { FirstName: newFName, LastName: newLName, Organization: organization, Phone: phone, Email: newEmail, 'custom-15246698': billingEmail, 'custom-15333462': consent }
+        let registrationInfo = { FirstName: newFName, LastName: newLName, Organization: organization, Phone: phone, Email: newEmail, billEmail: billingEmail, consent: consent, contactId: Id, registrationType: registrationId }
 
         let response = await fetch('/api/event/eventRegistration', {
             method: 'POST',
@@ -119,78 +128,83 @@ export default function Profile() {
                 </div>
 
             </div>
-            <ul>
-                {event.Details && event.Details.RegistrationTypes.map(e =>
-                    <li key={e.Id}>
-                        <h4>{e.Name}</h4>
-                        <p>{e.Description}</p>
-                        <p>Price: ${e.BasePrice}</p>
-                        {registering ?
-                            <div>
-                                <h3>Registration</h3>
-                                {/* {console.log(contact)} */}
-                                <form onSubmit={handleRegistration}>
-                                    <label for='First Name'>First Name</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder={firstName}
-                                        value={newFName}
-                                        onChange={(e) => { setNewFName(e.target.value) }}
-                                    />
-                                    <label for='Last Name'>Last Name</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder={lastName}
-                                        value={newLName}
-                                        onChange={(e) => { setNewLName(e.target.value) }}
-                                    />
-                                    <label for='Email'>Email</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder={email}
-                                        value={newEmail}
-                                        onChange={(e) => { setNewEmail(e.target.value) }}
-                                    />
-                                    <label for='organization'>Organization</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder='organization'
-                                        value={organization}
-                                        onChange={(e) => { setOrganization(e.target.value) }}
-                                    />
-                                    <label for='phone'>Office Phone</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder="phone number"
-                                        value={phone}
-                                        onChange={(e) => { setPhone(e.target.value) }}
-                                    />
-                                    <label for='billing'>Accounting or Billing Address</label>
-                                    <input
-                                        className='hi'
-                                        type="text"
-                                        placeholder="Accounting or Billing Address"
-                                        value={billingEmail}
-                                        onChange={(e) => { setBillingEmail(e.target.value) }}
-                                    />
-                                    <label for='consent'>We would like to send you relevant text messages</label>
-                                    <button>Yes</button>
-                                    <button>No</button>
-                                    {consent ? <p>You have consented to receive relevant messages</p> : <p>You have opted not to receive relevant messages</p>}
-                                    <input type='submit' />
-                                </form>
-                                <button onClick={cancelRegistration}>Cancel</button>
-                            </div> :
-                            <div onClick={() => setRegistering(true)}><BlueBtn text={'Register'} /></div>
-                        }
-                    </li>
-                )}
-            </ul>
+            {!registered &&
+                <ul>
+                    {event.Details && event.Details.RegistrationTypes.map(e =>
+                        <li key={e.Id}>
+                            <h4>{e.Name}</h4>
+                            <p>{e.Description}</p>
+                            <p>Price: ${e.BasePrice}</p>
+                            {registering ?
+                                <div>
+                                    <h3>Registration</h3>
+                                    {/* {console.log(contact)} */}
+                                    <form onSubmit={handleRegistration}>
+                                        <label for='First Name'>First Name</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder={firstName}
+                                            value={newFName}
+                                            onChange={(e) => { setNewFName(e.target.value) }}
+                                        />
+                                        <label for='Last Name'>Last Name</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder={lastName}
+                                            value={newLName}
+                                            onChange={(e) => { setNewLName(e.target.value) }}
+                                        />
+                                        <label for='Email'>Email</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder={email}
+                                            value={newEmail}
+                                            onChange={(e) => { setNewEmail(e.target.value) }}
+                                        />
+                                        <label for='organization'>Organization</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder='organization'
+                                            value={organization}
+                                            onChange={(e) => { setOrganization(e.target.value) }}
+                                        />
+                                        <label for='phone'>Office Phone</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder="phone number"
+                                            value={phone}
+                                            onChange={(e) => { setPhone(e.target.value) }}
+                                        />
+                                        <label for='billing'>Accounting or Billing Address</label>
+                                        <input
+                                            className='hi'
+                                            type="text"
+                                            placeholder="Accounting or Billing Address"
+                                            value={billingEmail}
+                                            onChange={(e) => { setBillingEmail(e.target.value) }}
+                                        />
+                                        <label for='consent'>We would like to send you relevant text messages</label>
+                                        <button onClick={() => setConsent(true)}>Yes</button>
+                                        <button onClick={() => setConsent(false)}>No</button>
+                                        {consent ? <p>You have consented to receive relevant messages</p> : <p>You have opted not to receive relevant messages</p>}
+                                        <input type='submit' onClick={() => { setRegistrationId(e.Id) }} />
+                                    </form>
+                                    <button onClick={cancelRegistration}>Cancel</button>
+                                </div> :
+                                <>
+                                    <p>{event.registrations[0].Contact.Name}</p>
+                                    <div onClick={() => setRegistering(true)}><BlueBtn text={'Register'} /></div>
+                                </>
+                            }
+                        </li>
+                    )}
+                </ul>
+            }
             {console.log(event)}
         </main>
     );

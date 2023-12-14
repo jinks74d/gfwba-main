@@ -50,18 +50,20 @@ export default function handler(req, res) {
             .then((response) => {
                 const event = response.data;
                 // Do something with the event
-                //     const getImage = async () => {
-                //     const imageResponse = await fetch(event.FieldValues[49].Value.Url, {
-                //         headers: {
-                //             Authorization: `Bearer ${token}`,
-                //         },
-                //     });
-
-                //     const imageData = await imageResponse.blob();
-                // }
-                // getImage()
-                //     console.log(event);
-                res.status(200).json(event);
+                axios
+                    .get(`https://api.wildapricot.com/v2.2/accounts/191317/eventregistrations?eventId=${req.query.id}&includeDetails=true&includeWaitlist=false&async=false`, {
+                        headers: {
+                            'User-Agent': 'MySampleApplication/0.1',
+                            Accept: 'application/json',
+                            Authorization: `Bearer ${token}`,
+                        },
+                    })
+                    .then((response2) => {
+                        event.registrations = response2.data
+                        console.log('line 63: ', event);
+                        res.status(200).json(event);
+                    })
+                console.log(event);
             })
             .catch((error) => {
                 // Handle any errors
