@@ -66,13 +66,18 @@ export default function Profile() {
             setEvent(json)
             setStart(startDate)
             setEnd(endDate)
-            // if(event.registrations){
-            //     let attendees = []
-            //     event.registrations.array.forEach(element => {
-            //         attendees.push(element.Contact.Id)
-            //     });
-            //     if(attendees.includes())
-            // }
+            console.log(json)
+            if (json.registrations[0]) {
+                console.log(json)
+                let attendees = []
+                json.registrations.forEach(element => {
+                    attendees.push(element.Contact.Id)
+                });
+                console.log(attendees.includes(Id))
+                if (attendees.includes(Id)) {
+                    setRegistered(true)
+                }
+            }
         }
     }
 
@@ -104,17 +109,17 @@ export default function Profile() {
     }
 
     useEffect(() => {
-        if (!localStorage.getItem("GFWBAUSER")) {
-            router.push('/login');
-        } else {
-            // var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-            // if (Status === 'Lapsed') {
-            //     router.push('/login');
-            // }
-            if (event === '') {
-                fetchEvent();
-            }
+        // if (!localStorage.getItem("GFWBAUSER")) {
+        //     router.push('/login');
+        // } else {
+        // var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+        // if (Status === 'Lapsed') {
+        //     router.push('/login');
+        // }
+        if (event === '') {
+            fetchEvent();
         }
+        // }
     })
 
     return (
@@ -196,10 +201,9 @@ export default function Profile() {
                                     </form>
                                     <button onClick={cancelRegistration}>Cancel</button>
                                 </div> :
-                                <>
-                                    <p>{event.registrations[0].Contact.Name}</p>
-                                    <div onClick={() => setRegistering(true)}><BlueBtn text={'Register'} /></div>
-                                </>
+                                <div onClick={() => setRegistering(true)}>
+                                    <BlueBtn text={'Register'} />
+                                </div>
                             }
                         </li>
                     )}

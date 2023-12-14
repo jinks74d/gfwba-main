@@ -3,7 +3,7 @@ import { InnerHero, AdvocacySection } from "@/devlink";
 export default function GovernmentAffairs() {
   return (
     <main>
-      <InnerHero />
+      <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
       <AdvocacySection />
     </main>
   );

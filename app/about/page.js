@@ -3,7 +3,7 @@ import { InnerHero } from "@/devlink";
 export default function About() {
   return (
     <main>
-      <InnerHero />
+      <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
     </main>
   );
 }

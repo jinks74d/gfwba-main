@@ -14,7 +14,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <DevLinkProvider>
-          <Navbar navHome={{ href: '/' }} navDirectory={{ href: '/directory' }} navLogin={{ href: '/login' }} />
+          <Navbar
+            navHome={{ href: '/' }}
+            navDirectory={{ href: '/directory' }}
+            navLogin={{ href: '/login' }}
+            navMembership={{ href: '/membership' }}
+          />
           {children}
           <Marq />
           <Footer
