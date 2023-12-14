@@ -3,7 +3,17 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./MemberSection.module.css";
 
-export function MemberSection({ as: _Component = _Builtin.Section }) {
+export function MemberSection({
+  as: _Component = _Builtin.Section,
+
+  link = {
+    href: "#",
+  },
+
+  link2 = {
+    href: "#",
+  },
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -235,9 +245,7 @@ export function MemberSection({ as: _Component = _Builtin.Section }) {
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={true}
-              options={{
-                href: "#",
-              }}
+              options={link}
             >
               {"LEARNMORE"}
             </_Builtin.Link>
@@ -277,9 +285,7 @@ export function MemberSection({ as: _Component = _Builtin.Section }) {
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={true}
-              options={{
-                href: "#",
-              }}
+              options={link2}
             >
               {"JOINNOW"}
             </_Builtin.Link>
