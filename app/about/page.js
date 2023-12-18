@@ -1,9 +1,13 @@
-import { InnerHero } from "@/devlink";
+import { InnerHero, AboutSection } from "@/devlink";
 
 export default function About() {
   return (
     <main>
-      <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
+      <InnerHero
+        heroDirectory={{ href: "/directory" }}
+        heroJoin={{ href: "/" }}
+      />
+      <AboutSection />
     </main>
   );
 }

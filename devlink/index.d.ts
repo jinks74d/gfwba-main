@@ -5,6 +5,7 @@ export * from "./devlinkContext";
 export * from "./interactions";
 export * from "./utils";
 export * from "./devlink";
+export * from "./AboutSection";
 export * from "./AdvocacySection";
 export * from "./Base21WebflowSection";
 export * from "./Footer";
