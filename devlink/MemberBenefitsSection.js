@@ -17,7 +17,7 @@ export function MemberBenefitsSection({ as: _Component = _Builtin.Section }) {
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"MEMBERBENEFITS"}
+          {"MEMBER BENEFITS"}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
           {"Discounts and Member Benefits"}
@@ -76,7 +76,7 @@ export function MemberBenefitsSection({ as: _Component = _Builtin.Section }) {
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}

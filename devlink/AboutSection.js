@@ -1,6 +1,5 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
-import { Navbar } from "./Navbar";
 import * as _utils from "./utils";
 import _styles from "./AboutSection.module.css";
 
@@ -79,7 +78,7 @@ export function AboutSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"2022 VICTORY - TEXAS SUPREMEM COURT"}
+              {"2022 VICTORY - TEXAS SUPREME COURT"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
@@ -232,8 +231,6 @@ export function AboutSection({
             >
               {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
-            <Navbar />
-            <Navbar />
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}
               tag="div"

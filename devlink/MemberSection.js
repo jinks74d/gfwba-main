@@ -66,7 +66,7 @@ export function MemberSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"EDUCATIONPROGRAMS"}
+              {"EDUCATION PROGRAMS"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-20")}
@@ -114,7 +114,7 @@ export function MemberSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"Website Listings, Searches, On line Directory"}
+              {"Website Listings, Searches, Online Directory"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-20")}
