@@ -3,7 +3,7 @@ import { InnerHero, MemberSection } from "@/devlink";
 export const metadata = {
   title: "Membership in the Greater Fort Worth Builders Association",
   description:
-    "Are you ready to becomea member of the Greater Fort Worth Builders Association? We have a variety of membership options available.",
+    "Are you ready to become a member of the Greater Fort Worth Builders Association? We have a variety of membership options available.",
 };
 
 export default function Membership() {
