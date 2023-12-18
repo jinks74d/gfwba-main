@@ -7,7 +7,7 @@ export function Navbar({
   as: _Component = _Builtin.NavbarWrapper,
 
   navDirectory = {
-    href: "#",
+    href: "directory",
   },
 
   navLogin = {
@@ -15,15 +15,15 @@ export function Navbar({
   },
 
   navHome = {
-    href: "#",
+    href: "/",
   },
 
   navAbout = {
-    href: "http://localhost:3000/about",
+    href: "/about",
   },
 
   navMembership = {
-    href: "#",
+    href: "membership",
   },
 
   navResources = {

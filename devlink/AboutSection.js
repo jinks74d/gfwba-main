@@ -20,7 +20,7 @@ export function AboutSection({
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"ABOUTGFWBA"}
+          {"ABOUT GFWBA"}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
           {"Welcome to the Greater Fort Worth Builders Association"}
@@ -64,7 +64,7 @@ export function AboutSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"MISSIONSTATEMENT"}
+              {"MISSION STATEMENT"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
@@ -78,7 +78,7 @@ export function AboutSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"2022 VICTORY - TEXASSUPREMEMCOURT"}
+              {"2022 VICTORY - TEXAS SUPREMEM COURT"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
@@ -229,7 +229,7 @@ export function AboutSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}

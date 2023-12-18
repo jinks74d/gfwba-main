@@ -133,6 +133,7 @@
 .heading-2 {
   margin-bottom: 30px;
   color: var(--blue);
+  font-size: 2.875rem;
   text-transform: uppercase;
 }
 
