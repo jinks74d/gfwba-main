@@ -20,6 +20,9 @@ export function EventsListSection({
   eventLink = {
     href: "#",
   },
+
+  calendarPane,
+  listPane,
 }) {
   return (
     <_Component
@@ -90,7 +93,7 @@ export function EventsListSection({
             </_Builtin.Block>
             <_Builtin.TabsWrapper
               className={_utils.cx(_styles, "event-tabs")}
-              current="Tab 2"
+              current="Tab 1"
               easing="ease"
               fadeIn={300}
               fadeOut={100}
@@ -111,82 +114,110 @@ export function EventsListSection({
                   <_Builtin.Block tag="div">{"List View"}</_Builtin.Block>
                 </_Builtin.TabsLink>
               </_Builtin.TabsMenu>
-              <_Builtin.TabsContent tag="div">
-                <_Builtin.TabsPane tag="div" data-w-tab="Tab 1" />
+              <_Builtin.TabsContent
+                className={_utils.cx(_styles, "tabs-content")}
+                tag="div"
+              >
+                <_Builtin.TabsPane
+                  className={_utils.cx(_styles, "event-calendar-tab")}
+                  tag="div"
+                  data-w-tab="Tab 1"
+                >
+                  {calendarPane}
+                </_Builtin.TabsPane>
                 <_Builtin.TabsPane
                   className={_utils.cx(_styles, "event-list-tab")}
                   tag="div"
                   data-w-tab="Tab 2"
                 >
-                  <EventListCard
-                    eventTitle={eventTitle}
-                    eventDate={eventDate}
-                    eventTime={eventTime}
-                    eventLocation={eventLocation}
-                    eventLink={eventLink}
-                  />
-                  <_Builtin.Block
-                    className={_utils.cx(_styles, "event-list-item")}
-                    tag="div"
-                  >
-                    <_Builtin.Block
-                      className={_utils.cx(_styles, "event-list-item-left")}
-                      id={_utils.cx(
-                        _styles,
-                        "w-node-_35221ded-0d43-a2fb-047a-a45cdf1919e0-f1bbf066"
-                      )}
-                      tag="div"
-                    >
-                      <_Builtin.Heading
-                        className={_utils.cx(_styles, "event-list-item-title")}
-                        tag="h3"
-                      >
-                        {eventTitle}
-                      </_Builtin.Heading>
-                      <_Builtin.Block
-                        className={_utils.cx(_styles, "event-list-item-date")}
-                        tag="div"
-                      >
-                        {eventDate}
-                      </_Builtin.Block>
-                      <_Builtin.Block
-                        className={_utils.cx(_styles, "event-list-item-time")}
-                        tag="div"
-                      >
-                        {eventTime}
-                      </_Builtin.Block>
-                      <_Builtin.Block
-                        className={_utils.cx(
-                          _styles,
-                          "event-list-item-location"
-                        )}
-                        tag="div"
-                      >
-                        {eventLocation}
-                      </_Builtin.Block>
-                      <_Builtin.Link
-                        className={_utils.cx(_styles, "red-btn")}
-                        button={true}
-                        block=""
-                        options={eventLink}
-                      >
-                        {"Register"}
-                      </_Builtin.Link>
-                    </_Builtin.Block>
-                    <_Builtin.Block
-                      className={_utils.cx(_styles, "event-list-item-right")}
-                      tag="div"
-                    >
-                      <_Builtin.Image
-                        className={_utils.cx(_styles, "event-list-item-image")}
-                        width="auto"
-                        height="auto"
-                        loading="lazy"
-                        alt=""
-                        src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/659c4411b9d7b8c85929985d_PWB%202024%20January%20Meeting.png"
+                  {listPane ?? (
+                    <>
+                      <EventListCard
+                        eventTitle={eventTitle}
+                        eventDate={eventDate}
+                        eventTime={eventTime}
+                        eventLocation={eventLocation}
+                        eventLink={eventLink}
                       />
-                    </_Builtin.Block>
-                  </_Builtin.Block>
+                      <_Builtin.Block
+                        className={_utils.cx(_styles, "event-list-item")}
+                        tag="div"
+                      >
+                        <_Builtin.Block
+                          className={_utils.cx(_styles, "event-list-item-left")}
+                          id={_utils.cx(
+                            _styles,
+                            "w-node-_35221ded-0d43-a2fb-047a-a45cdf1919e0-f1bbf066"
+                          )}
+                          tag="div"
+                        >
+                          <_Builtin.Heading
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-title"
+                            )}
+                            tag="h3"
+                          >
+                            {eventTitle}
+                          </_Builtin.Heading>
+                          <_Builtin.Block
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-date"
+                            )}
+                            tag="div"
+                          >
+                            {eventDate}
+                          </_Builtin.Block>
+                          <_Builtin.Block
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-time"
+                            )}
+                            tag="div"
+                          >
+                            {eventTime}
+                          </_Builtin.Block>
+                          <_Builtin.Block
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-location"
+                            )}
+                            tag="div"
+                          >
+                            {eventLocation}
+                          </_Builtin.Block>
+                          <_Builtin.Link
+                            className={_utils.cx(_styles, "red-btn")}
+                            button={true}
+                            block=""
+                            options={eventLink}
+                          >
+                            {"Register"}
+                          </_Builtin.Link>
+                        </_Builtin.Block>
+                        <_Builtin.Block
+                          className={_utils.cx(
+                            _styles,
+                            "event-list-item-right"
+                          )}
+                          tag="div"
+                        >
+                          <_Builtin.Image
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-image"
+                            )}
+                            width="auto"
+                            height="auto"
+                            loading="lazy"
+                            alt=""
+                            src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/659c4411b9d7b8c85929985d_PWB%202024%20January%20Meeting.png"
+                          />
+                        </_Builtin.Block>
+                      </_Builtin.Block>
+                    </>
+                  )}
                 </_Builtin.TabsPane>
               </_Builtin.TabsContent>
             </_Builtin.TabsWrapper>

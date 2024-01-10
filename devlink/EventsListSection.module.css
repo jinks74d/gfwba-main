@@ -152,6 +152,10 @@
   color: var(--white);
 }
 
+.event-calendar-tab {
+  padding-top: 40px;
+}
+
 .event-list-tab {
   padding-top: 40px;
 }
