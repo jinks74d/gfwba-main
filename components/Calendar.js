@@ -1,17 +1,25 @@
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import listPlugin from '@fullcalendar/list';
 import Link from 'next/link'
 
 // const events = [
 //     { title: 'Meeting', start: new Date() }
 // ]
 
-export function DemoApp({ events }) {
+export function CalendarComponent({ events }) {
     console.log(events)
     return (
-        <div>
+        <div className='h-[100vh]'>
             <FullCalendar
-                plugins={[dayGridPlugin]}
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+                headerToolbar={{
+                    left: "prev,next today",
+                    center: "title",
+                    right: "timeGridWeek,timeGridDay,dayGridMonth,listMonth",
+                }}
                 initialView='dayGridMonth'
                 weekends={false}
                 events={events}

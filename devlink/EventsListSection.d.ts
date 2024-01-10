@@ -8,4 +8,6 @@ declare function EventsListSection(props: {
   eventTime?: React.ReactNode;
   eventLocation?: React.ReactNode;
   eventLink?: Types.Basic.Link;
+  calendarPane?: Types.Devlink.Slot;
+  listPane?: Types.Devlink.Slot;
 }): React.JSX.Element;
