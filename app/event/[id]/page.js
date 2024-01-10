@@ -28,14 +28,16 @@ export default function Profile() {
     const [registered, setRegistered] = useState(false)
 
     const fetchEvent = async () => {
-        var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-        setLoggedId(Id);
-        setFirstName(FirstName);
-        setLastName(LastName);
-        setEmail(Email);
-        setNewFName(FirstName);
-        setNewLName(LastName);
-        setNewEmail(Email);
+        if (localStorage.getItem("GFWBAUSER")) {
+            var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+            setLoggedId(Id);
+            setFirstName(FirstName);
+            setLastName(LastName);
+            setEmail(Email);
+            setNewFName(FirstName);
+            setNewLName(LastName);
+            setNewEmail(Email);
+        }
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/event/${params.id}`, {
             method: 'GET',
