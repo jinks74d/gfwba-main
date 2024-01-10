@@ -1,4 +1,3 @@
-import * as React from "react";
 type YouTubeVideoProps = {
   className?: string;
   title: string;
@@ -23,5 +22,5 @@ export declare function YouTubeVideo({
   muted,
   privacyMode,
   ...props
-}: YouTubeVideoProps): React.JSX.Element;
+}: YouTubeVideoProps): any;
 export {};

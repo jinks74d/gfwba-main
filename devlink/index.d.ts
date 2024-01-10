@@ -8,6 +8,8 @@ export * from "./devlink";
 export * from "./AboutSection";
 export * from "./AdvocacySection";
 export * from "./Base21WebflowSection";
+export * from "./EventListCard";
+export * from "./EventsListSection";
 export * from "./Footer";
 export * from "./HammerNailsSection";
 export * from "./HistorySection";

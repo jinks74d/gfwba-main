@@ -15,10 +15,12 @@ export const Link = function Link({
   className = "",
   button = false,
   children,
+  block = "",
   ...props
 }) {
   const { renderLink: UserLink } = React.useContext(DevLinkContext);
   if (button) className += " w-button";
+  if (block === "inline") className += " w-inline-block";
   if (UserLink) {
     return (
       <UserLink className={className} {...options} {...props}>

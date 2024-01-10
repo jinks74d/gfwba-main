@@ -59,6 +59,7 @@ export function HomeMain({
             <_Builtin.Link
               className={_utils.cx(_styles, "text-link")}
               button={false}
+              block=""
               options={{
                 href: "#",
               }}
@@ -185,6 +186,7 @@ export function HomeMain({
             <_Builtin.Link
               className={_utils.cx(_styles, "red-btn", "space-40")}
               button={false}
+              block=""
               options={homeJoin}
             >
               {"JOIN GFWBA"}
@@ -211,6 +213,7 @@ export function HomeMain({
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={false}
+              block=""
               options={homeDirectory}
             >
               {"MEMBER DIRECTORY"}

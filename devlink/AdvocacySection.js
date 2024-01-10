@@ -67,6 +67,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
                     target="_blank"
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/resources/Documents/2022/State%20Advocacy%20in%20Action.pdf",
                     }}
@@ -85,6 +86,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
                     target="_blank"
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/resources/Documents/2022/FINAL%20BRS%20GFWBA%20Summary.pdf",
                     }}
@@ -103,6 +105,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#HB852",
                     }}
@@ -120,6 +123,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#HB2439",
                     }}
@@ -139,6 +143,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#HB1743",
                     }}
@@ -156,6 +161,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#HB3167",
                     }}
@@ -173,6 +179,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments#TAXESON",
                     }}
@@ -190,6 +197,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments#CITYOF",
                     }}
@@ -207,6 +215,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#WOTUS",
                     }}
@@ -226,6 +235,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments#IMPACT",
                     }}
@@ -243,6 +253,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments#LOCAL",
                     }}
@@ -260,6 +271,7 @@ export function AdvocacySection({ as: _Component = _Builtin.Section }) {
                   <_Builtin.Link
                     className={_utils.cx(_styles, "p-main-link")}
                     button={false}
+                    block=""
                     options={{
                       href: "https://gfwbatx.com/Accomplishments/#WEHELP",
                     }}

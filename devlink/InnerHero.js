@@ -28,6 +28,7 @@ export function InnerHero({
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-blue")}
           button={false}
+          block="inline"
           options={heroDirectory}
         >
           <_Builtin.Block
@@ -48,6 +49,7 @@ export function InnerHero({
         <_Builtin.Link
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-red")}
           button={false}
+          block="inline"
           options={heroJoin}
         >
           <_Builtin.Block

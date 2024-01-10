@@ -64,6 +64,7 @@ export function Navbar({
             <_Builtin.Link
               className={_utils.cx(_styles, "dir-button")}
               button={false}
+              block=""
               options={navDirectory}
             >
               {"MEMBER directory"}
@@ -71,6 +72,7 @@ export function Navbar({
             <_Builtin.Link
               className={_utils.cx(_styles, "mem-button")}
               button={false}
+              block=""
               options={navLogin}
             >
               {"member login"}

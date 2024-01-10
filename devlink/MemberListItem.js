@@ -78,6 +78,7 @@ export function MemberListItem({
                   className={_utils.cx(_styles, "link")}
                   button={false}
                   target="_blank"
+                  block=""
                   options={{
                     href: "http://www.bigtexrenovations.com/",
                   }}
@@ -107,6 +108,7 @@ export function MemberListItem({
       <_Builtin.Link
         className={_utils.cx(_styles, "member-list-item-rt", "arrow-right")}
         button={false}
+        block="inline"
         options={memberListItemLink}
       >
         <_Builtin.Image

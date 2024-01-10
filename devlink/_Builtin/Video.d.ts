@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Embed } from "../types";
 type VideoProps = {
   className?: string;
@@ -8,5 +7,5 @@ export declare function Video({
   className,
   options,
   ...props
-}: VideoProps): JSX.Element;
+}: VideoProps): any;
 export {};

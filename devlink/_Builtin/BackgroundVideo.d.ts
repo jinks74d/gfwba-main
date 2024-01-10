@@ -16,7 +16,7 @@ export declare const BackgroundVideoWrapper: ({
   sources,
   posterImage,
   children,
-}: BackgroundVideoWrapperProps) => JSX.Element;
+}: BackgroundVideoWrapperProps) => any;
 type BackgroundVideoPlayPauseButtonProps = {
   className?: string;
   children: React.ReactElement<
@@ -27,17 +27,17 @@ type BackgroundVideoPlayPauseButtonProps = {
 export declare const BackgroundVideoPlayPauseButton: ({
   children,
   className,
-}: BackgroundVideoPlayPauseButtonProps) => JSX.Element;
+}: BackgroundVideoPlayPauseButtonProps) => any;
 type BackgroundVideoPlayPauseButtonPlayingProps = {
   children: React.ReactNode;
 };
 export declare const BackgroundVideoPlayPauseButtonPlaying: ({
   children,
-}: BackgroundVideoPlayPauseButtonPlayingProps) => JSX.Element;
+}: BackgroundVideoPlayPauseButtonPlayingProps) => any;
 type BackgroundVideoPlayPauseButtonPausedProps = {
   children: React.ReactNode;
 };
 export declare const BackgroundVideoPlayPauseButtonPaused: ({
   children,
-}: BackgroundVideoPlayPauseButtonPausedProps) => JSX.Element;
+}: BackgroundVideoPlayPauseButtonPausedProps) => any;
 export {};

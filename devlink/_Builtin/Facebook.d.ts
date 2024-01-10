@@ -15,5 +15,5 @@ export declare function Facebook({
   url,
   locale,
   ...props
-}: FacebookProps): React.JSX.Element;
+}: FacebookProps): any;
 export {};

@@ -245,6 +245,7 @@ export function MemberSection({
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={true}
+              block=""
               options={link}
             >
               {"LEARNMORE"}
@@ -285,6 +286,7 @@ export function MemberSection({
             <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={true}
+              block=""
               options={link2}
             >
               {"JOINNOW"}

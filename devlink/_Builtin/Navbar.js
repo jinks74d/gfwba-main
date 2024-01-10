@@ -238,6 +238,7 @@ function Navbar({ tag = "div", className = "", children, config, ...props }) {
     },
     <>
       {rest}
+
       <NavbarOverlay>{childMenu}</NavbarOverlay>
     </>
   );

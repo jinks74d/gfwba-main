@@ -13,25 +13,13 @@ export declare function DropdownWrapper({
   delay,
   hover,
   ...props
-}: DropdownWrapperProps): React.JSX.Element;
+}: DropdownWrapperProps): any;
 type DropdownToggleProps = DropdownProps;
 export declare function DropdownToggle({
   tag,
   className,
   ...props
-}: DropdownToggleProps): React.DetailedReactHTMLElement<
-  {
-    "aria-haspopup": "menu";
-    "aria-expanded": boolean;
-    className: string;
-    onClick: () => void;
-    onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => void;
-    role: "button";
-    tabIndex: number;
-    children?: React.ReactNode;
-  },
-  HTMLElement
->;
+}: DropdownToggleProps): any;
 type DropdownListProps = DropdownProps & {
   children:
     | React.ReactElement<DropdownLinkProps>
@@ -41,38 +29,10 @@ export declare function DropdownList({
   tag,
   className,
   ...props
-}: DropdownListProps): React.DetailedReactHTMLElement<
-  {
-    className: string;
-    children: React.ReactNode &
-      (
-        | React.ReactElement<
-            DropdownLinkProps,
-            string | React.JSXElementConstructor<any>
-          >
-        | React.ReactElement<
-            DropdownLinkProps,
-            string | React.JSXElementConstructor<any>
-          >[]
-      );
-  },
-  HTMLElement
->;
+}: DropdownListProps): any;
 type DropdownLinkProps = DropdownProps & LinkProps;
 export declare function DropdownLink({
   className,
   ...props
-}: DropdownLinkProps): React.FunctionComponentElement<
-  import("./Basic").ElementProps<"a"> & {
-    options?:
-      | {
-          href: string;
-          target?: "_self" | "_blank" | undefined;
-          preload?: "none" | "prerender" | "prefetch" | undefined;
-        }
-      | undefined;
-    className?: string | undefined;
-    button?: boolean | undefined;
-  }
->;
+}: DropdownLinkProps): any;
 export {};

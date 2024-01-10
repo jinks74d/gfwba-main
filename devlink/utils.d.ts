@@ -46,7 +46,7 @@ export declare const EASING_FUNCTIONS: {
   "ease-in-out-back": string;
 };
 export declare const isServer: boolean;
-export declare const useLayoutEffect: typeof React.useLayoutEffect;
+export declare const useLayoutEffect: any;
 export declare function useResizeObserver(
   ref: React.RefObject<HTMLElement>,
   fn: (entry: ResizeObserverEntry) => void,

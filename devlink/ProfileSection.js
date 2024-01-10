@@ -158,6 +158,7 @@ export function ProfileSection({
                 <_Builtin.Link
                   button={false}
                   target="_blank"
+                  block=""
                   options={profEmailAddress}
                 >
                   {profEmail}
@@ -181,6 +182,7 @@ export function ProfileSection({
                 <_Builtin.Link
                   button={false}
                   target="_blank"
+                  block=""
                   options={profWebsiteAddress}
                 >
                   {profWebsite}

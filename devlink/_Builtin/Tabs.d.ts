@@ -20,7 +20,7 @@ export declare function TabsWrapper({
   easing,
   current: initialCurrent,
   ...props
-}: TabsWrapperProps): React.JSX.Element;
+}: TabsWrapperProps): any;
 type TabsMenuProps = {
   tag?: React.ElementType;
   className?: string;
@@ -30,10 +30,7 @@ export declare function TabsMenu({
   tag,
   className,
   ...props
-}: TabsMenuProps): React.ReactElement<
-  any,
-  string | React.JSXElementConstructor<any>
->;
+}: TabsMenuProps): any;
 type TabsLinkProps = Props<
   "a",
   {
@@ -44,7 +41,7 @@ export declare function TabsLink({
   className,
   children,
   ...props
-}: TabsLinkProps): React.JSX.Element;
+}: TabsLinkProps): any;
 type TabsContentProps = {
   tag?: React.ElementType;
   className?: string;
@@ -56,10 +53,7 @@ export declare function TabsContent({
   tag,
   className,
   ...props
-}: TabsContentProps): React.ReactElement<
-  any,
-  string | React.JSXElementConstructor<any>
->;
+}: TabsContentProps): any;
 type TabsPaneProps = React.PropsWithChildren<{
   tag?: React.ElementType;
   className?: string;
@@ -69,8 +63,5 @@ export declare function TabsPane({
   tag,
   className,
   ...props
-}: TabsPaneProps): React.ReactElement<
-  any,
-  string | React.JSXElementConstructor<any>
->;
+}: TabsPaneProps): any;
 export {};
