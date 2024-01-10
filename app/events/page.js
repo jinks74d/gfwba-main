@@ -3,6 +3,7 @@ import BlueBtn from "@/components/BlueBtn";
 import SearchBar from '@/components/SearchBar';
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { DemoApp } from "@/components/Calendar";
 // import useSWR from 'swr'
 
 import { InnerHero } from "@/devlink";
@@ -32,6 +33,24 @@ export default function Events() {
             console.log(json)
             let formattedEvents = [];
             let today = new Date()
+            // json.Events.forEach((e) => {
+            //     const eventStart = new Date(e.StartDate);
+            //     const eventEnd = new Date(e.EndDate);
+            //     const options = {
+            //         weekday: 'long',
+            //         year: 'numeric',
+            //         month: 'long',
+            //         day: 'numeric',
+            //         hour: 'numeric',
+            //         minute: 'numeric'
+            //     };
+            //     if (eventEnd.getTime() > today.getTime()) {
+            //         e.start = eventStart.toLocaleDateString(undefined, options);
+            //         e.end = eventEnd.toLocaleDateString(undefined, options);
+            //         // console.log(e)
+            //         formattedEvents.push(e)
+            //     }
+            // })
             json.Events.forEach((e) => {
                 const eventStart = new Date(e.StartDate);
                 const eventEnd = new Date(e.EndDate);
@@ -43,12 +62,10 @@ export default function Events() {
                     hour: 'numeric',
                     minute: 'numeric'
                 };
-                if (eventEnd.getTime() > today.getTime()) {
-                    e.start = eventStart.toLocaleDateString(undefined, options);
-                    e.end = eventEnd.toLocaleDateString(undefined, options);
-                    // console.log(e)
-                    formattedEvents.push(e)
-                }
+                e.start = e.StartDate;
+                e.title = e.Name;
+                e.id = e.Id;
+                formattedEvents.push(e);
             })
             function compare(a, b) {
                 if (a.EndDate < b.EndDate) {
@@ -75,23 +92,10 @@ export default function Events() {
     return (
         <main>
             <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
+            <DemoApp events={events} />
             <section className="pt-24 px-24 flex">
                 {/* MAIN DIRECTORY LEFT */}
                 <div className="w-[25%] pt-28">
-                    {/* <div
-            onClick={() => { setFilter([]); setContacts(allContacts) }}
-            className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
-          >
-            <p className="text-2xl p-0 m-0 uppercase text-[#102647]">Clear Filters</p>
-          </div> */}
-                    {/* <div className="border border-[#B3B3B3] max-w-[386px] p-[15px] max-h-[633px] overflow-auto mr-[60px]">
-            <p className="text-2xl uppercase">Categories</p>
-            <ul className="list-none p-0">
-              {categories && categories.map((c) => (
-                <li className="flex gap-1 text-xl cursor-pointer" onClick={() => toggleFilter(c)} key={c}>{filter.includes(c) ? <p className="text-red-500">☒</p> : <p className="text-red-500">☐</p>}{c}</li>
-              ))}
-            </ul>
-          </div> */}
                 </div>
 
                 {/* MAIN DIRECTORY RIGHT */}

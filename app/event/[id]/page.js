@@ -37,7 +37,7 @@ export default function Profile() {
             setNewFName(FirstName);
             setNewLName(LastName);
             setNewEmail(Email);
-        }
+        } else { setRegistered(true) }
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/event/${params.id}`, {
             method: 'GET',
