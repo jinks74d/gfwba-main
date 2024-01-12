@@ -24,6 +24,46 @@ h6 {
   background-color: hsla(0, 0.00%, 100.00%, 0.00) !IMPORTANT;
 }
 
+/* BEGIN OVERRIDES */
+/* FULL CALENDAR */
+.fc-daygrid-event {
+  white-space: pre-wrap !IMPORTANT;
+}
+
+.fc-event a b {
+  padding-right: 5px;
+}
+
+/* WEBFLOW */
+/* TABS */
+.w-tab-link.w--current {
+  border-style: none none solid !IMPORTANT;
+  border-width: 1px !IMPORTANT;
+  border-color: var(--blue) !IMPORTANT;
+  background-color: var(--blue) !IMPORTANT;
+  color: var(--white) !IMPORTANT;
+}
+
+.w-tab-link {
+  border-bottom: 1px solid var(--blue) !IMPORTANT;
+  background-color: hsla(0, 0.00%, 86.67%, 0.00) !IMPORTANT;
+}
+
+/* BUTTONS */
+.w-button {
+  padding: 10px 30px !IMPORTANT;
+  justify-content: flex-start !IMPORTANT;
+  align-self: flex-start !IMPORTANT;
+  background-color: var(--red) !IMPORTANT;
+  color: var(--white) !IMPORTANT;
+  font-size: 28px !IMPORTANT;
+  line-height: 1.25 !IMPORTANT;
+  text-align: center !IMPORTANT;
+  text-decoration: none !IMPORTANT;
+}
+
+/* END OVERRIDES */
+
 @media screen and (max-width: 768px) {
   body {
     border-left: 20px solid #c3271b;

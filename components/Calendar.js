@@ -14,11 +14,11 @@ export function CalendarComponent({ events }) {
     return (
         <div className='h-[100vh]'>
             <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 headerToolbar={{
                     left: "prev,next today",
                     center: "title",
-                    right: "timeGridWeek,timeGridDay,dayGridMonth,listMonth",
+                    right: "timeGridWeek,timeGridDay,dayGridMonth",
                 }}
                 initialView='dayGridMonth'
                 weekends={false}
