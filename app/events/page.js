@@ -116,19 +116,8 @@ export default function Events() {
                 {events2 ?
                     events2.map((e) => (
                         <>{console.log(e)}<EventListCard eventTitle={e.Name} eventDate={e.niceStartDate} eventTime={e.niceStartTime} eventLocation={e.Location} eventLink={{ href: `/event/${e.Id}` }} /></>
-                        // <Link href='/event/[id]' as={`/event/${e.Id}`} key={e.Id}>
-                        //     {console.log(e)}
-                        //     <h3>{e.Name}</h3>
-                        //     <h4>{e.Location}</h4>
-                        //     <p>Starts: {e.niceStart}</p>
-                        //     <p>Ends: {e.niceEnd}</p>
-                        //     {/* {e.Tags[0] && e.Tags.map((t) => (
-                        //         <p key={t}>{t}</p>
-                        //     ))} */}
-                        // </Link>
                     ))
                     :
-                    // <p className='text-xl leading-normal'>Loading Directory</p>
                     <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>"><div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div><p className='text-xl leading-normal'>Loading Events</p></div>
                 }
             </div>} />
