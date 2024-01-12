@@ -112,7 +112,13 @@ export default function Events() {
     return (
         <main>
             <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
-            <EventsListSection calendarPane={<CalendarComponent events={events} />} listPane={<div>
+            <EventsListSection calendarPane={<div>
+                {events ?
+                    <CalendarComponent events={events} />
+                    :
+                    <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>"><div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div><p className='text-xl leading-normal'>Loading Calendar</p></div>
+                }
+            </div>} listPane={<div>
                 {events2 ?
                     events2.map((e) => (
                         <>{console.log(e)}<EventListCard eventTitle={e.Name} eventDate={e.niceStartDate} eventTime={e.niceStartTime} eventLocation={e.Location} eventLink={{ href: `/event/${e.Id}` }} /></>
@@ -121,43 +127,6 @@ export default function Events() {
                     <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>"><div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div><p className='text-xl leading-normal'>Loading Events</p></div>
                 }
             </div>} />
-            <CalendarComponent events={events} />
-            <section className="pt-24 px-24 flex">
-                {/* MAIN DIRECTORY LEFT */}
-                <div className="w-[25%] pt-28">
-                </div>
-
-                {/* MAIN DIRECTORY RIGHT */}
-                <div className="w-[75%]">
-                    <div className="flex justify-between items-center pb-10">
-                        <h2>EVENT LIST</h2>
-                        {/* <SearchBar onSearch={handleSearch} /> */}
-                    </div>
-                    {/* {filter && <div className="flex gap-[20px] cursor-pointer">{filter.map((f) => (
-            <p className="text-l border border-red-500 p-[5px]" onClick={() => toggleFilter(f)} key={f}>{f} X</p>
-          ))}</div>} */}
-                    <div>
-                        {events ?
-                            events.map((e) => (
-                                <Link href='/event/[id]' as={`/event/${e.Id}`} key={e.Id}>
-                                    {console.log(e)}
-                                    <h3>{e.Name}</h3>
-                                    <h4>{e.Location}</h4>
-                                    <p>Starts: {e.start}</p>
-                                    <p>Ends: {e.end}</p>
-                                    {e.Tags[0] && e.Tags.map((t) => (
-                                        <p key={t}>{t}</p>
-                                    ))}
-                                </Link>
-                            ))
-                            :
-                            // <p className='text-xl leading-normal'>Loading Directory</p>
-                            <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>"><div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div><p className='text-xl leading-normal'>Loading Events</p></div>
-                        }
-                    </div>
-                    <BlueBtn text="load more" link="https://gfwba.com/directory" />
-                </div>
-            </section>
         </main>
     );
 }
