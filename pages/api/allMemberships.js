@@ -26,7 +26,7 @@ export default function handler(req, res) {
             // console.log('success', accessToken)
             // Do something with the access token
             if (response.data.access_token) {
-                getEvents(accessToken)
+                getMemberships(accessToken)
             }
         } catch (error) {
             // Handle any errors
@@ -34,10 +34,17 @@ export default function handler(req, res) {
         }
     };
 
-    const getEvents = (token) => {
+    const getMemberships = (token) => {
         console.log('start', accessToken);
         axios
-            .get(`https://api.wildapricot.com/v2.1/accounts/191317/events?$async=false`, {
+            // .get(`https://api.wildapricot.com/v2.1/accounts`, {
+            //     headers: {
+            //         'User-Agent': 'MySampleApplication/0.1',
+            //         Accept: 'application/json',
+            //         Authorization: `Bearer ${token}`,
+            //     },
+            // })
+            .get(`https://api.wildapricot.com/v2.1/accounts/191317/membershiplevels?$async=false`, {
                 headers: {
                     'User-Agent': 'MySampleApplication/0.1',
                     Accept: 'application/json',
@@ -45,25 +52,15 @@ export default function handler(req, res) {
                 },
             })
             .then((response) => {
-                (console.log('triggered'))
-                // axios
-                //     .get(`https://api.wildapricot.com/v2.1/accounts/191317/Features?$async=false`, {
-                //         headers: {
-                //             'User-Agent': 'MySampleApplication/0.1',
-                //             Accept: 'application/json',
-                //             Authorization: `Bearer ${token}`,
-                //         },
-                //     })
-                //     .then((res2) => { const options = res2.data; console.log(options) })
-                const events = response.data;
-                // const contacts = events.Contacts.filter(contact => contact.Status !== 'Lapsed')
-                // Do something with the events
-                // console.log(events);
-                res.status(200).json(events);
+                const memberships = response.data;
+                // const contacts = accounts.Contacts.filter(contact => contact.Status !== 'Lapsed')
+                // Do something with the accounts
+                // console.log(accounts);
+                res.status(200).json(memberships);
             })
             .catch((error) => {
                 // Handle any errors
-                console.error('Error retrieving events:', error);
+                console.error('Error retrieving memberships:', error);
             });
     };
 
