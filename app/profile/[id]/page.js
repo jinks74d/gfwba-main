@@ -44,7 +44,7 @@ export default function Profile({ imageData }) {
             console.log('response not ok')
         }
         if (response.ok) {
-            // console.log(json)
+            console.log(json)
             setContact(json)
             setAddress(` ${json.FieldValues[43].Value}, ${json.FieldValues[44].Value}, ${json.FieldValues[45].Value} ${json.FieldValues[46].Value}`)
             setTitle(` ${json.FieldValues[39].Value}`)
