@@ -96,8 +96,8 @@ export default function Profile({ imageData }) {
         // "if" cases to identify elements changed prior to sending to api
         if (newFName !== '') { changes.FirstName = newFName }
         if (newLName !== '') { changes.LastName = newLName }
-        // if (email !== '') { changes.Email = email }
-        // if (password !== '') { changes.Password = password }
+        if (email !== '') { changes.Email = email }
+        if (password !== '') { changes.Password = password }
 
         let response = await fetch('/api/user/userInfo', {
             method: 'PUT',
@@ -181,7 +181,8 @@ export default function Profile({ imageData }) {
                             value={newPassword}
                             onChange={(e) => { setNewPassword(e.target.value) }}
                         />
-                        <input type='submit' />
+                        <div></div>
+                        <input className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' type='submit' />
                     </form>
                     {/* <p>{contact.DisplayName}</p>
                     <p>{contact.Email}</p>
@@ -189,7 +190,7 @@ export default function Profile({ imageData }) {
                     <p>{contact.LastName}</p> */}
                     <p>Membership Status: {contact.Status}</p>
                     {/* <p></p> */}
-                    <button onClick={cancelUpdate}>Cancel</button>
+                    <button className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' onClick={cancelUpdate}>Cancel</button>
                 </div>
                 :
                 <>
@@ -209,7 +210,7 @@ export default function Profile({ imageData }) {
                         profCategories={categories}
                         profArea={area}
                     />
-                    {params.id == loggedId && <button onClick={() => setUpdating(true)}>Update</button>}
+                    {params.id == loggedId && <button className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' onClick={() => setUpdating(true)}>Update</button>}
                 </>
             }
         </main>

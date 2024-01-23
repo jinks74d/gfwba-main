@@ -220,27 +220,6 @@ export default function Signup() {
                     Value: employees
                 },
             ],
-            // Address: address,
-            // Title: title,
-            // Phone: officePhone,
-            // Cell: cell,
-            // Fax: fax,
-            // Website: website,
-            // Logo: logo,
-            // Categories: arr,
-            // Area: area,
-            // Email: Email,
-            // 'custom-15246698': secondEmail,
-            // City: city,
-            // State: state,
-            // Zip: zip,
-            // Facebook: facebook,
-            // Twitter: twitter,
-            // Youtube: youtube,
-            // Houzz: houzz,
-            // Instagram: instagram,
-            // MemberSince: memberSince,
-            // EmployeeCount: employees,
             Password: Password
         }
         console.log(body)
@@ -560,6 +539,14 @@ export default function Signup() {
                         onChange={(e) => { setZip(e.target.value) }}
                         required
                     />
+                    <label htmlFor='Password'>Password</label>
+                    <input
+                        className='hi'
+                        type="text"
+                        placeholder="Password"
+                        value={Password}
+                        onChange={(e) => { setPassword(e.target.value) }}
+                    />
                     <label htmlFor='Classifications'>Classifications</label>
                     {classifications.map((c) => (
                         <div key={c.name} className="flex">
@@ -645,15 +632,8 @@ export default function Signup() {
                         onChange={(e) => { setEmployees(e.target.value) }}
                         required
                     />
-                    <label htmlFor='Password'>Password</label>
-                    <input
-                        className='hi'
-                        type="text"
-                        placeholder="Password"
-                        value={Password}
-                        onChange={(e) => { setPassword(e.target.value) }}
-                    />
-                    <input type='submit' />
+                    <div></div>
+                    <input className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' type='submit' />
                 </form>
             </div>
         </main>
