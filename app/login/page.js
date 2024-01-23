@@ -72,7 +72,7 @@ export default function Login() {
                     <label>password</label>
                     <input type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
                     {disabled ? <input disable type="submit" /> :
-                        <input type="submit" />
+                        <input className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' type="submit" />
                     }
                 </form> : <h2>{loggedUser}</h2>}
                 {error}
