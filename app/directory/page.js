@@ -180,8 +180,8 @@ export default function Directory() {
   return (
     <main>
       <InnerHero
-        heroDirectory={{ href: "/directory" }}
-        heroJoin={{ href: "/" }}
+        heroDirectory={{ href: '/directory' }}
+        heroJoin={{ href: '/signup' }}
       />
       <section className="pt-24 px-24 flex">
         {/* MAIN DIRECTORY LEFT */}

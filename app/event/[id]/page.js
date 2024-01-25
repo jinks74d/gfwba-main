@@ -126,7 +126,10 @@ export default function Profile() {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
+            <InnerHero
+                heroDirectory={{ href: '/directory' }}
+                heroJoin={{ href: '/signup' }}
+            />
             <div>
                 <div>
                     <h2>Title: {event.Name}</h2>

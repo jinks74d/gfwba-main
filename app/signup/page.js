@@ -415,10 +415,13 @@ export default function Signup() {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
+            <InnerHero
+                heroDirectory={{ href: '/directory' }}
+                heroJoin={{ href: '/' }}
+            />
             <div>
                 <h3>Sign Up</h3>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="p-10">
                     <select id="membership">
                         {membershipOptions ? membershipOptions.map((m) => (
                             <option value={m.Id} key={m.Id}>{m.Name}</option>

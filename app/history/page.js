@@ -3,7 +3,10 @@ import { InnerHero, HistorySection } from "@/devlink";
 export default function History() {
   return (
     <main>
-      <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
+      <InnerHero
+        heroDirectory={{ href: '/directory' }}
+        heroJoin={{ href: '/signup' }}
+      />
       <HistorySection />
     </main>
   );
