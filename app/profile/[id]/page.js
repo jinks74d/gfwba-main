@@ -96,8 +96,8 @@ export default function Profile({ imageData }) {
         // "if" cases to identify elements changed prior to sending to api
         if (newFName !== '') { changes.FirstName = newFName }
         if (newLName !== '') { changes.LastName = newLName }
-        if (email !== '') { changes.Email = email }
-        if (password !== '') { changes.Password = password }
+        if (newEmail !== '') { changes.Email = newEmail }
+        if (newPassword !== '') { changes.Password = newPassword }
 
         let response = await fetch('/api/user/userInfo', {
             method: 'PUT',
@@ -143,7 +143,10 @@ export default function Profile({ imageData }) {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/login' }} />
+            <InnerHero
+                heroDirectory={{ href: '/directory' }}
+                heroJoin={{ href: '/signup' }}
+            />
             {updating ?
                 <div>
                     <h3>Update</h3>
@@ -173,14 +176,14 @@ export default function Profile({ imageData }) {
                             value={newEmail}
                             onChange={(e) => { setNewEmail(e.target.value) }}
                         />
-                        <label for='Password'>Password</label>
+                        {/* <label for='Password'>Password</label>
                         <input
                             className='hi'
                             type="text"
                             placeholder="Password"
                             value={newPassword}
                             onChange={(e) => { setNewPassword(e.target.value) }}
-                        />
+                        /> */}
                         <div></div>
                         <input className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' type='submit' />
                     </form>

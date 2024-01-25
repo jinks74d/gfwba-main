@@ -31,7 +31,9 @@ export default function handler(req, res) {
             }
         } catch (error) {
             // Handle any errors
-            console.error('Error retrieving access token:', error);
+            // console.error('Error retrieving access token:', error);
+            console.log('Error retrieving access token:', error.response.data.error_description);
+            res.status(401).json(error.response.data);
         }
     };
 
@@ -55,7 +57,8 @@ export default function handler(req, res) {
             })
             .catch((error) => {
                 // Handle any errors
-                console.error('Error retrieving accounts:', error);
+                // console.error('Error retrieving accounts:', error);
+                res.status(401).json(error);
             });
     };
 

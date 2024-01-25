@@ -32,7 +32,8 @@ export default function Login() {
 
         const json = await response.json();
         if (!response.ok) {
-            setError(json.error)
+            console.log(json)
+            setError(json.error_description)
             console.log('response not ok')
         }
         if (response.ok) {
@@ -66,11 +67,12 @@ export default function Login() {
             </Head>
             <main >
                 <h1>LOGIN</h1>
-                {!submitted ? <form onSubmit={handleSubmit}>
+                {!submitted ? <form onSubmit={handleSubmit} className='p-10'>
                     <label>username</label>
                     <input type='text' value={username} onChange={(e) => { setUsername(e.target.value) }} />
                     <label>password</label>
                     <input type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                    <div></div>
                     {disabled ? <input disable type="submit" /> :
                         <input className='cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10' type="submit" />
                     }

@@ -111,7 +111,10 @@ export default function Events() {
 
     return (
         <main>
-            <InnerHero heroDirectory={{ href: '/directory' }} heroJoin={{ href: '/' }} />
+            <InnerHero
+                heroDirectory={{ href: '/directory' }}
+                heroJoin={{ href: '/signup' }}
+            />
             <EventsListSection calendarPane={<div>
                 {events ?
                     <CalendarComponent events={events} />
