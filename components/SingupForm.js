@@ -421,7 +421,7 @@ export default function Signup() {
 
   return (
     <>
-      <div className="border">
+      <div>
         <form onSubmit={handleSubmit} className="p-10">
           <p className="text-xl">Choose you level</p>
           <select id="membership" className="border text-xl mb-6 pl-2">
@@ -679,7 +679,9 @@ export default function Signup() {
             If someone invited you to join the GFWBA, please list their name. If
             no one referred you please enter NA
           </p>
-          <div className="flex flex-row gap-8 text-xl font-light mb-4">
+
+          {/* Social Media Links */}
+          <div className="flex flex-row gap-8 text-xl font-light">
             <div className="text-xl font-light mb-4">
               <label htmlFor="Facebook Page URL">Facebook Page URL</label>
               <input
@@ -719,61 +721,63 @@ export default function Signup() {
                   setHouzz(e.target.value);
                 }}
               />
-              <p className="text-xs mt-1">
-                Example: https://www.houzz.com/pro/COMPANY-NAME/
-              </p>
+              <p className="text-xs mt-1">The URL to your Houzz page</p>
             </div>
           </div>
+          <div className="flex flex-row gap-8 text-xl font-light">
+            <div className="text-xl font-light mb-4">
+              <label htmlFor="You Tube URL">You Tube URL</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                placeholder="You Tube URL"
+                value={youtube}
+                onChange={(e) => {
+                  setYoutube(e.target.value);
+                }}
+              />
+              <p className="text-xs mt-1">The URL to your YouTube page</p>
+            </div>
+            <div className="text-xl font-light mb-4">
+              <label htmlFor="Instagram URL">Instagram URL</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                placeholder="Instagram URL"
+                value={instagram}
+                onChange={(e) => {
+                  setInstagram(e.target.value);
+                }}
+              />
+              <p className="text-xs mt-1">The URL to your Instagram page</p>
+            </div>
+          </div>
+          <div className="text-xl font-light mb-4">
+            <label htmlFor="Member Since">Member of GFWBA Since</label>
+            <input
+              className="hi w-[300px] text-base pl-2"
+              type="text"
+              placeholder="Member Since"
+              value={memberSince}
+              onChange={(e) => {
+                setMemberSince(e.target.value);
+              }}
+            />
+          </div>
+          <div className="text-xl font-light mb-4">
+            <label htmlFor="Total Paid Employees">Total Paid Employees</label>
+            <input
+              className="hi w-[300px] text-base pl-2"
+              type="text"
+              placeholder="Total Paid Employees"
+              value={employees}
+              onChange={(e) => {
+                setEmployees(e.target.value);
+              }}
+              required
+            />
+          </div>
 
-          <label htmlFor="You Tube URL">You Tube URL</label>
-          <input
-            className="hi"
-            type="text"
-            placeholder="You Tube URL"
-            value={youtube}
-            onChange={(e) => {
-              setYoutube(e.target.value);
-            }}
-          />
-          <p>
-            example:
-            https://www.youtube.com/channel/UCNughPUDCxAanvmiqFEIS-w?sub_confirmation=1
-          </p>
-          <label htmlFor="Instagram URL">Instagram URL</label>
-          <input
-            className="hi"
-            type="text"
-            placeholder="Instagram URL"
-            value={instagram}
-            onChange={(e) => {
-              setInstagram(e.target.value);
-            }}
-          />
-          <p>https://www.instagram.com/COMPANY-NAME/</p>
-          <label htmlFor="Member Since">
-            Member of GFW Builders Assocition Since
-          </label>
-          <input
-            className="hi"
-            type="text"
-            placeholder="Member of GFW Builders Assocition Since"
-            value={memberSince}
-            onChange={(e) => {
-              setMemberSince(e.target.value);
-            }}
-          />
-          <label htmlFor="Total Paid Employees">Total Paid Employees</label>
-          <input
-            className="hi"
-            type="text"
-            placeholder="Total Paid Employees"
-            value={employees}
-            onChange={(e) => {
-              setEmployees(e.target.value);
-            }}
-            required
-          />
-          <div></div>
           <input
             className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
             type="submit"
