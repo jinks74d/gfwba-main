@@ -135,6 +135,11 @@
   font-size: 16px;
 }
 
+.p-main.contact-p {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
 .heading-2 {
   margin-bottom: 30px;
   color: var(--blue);

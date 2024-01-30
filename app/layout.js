@@ -13,23 +13,39 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+        />
       </head>
       <body>
         <DevLinkProvider>
           <Navbar
-            navHome={{ href: '/' }}
-            navDirectory={{ href: '/directory' }}
-            navLogin={{ href: '/login' }}
-            navMembership={{ href: '/membership' }}
+            navHome={{ href: "/" }}
+            navDirectory={{ href: "/directory" }}
+            navLogin={{ href: "/login" }}
+            navMembership={{ href: "/membership" }}
+            navContact={{ href: "/contact" }}
           />
           {children}
           <Marq />
           <Footer
-            footerInsta={{ href: 'https://www.instagram.com/greaterfwbuildersassociation/', target: '_blank' }}
-            footerFacebook={{ href: 'https://www.facebook.com/GFWBA', target: '_blank' }}
-            footerX={{ href: 'https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc', target: '_blank' }}
-            footerLinkedIn={{ href: 'https://www.linkedin.com/company/greater-fort-worth-builders-association/', target: '_blank' }}
+            footerInsta={{
+              href: "https://www.instagram.com/greaterfwbuildersassociation/",
+              target: "_blank",
+            }}
+            footerFacebook={{
+              href: "https://www.facebook.com/GFWBA",
+              target: "_blank",
+            }}
+            footerX={{
+              href: "https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc",
+              target: "_blank",
+            }}
+            footerLinkedIn={{
+              href: "https://www.linkedin.com/company/greater-fort-worth-builders-association/",
+              target: "_blank",
+            }}
           />
         </DevLinkProvider>
       </body>

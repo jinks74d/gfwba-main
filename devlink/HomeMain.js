@@ -64,7 +64,7 @@ export function HomeMain({
                 href: "#",
               }}
             >
-              {"LEARNMORE"}
+              {"LEARN MORE"}
             </_Builtin.Link>
             <_Builtin.Image
               className={_utils.cx(_styles, "image-2")}
@@ -105,9 +105,8 @@ export function HomeMain({
               >
                 {"AFFILIATIONS"}
                 <br />
-                <br />
                 {
-                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the TexasAssociation of Builders (TAB)."
+                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the Texas Association of Builders (TAB)."
                 }
               </_Builtin.Block>
             </_Builtin.Block>
@@ -127,11 +126,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-                {"AFFILIATIONS"}
-                <br />
+                {"EDUCATION&ADVICE"}
                 <br />
                 {
-                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the TexasAssociation of Builders (TAB)."
+                  "Education is central to our mission. We provide members with access to a wealth of resources, from training materials to technical advice and industry updates. Together, we empower expertise and drive progress in the home building industry."
                 }
               </_Builtin.Block>
             </_Builtin.Block>
@@ -151,11 +149,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-                {"AFFILIATIONS"}
-                <br />
+                {"CONNECTIONG &COLLABORATING"}
                 <br />
                 {
-                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the TexasAssociation of Builders (TAB)."
+                  "Our community thrives on the power of connection. We offer opportunities to connect with industry peers who share your passion and common interests. Through networking events and collaborative initiatives, members are able to build invaluable relationships."
                 }
               </_Builtin.Block>
             </_Builtin.Block>
@@ -175,11 +172,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main", "space-40")}
                 tag="div"
               >
-                {"AFFILIATIONS"}
-                <br />
+                {"BENEFITS &DISCOUNTS"}
                 <br />
                 {
-                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the TexasAssociation of Builders (TAB)."
+                  "As a member, you gain exclusive access to a wealth of benefits, programs, and services that are carefully curated to enhance your professional journey. Your affiliation with us opens doors to opportunities designed to empower and elevate your business."
                 }
               </_Builtin.Block>
             </_Builtin.Block>
@@ -231,7 +227,7 @@ export function HomeMain({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"OURNUMBERS"}
+              {"OUR NUMBERS"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "number-item-blk")}
@@ -251,7 +247,7 @@ export function HomeMain({
                   className={_utils.cx(_styles, "number-item-small")}
                   tag="div"
                 >
-                  {"Committees &Councils"}
+                  {"Committees & Councils"}
                 </_Builtin.Block>
               </_Builtin.Block>
               <_Builtin.Block
@@ -285,7 +281,7 @@ export function HomeMain({
                   className={_utils.cx(_styles, "number-item-small")}
                   tag="div"
                 >
-                  {"YearEstablished"}
+                  {"Year Established"}
                 </_Builtin.Block>
               </_Builtin.Block>
             </_Builtin.Block>

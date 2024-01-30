@@ -180,8 +180,8 @@ export default function Directory() {
   return (
     <main>
       <InnerHero
-        heroDirectory={{ href: '/directory' }}
-        heroJoin={{ href: '/signup' }}
+        heroDirectory={{ href: "/directory" }}
+        heroJoin={{ href: "/signup" }}
       />
       <section className="pt-24 px-24 flex">
         {/* MAIN DIRECTORY LEFT */}
@@ -193,17 +193,17 @@ export default function Directory() {
             }}
             className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
           >
-            <p className="text-2xl p-0 m-0 uppercase text-[#102647]">
+            <p className="text-xl p-0 m-0 uppercase text-[#102647]">
               Clear Filters
             </p>
           </div>
           <div className="border border-[#B3B3B3] max-w-[386px] p-[15px] max-h-[633px] overflow-auto mr-[60px]">
-            <p className="text-2xl uppercase">Categories</p>
+            <p className="text-xl uppercase">Categories</p>
             <ul className="list-none p-0">
               {categories &&
                 categories.map((c) => (
                   <li
-                    className="flex gap-1 text-xl cursor-pointer"
+                    className="flex gap-1 text-base cursor-pointer"
                     onClick={() => toggleFilter(c)}
                     key={c}
                   >

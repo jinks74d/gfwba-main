@@ -93,7 +93,7 @@ export function HistorySection({ as: _Component = _Builtin.Section }) {
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}

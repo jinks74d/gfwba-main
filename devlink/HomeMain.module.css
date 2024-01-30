@@ -122,6 +122,11 @@
   font-size: 16px;
 }
 
+.p-main.contact-p {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
 .text-link {
   color: var(--blue);
   font-size: 24px;

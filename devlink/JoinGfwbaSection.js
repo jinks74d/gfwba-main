@@ -90,7 +90,7 @@ export function JoinGfwbaSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"MEMBERLEVELS"}
+              {"MEMBER LEVELS"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "member-levels")}

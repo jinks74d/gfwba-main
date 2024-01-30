@@ -89,9 +89,14 @@
   font-weight: 400;
 }
 
+.member-list-item-h3.member-name {
+  font-size: 1.75rem;
+  line-height: 1.25;
+}
+
 .member-list-item-company {
   color: var(--blue);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   line-height: 1.5;
 }
 
@@ -114,14 +119,26 @@
 }
 
 .member-list-item-list-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
+}
+
+.text-block-2 {
+  font-size: 1rem;
+}
+
+.link {
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 479px) {
   .link {
     font-size: 1rem;
   }
+}
+
+.text-block-3 {
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 479px) {

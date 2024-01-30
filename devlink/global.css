@@ -2188,6 +2188,8 @@ textarea.w-select {
   --text-gray: #404041;
   --white: white;
   --lt-gray: hsla(0, 0.00%, 89.33%, 1.00);
+  --white-2: white;
+  --black: black;
 }
 
 h1 {
