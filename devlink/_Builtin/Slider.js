@@ -1,5 +1,5 @@
 import * as React from "react";
-import { triggerIXEvent } from "../interactions";
+import { IXContext, triggerIXEvent } from "../interactions";
 import { EASING_FUNCTIONS, KEY_CODES, cj, debounce } from "../utils";
 const DEFAULT_SLIDER_CONFIG = {
   navSpacing: 3,
@@ -202,6 +202,10 @@ export function SliderSlide({
     slide: { current, previous },
     slideAmount,
   } = React.useContext(SliderContext);
+  const { restartEngine } = React.useContext(IXContext);
+  React.useEffect(() => {
+    restartEngine && restartEngine();
+  }, [restartEngine]);
   const isSlideActive = current === index;
   const isSlidePrevious = previous === index;
   const animationStyle = React.useMemo(() => {

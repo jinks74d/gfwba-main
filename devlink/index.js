@@ -16,6 +16,7 @@ export * from "./HistorySection";
 export * from "./HomeHero";
 export * from "./HomeMain";
 export * from "./InnerHero";
+export * from "./JoinGfwbaSection";
 export * from "./MemberBenefitsSection";
 export * from "./MemberListItem";
 export * from "./MemberSection";

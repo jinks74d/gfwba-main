@@ -3,7 +3,16 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./Base21WebflowSection.module.css";
 
-export function Base21WebflowSection({ as: _Component = _Builtin.Section }) {
+export function Base21WebflowSection({
+  as: _Component = _Builtin.Section,
+  heading = {},
+  subHeading = {},
+  sideHeading = {},
+  baseHeading = "THE FEDERATION",
+  baseSubheading = "Your Three Tiered Membership",
+  baseSideHeading = "ASSOCIATIONSTAFF",
+  baseGridLeftSlot,
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -17,10 +26,10 @@ export function Base21WebflowSection({ as: _Component = _Builtin.Section }) {
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"THE FEDERATION"}
+          {baseHeading}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
-          {"Your Three Tiered Membership"}
+          {baseSubheading}
         </_Builtin.Block>
         <_Builtin.Block className={_utils.cx(_styles, "home-grid")} tag="div">
           <_Builtin.Block
@@ -30,7 +39,9 @@ export function Base21WebflowSection({ as: _Component = _Builtin.Section }) {
               "w-node-_66a5b6cb-6a7b-9ddb-b18e-c74662f8aed3-62f8aecc"
             )}
             tag="div"
-          />
+          >
+            {baseGridLeftSlot}
+          </_Builtin.Block>
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
             id={_utils.cx(
@@ -43,7 +54,7 @@ export function Base21WebflowSection({ as: _Component = _Builtin.Section }) {
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {baseSideHeading}
             </_Builtin.Heading>
           </_Builtin.Block>
         </_Builtin.Block>

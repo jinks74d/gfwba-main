@@ -40,7 +40,10 @@ const enhanceIXData = (data, styles) => {
   }
   return newIXData;
 };
-const IXContext = React.createContext(null);
+export const IXContext = React.createContext({
+  initEngine: null,
+  restartEngine: null,
+});
 export const InteractionsProvider = ({ children, createEngine }) => {
   const ixData = React.useRef({});
   const ixStyles = React.useRef();
@@ -77,10 +80,21 @@ export const InteractionsProvider = ({ children, createEngine }) => {
     }
     debouncedInit.current(ixData.current, ixStyles.current);
   }, []);
-  return <IXContext.Provider value={initEngine}>{children}</IXContext.Provider>;
+  return (
+    <IXContext.Provider
+      value={{
+        initEngine,
+        restartEngine: () =>
+          debouncedInit.current &&
+          debouncedInit.current(ixData.current, ixStyles.current),
+      }}
+    >
+      {children}
+    </IXContext.Provider>
+  );
 };
 export const useInteractions = (data, styles) => {
-  const initEngine = React.useContext(IXContext);
+  const { initEngine } = React.useContext(IXContext);
   React.useEffect(() => {
     if (initEngine) initEngine(data, styles);
   }, [initEngine, data, styles]);
