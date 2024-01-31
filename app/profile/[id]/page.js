@@ -185,42 +185,48 @@ export default function Profile({ imageData }) {
         heroDirectory={{ href: "/directory" }}
         heroJoin={{ href: "/signup" }}
       />
-      TODO: Style the Update Form
+      {/* TODO: Style the Update Form */}
       {updating ? (
         <div>
           <h3>Update</h3>
           {/* {console.log(contact)} */}
           <form onSubmit={handleSubmit}>
-            <label for="First Name">First Name</label>
-            <input
-              className="hi"
-              type="text"
-              placeholder={contact.FirstName}
-              value={newFName}
-              onChange={(e) => {
-                setNewFName(e.target.value);
-              }}
-            />
-            <label for="Last Name">Last Name</label>
-            <input
-              className="hi"
-              type="text"
-              placeholder={contact.LastName}
-              value={newLName}
-              onChange={(e) => {
-                setNewLName(e.target.value);
-              }}
-            />
-            <label for="Email">Email</label>
-            <input
-              className="hi"
-              type="text"
-              placeholder={contact.Email}
-              value={newEmail}
-              onChange={(e) => {
-                setNewEmail(e.target.value);
-              }}
-            />
+            <div className="text-xl font-light mb-6">
+              <label for="First Name">First Name</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                placeholder={contact.FirstName}
+                value={newFName}
+                onChange={(e) => {
+                  setNewFName(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-xl font-light mb-6">
+              <label for="Last Name">Last Name</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                placeholder={contact.LastName}
+                value={newLName}
+                onChange={(e) => {
+                  setNewLName(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-xl font-light mb-6">
+              <label for="Email">Email</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                placeholder={contact.Email}
+                value={newEmail}
+                onChange={(e) => {
+                  setNewEmail(e.target.value);
+                }}
+              />
+            </div>
             {/* <label for='Password'>Password</label>
                         <input
                             className='hi'
@@ -239,7 +245,7 @@ export default function Profile({ imageData }) {
                     <p>{contact.Email}</p>
                     <p>{contact.FirstName}</p>
                     <p>{contact.LastName}</p> */}
-          <p>Membership Status: {contact.Status}</p>
+          {/* <p>Membership Status: {contact.Status}</p> */}
           {/* <p></p> */}
           <button
             className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
