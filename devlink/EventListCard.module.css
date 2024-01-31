@@ -5,8 +5,8 @@
   margin-bottom: 50px;
   padding-bottom: 20px;
   grid-auto-columns: 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  grid-column-gap: 80px;
+  grid-row-gap: 0px;
   grid-template-columns: 0.75fr 1fr;
   grid-template-rows: auto auto;
 
@@ -15,17 +15,21 @@
 
 .event-list-item-title {
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.25;
 }
 
 .event-list-item-date {
   color: var(--text-gray);
+  font-size: 18px;
   font-weight: 600;
 }
 
 .event-list-item-location {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-size: 16px;
 }
 
 .red-btn {
@@ -62,6 +66,8 @@
   overflow: hidden;
   width: 100%;
   max-height: 300px;
+
+  border: 1px solid var(--text-gray);
 
   object-fit: cover;
   object-position: 50% 0%;
