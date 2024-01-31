@@ -1,0 +1,27 @@
+.staff-item-blk {
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  grid-row-gap: 100px;
+}
+
+.staff-item {
+  color: var(--blue);
+  text-align: left;
+}
+
+.image-4 {
+  margin-bottom: 20px;
+}
+
+.staff-name {
+  margin-bottom: 5px;
+  font-size: 25px;
+  line-height: 1.25;
+}
+
+.staff-title {
+  font-size: 20px;
+  line-height: 1.25;
+  font-style: italic;
+}
