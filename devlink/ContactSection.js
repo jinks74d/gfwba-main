@@ -1,9 +1,9 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
-import _styles from "./OrganizationSection.module.css";
+import _styles from "./ContactSection.module.css";
 
-export function OrganizationSection({ as: _Component = _Builtin.Section }) {
+export function ContactSection({ as: _Component = _Builtin.Section }) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -17,118 +17,105 @@ export function OrganizationSection({ as: _Component = _Builtin.Section }) {
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"THE FEDERATION"}
+          {"CONTACT US"}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
-          {"Your Three Tiered Membership"}
+          {"Greater Fort Worth Builders Association"}
         </_Builtin.Block>
         <_Builtin.Block className={_utils.cx(_styles, "home-grid")} tag="div">
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-left")}
             id={_utils.cx(
               _styles,
-              "w-node-_65830385-a995-52b8-5d88-f4261ecbc176-1ecbc16f"
+              "w-node-f7e2952d-e998-c666-4faf-a0e64c52f288-4c52f281"
             )}
             tag="div"
           >
             <_Builtin.Block
-              className={_utils.cx(_styles, "main-left-list")}
+              className={_utils.cx(_styles, "contact-info-div")}
               tag="div"
             >
-              <_Builtin.Image
-                className={_utils.cx(_styles, "list-logo-left")}
-                loading="lazy"
-                width="auto"
-                height="auto"
-                alt=""
-                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655a853b0fad09343073a4c7_gfwba-logo-vert.png"
-              />
-              <_Builtin.Block
-                className={_utils.cx(_styles, "p-main")}
-                tag="div"
+              <_Builtin.Heading
+                className={_utils.cx(_styles, "contact-h3")}
+                tag="h3"
               >
-                {
-                  "Founded in 1945, the Greater Fort Worth Builders Association is the local arm of a three-level federation which includes the National Association of Homebuilders (NAHB), and the Texas Association of Builders (TAB)."
-                }
+                {"address:"}
+              </_Builtin.Heading>
+              <_Builtin.Paragraph
+                className={_utils.cx(_styles, "p-main", "contact-p")}
+              >
+                {"100 E. 15th Street, Suite 600"}
                 <br />
-                <br />
-                {
-                  "By offering specialized services for the many disciplines involved in new home construction, the Greater Fort Worth Builders Association’s Councils and Committees provide a more focused approach to resolving specific issues unique to their professions and regions.."
-                }
-              </_Builtin.Block>
+                {"Fort Worth, Texas 76102"}
+              </_Builtin.Paragraph>
             </_Builtin.Block>
             <_Builtin.Block
-              className={_utils.cx(_styles, "main-left-list")}
+              className={_utils.cx(_styles, "contact-info-div")}
               tag="div"
             >
-              <_Builtin.Image
-                className={_utils.cx(_styles, "list-logo-left")}
-                loading="lazy"
-                width="auto"
-                height="auto"
-                alt=""
-                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655391c05614887a99abe38c_TAB-facebook-logo-image2.jpg"
-              />
-              <_Builtin.Block
-                className={_utils.cx(_styles, "p-main")}
-                tag="div"
+              <_Builtin.Heading
+                className={_utils.cx(_styles, "contact-h3")}
+                tag="h3"
               >
-                {
-                  "The Texas Association of Builders (TAB) is dedicated to creating a positive business environment for the housing industry by addressing the housing issues of the people of Texas."
-                }
-                <br />
-                <br />
-                {
-                  "Founded in 1946, the Texas Association of Builders is an affiliate of the National Association of Home Builders and has 29 local home builders associations and nearly 10,000 members across Texas. Representing over 315,000 jobs and more than $21 billion in the Texas economy, the state and local associations play a crucial role in providing housing for Texans. Learn more about TAB’s advocacy efforts here."
-                }
-              </_Builtin.Block>
+                {"Phone:"}
+              </_Builtin.Heading>
+              <_Builtin.Paragraph
+                className={_utils.cx(_styles, "p-main", "contact-p")}
+              >
+                {"817-284-3566"}
+              </_Builtin.Paragraph>
             </_Builtin.Block>
             <_Builtin.Block
-              className={_utils.cx(_styles, "main-left-list")}
+              className={_utils.cx(_styles, "contact-info-div")}
               tag="div"
             >
-              <_Builtin.Image
-                className={_utils.cx(_styles, "list-logo-left")}
-                loading="lazy"
-                width="auto"
-                height="auto"
-                alt=""
-                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655391c0ad009d50dcdfb26c_2019.jpg"
-              />
-              <_Builtin.Block
-                className={_utils.cx(_styles, "p-main")}
-                tag="div"
+              <_Builtin.Heading
+                className={_utils.cx(_styles, "contact-h3")}
+                tag="h3"
               >
-                {
-                  "Founded in the 1940's, NAHB strives to protect the American Dream of housing opportunities for all, while working to achieve professional success for its members who build communities, create jobs and strengthen our economy."
-                }
-                <br />
-                <br />
-                {
-                  "A federation of more than 700 state and local associations, NAHB represents more than 140,000 members. About one-third are home builders and remodelers. The rest work in closely related specialties such as sales and marketing, housing finance, and manufacturing and supplying building materials."
-                }
-              </_Builtin.Block>
+                {"fax:"}
+              </_Builtin.Heading>
+              <_Builtin.Paragraph
+                className={_utils.cx(_styles, "p-main", "contact-p")}
+              >
+                {"817-284-6465"}
+              </_Builtin.Paragraph>
             </_Builtin.Block>
-            <_Builtin.Heading
-              className={_utils.cx(_styles, "heading-2")}
-              tag="h2"
-            >
-              {"STAFF INFORMATION"}
-            </_Builtin.Heading>
             <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "space-40")}
+              className={_utils.cx(_styles, "contact-info-div")}
               tag="div"
             >
-              {
-                "The Greater Fort Worth Builders Association (GFWBA) is operated by a full-time staff, which is always available by phone, email or make an appointment to visit our downtown Fort Worth offices, located directly across from the historic “Water Gardens”. Dedicated to delivering personalized, professional and thorough service to our members; the Greater Fort Worth Builders Association staff is here to answer your questions and help you get the most out of your membership."
-              }
+              <_Builtin.Heading
+                className={_utils.cx(_styles, "contact-h3")}
+                tag="h3"
+              >
+                {"email:"}
+              </_Builtin.Heading>
+              <_Builtin.Paragraph
+                className={_utils.cx(_styles, "p-main", "contact-p")}
+              >
+                <_Builtin.Link
+                  className={_utils.cx(_styles, "contact-link")}
+                  button={false}
+                  block=""
+                  options={{
+                    href: "#",
+                  }}
+                >
+                  {"info@fortworthbuilders.org"}
+                </_Builtin.Link>
+              </_Builtin.Paragraph>
             </_Builtin.Block>
+            <_Builtin.HtmlEmbed
+              className={_utils.cx(_styles, "map-embed")}
+              value="%3Ciframe%20src%3D%22https%3A%2F%2Fwww.google.com%2Fmaps%2Fembed%3Fpb%3D!1m18!1m12!1m3!1d5544.770529491419!2d-97.3282529873991!3d32.74714608539984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e71140e9d7667%253A0x4147a27acf088894!2s100%2520E%252015th%2520St%2520Ste%2520600%252C%2520Fort%2520Worth%252C%2520TX%252076102!5e1!3m2!1sen!2sus!4v1706655800742!5m2!1sen!2sus%22%20width%3D%22100%25%22%20height%3D%22450%22%20style%3D%22border%3A0%3B%22%20allowfullscreen%3D%22%22%20loading%3D%22lazy%22%20referrerpolicy%3D%22no-referrer-when-downgrade%22%3E%3C%2Fiframe%3E"
+            />
           </_Builtin.Block>
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
             id={_utils.cx(
               _styles,
-              "w-node-_65830385-a995-52b8-5d88-f4261ecbc190-1ecbc16f"
+              "w-node-f7e2952d-e998-c666-4faf-a0e64c52f2a1-4c52f281"
             )}
             tag="div"
           >

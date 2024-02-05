@@ -10,12 +10,12 @@ export default function Membership() {
   return (
     <main>
       <InnerHero
-        heroDirectory={{ href: '/directory' }}
-        heroJoin={{ href: '/signup' }}
+        heroDirectory={{ href: "/directory" }}
+        heroJoin={{ href: "/signup" }}
       />
       <MemberSection
         link={{ href: "/government-affairs" }}
-        link2={{ href: "/" }}
+        link2={{ href: "/signup" }}
       />
     </main>
   );

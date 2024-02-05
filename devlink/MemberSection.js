@@ -248,7 +248,7 @@ export function MemberSection({
               block=""
               options={link}
             >
-              {"LEARNMORE"}
+              {"LEARN MORE"}
             </_Builtin.Link>
             <_Builtin.Heading
               className={_utils.cx(_styles, "heading-2")}
@@ -289,7 +289,7 @@ export function MemberSection({
               block=""
               options={link2}
             >
-              {"JOINNOW"}
+              {"JOIN NOW"}
             </_Builtin.Link>
           </_Builtin.Block>
           <_Builtin.Block
@@ -304,7 +304,7 @@ export function MemberSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}

@@ -60,11 +60,14 @@
   border: 1px none black;
 }
 
-.heading-2 {
-  margin-bottom: 30px;
-  color: var(--blue);
-  font-size: 2.875rem;
-  text-transform: uppercase;
+.faq-div {
+  margin-bottom: 40px;
+}
+
+.faq-heading {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
 .p-main {
@@ -134,6 +137,29 @@
   line-height: 1.25;
 }
 
+.contact-link {
+  color: var(--text-gray);
+}
+
+.blue-btn {
+  padding: 10px 30px;
+  justify-content: flex-start;
+  align-self: flex-start;
+
+  background-color: var(--blue);
+
+  color: var(--white);
+  font-size: 28px;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+.blue-btn.space-40 {
+  margin-bottom: 40px;
+  background-color: var(--blue);
+}
+
 .home-grid-right {
   display: flex;
   flex-direction: column;
@@ -145,41 +171,20 @@
   display: flex;
 }
 
-.staff-item-blk {
-  display: flex;
-  padding-top: 30px;
-  flex-direction: column;
-  grid-row-gap: 100px;
-}
-
-.staff-item {
+.heading-2 {
+  margin-bottom: 30px;
   color: var(--blue);
-  text-align: left;
+  font-size: 2.875rem;
+  text-transform: uppercase;
 }
 
-.image-4 {
-  margin-bottom: 20px;
-}
-
-.staff-name {
-  margin-bottom: 5px;
-  font-size: 25px;
-  line-height: 1.25;
-}
-
-.staff-title {
-  font-size: 20px;
-  line-height: 1.25;
-  font-style: italic;
-}
-
-#w-node-_5787864c-029c-7fe7-4b01-bed1dad45f31-dad45f2a {
+#w-node-e5e9a36c-55fc-8291-adb3-a75cec18b6dc-ec18b6d5 {
   grid-column-start: span 1;
   grid-column-end: span 1;
   grid-row-start: span 1;
   grid-row-end: span 1;
 }
-#w-node-_5787864c-029c-7fe7-4b01-bed1dad45f4b-dad45f2a {
+#w-node-e5e9a36c-55fc-8291-adb3-a75cec18b707-ec18b6d5 {
   grid-column-start: span 1;
   grid-column-end: span 1;
   grid-row-start: span 1;

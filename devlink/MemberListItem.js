@@ -40,7 +40,7 @@ export function MemberListItem({
           tag="div"
         >
           <_Builtin.Heading
-            className={_utils.cx(_styles, "member-list-item-h3")}
+            className={_utils.cx(_styles, "member-list-item-h3", "member-name")}
             tag="h3"
           >
             {memberListName}
@@ -70,7 +70,12 @@ export function MemberListItem({
               </_Builtin.Block>
             </_Builtin.ListItem>
             <_Builtin.ListItem>
-              <_Builtin.Block tag="div">{memberListLocation}</_Builtin.Block>
+              <_Builtin.Block
+                className={_utils.cx(_styles, "text-block-2")}
+                tag="div"
+              >
+                {memberListLocation}
+              </_Builtin.Block>
             </_Builtin.ListItem>
             <_Builtin.ListItem>
               <_Builtin.Block tag="div">
@@ -100,7 +105,12 @@ export function MemberListItem({
             unstyled={true}
           >
             <_Builtin.ListItem>
-              <_Builtin.Block tag="div">{memberListCategory}</_Builtin.Block>
+              <_Builtin.Block
+                className={_utils.cx(_styles, "text-block-3")}
+                tag="div"
+              >
+                {memberListCategory}
+              </_Builtin.Block>
             </_Builtin.ListItem>
           </_Builtin.List>
         </_Builtin.Block>
