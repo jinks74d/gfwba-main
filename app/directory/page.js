@@ -4,6 +4,7 @@ import BlueBtn from "@/components/BlueBtn";
 import SearchBar from "@/components/SearchBar";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 // import useSWR from 'swr'
 
 import { InnerHero, MemberListItem } from "@/devlink";
@@ -17,6 +18,7 @@ import { InnerHero, MemberListItem } from "@/devlink";
 // };
 
 export default function Directory() {
+  const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
   const [contacts, setContacts] = useState("");
   const [allContacts, setAllContacts] = useState("");
   const [categories, setCategories] = useState([]);
@@ -201,6 +203,9 @@ export default function Directory() {
   useEffect(() => {
     if (contacts === "") {
       fetchContacts();
+      if (localStorage.getItem("GFWBAUSER")) {
+        updateLoggedStatus(true)
+      }
     }
   });
 

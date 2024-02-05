@@ -33,6 +33,8 @@ export function Navbar({
   navContact = {
     href: "#",
   },
+
+  loginLogout,
 }) {
   return (
     <_Component
@@ -70,13 +72,14 @@ export function Navbar({
               {"MEMBER directory"}
             </_Builtin.Link>
             <_Builtin.Link
-              className={_utils.cx(_styles, "mem-button")}
+              className={_utils.cx(_styles, "mem-button", "hide")}
               button={false}
               block=""
               options={navLogin}
             >
               {"member login"}
             </_Builtin.Link>
+            <_Builtin.Block tag="div">{loginLogout}</_Builtin.Block>
           </_Builtin.Block>
           <_Builtin.NavbarMenu
             className={_utils.cx(_styles, "nav-menu")}

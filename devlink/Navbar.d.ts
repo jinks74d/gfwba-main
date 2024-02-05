@@ -10,4 +10,5 @@ declare function Navbar(props: {
   navMembership?: Types.Basic.Link;
   navResources?: Types.Basic.Link;
   navContact?: Types.Basic.Link;
+  loginLogout?: Types.Devlink.Slot;
 }): React.JSX.Element;

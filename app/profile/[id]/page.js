@@ -2,6 +2,7 @@
 import { InnerHero, ProfileSection } from "@/devlink";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 
 export default function Profile({ imageData }) {
   // const { query } = useRouter()
@@ -24,6 +25,7 @@ export default function Profile({ imageData }) {
   const [newPassword, setNewPassword] = useState("");
   const [loggedId, setLoggedId] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
+  const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
 
   const fetchContact = async () => {
     if (localStorage.getItem("GFWBAUSER")) {
@@ -176,6 +178,9 @@ export default function Profile({ imageData }) {
   useEffect(() => {
     if (contact === "") {
       fetchContact();
+      if (localStorage.getItem("GFWBAUSER")) {
+        updateLoggedStatus(true)
+      }
     }
   });
 

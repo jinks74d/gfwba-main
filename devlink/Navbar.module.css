@@ -74,6 +74,10 @@
   text-transform: uppercase;
 }
 
+.mem-button.hide {
+  display: none;
+}
+
 .nav-menu {
   display: flex;
   grid-column-gap: 20px;

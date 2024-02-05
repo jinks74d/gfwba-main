@@ -24,5 +24,7 @@ export * from "./MemberListItem";
 export * from "./MemberSection";
 export * from "./Navbar";
 export * from "./OrganizationSection";
+export * from "./PrivacyPolicy";
 export * from "./ProfileSection";
 export * from "./StaffSidebar";
+export * from "./TermsConditions";

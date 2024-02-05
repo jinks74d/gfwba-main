@@ -45,7 +45,7 @@ export function FaqSection({ as: _Component = _Builtin.Section }) {
                   button={false}
                   block=""
                   options={{
-                    href: "/signup",
+                    href: "#",
                   }}
                 >
                   {"Click/Touch here"}
@@ -118,7 +118,7 @@ export function FaqSection({ as: _Component = _Builtin.Section }) {
                   button={false}
                   block=""
                   options={{
-                    href: "https://certifiedmasterbuilder.com/",
+                    href: "#",
                     target: "_blank",
                   }}
                 >
