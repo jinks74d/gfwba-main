@@ -2,8 +2,10 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 
 export default function Login() {
+  const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedUser, setLoggedUser] = useState("");
@@ -20,7 +22,7 @@ export default function Login() {
       username,
       password,
     };
-    console.log(data, JSON.stringify(data));
+    // console.log(data, JSON.stringify(data));
 
     let response = await fetch("/api/user/userLogin", {
       method: "POST",
@@ -68,6 +70,7 @@ export default function Login() {
           token,
         };
         localStorage.setItem("GFWBAUSER", JSON.stringify(profile));
+        updateLoggedStatus(true);
         router.push(`/profile/${Id}`);
       } else {
         setError(
