@@ -50,20 +50,23 @@ export default function handler(req, res) {
                 // Do something with the accounts
                 // console.log(typeof accounts);
                 // accounts.Contacts.forEach(contact => {
-                // let image = contact.FieldValues[49].Value.Url
-                // getDataBlob(image);
-                // async function getDataBlob(url) {
-                //     var res = await fetch(url, {
-                //         headers: {
-                //             'User-Agent': 'MySampleApplication/0.1',
-                //             Accept: 'application/json',
-                //             Authorization: `Bearer ${token}`,
-                //         },
-                //     });
-                //     var blob = await res.blob();
-                //     contact.blob = blob
-                //     // res.send(blob);
-                //     // console.log(blob);
+                //     if (contact.FieldValues[49].Value !== '') {
+                //         let image = contact.FieldValues[49].Value.Url
+                //         getDataBlob(image);
+                //         async function getDataBlob(url) {
+                //             var res = await fetch(`${url}?%24async=false`, {
+                //                 headers: {
+                //                     'User-Agent': 'MySampleApplication/0.1',
+                //                     Accept: 'application/json',
+                //                     Authorization: `Bearer ${token}`,
+                //                 },
+
+                //             });
+                // var blob = await res.blob();
+                //     contact.FieldValues[49].Blob = blob
+                // res.send(blob);
+                // console.log('77: ', image, blob);
+                // }
                 // }
                 // async function parseURI(d) {
                 //     var reader = new FileReader();
