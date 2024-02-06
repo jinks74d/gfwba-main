@@ -261,6 +261,7 @@ export default function Profile() {
                     upcomingList &&
                     upcomingList.map((e) => (
                         <EventItemSidebar
+                            key={e.Id}
                             eventListItemTitle={e.Name}
                             eventListItemDate={e.StartDate}
                             eventListItemLocation={e.Location}
