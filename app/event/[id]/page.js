@@ -231,7 +231,7 @@ export default function Profile() {
                               <li key={e.Id}>
                                 <h4>{e.Name}</h4>
                                 <p>{e.Description}</p>
-                                <p>Price: ${e.BasePrice}</p>
+                                <p className="text-xl">Price: ${e.BasePrice}</p>
                                 {registering ? (
                                   <div>
                                     <h3>Registration</h3>
@@ -308,12 +308,18 @@ export default function Profile() {
                                         We would like to send you relevant text
                                         messages
                                       </label>
-                                      <button onClick={() => setConsent(true)}>
-                                        Yes
-                                      </button>
-                                      <button onClick={() => setConsent(false)}>
-                                        No
-                                      </button>
+                                      <div className="flex flex-row gap-4">
+                                        <button
+                                          onClick={() => setConsent(true)}
+                                        >
+                                          Yes
+                                        </button>
+                                        <button
+                                          onClick={() => setConsent(false)}
+                                        >
+                                          No
+                                        </button>
+                                      </div>
                                       {consent ? (
                                         <p>
                                           You have consented to receive relevant
@@ -326,13 +332,17 @@ export default function Profile() {
                                         </p>
                                       )}
                                       <input
+                                        className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
                                         type="submit"
                                         onClick={() => {
                                           setRegistrationId(e.Id);
                                         }}
                                       />
                                     </form>
-                                    <button onClick={cancelRegistration}>
+                                    <button
+                                      onClick={cancelRegistration}
+                                      className="cursor-pointer border-[#102647] text-[#102647] text-xl uppercase mt-10 py-2 px-10"
+                                    >
                                       Cancel
                                     </button>
                                   </div>
