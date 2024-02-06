@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 90.65 33.27"
+   version="1.1"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)">
+  <metadata
+     id="metadata134">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Vector Smart Object</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     id="namedview132"
+     showgrid="false"
+     inkscape:snap-global="true"
+     inkscape:zoom="3.6662153"
+     inkscape:cx="5.382145"
+     inkscape:cy="10.098243"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs113">
+    <style
+       id="style108">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#003767;}.cls-4{fill:#fff;}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-1.07 -1.24)">
+      <rect
+         class="cls-1"
+         x="1.07"
+         y="1.25"
+         width="90.65"
+         height="33.27"
+         id="rect110" />
+    </clipPath>
+  </defs>
+  <title
+     id="title115">Vector Smart Object</title>
+  <g
+     class="cls-2"
+     clip-path="url(#clip-path)"
+     id="g129">
+    <path
+       class="cls-3"
+       d="M46.39,1.24A234.58,234.58,0,0,0,4.1,5s-3,.47-3,3.26V27.34c0,2.64,3,3.15,3,3.15a219.92,219.92,0,0,0,42.29,4,219.9,219.9,0,0,0,42.29-4s3-.51,3-3.15V8.21c0-2.79-3-3.26-3-3.26A234.54,234.54,0,0,0,46.39,1.24"
+       transform="translate(-1.07 -1.24)"
+       id="path117" />
+    <path
+       class="cls-4"
+       d="M16.4,14.08h.05a4.55,4.55,0,0,1,4.23-2.32h.89v4.46a3.76,3.76,0,0,0-2-.43c-2.58,0-3.21,1.71-3.21,4V25H11.76V11.93H16.4Z"
+       transform="translate(-1.07 -1.24)"
+       id="path119" />
+    <path
+       class="cls-4"
+       d="M37.12,19.25H27.35a2.6,2.6,0,0,0,2.91,2.91A2.32,2.32,0,0,0,32.48,21h4.46c-.74,3.09-3.67,4.49-6.65,4.49-4.33,0-7.57-2.45-7.57-7,0-4.36,3-7,7.24-7,4.54,0,7.16,2.81,7.16,7.27Zm-4.31-2.68a2.78,2.78,0,0,0-5.38,0Z"
+       transform="translate(-1.07 -1.24)"
+       id="path121" />
+    <path
+       class="cls-4"
+       d="M53.08,19.25H43.31a2.6,2.6,0,0,0,2.91,2.91A2.32,2.32,0,0,0,48.43,21H52.9c-.74,3.09-3.67,4.49-6.65,4.49-4.33,0-7.57-2.45-7.57-7,0-4.36,3-7,7.24-7,4.54,0,7.16,2.81,7.16,7.27Zm-4.31-2.68a2.78,2.78,0,0,0-5.38,0Z"
+       transform="translate(-1.07 -1.24)"
+       id="path123" />
+    <path
+       class="cls-4"
+       d="M81.33,19.25H71.57a2.6,2.6,0,0,0,2.91,2.91A2.32,2.32,0,0,0,76.69,21h4.46c-.74,3.09-3.67,4.49-6.65,4.49-4.33,0-7.57-2.45-7.57-7,0-4.36,3-7,7.24-7,4.54,0,7.16,2.81,7.16,7.27ZM77,16.57a2.78,2.78,0,0,0-5.38,0Z"
+       transform="translate(-1.07 -1.24)"
+       id="path125" />
+    <path
+       class="cls-4"
+       d="M64.95,16.19a4.1,4.1,0,0,0-2.4-.92,3.14,3.14,0,0,0-3.19,3.19,3.11,3.11,0,0,0,3.27,3.21,3.56,3.56,0,0,0,2.32-.89l1.18,3.27a7.62,7.62,0,0,1-4.45,1.4,6.9,6.9,0,0,1-7.12-6.84,7,7,0,0,1,7.32-7.12A7.6,7.6,0,0,1,66.16,13Z"
+       transform="translate(-1.07 -1.24)"
+       id="path127" />
+  </g>
+</svg>
