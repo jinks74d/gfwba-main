@@ -26,6 +26,14 @@
   font-weight: 600;
 }
 
+.event-list-item-date.mb-3-5 {
+  margin-bottom: 0.875rem;
+}
+
+.event-list-item-date.mb-1-5 {
+  margin-bottom: 0.375rem;
+}
+
 .event-list-item-location {
   padding-top: 20px;
   padding-bottom: 20px;

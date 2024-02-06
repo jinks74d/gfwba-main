@@ -52,7 +52,7 @@ export function SingleEventItem({
         {singleEventItemTitle}
       </_Builtin.Heading>
       <_Builtin.Block
-        className={_utils.cx(_styles, "single-event-item-date")}
+        className={_utils.cx(_styles, "single-event-item-date", "mb-3")}
         tag="div"
       >
         {singleEventItemDate}
