@@ -1,6 +1,7 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
 import { EventListCard } from "./EventListCard";
+import { EventItemSidebar } from "./EventItemSidebar";
 import * as _utils from "./utils";
 import _styles from "./EventsListSection.module.css";
 
@@ -236,6 +237,7 @@ export function EventsListSection({
             >
               {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
+            <EventItemSidebar />
             <_Builtin.Block
               className={_utils.cx(_styles, "staff-item-blk")}
               tag="div"

@@ -88,7 +88,9 @@ export function Navbar({
           >
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={navAbout}
+              options={{
+                href: "/about",
+              }}
             >
               {"ABOUT US"}
             </_Builtin.NavbarLink>

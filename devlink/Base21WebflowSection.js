@@ -12,6 +12,7 @@ export function Base21WebflowSection({
   baseSubheading = "Your Three Tiered Membership",
   baseSideHeading = "ASSOCIATIONSTAFF",
   baseGridLeftSlot,
+  homeGridRightSlot,
 }) {
   return (
     <_Component
@@ -56,6 +57,12 @@ export function Base21WebflowSection({
             >
               {baseSideHeading}
             </_Builtin.Heading>
+            <_Builtin.Block
+              className={_utils.cx(_styles, "home-grid-right-slot")}
+              tag="div"
+            >
+              {homeGridRightSlot}
+            </_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

@@ -1,8 +1,9 @@
 "use client"
-import { InnerHero, ProfileSection } from "@/devlink";
+import { Base21WebflowSection, EventItemSidebar, InnerHero, ProfileSection, SingleEventItem } from "@/devlink";
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import BlueBtn from "@/components/BlueBtn";
+import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 
 export default function Profile() {
     // const { query } = useRouter()
@@ -10,7 +11,9 @@ export default function Profile() {
     const params = useParams()
     // console.log(params)
     const [event, setEvent] = useState('');
-    const [start, setStart] = useState('');
+    const [upcomingList, setUpcomingList] = useState('');
+    const [startTime, setStartTime] = useState('');
+    const [startDate, setStartDate] = useState('');
     const [end, setEnd] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('')
@@ -25,7 +28,8 @@ export default function Profile() {
     const [newEmail, setNewEmail] = useState('');
     const [loggedId, setLoggedId] = useState('');
     const [registrationId, setRegistrationId] = useState('');
-    const [registered, setRegistered] = useState(false)
+    const [registered, setRegistered] = useState(false);
+    const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
 
     const fetchEvent = async () => {
         if (localStorage.getItem("GFWBAUSER")) {
@@ -37,6 +41,7 @@ export default function Profile() {
             setNewFName(FirstName);
             setNewLName(LastName);
             setNewEmail(Email);
+            updateLoggedStatus(true)
         } else { setRegistered(true) }
         // let response = await fetch('/api/allContacts', {
         let response = await fetch(`/api/event/${params.id}`, {
@@ -63,10 +68,22 @@ export default function Profile() {
                 hour: 'numeric',
                 minute: 'numeric'
             };
-            let startDate = eventStart.toLocaleDateString(undefined, options);
-            let endDate = eventEnd.toLocaleDateString(undefined, options);
+            const options1 = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            const options2 = {
+                weekday: "long",
+                hour: 'numeric',
+                minute: 'numeric'
+            };
+            let startDate = eventStart.toLocaleDateString(undefined, options1);
+            let startTime = eventStart.toLocaleDateString(undefined, options2);
+            let endDate = eventEnd.toLocaleDateString(undefined, options2);
             setEvent(json)
-            setStart(startDate)
+            setStartDate(startDate)
+            setStartTime(startTime)
             setEnd(endDate)
             console.log(json)
             if (json.registrations[0]) {
@@ -79,6 +96,21 @@ export default function Profile() {
                 if (attendees.includes(Id)) {
                     setRegistered(true)
                 }
+            }
+            let response2 = await fetch(`/api/event/upcomingEvents`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8"
+                }
+            });
+            const json2 = await response2.json();
+            if (!response2.ok) {
+                setError(json2.error)
+                console.log('response not ok')
+            }
+            if (response2.ok) {
+                console.log(json2)
+                setUpcomingList(json2)
             }
         }
     }
@@ -130,90 +162,110 @@ export default function Profile() {
                 heroDirectory={{ href: '/directory' }}
                 heroJoin={{ href: '/signup' }}
             />
-            <div>
-                <div>
-                    <h2>Title: {event.Name}</h2>
-                    <h3>Location: {event.Location}, { }</h3>
-                    <p>Date/Time: {start} - {end}</p>
-                </div>
-
-            </div>
-            {!registered &&
-                <ul>
-                    {event.Details && event.Details.RegistrationTypes.map(e =>
-                        <li key={e.Id}>
-                            <h4>{e.Name}</h4>
-                            <p>{e.Description}</p>
-                            <p>Price: ${e.BasePrice}</p>
-                            {registering ?
-                                <div>
-                                    <h3>Registration</h3>
-                                    {/* {console.log(contact)} */}
-                                    <form onSubmit={handleRegistration}>
-                                        <label for='First Name'>First Name</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder={firstName}
-                                            value={newFName}
-                                            onChange={(e) => { setNewFName(e.target.value) }}
-                                        />
-                                        <label for='Last Name'>Last Name</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder={lastName}
-                                            value={newLName}
-                                            onChange={(e) => { setNewLName(e.target.value) }}
-                                        />
-                                        <label for='Email'>Email</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder={email}
-                                            value={newEmail}
-                                            onChange={(e) => { setNewEmail(e.target.value) }}
-                                        />
-                                        <label for='organization'>Organization</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder='organization'
-                                            value={organization}
-                                            onChange={(e) => { setOrganization(e.target.value) }}
-                                        />
-                                        <label for='phone'>Office Phone</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder="phone number"
-                                            value={phone}
-                                            onChange={(e) => { setPhone(e.target.value) }}
-                                        />
-                                        <label for='billing'>Accounting or Billing Address</label>
-                                        <input
-                                            className='hi'
-                                            type="text"
-                                            placeholder="Accounting or Billing Address"
-                                            value={billingEmail}
-                                            onChange={(e) => { setBillingEmail(e.target.value) }}
-                                        />
-                                        <label for='consent'>We would like to send you relevant text messages</label>
-                                        <button onClick={() => setConsent(true)}>Yes</button>
-                                        <button onClick={() => setConsent(false)}>No</button>
-                                        {consent ? <p>You have consented to receive relevant messages</p> : <p>You have opted not to receive relevant messages</p>}
-                                        <input type='submit' onClick={() => { setRegistrationId(e.Id) }} />
-                                    </form>
-                                    <button onClick={cancelRegistration}>Cancel</button>
-                                </div> :
-                                <div onClick={() => setRegistering(true)}>
-                                    <BlueBtn text={'Register'} />
-                                </div>
-                            }
-                        </li>
-                    )}
-                </ul>
-            }
+            <Base21WebflowSection
+                baseHeading={'Events'}
+                baseSubheading={''}
+                baseSideHeading={'Upcoming Events'}
+                baseGridLeftSlot={<>{event.Details &&
+                    <>
+                        {/* {console.log(event.Details.DescriptionHtml)} */}
+                        <SingleEventItem
+                            singleEventItemTitle={event.Name}
+                            singleEventItemDate={startDate}
+                            singleEventItemLocation={event.Location}
+                            singleEventItemTime={`${startTime} - ${end}`}
+                            singleEventItemDescriptionSlot={<div dangerouslySetInnerHTML={{ __html: event.Details.DescriptionHtml }} />}
+                            singleEventItemRegistration={<div>{!registered &&
+                                <ul>
+                                    {event.Details && event.Details.RegistrationTypes.map(e =>
+                                        <li key={e.Id}>
+                                            <h4>{e.Name}</h4>
+                                            <p>{e.Description}</p>
+                                            <p>Price: ${e.BasePrice}</p>
+                                            {registering ?
+                                                <div>
+                                                    <h3>Registration</h3>
+                                                    {/* {console.log(contact)} */}
+                                                    <form onSubmit={handleRegistration}>
+                                                        <label for='First Name'>First Name</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder={firstName}
+                                                            value={newFName}
+                                                            onChange={(e) => { setNewFName(e.target.value) }}
+                                                        />
+                                                        <label for='Last Name'>Last Name</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder={lastName}
+                                                            value={newLName}
+                                                            onChange={(e) => { setNewLName(e.target.value) }}
+                                                        />
+                                                        <label for='Email'>Email</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder={email}
+                                                            value={newEmail}
+                                                            onChange={(e) => { setNewEmail(e.target.value) }}
+                                                        />
+                                                        <label for='organization'>Organization</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder='organization'
+                                                            value={organization}
+                                                            onChange={(e) => { setOrganization(e.target.value) }}
+                                                        />
+                                                        <label for='phone'>Office Phone</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder="phone number"
+                                                            value={phone}
+                                                            onChange={(e) => { setPhone(e.target.value) }}
+                                                        />
+                                                        <label for='billing'>Accounting or Billing Address</label>
+                                                        <input
+                                                            className='hi'
+                                                            type="text"
+                                                            placeholder="Accounting or Billing Address"
+                                                            value={billingEmail}
+                                                            onChange={(e) => { setBillingEmail(e.target.value) }}
+                                                        />
+                                                        <label for='consent'>We would like to send you relevant text messages</label>
+                                                        <button onClick={() => setConsent(true)}>Yes</button>
+                                                        <button onClick={() => setConsent(false)}>No</button>
+                                                        {consent ? <p>You have consented to receive relevant messages</p> : <p>You have opted not to receive relevant messages</p>}
+                                                        <input type='submit' onClick={() => { setRegistrationId(e.Id) }} />
+                                                    </form>
+                                                    <button onClick={cancelRegistration}>Cancel</button>
+                                                </div> :
+                                                <div onClick={() => setRegistering(true)}>
+                                                    <p className='SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button'>Register</p>
+                                                </div>
+                                            }
+                                        </li>
+                                    )}
+                                </ul>
+                            }</div>}
+                        />
+                    </>
+                }</>}
+                homeGridRightSlot={<div className="flex flex-col">{
+                    upcomingList &&
+                    upcomingList.map((e) => (
+                        <EventItemSidebar
+                            eventListItemTitle={e.Name}
+                            eventListItemDate={e.StartDate}
+                            eventListItemLocation={e.Location}
+                            eventListItemLink={{ href: `/event/${e.Id}` }}
+                        />
+                    ))
+                }</div>}
+            />
             {console.log(event)}
         </main>
     );
