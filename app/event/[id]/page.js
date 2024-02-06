@@ -152,6 +152,9 @@ export default function Profile() {
         // }
         if (event === '') {
             fetchEvent();
+            if (localStorage.getItem("GFWBAUSER")) {
+                updateLoggedStatus(true)
+            }
         }
         // }
     })
