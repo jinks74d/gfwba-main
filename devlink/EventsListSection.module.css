@@ -238,9 +238,22 @@
   margin-bottom: 40px;
 }
 
+.red-btn.red-btn-sidebar {
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+.red-btn.red-btn-sidebar.hide {
+  display: none;
+}
+
 .event-list-item-right {
   display: flex;
   align-items: flex-start;
+}
+
+.event-list-item-right.hide {
+  display: none;
 }
 
 .event-list-item-image {

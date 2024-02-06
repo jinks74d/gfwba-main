@@ -78,6 +78,11 @@
   text-transform: uppercase;
 }
 
+.home-grid-right-slot {
+  display: flex;
+  align-items: flex-start;
+}
+
 #w-node-_66a5b6cb-6a7b-9ddb-b18e-c74662f8aed3-62f8aecc {
   grid-column-start: span 1;
   grid-column-end: span 1;

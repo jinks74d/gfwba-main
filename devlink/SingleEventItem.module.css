@@ -1,0 +1,69 @@
+.single-event-item-title {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 36px;
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+.single-event-item-date {
+  color: var(--text-gray);
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.single-event-item-time {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.single-event-item-location {
+  width: 40%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.single-event-item-description {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.single-event-item-description.hide {
+  display: none;
+}
+
+.red-btn {
+  padding: 10px 30px;
+  justify-content: flex-start;
+  align-self: flex-start;
+
+  background-color: var(--red);
+
+  color: var(--white);
+  font-size: 28px;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+.red-btn.space-40 {
+  margin-bottom: 40px;
+}
+
+.space-40 {
+  margin-bottom: 40px;
+}
+
+.red-btn.red-btn-sidebar {
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+.red-btn.red-btn-sidebar.hide {
+  display: none;
+}

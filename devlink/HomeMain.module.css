@@ -177,6 +177,15 @@
   margin-bottom: 40px;
 }
 
+.red-btn.red-btn-sidebar {
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+.red-btn.red-btn-sidebar.hide {
+  display: none;
+}
+
 .blue-btn {
   padding: 10px 30px;
   justify-content: flex-start;
