@@ -18,6 +18,8 @@ export function EventItemSidebar({
   eventListItemLink = {
     href: "#",
   },
+
+  eventListItemTime = "11:30 am - 1:00 pm",
 }) {
   return (
     <_Component
@@ -39,7 +41,7 @@ export function EventItemSidebar({
           {eventListItemTitle}
         </_Builtin.Heading>
         <_Builtin.Block
-          className={_utils.cx(_styles, "event-list-item-date")}
+          className={_utils.cx(_styles, "event-list-item-date", "mb-1-5")}
           tag="div"
         >
           {eventListItemDate}
@@ -48,7 +50,7 @@ export function EventItemSidebar({
           className={_utils.cx(_styles, "event-list-item-time")}
           tag="div"
         >
-          {"11:30 am - 1:00 pm"}
+          {eventListItemTime}
         </_Builtin.Block>
         <_Builtin.Block
           className={_utils.cx(_styles, "event-list-item-sidebar-location")}

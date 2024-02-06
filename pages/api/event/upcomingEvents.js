@@ -58,10 +58,50 @@ export default function handler(req, res) {
                     }
                     return 0;
                 }
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric'
+                };
+                const options1 = {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                const options2 = {
+                    weekday: "long",
+                    hour: 'numeric',
+                    minute: 'numeric'
+                };
 
                 // console.log(events)
                 let eventArr = events.Events.sort(compare);
                 let event = eventArr.slice(0, 5)
+                for (let i = 0; i < event.length; i++) {
+                    const eventStart = new Date(event[i].StartDate);
+                    const eventEnd = new Date(event[i].EndDate);
+                    let startDate = eventStart.toLocaleDateString(undefined, options1);
+                    let startTime = eventStart.toLocaleDateString(undefined, options2);
+                    let endTime = eventEnd.toLocaleDateString(undefined, options2);
+                    event[i].Date = startDate;
+                    let time = `${startTime} - ${endTime}`
+                    event[i].Date = startDate;
+                    event[i].Time = time;
+                    console.log(event[i])
+                }
+                let eventsArr = event.forEach((e) => {
+                    const eventStart = new Date(e.StartDate);
+                    const eventEnd = new Date(e.EndDate);
+                    let startDate = eventStart.toLocaleDateString(undefined, options1);
+                    let startTime = eventStart.toLocaleDateString(undefined, options2);
+                    let endTime = eventEnd.toLocaleDateString(undefined, options2);
+                    let time = `${startTime} - ${endTime}`
+                    e.Date = startDate;
+                    e.Time = time;
+                })
                 res.status(200).json(event);
             })
             .catch((error) => {

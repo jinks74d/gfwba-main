@@ -7,4 +7,5 @@ declare function EventItemSidebar(props: {
   eventListItemDate?: React.ReactNode;
   eventListItemLocation?: React.ReactNode;
   eventListItemLink?: Types.Basic.Link;
+  eventListItemTime?: React.ReactNode;
 }): React.JSX.Element;

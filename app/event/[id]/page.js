@@ -263,7 +263,8 @@ export default function Profile() {
                         <EventItemSidebar
                             key={e.Id}
                             eventListItemTitle={e.Name}
-                            eventListItemDate={e.StartDate}
+                            eventListItemDate={e.Date}
+                            eventListItemTime={e.Time}
                             eventListItemLocation={e.Location}
                             eventListItemLink={{ href: `/event/${e.Id}` }}
                         />
