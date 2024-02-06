@@ -311,13 +311,13 @@ export default function Profile() {
                                       <div className="flex flex-row gap-4">
                                         <button
                                           onClick={() => setConsent(true)}
-                                          className="cursor-pointer border border-[#102647] text-[#102647] p-2"
+                                          className="cursor-pointer border border-gfwba-blue text-gfwba-blue p-2"
                                         >
                                           Yes
                                         </button>
                                         <button
                                           onClick={() => setConsent(false)}
-                                          className="cursor-pointer border border-[#102647] text-[#102647] p-2"
+                                          className="cursor-pointer border border-gfwba-blue text-gfwba-blue p-2"
                                         >
                                           No
                                         </button>
@@ -334,7 +334,7 @@ export default function Profile() {
                                         </p>
                                       )}
                                       <input
-                                        className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                                        className="cursor-pointer bg-gfwba-blue text-white text-xl uppercase mt-10 py-2 px-10"
                                         type="submit"
                                         onClick={() => {
                                           setRegistrationId(e.Id);
@@ -343,7 +343,7 @@ export default function Profile() {
                                     </form>
                                     <button
                                       onClick={cancelRegistration}
-                                      className="cursor-pointer border-2 border-[#102647] text-[#102647] text-xl uppercase mt-10 py-2 px-10"
+                                      className="cursor-pointer border-2 border-gfwba-blue text-gfwba-blue text-xl uppercase mt-10 py-2 px-10"
                                     >
                                       Cancel
                                     </button>
