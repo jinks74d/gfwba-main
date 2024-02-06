@@ -341,7 +341,7 @@ export default function Profile() {
                                     </form>
                                     <button
                                       onClick={cancelRegistration}
-                                      className="cursor-pointer border-[#102647] text-[#102647] text-xl uppercase mt-10 py-2 px-10"
+                                      className="cursor-pointer border-2 border-[#102647] text-[#102647] text-xl uppercase mt-10 py-2 px-10"
                                     >
                                       Cancel
                                     </button>
