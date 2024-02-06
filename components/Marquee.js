@@ -6,7 +6,7 @@ import BRSLogo from "../public/images/sponsors/brs-logo.webp";
 import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";
 import AtmosLogo from "../public/images/sponsors/Atmos_energy_logo.png";
-import TDTLogo from "../public/images/sponsors/tdt-logo-blk.png";
+import TDTLogo from "../public/images/sponsors/tdt-logo.webp";
 import ReeceLogo from "../public/images/sponsors/reece-logo.svg";
 import ExpressionsLogo from "../public/images/sponsors/expression-logo.jpg";
 
@@ -51,7 +51,7 @@ const Marq = () => {
           src={TDTLogo}
           alt="Texas Door and Trim Logo"
           height={250}
-          className="pr-[300px] object-cover"
+          className="pr-[300px]"
         />
         <Image
           src={ReeceLogo}

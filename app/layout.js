@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import Marq from "@/components/Marquee";
 import { DevLinkProvider, Navbar, Footer } from "@/devlink";
-import { LoggedStatusProvider } from '@/context/LoggedStatusProvider';
+import { LoggedStatusProvider } from "@/context/LoggedStatusProvider";
 import NavLog from "@/components/NavLog";
 
 import "./globals.css";
