@@ -67,6 +67,11 @@ textarea {
   text-decoration: none !IMPORTANT;
 }
 
+/* FORMS */
+.reg-border {
+  border: solid 2px #102647;
+}
+
 /* END OVERRIDES */
 
 @media screen and (max-width: 768px) {
