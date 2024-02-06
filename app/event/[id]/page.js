@@ -311,11 +311,13 @@ export default function Profile() {
                                       <div className="flex flex-row gap-4">
                                         <button
                                           onClick={() => setConsent(true)}
+                                          className="cursor-pointer border border-[#102647] text-[#102647] p-2"
                                         >
                                           Yes
                                         </button>
                                         <button
                                           onClick={() => setConsent(false)}
+                                          className="cursor-pointer border border-[#102647] text-[#102647] p-2"
                                         >
                                           No
                                         </button>
