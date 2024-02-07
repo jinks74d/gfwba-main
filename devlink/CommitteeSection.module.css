@@ -1,0 +1,99 @@
+.heading-2 {
+  margin-bottom: 30px;
+  color: var(--blue);
+  font-size: 2.875rem;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 479px) {
+  .heading-2 {
+    margin-bottom: 15px;
+    font-size: 1.185rem;
+    text-align: center;
+  }
+}
+
+.p-main {
+  color: var(--text-gray);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 479px) {
+  .p-main {
+    font-size: 1rem;
+    line-height: 1.25;
+    text-align: left;
+  }
+}
+
+.p-main.space-40 {
+  margin-bottom: 40px;
+}
+
+.space-40 {
+  margin-bottom: 40px;
+}
+
+.p-main.p-main-lh {
+  line-height: 1;
+}
+
+.p-main.space-20 {
+  margin-bottom: 20px;
+}
+
+.space-20 {
+  margin-bottom: 20px;
+}
+
+.p-main.border-green {
+  border-style: solid;
+  border-width: 5px;
+  border-color: hsla(107, 100.00%, 50.00%, 1.00);
+}
+
+.p-main.p-main-link {
+  text-decoration: none;
+}
+
+.p-main-link {
+  color: var(--text-gray);
+  text-decoration: underline;
+}
+
+.p-main.ts-16 {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.p-main.dd-head {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.p-main.dd-head:global(.w--open) {
+  display: block;
+  padding: 0px;
+  text-align: left;
+}
+
+.p-main.dd-li {
+  font-size: 16px;
+}
+
+.p-main.contact-p {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+@media screen and (max-width: 479px) {
+  .p-main.contact-p {
+    font-size: 1.125rem;
+  }
+}
+
+.ml-20 {
+  padding-left: 20px;
+}
