@@ -103,7 +103,7 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-                {"AFFILIATIONS"}
+                <_Builtin.Strong>{"AFFILIATIONS"}</_Builtin.Strong>
                 <br />
                 {
                   "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the Texas Association of Builders (TAB)."
@@ -126,8 +126,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-                {"EDUCATION&ADVICE"}
-                <br />
+                <_Builtin.Strong>
+                  {"EDUCATION&ADVICE"}
+                  <br />
+                </_Builtin.Strong>
                 {
                   "Education is central to our mission. We provide members with access to a wealth of resources, from training materials to technical advice and industry updates. Together, we empower expertise and drive progress in the home building industry."
                 }
@@ -149,8 +151,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-                {"CONNECTIONG &COLLABORATING"}
-                <br />
+                <_Builtin.Strong>
+                  {"CONNECTIONG &COLLABORATING"}
+                  <br />
+                </_Builtin.Strong>
                 {
                   "Our community thrives on the power of connection. We offer opportunities to connect with industry peers who share your passion and common interests. Through networking events and collaborative initiatives, members are able to build invaluable relationships."
                 }
@@ -172,8 +176,10 @@ export function HomeMain({
                 className={_utils.cx(_styles, "p-main", "space-40")}
                 tag="div"
               >
-                {"BENEFITS &DISCOUNTS"}
-                <br />
+                <_Builtin.Strong>
+                  {"BENEFITS &DISCOUNTS"}
+                  <br />
+                </_Builtin.Strong>
                 {
                   "As a member, you gain exclusive access to a wealth of benefits, programs, and services that are carefully curated to enhance your professional journey. Your affiliation with us opens doors to opportunities designed to empower and elevate your business."
                 }

@@ -67,7 +67,9 @@ export function Navbar({
               className={_utils.cx(_styles, "dir-button")}
               button={false}
               block=""
-              options={navDirectory}
+              options={{
+                href: "/directory",
+              }}
             >
               {"MEMBER directory"}
             </_Builtin.Link>
@@ -96,7 +98,9 @@ export function Navbar({
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={navMembership}
+              options={{
+                href: "/membership",
+              }}
             >
               {"MEMBERSHIP"}
             </_Builtin.NavbarLink>
@@ -108,9 +112,11 @@ export function Navbar({
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
-              options={navContact}
+              options={{
+                href: "/contact",
+              }}
             >
-              {"CONTACTUS"}
+              {"CONTACT US"}
             </_Builtin.NavbarLink>
           </_Builtin.NavbarMenu>
         </_Builtin.Block>

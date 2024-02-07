@@ -28,7 +28,9 @@ export function HomeHero({
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-blue")}
           button={false}
           block="inline"
-          options={heroDirectory}
+          options={{
+            href: "/directory",
+          }}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1", "hide")}
@@ -49,7 +51,9 @@ export function HomeHero({
           className={_utils.cx(_styles, "hero-btn-blk-item", "item-red")}
           button={false}
           block="inline"
-          options={heroJoin}
+          options={{
+            href: "/member",
+          }}
         >
           <_Builtin.Block
             className={_utils.cx(_styles, "hero-btn-blk-item-text-1")}
