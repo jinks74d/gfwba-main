@@ -11,4 +11,5 @@ declare function MemberListItem(props: {
   memberListWebsite?: React.ReactNode;
   memberListCategory?: React.ReactNode;
   memberListItemLink?: Types.Basic.Link;
+  memberListWebsiteLink?: Types.Basic.Link;
 }): React.JSX.Element;

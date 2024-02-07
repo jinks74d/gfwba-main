@@ -66,12 +66,38 @@ export default function Directory() {
       // const alphaSorted = json.Contacts.sort();
       let categoryArr = [];
       let areaArr = [];
-      // console.log(json.Contacts);
-      let pagination = paginator(json.Contacts, 1)
+      // const getValidUrl = (url = "") => {
+      //   let newUrl = window.decodeURIComponent(url);
+      //   newUrl = newUrl.trim().replace(/\s/g, "");
+
+      //   if (/^(:\/\/)/.test(newUrl)) {
+      //     return `http${newUrl}`;
+      //   }
+      //   if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
+      //     return `http://${newUrl}`;
+      //   }
+      // }
+      let formatedContacts = [];
+      json.Contacts.forEach((c) => {
+        if (typeof c.FieldValues[48].Value != 'object') {
+          // console.log(c.FieldValues[48].Value)
+          if (c.FieldValues[48].Value.startsWith('http')) {
+            //str starts with http
+          } else {
+            //str does not start with http
+            if (c.FieldValues[48].Value !== '') {
+              c.FieldValues[48].Value = `http://${c.FieldValues[48].Value}`
+            }
+          }
+        }
+        formatedContacts.push(c)
+      })
+      console.log(formatedContacts);
+      let pagination = paginator(formatedContacts, 1)
       setPaginationArr(pagination.data);
       setPaginationObj(pagination);
-      setContacts(json.Contacts)
-      setAllContacts(json.Contacts);
+      setContacts(formatedContacts)
+      setAllContacts(formatedContacts);
       json.Contacts.forEach((element) => {
         let cat = element.FieldValues[47];
         let memberCat = [];
@@ -316,6 +342,7 @@ export default function Directory() {
                   memberListTitle={` ${c.FieldValues[39].Value}`}
                   memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
                   memberListWebsite={`${c.FieldValues[48].Value}`}
+                  memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
                   memberListCategory={`${c.memberCat}`}
                   memberListItemLink={{ href: `/profile/${c.Id}` }}
                   key={c.Id}
