@@ -22,7 +22,9 @@
 
 @media screen and (max-width: 479px) {
   .image-5 {
+    padding-top: 10px;
     padding-right: 0px;
+    padding-bottom: 10px;
     align-self: center;
   }
 }
@@ -94,10 +96,22 @@
   line-height: 1.25;
 }
 
+@media screen and (max-width: 479px) {
+  .member-list-item-h3.member-name {
+    font-size: 1.5rem;
+  }
+}
+
 .member-list-item-company {
   color: var(--blue);
   font-size: 1.5rem;
   line-height: 1.5;
+}
+
+@media screen and (max-width: 479px) {
+  .member-list-item-company {
+    font-size: 1.25rem;
+  }
 }
 
 .member-list-item-company.space-40 {
@@ -118,9 +132,21 @@
   line-height: 1.25;
 }
 
+@media screen and (max-width: 479px) {
+  .member-list-item-list {
+    padding-left: 20px;
+  }
+}
+
 .member-list-item-list-title {
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+@media screen and (max-width: 479px) {
+  .member-list-item-list-title {
+    font-size: 1.25rem;
+  }
 }
 
 .text-block-2 {
@@ -139,6 +165,12 @@
 
 .text-block-3 {
   font-size: 1rem;
+}
+
+@media screen and (max-width: 479px) {
+  .text-block-3 {
+    font-size: 1.125rem;
+  }
 }
 
 @media screen and (max-width: 479px) {

@@ -105,14 +105,24 @@ export function EventsListSection({
                   data-w-tab="Tab 1"
                   block="inline"
                 >
-                  <_Builtin.Block tag="div">{"Calendar"}</_Builtin.Block>
+                  <_Builtin.Block
+                    className={_utils.cx(_styles, "text-block-4")}
+                    tag="div"
+                  >
+                    {"Calendar"}
+                  </_Builtin.Block>
                 </_Builtin.TabsLink>
                 <_Builtin.TabsLink
                   className={_utils.cx(_styles, "tab-link-tab-2")}
                   data-w-tab="Tab 2"
                   block="inline"
                 >
-                  <_Builtin.Block tag="div">{"List View"}</_Builtin.Block>
+                  <_Builtin.Block
+                    className={_utils.cx(_styles, "text-block-5")}
+                    tag="div"
+                  >
+                    {"List View"}
+                  </_Builtin.Block>
                 </_Builtin.TabsLink>
               </_Builtin.TabsMenu>
               <_Builtin.TabsContent

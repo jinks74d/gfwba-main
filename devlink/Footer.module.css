@@ -2,12 +2,25 @@
   background-color: var(--blue);
 }
 
+@media screen and (max-width: 479px) {
+  .section-3 {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
 .container-1600 {
   max-width: 1600px;
   margin-right: auto;
   margin-left: auto;
   font-family: Montserrat, sans-serif;
   object-fit: fill;
+}
+
+@media screen and (max-width: 479px) {
+  .container-1600 {
+    overflow: hidden;
+  }
 }
 
 .container-1600.footer-grid {
@@ -19,6 +32,13 @@
   grid-row-gap: 16px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+}
+
+@media screen and (max-width: 479px) {
+  .container-1600.footer-grid {
+    overflow: hidden;
+    grid-template-columns: 1fr;
+  }
 }
 
 .container-1600.hide {
@@ -33,9 +53,24 @@
   border-right: 2px solid var(--red);
 }
 
+@media screen and (max-width: 479px) {
+  .home-grid-left {
+    overflow: hidden;
+    padding-right: 0px;
+    border-right-style: none;
+  }
+}
+
 .home-grid-left.footer-left {
   padding-left: 10px;
   border: 1px none black;
+}
+
+@media screen and (max-width: 479px) {
+  .home-grid-left.footer-left {
+    padding-left: 0px;
+    align-items: center;
+  }
 }
 
 .icon-blk {
@@ -49,6 +84,13 @@
   flex-direction: column;
   grid-row-gap: 15px;
   color: var(--blue);
+}
+
+@media screen and (max-width: 479px) {
+  .home-grid-right {
+    overflow: hidden;
+    grid-row-gap: 0px;
+  }
 }
 
 .home-grid-right.footer-right {
@@ -65,8 +107,27 @@
   font-weight: 400;
 }
 
+@media screen and (max-width: 479px) {
+  .address-blk {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+}
+
 .address-left {
   min-width: 150px;
+}
+
+@media screen and (max-width: 479px) {
+  .address-left {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .footer-text {
+    font-size: 1rem;
+  }
 }
 
 #w-node-f7af06b8-9a8e-823f-2dae-e2766151a725-6151a723 {
@@ -80,4 +141,12 @@
   grid-column-end: span 1;
   grid-row-start: span 1;
   grid-row-end: span 1;
+}
+@media screen and (max-width: 479px) {
+  #w-node-f7af06b8-9a8e-823f-2dae-e2766151a725-6151a723 {
+    grid-column-start: span 1;
+    grid-column-end: span 1;
+    grid-row-start: span 1;
+    grid-row-end: span 1;
+  }
 }

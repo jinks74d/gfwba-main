@@ -51,7 +51,10 @@ export function Navbar({
       }}
     >
       <_Builtin.Block className={_utils.cx(_styles, "container")} tag="div">
-        <_Builtin.NavbarBrand options={navHome}>
+        <_Builtin.NavbarBrand
+          className={_utils.cx(_styles, "brand")}
+          options={navHome}
+        >
           <_Builtin.Image
             className={_utils.cx(_styles, "image")}
             loading="lazy"
@@ -61,7 +64,10 @@ export function Navbar({
             src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/654973dff5e6efeb48a605c2_gfwba-logo.png"
           />
         </_Builtin.NavbarBrand>
-        <_Builtin.Block className={_utils.cx(_styles, "div-block")} tag="div">
+        <_Builtin.Block
+          className={_utils.cx(_styles, "div-block", "hide")}
+          tag="div"
+        >
           <_Builtin.Block className={_utils.cx(_styles, "dir-menu")} tag="div">
             <_Builtin.Link
               className={_utils.cx(_styles, "dir-button")}
@@ -103,6 +109,14 @@ export function Navbar({
               }}
             >
               {"MEMBERSHIP"}
+            </_Builtin.NavbarLink>
+            <_Builtin.NavbarLink
+              className={_utils.cx(_styles, "nav-link")}
+              options={{
+                href: "/events",
+              }}
+            >
+              {"EVENTS"}
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}

@@ -2220,3 +2220,9 @@ h3 {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 479px) {
+  h3 {
+    font-size: 1.125rem;
+  }
+}

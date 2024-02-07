@@ -23,6 +23,12 @@
   display: none;
 }
 
+@media screen and (max-width: 479px) {
+  .brand {
+    padding-right: 10px;
+  }
+}
+
 .image {
   width: 640px;
 }
@@ -39,11 +45,31 @@
   grid-row-gap: 20px;
 }
 
+@media screen and (max-width: 479px) {
+  .div-block {
+    align-items: flex-end;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .div-block.hide {
+    display: none;
+  }
+}
+
 .dir-menu {
   display: flex;
   justify-content: flex-end;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+}
+
+@media screen and (max-width: 479px) {
+  .dir-menu {
+    align-items: center;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+  }
 }
 
 .dir-button {
@@ -58,6 +84,18 @@
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 479px) {
+  .dir-button {
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: center;
+  }
 }
 
 .mem-button {

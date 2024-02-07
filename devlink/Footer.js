@@ -122,7 +122,10 @@ export function Footer({
               className={_utils.cx(_styles, "address-right")}
               tag="div"
             >
-              <_Builtin.Block tag="div">
+              <_Builtin.Block
+                className={_utils.cx(_styles, "footer-text")}
+                tag="div"
+              >
                 {"100 E. 15th Street, Suite 600"}
                 <br />
                 {"Fort Worth, Texas 76102"}

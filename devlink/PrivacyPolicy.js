@@ -128,7 +128,11 @@ export function PrivacyPolicy({ as: _Component = _Builtin.Section }) {
                   "Subject to certain exceptions set out below, on receipt of a verifiable request from you, we will:"
                 }
               </_Builtin.Paragraph>
-              <_Builtin.List tag="ul" unstyled={false}>
+              <_Builtin.List
+                className={_utils.cx(_styles, "list-mobile")}
+                tag="ul"
+                unstyled={false}
+              >
                 <_Builtin.ListItem>
                   {"Delete your personal information from our records; and"}
                 </_Builtin.ListItem>
@@ -144,7 +148,11 @@ export function PrivacyPolicy({ as: _Component = _Builtin.Section }) {
                   "Please note that we may not be able to comply with requests to delete your personal information if it is necessary to:"
                 }
               </_Builtin.Paragraph>
-              <_Builtin.List tag="ul" unstyled={false}>
+              <_Builtin.List
+                className={_utils.cx(_styles, "list-mobile")}
+                tag="ul"
+                unstyled={false}
+              >
                 <_Builtin.ListItem>
                   {
                     "Complete the transaction for which the personal information was collected, fulfill the terms of a written warranty or product recall conducted in accordance with federal law, provide a good or service requested by you, or reasonably anticipated within the context of our ongoing business relationship with you, or otherwise perform a contract between you and us;"

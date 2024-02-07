@@ -185,14 +185,6 @@ export function HomeMain({
                 }
               </_Builtin.Block>
             </_Builtin.Block>
-            <_Builtin.Link
-              className={_utils.cx(_styles, "red-btn", "space-40")}
-              button={false}
-              block=""
-              options={homeJoin}
-            >
-              {"JOIN GFWBA"}
-            </_Builtin.Link>
             <_Builtin.Heading
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
@@ -213,10 +205,22 @@ export function HomeMain({
               }
             </_Builtin.Block>
             <_Builtin.Link
+              className={_utils.cx(_styles, "red-btn", "space-40")}
+              button={false}
+              block=""
+              options={{
+                href: "/membership",
+              }}
+            >
+              {"JOIN GFWBA"}
+            </_Builtin.Link>
+            <_Builtin.Link
               className={_utils.cx(_styles, "blue-btn", "space-40")}
               button={false}
               block=""
-              options={homeDirectory}
+              options={{
+                href: "/directory",
+              }}
             >
               {"MEMBER DIRECTORY"}
             </_Builtin.Link>

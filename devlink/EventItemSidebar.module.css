@@ -59,6 +59,14 @@
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 479px) {
+  .red-btn.space-40 {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.25rem;
+  }
+}
+
 .space-40 {
   margin-bottom: 40px;
 }
