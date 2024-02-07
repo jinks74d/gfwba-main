@@ -28,7 +28,7 @@ textarea {
 /* BEGIN OVERRIDES */
 /* FULL CALENDAR */
 .fc-daygrid-event {
-  white-space: pre-wrap !IMPORTANT;
+  white-space: pre-wrap !important;
 }
 
 .fc-event a b {
@@ -37,39 +37,52 @@ textarea {
 
 /* WEBFLOW */
 .w-nav {
-  background-color: hsla(0, 0.00%, 100.00%, 0.00) !IMPORTANT;
+  background-color: hsla(0, 0%, 100%, 0) !important;
 }
 
 /* TABS */
 .w-tab-link.w--current {
-  border-style: none none solid !IMPORTANT;
-  border-width: 1px !IMPORTANT;
-  border-color: var(--blue) !IMPORTANT;
-  background-color: var(--blue) !IMPORTANT;
-  color: var(--white) !IMPORTANT;
+  border-style: none none solid !important;
+  border-width: 1px !important;
+  border-color: var(--blue) !important;
+  background-color: var(--blue) !important;
+  color: var(--white) !important;
 }
 
 .w-tab-link {
-  border-bottom: 1px solid var(--blue) !IMPORTANT;
-  background-color: hsla(0, 0.00%, 86.67%, 0.00) !IMPORTANT;
+  border-bottom: 1px solid var(--blue) !important;
+  background-color: hsla(0, 0%, 86.67%, 0) !important;
 }
 
 /* BUTTONS */
 .w-button {
-  padding: 10px 30px !IMPORTANT;
-  justify-content: flex-start !IMPORTANT;
-  align-self: flex-start !IMPORTANT;
-  background-color: var(--red) !IMPORTANT;
-  color: var(--white) !IMPORTANT;
-  font-size: 28px !IMPORTANT;
-  line-height: 1.25 !IMPORTANT;
-  text-align: center !IMPORTANT;
-  text-decoration: none !IMPORTANT;
+  padding: 10px 30px !important;
+  justify-content: flex-start !important;
+  align-self: flex-start !important;
+  background-color: var(--red) !important;
+  color: var(--white) !important;
+  font-size: 28px !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+  text-decoration: none !important;
 }
 
 /* FORMS */
 .reg-border {
   border: solid 2px #102647;
+}
+
+/* SCROLL IMAGES */
+.image-scroll-item {
+  padding-right: 200px;
+}
+
+@media screen and (max-width: 480px) {
+  .image-scroll-item {
+    padding-right: 60px;
+    max-height: 60px;
+    width: 100%;
+  }
 }
 
 /* END OVERRIDES */
