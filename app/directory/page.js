@@ -25,6 +25,27 @@ export default function Directory() {
   const [serviceAreas, setServiceAreas] = useState([]);
   const [filter, setFilter] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [paginationObj, setPaginationObj] = useState({});
+  const [paginationArr, setPaginationArr] = useState('');
+
+  function paginator(items, current_page, per_page_items) {
+    let page = current_page || 1,
+      per_page = per_page_items || 10,
+      offset = (page - 1) * per_page,
+
+      paginatedItems = items.slice(offset).slice(0, per_page),
+      total_pages = Math.ceil(items.length / per_page);
+
+    return {
+      page: page,
+      per_page: per_page,
+      pre_page: page - 1 ? page - 1 : null,
+      next_page: (total_pages > page) ? page + 1 : null,
+      total: items.length,
+      total_pages: total_pages,
+      data: paginatedItems
+    };
+  }
 
   const fetchContacts = async () => {
     // let response = await fetch('/api/allContacts', {
@@ -45,9 +66,11 @@ export default function Directory() {
       // const alphaSorted = json.Contacts.sort();
       let categoryArr = [];
       let areaArr = [];
-      console.log(json.Contacts);
-
-      setContacts(json.Contacts);
+      // console.log(json.Contacts);
+      let pagination = paginator(json.Contacts, 1)
+      setPaginationArr(pagination.data);
+      setPaginationObj(pagination);
+      setContacts(json.Contacts)
       setAllContacts(json.Contacts);
       json.Contacts.forEach((element) => {
         let cat = element.FieldValues[47];
@@ -70,39 +93,39 @@ export default function Directory() {
         //   console.log(areaArr)
         // }
       });
-      console.log(categoryArr);
+      // console.log(categoryArr);
       setCategories(categoryArr.sort());
       // setServiceAreas(areaArr);
       json.Contacts.forEach((element) => {
         let img = element.FieldValues[49];
         if (img.Value != "") {
-          console.log(
-            `${element.DisplayName}'s image url is: ${img.Value.Url}`
-          );
-          console.log(
-            // `${element.DisplayName}'s blob is: ${img.Value.Url}`
-            element
-          );
+          // console.log(
+          //   `${element.DisplayName}'s image url is: ${img.Value.Url}`
+          // );
+          // console.log(
+          // `${element.DisplayName}'s blob is: ${img.Value.Url}`
+          // element
+          // );
           // const fetchBlobs = async () => {
-          fetch("/api/fetchBlobs", {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify({ 'img': img.Value.Url })
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(`HTTP error, status = ${response.status}`);
-              }
-              return response.arrayBuffer();
-            })
-            .then((myBlob) => {
-              console.log(myBlob)
-              const objectURL = URL.createObjectURL(myBlob);
-              // myImage.src = objectURL;
-              console.log(objectURL)
-            });
+          // fetch("/api/fetchBlobs", {
+          //   method: "PUT",
+          //   headers: {
+          //     "Content-Type": "application/json;charset=utf-8",
+          //   },
+          //   body: JSON.stringify({ 'img': img.Value.Url })
+          // })
+          //   .then((response) => {
+          //     if (!response.ok) {
+          //       throw new Error(`HTTP error, status = ${response.status}`);
+          //     }
+          //     return response.arrayBuffer();
+          //   })
+          //   .then((myBlob) => {
+          //     console.log(myBlob)
+          //     const objectURL = URL.createObjectURL(myBlob);
+          //     // myImage.src = objectURL;
+          //     console.log(objectURL)
+          //   });
           // const blob = await response.blob();
           // console.log(blob)
           // const objectUrl = URL.createObjectURL(blob);
@@ -128,7 +151,10 @@ export default function Directory() {
     setFilter(filters);
     if (filters.length == 0) {
       console.log(allContacts);
-      setContacts(allContacts);
+      let pagination = paginator(allContacts, 1)
+      setPaginationArr(pagination.data);
+      setPaginationObj(pagination)
+      // setContacts(allContacts);
     } else {
       let filteredContacts = [];
       function filterContacts(contacts, filters) {
@@ -152,7 +178,11 @@ export default function Directory() {
       }
       // console.log(filteredContacts)
       filterContacts(allContacts, filters);
+      let pagination = paginator(filteredContacts, 1)
       setContacts(filteredContacts);
+      setPaginationArr(pagination.data)
+      setPaginationObj(pagination)
+      // setContacts(filteredContacts);
     }
   };
 
@@ -197,11 +227,13 @@ export default function Directory() {
         }
       });
       setContacts(filteredContacts);
+      let pagination = paginator(filteredContacts, 1)
+      setPaginationArr(pagination.data);
     }
   };
 
   useEffect(() => {
-    if (contacts === "") {
+    if (allContacts === '') {
       fetchContacts();
       if (localStorage.getItem("GFWBAUSER")) {
         updateLoggedStatus(true)
@@ -223,7 +255,9 @@ export default function Directory() {
           <div
             onClick={() => {
               setFilter([]);
+              let pagination = paginator(allContacts, 1)
               setContacts(allContacts);
+              setPaginationArr(pagination)
             }}
             className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
           >
@@ -273,8 +307,8 @@ export default function Directory() {
             </div>
           )}
           <div>
-            {contacts ? (
-              contacts.map((c) => (
+            {paginationArr ? (
+              paginationArr.map((c) => (
                 <MemberListItem
                   // memberListLogo={}
                   memberListName={`${c.DisplayName}`}
@@ -295,7 +329,30 @@ export default function Directory() {
               </div>
             )}
           </div>
-          <BlueBtn text="load more" link="https://gfwba.com/directory" />
+          {paginationObj && <div className="flex justify-between">
+            <div>
+              {paginationObj.pre_page && <div className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" onClick={() => {
+                console.log(paginationObj, contacts)
+                let pagination = paginator(contacts, paginationObj.pre_page)
+                console.log(pagination)
+                setPaginationArr(pagination.data);
+                setPaginationObj(pagination)
+              }}>
+                <p className="mb-0">Prev Page</p>
+              </div>}
+            </div>
+            <div>
+              {paginationObj.next_page && <div className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" onClick={() => {
+                console.log(paginationObj, contacts)
+                let pagination = paginator(contacts, paginationObj.next_page)
+                console.log(pagination)
+                setPaginationArr(pagination.data);
+                setPaginationObj(pagination)
+              }}>
+                <p className="mb-0">Next Page</p>
+              </div>}
+            </div>
+          </div>}
         </div>
       </section>
     </main>
