@@ -45,6 +45,11 @@
   display: none;
 }
 
+.container-1600.footer-bar {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
 .home-grid-left {
   display: flex;
   padding-right: 50px;
@@ -128,6 +133,12 @@
   .footer-text {
     font-size: 1rem;
   }
+}
+
+.admin-link {
+  color: var(--white);
+  font-size: 0.875rem;
+  text-decoration: underline;
 }
 
 #w-node-f7af06b8-9a8e-823f-2dae-e2766151a725-6151a723 {

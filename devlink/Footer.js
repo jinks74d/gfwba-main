@@ -187,6 +187,22 @@ export function Footer({
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>
+      <_Builtin.Block
+        className={_utils.cx(_styles, "container-1600", "footer-bar")}
+        tag="div"
+      >
+        <_Builtin.Link
+          className={_utils.cx(_styles, "admin-link")}
+          button={false}
+          block=""
+          options={{
+            href: "https://gfwbatx.com/admin",
+            target: "_blank",
+          }}
+        >
+          {"Admin Login"}
+        </_Builtin.Link>
+      </_Builtin.Block>
     </_Component>
   );
 }

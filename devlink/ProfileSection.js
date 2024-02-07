@@ -6,21 +6,21 @@ import _styles from "./ProfileSection.module.css";
 export function ProfileSection({
   as: _Component = _Builtin.Section,
   profileMainName = {},
-  profMainName = "MICHAELGARABEDIAN",
-  profMainComp = "GARABEDIANPROPERTIES",
-  profTitle = "President/CEO",
-  profOrganization = "Garabedian Properties",
-  profAddress = "PO Box 93984, Southlake,TX 76092",
-  profOffice = "817-748-2669",
-  profCell = "N/A",
-  profEmail = "mike@garabedian.us",
-  profWebsite = "www.garabedianproperties.com",
-  profLogo = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/65661a5573f2e9c08f5352fb_elr11kio.png",
+  profMainName = "",
+  profMainComp = "",
+  profTitle = "",
+  profOrganization = "",
+  profAddress = "",
+  profOffice = "",
+  profCell = "",
+  profEmail = "",
+  profWebsite = "",
+  profLogo = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/657736e55d97c9cd83d3d38c_gfwba-logo-steer.png",
   profCategories = "Developer",
   profArea = "NWTarrant",
 
   profEmailAddress = {
-    href: "mailto:mike@garabedian.us",
+    href: "#",
   },
 
   profWebsiteAddress = {
