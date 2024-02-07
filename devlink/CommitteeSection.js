@@ -7,7 +7,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
   return (
     <_Component className={_utils.cx(_styles, "committee-section")} tag="div">
       <_Builtin.Heading className={_utils.cx(_styles, "heading-2")} tag="h2">
-        {"GETINVOLVED"}
+        {"GET INVOLVED"}
       </_Builtin.Heading>
       <_Builtin.Block
         className={_utils.cx(_styles, "committee-item")}
@@ -115,7 +115,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
         className={_utils.cx(_styles, "committee-item")}
         tag="div"
       >
-        <_Builtin.Heading tag="h3">{"budget &finance"}</_Builtin.Heading>
+        <_Builtin.Heading tag="h3">{"budget & finance"}</_Builtin.Heading>
         <_Builtin.Block
           className={_utils.cx(_styles, "p-main", "space-40")}
           tag="div"

@@ -216,6 +216,14 @@ export function Navbar({
                 >
                   {"FAQs"}
                 </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/committees-and-councils",
+                  }}
+                >
+                  {"COMMITTEES &COUNCILS"}
+                </_Builtin.DropdownLink>
               </_Builtin.DropdownList>
             </_Builtin.DropdownWrapper>
             <_Builtin.NavbarLink
