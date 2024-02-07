@@ -118,12 +118,44 @@
 
 .nav-menu {
   display: flex;
-  grid-column-gap: 20px;
+  grid-column-gap: 15px;
   grid-row-gap: 20px;
 }
 
+.dropdown-toggle {
+  padding-right: 30px;
+  padding-left: 10px;
+}
+
+.dd-main-link {
+  text-decoration: none;
+}
+
 .nav-link {
+  padding-right: 10px;
   padding-bottom: 0px;
+  padding-left: 10px;
+
+  font-family: Montserrat, sans-serif;
+  color: var(--text-gray);
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.dropdown-list-2 {
+  background-color: #ddd;
+}
+
+.dropdown-list-2:global(.w--open) {
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.dd-link {
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 
   font-family: Montserrat, sans-serif;
   color: var(--text-gray);

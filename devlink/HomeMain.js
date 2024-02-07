@@ -294,6 +294,29 @@ export function HomeMain({
                   {"Year Established"}
                 </_Builtin.Block>
               </_Builtin.Block>
+              <_Builtin.Block
+                className={_utils.cx(_styles, "market-guide-div")}
+                tag="div"
+              >
+                <_Builtin.Link
+                  className={_utils.cx(_styles, "market-guide-link")}
+                  button={false}
+                  block="inline"
+                  options={{
+                    href: "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/65c3b8e74ca8e3bb49e7bdef_Maximizing%20Your%20Association%20Membership.pdf",
+                    target: "_blank",
+                  }}
+                >
+                  <_Builtin.Block
+                    className={_utils.cx(_styles, "market-guide-text")}
+                    tag="div"
+                  >
+                    {"2024 GFWBA"}
+                    <br />
+                    {"MARKETINGGUIDE"}
+                  </_Builtin.Block>
+                </_Builtin.Link>
+              </_Builtin.Block>
             </_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>

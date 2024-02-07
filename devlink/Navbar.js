@@ -94,22 +94,130 @@ export function Navbar({
             tag="nav"
             role="navigation"
           >
-            <_Builtin.NavbarLink
-              className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "/about",
-              }}
-            >
-              {"ABOUT US"}
-            </_Builtin.NavbarLink>
-            <_Builtin.NavbarLink
-              className={_utils.cx(_styles, "nav-link")}
-              options={{
-                href: "/membership",
-              }}
-            >
-              {"MEMBERSHIP"}
-            </_Builtin.NavbarLink>
+            <_Builtin.DropdownWrapper tag="div" delay={0} hover={false}>
+              <_Builtin.DropdownToggle
+                className={_utils.cx(_styles, "dropdown-toggle")}
+                tag="div"
+              >
+                <_Builtin.Icon
+                  className={_utils.cx(_styles, "nav-dd-icon")}
+                  widget={{
+                    type: "icon",
+                    icon: "dropdown-toggle",
+                  }}
+                />
+                <_Builtin.Link
+                  className={_utils.cx(_styles, "dd-main-link")}
+                  button={false}
+                  block="inline"
+                  options={{
+                    href: "/about",
+                  }}
+                >
+                  <_Builtin.Block
+                    className={_utils.cx(_styles, "nav-link")}
+                    tag="div"
+                  >
+                    {"ABOUT US"}
+                  </_Builtin.Block>
+                </_Builtin.Link>
+              </_Builtin.DropdownToggle>
+              <_Builtin.DropdownList
+                className={_utils.cx(_styles, "dropdown-list-2")}
+                tag="nav"
+              >
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/history",
+                  }}
+                >
+                  {"HISTORY"}
+                </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/organization-structure",
+                  }}
+                >
+                  {"ORGANIZATION SRUCTURE"}
+                </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "#",
+                  }}
+                >
+                  {"LEADERSHIP"}
+                </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/governmental-affairs",
+                  }}
+                >
+                  {"ADVOCACY"}
+                </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/hammer-and-nails-pac",
+                  }}
+                >
+                  {"HAMMER&NAILSPAC"}
+                </_Builtin.DropdownLink>
+              </_Builtin.DropdownList>
+            </_Builtin.DropdownWrapper>
+            <_Builtin.DropdownWrapper tag="div" delay={0} hover={false}>
+              <_Builtin.DropdownToggle
+                className={_utils.cx(_styles, "dropdown-toggle")}
+                tag="div"
+              >
+                <_Builtin.Icon
+                  className={_utils.cx(_styles, "nav-dd-icon")}
+                  widget={{
+                    type: "icon",
+                    icon: "dropdown-toggle",
+                  }}
+                />
+                <_Builtin.Link
+                  className={_utils.cx(_styles, "dd-main-link")}
+                  button={false}
+                  block="inline"
+                  options={{
+                    href: "/membership",
+                  }}
+                >
+                  <_Builtin.Block
+                    className={_utils.cx(_styles, "nav-link")}
+                    tag="div"
+                  >
+                    {"MEMBERSHIP"}
+                  </_Builtin.Block>
+                </_Builtin.Link>
+              </_Builtin.DropdownToggle>
+              <_Builtin.DropdownList
+                className={_utils.cx(_styles, "dropdown-list-2")}
+                tag="nav"
+              >
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/discounts",
+                  }}
+                >
+                  {"MEMBER BENEFITS"}
+                </_Builtin.DropdownLink>
+                <_Builtin.DropdownLink
+                  className={_utils.cx(_styles, "dd-link")}
+                  options={{
+                    href: "/faq",
+                  }}
+                >
+                  {"FAQs"}
+                </_Builtin.DropdownLink>
+              </_Builtin.DropdownList>
+            </_Builtin.DropdownWrapper>
             <_Builtin.NavbarLink
               className={_utils.cx(_styles, "nav-link")}
               options={{

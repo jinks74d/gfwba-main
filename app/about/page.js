@@ -1,7 +1,7 @@
 import { InnerHero, AboutSection } from "@/devlink";
 
 export const metadata = {
-  title: "About Greater Fort Worth Builders Association",
+  title: "About the Greater Fort Worth Builders Association",
   description:
     "The Greater Fort Worth Builders Association (GFWBA) is a non-profit trade association representing hundreds of companies affiliated within the homebuilding industry throughout the Greater Fort Worth region.",
 };

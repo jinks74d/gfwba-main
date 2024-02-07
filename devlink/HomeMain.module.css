@@ -393,6 +393,31 @@
   }
 }
 
+.market-guide-div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--blue);
+  color: var(--blue);
+  text-align: center;
+}
+
+.market-guide-link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.market-guide-text {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 479px) {
+  .market-guide-text {
+    font-size: 1.25rem;
+  }
+}
+
 #w-node-c43a05ae-d77d-76ee-dabc-1f546fa637e3-6dac7120 {
   grid-column-start: span 1;
   grid-column-end: span 1;
