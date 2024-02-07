@@ -313,7 +313,7 @@ export function HomeMain({
                   >
                     {"2024 GFWBA"}
                     <br />
-                    {"MARKETINGGUIDE"}
+                    {"MARKETING GUIDE"}
                   </_Builtin.Block>
                 </_Builtin.Link>
               </_Builtin.Block>
