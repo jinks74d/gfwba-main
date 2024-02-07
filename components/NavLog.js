@@ -1,9 +1,11 @@
 'use client'
 import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
 
 const NavLog = () => {
     const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
+    const router = useRouter();
     useEffect(() => {
         // Check if user is logged in using localStorage
         const isLoggedIn = localStorage.getItem("GFWBAUSER");
@@ -17,7 +19,7 @@ const NavLog = () => {
                 <a href='/login'>
                     Member Login
                 </a> :
-                <button className="uppercase" onClick={() => { localStorage.removeItem("GFWBAUSER"); updateLoggedStatus(false) }}>
+                <button className="uppercase" onClick={() => { localStorage.removeItem("GFWBAUSER"); updateLoggedStatus(false); router.push(`/`); }}>
                     Logout
                 </button>}
         </div>
