@@ -26,11 +26,24 @@ export default function Profile({ imageData }) {
   const [loggedId, setLoggedId] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
   const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
+  const [emailSubject, setEmailSubject] = useState("");
+  const [emailBody, setEmailBody] = useState("");
+  const [emailReplyToAddress, setEmailReplyToAddress] = useState("");
+  const [emailReplyToName, setEmailReplyToName] = useState("");
+  const [sendingEmail, setSendingEmail] = useState(false);
 
   const fetchContact = async () => {
     if (localStorage.getItem("GFWBAUSER")) {
-      var { Id } = JSON.parse(localStorage.getItem("GFWBAUSER"));
+      var {
+        Id,
+        DisplayName,
+        Email
+      } = JSON.parse(localStorage.getItem("GFWBAUSER"));
       setLoggedId(Id);
+      if (params.id == Id) {
+        setEmailReplyToAddress(Email)
+        setEmailReplyToName(DisplayName)
+      }
     }
     // let response = await fetch('/api/allContacts', {
     let response = await fetch(`/api/contact/${params.id}`, {
@@ -174,6 +187,39 @@ export default function Profile({ imageData }) {
   function cancelUpdate() {
     setUpdating(false);
   }
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    let sender = {
+      subject: emailSubject,
+      body: emailBody,
+      ReplyToAddress: emailReplyToAddress,
+      ReplyToName: emailReplyToName
+    };
+    let recipient = {
+      Id: contact.Id,
+      Name: contact.DisplayName,
+      Email: contact.Email
+    };
+    let response = await fetch("/api/sendEmail", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify({ sender, recipient }),
+    });
+    const json = await response.json();
+    if (!response.ok) {
+      setError(json.error);
+      console.log("response not ok");
+    }
+    if (response.ok) {
+      setEmailSubject("");
+      setEmailBody("");
+      setEmailReplyToAddress("");
+      setEmailReplyToName("");
+      setSendingEmail(false)
+    }
+  };
 
   useEffect(() => {
     if (contact === "") {
@@ -190,6 +236,80 @@ export default function Profile({ imageData }) {
         heroDirectory={{ href: "/directory" }}
         heroJoin={{ href: "/signup" }}
       />
+      {sendingEmail ?
+        <div>
+          <form onSubmit={sendEmail}>
+            <div className="text-xl font-light mb-6">
+              <label for="Subject">Message subject</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                // placeholder='subject'
+                value={emailSubject}
+                onChange={(e) => {
+                  setEmailSubject(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-xl font-light mb-6">
+              <label for="Body">Body</label>
+              <textarea
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                // placeholder='Email Body'
+                value={emailBody}
+                onChange={(e) => {
+                  setEmailBody(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-xl font-light mb-6">
+              <label for="Reply Name">Reply name</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                // placeholder={contact.FirstName}
+                value={emailReplyToName}
+                onChange={(e) => {
+                  setEmailReplyToName(e.target.value);
+                }}
+              />
+            </div>
+            <div className="text-xl font-light mb-6">
+              <label for="Reply Email">Reply email</label>
+              <input
+                className="hi w-[300px] text-base pl-2"
+                type="text"
+                // placeholder={contact.FirstName}
+                value={emailReplyToAddress}
+                onChange={(e) => {
+                  setEmailReplyToAddress(e.target.value);
+                }}
+              />
+            </div>
+            <p>reCAPTCHA?</p>
+            <div>
+              <input
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                type="submit"
+              />
+              <button
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                onClick={() => setSendingEmail(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+        :
+        <button
+          className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+          onClick={() => setSendingEmail(true)}
+        >
+          Contact
+        </button>
+      }
       {/* TODO: Style the Update Form */}
       {updating ? (
         <div>
@@ -269,8 +389,8 @@ export default function Profile({ imageData }) {
             profAddress={address}
             profOffice={office}
             profCell={cell}
-            profEmail={contact.Email}
-            profEmailAddress={{ href: `mailto:${contact.Email}` }}
+            // profEmail={contact.Email}
+            // profEmailAddress={{ href: `mailto:${contact.Email}` }}
             profWebsite={website}
             profWebsiteAddress={{ href: website, target: "_blank" }}
             profLogo={logo}
