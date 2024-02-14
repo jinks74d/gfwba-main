@@ -16,11 +16,6 @@ export function MemberListItem({
   memberListItemLink = {
     href: "#",
   },
-
-  memberListWebsiteLink = {
-    href: "http://www.bigtexrenovations.com/",
-    target: "_blank",
-  },
 }) {
   return (
     <_Component className={_utils.cx(_styles, "member-list-item")} tag="div">
@@ -89,7 +84,9 @@ export function MemberListItem({
                   button={false}
                   target="_blank"
                   block=""
-                  options={memberListWebsiteLink}
+                  options={{
+                    href: "http://www.bigtexrenovations.com/",
+                  }}
                 >
                   {memberListWebsite}
                 </_Builtin.Link>

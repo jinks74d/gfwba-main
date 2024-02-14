@@ -149,30 +149,6 @@ export function ProfileSection({
                 className={_utils.cx(_styles, "p-main-bold")}
                 tag="div"
               >
-                {"Email:"}
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "p-main")}
-                tag="div"
-              >
-                <_Builtin.Link
-                  button={false}
-                  target="_blank"
-                  block=""
-                  options={profEmailAddress}
-                >
-                  {profEmail}
-                </_Builtin.Link>
-              </_Builtin.Block>
-            </_Builtin.Block>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "biz-info-item")}
-              tag="div"
-            >
-              <_Builtin.Block
-                className={_utils.cx(_styles, "p-main-bold")}
-                tag="div"
-              >
                 {"Website:"}
               </_Builtin.Block>
               <_Builtin.Block
