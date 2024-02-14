@@ -10,6 +10,7 @@ export default function Profile({ imageData }) {
   const params = useParams();
   // console.log(params)
   const [contact, setContact] = useState("");
+  const [fieldValues, setFieldValues] = useState([]);
   const [address, setAddress] = useState("");
   const [title, setTitle] = useState("");
   const [office, setOffice] = useState("");
@@ -17,6 +18,7 @@ export default function Profile({ imageData }) {
   const [website, setWebsite] = useState("");
   const [logo, setLogo] = useState("");
   const [categories, setCategories] = useState("");
+  const [categoriesArr, setCategoriesArr] = useState("");
   const [area, setArea] = useState("");
   const [updating, setUpdating] = useState(false);
   const [newFName, setNewFName] = useState("");
@@ -31,6 +33,42 @@ export default function Profile({ imageData }) {
   const [emailReplyToAddress, setEmailReplyToAddress] = useState("");
   const [emailReplyToName, setEmailReplyToName] = useState("");
   const [sendingEmail, setSendingEmail] = useState(false);
+  const [membershipOptions, setMembershipOptions] = useState("");
+  // 
+  const [newAddress, setNewAddress] = useState("");
+  const [newTitle, setNewTitle] = useState("");
+  const [newOfficePhone, setNewOfficePhone] = useState("");
+  const [newCell, setNewCell] = useState("");
+  const [newFax, setNewFax] = useState("");
+  const [newWebsite, setNewWebsite] = useState("");
+  const [newLogo, setNewLogo] = useState("");
+  const [newPhoto, setNewPhoto] = useState("");
+  const [newArea, setNewArea] = useState("");
+  const [newOrganization, setNewOrganization] = useState("");
+  const [newSecondEmail, setNewSecondEmail] = useState("");
+  const [newCity, setNewCity] = useState("");
+  const [newState, setNewState] = useState("");
+  const [newZip, setNewZip] = useState("");
+  const [newFacebook, setNewFacebook] = useState("");
+  const [newTwitter, setNewTwitter] = useState("");
+  const [newYoutube, setNewYoutube] = useState("");
+  const [newHouzz, setNewHouzz] = useState("");
+  const [newInstagram, setNewInstagram] = useState("");
+  const [newMemberSince, setNewMemberSince] = useState("");
+  const [newEmployees, setNewEmployees] = useState("");
+  const [newReferredBy, setNewReferredBy] = useState("");
+
+  const [checkboxes, setCheckboxes] = useState(categoriesArr);
+
+  const handleCheckboxChange = (category) => {
+    if (checkboxes.includes(category)) {
+      // If category is already in the list, remove it
+      setCheckboxes(checkboxes.filter((cat) => cat !== category));
+    } else {
+      // If category is not in the list, add it
+      setCheckboxes([...checkboxes, category]);
+    }
+  };
 
   const fetchContact = async () => {
     if (localStorage.getItem("GFWBAUSER")) {
@@ -59,12 +97,24 @@ export default function Profile({ imageData }) {
     if (response.ok) {
       console.log(json);
       setContact(json);
+      setFieldValues(json.FieldValues)
       setAddress(
         ` ${json.FieldValues[43].Value}, ${json.FieldValues[44].Value}, ${json.FieldValues[45].Value} ${json.FieldValues[46].Value}`
       );
       setTitle(` ${json.FieldValues[39].Value}`);
       setOffice(` ${json.FieldValues[25].Value}`);
       setCell(` ${json.FieldValues[40].Value}`);
+      if (typeof json.FieldValues[48].Value != 'object') {
+        // console.log(c.FieldValues[48].Value)
+        if (json.FieldValues[48].Value.startsWith('http')) {
+          //str starts with http
+        } else {
+          //str does not start with http
+          if (json.FieldValues[48].Value !== '') {
+            json.FieldValues[48].Value = `http://${json.FieldValues[48].Value}`
+          }
+        }
+      }
       setWebsite(` ${json.FieldValues[48].Value}`);
       // let imageData = json.FieldValues[49].Value.Url.blob()
       // const imageUrl = URL.createObjectURL(imageData);
@@ -73,18 +123,23 @@ export default function Profile({ imageData }) {
       // console.log(logoUrl)
       // setLogo(logoUrl)
       let categoryArr = [];
+      let categoriesArr = [];
       let cat = json.FieldValues[47];
       if (typeof cat == "object") {
         Object.keys(cat.Value).forEach(function (key, index) {
           if (categoryArr.indexOf(cat.Value[key].Label) == -1) {
             if (index > 0) {
               categoryArr.push(`, ${cat.Value[key].Label}`);
+              categoriesArr.push(cat.Value[key].Label);
             } else {
               categoryArr.push(cat.Value[key].Label);
+              categoriesArr.push(cat.Value[key].Label);
             }
           }
         });
         setCategories(categoryArr);
+        setCategoriesArr(categoriesArr)
+        setCheckboxes(categoriesArr)
         // console.log(categoryArr)
       }
       let areaArr = [];
@@ -105,6 +160,13 @@ export default function Profile({ imageData }) {
   };
 
   const handleSubmit = async (e) => {
+    let arr = [];
+    let checkboxes = document.querySelectorAll(
+      "input[type='checkbox']:checked"
+    );
+    for (let i = 0; i < checkboxes.length; i++) {
+      arr.push(checkboxes[i].value);
+    }
     e.preventDefault();
     var {
       Id,
@@ -117,6 +179,7 @@ export default function Profile({ imageData }) {
       token,
     } = JSON.parse(localStorage.getItem("GFWBAUSER"));
     let changes = {};
+    let fieldValues = [];
     // "if" cases to identify elements changed prior to sending to api
     if (newFName !== "") {
       changes.FirstName = newFName;
@@ -129,6 +192,150 @@ export default function Profile({ imageData }) {
     }
     if (newPassword !== "") {
       changes.Password = newPassword;
+    }
+    if (newAddress !== "") {
+      fieldValues.push({
+        FieldName: "Address",
+        SystemCode: "custom-7725698",
+        Value: newAddress,
+      });
+    }
+    if (newTitle !== "") {
+      fieldValues.push({
+        FieldName: "Title",
+        SystemCode: "custom-7725697",
+        Value: newTitle,
+      })
+    }
+    if (newOfficePhone !== "") {
+      changes.Phone = newOfficePhone;
+    }
+    if (newCell !== "") {
+      fieldValues.push({
+        FieldName: "Cell Phone",
+        SystemCode: "custom-14590954",
+        Value: newCell,
+      });
+    }
+    if (newFax !== "") {
+      fieldValues.push({
+        FieldName: "Fax",
+        SystemCode: "custom-7725703",
+        Value: newFax,
+      });
+    }
+    if (newWebsite !== "") {
+      fieldValues.push({
+        FieldName: "Website",
+        SystemCode: "custom-7725704",
+        Value: newWebsite,
+      });
+    }
+    if (arr !== categoriesArr) {
+      console.log(arr)
+      let formattedArr = []
+      arr.forEach((e) => { formattedArr.push({ Label: e }) })
+      fieldValues.push({
+        FieldName: contact.FieldValues[47].FieldName,
+        SystemCode: contact.FieldValues[47].SystemCode,
+        Value: formattedArr,
+      });
+    }
+    if (newOrganization !== "") {
+      changes.Organization = newOrganization;
+      fieldValues.push({
+        FieldName: "Organization",
+        SystemCode: "Organization",
+        Value: newOrganization,
+      });
+    }
+    if (newSecondEmail !== "") {
+      fieldValues.push({
+        FieldName: "Secondary Email Address",
+        SystemCode: "custom-15537186",
+        Value: newSecondEmail,
+      });
+    }
+    if (newCity !== "") {
+      fieldValues.push({
+        FieldName: "City",
+        SystemCode: "custom-7725699",
+        Value: newCity,
+      });
+    }
+    if (newState !== "") {
+      fieldValues.push({
+        FieldName: "State",
+        SystemCode: "custom-7725700",
+        Value: newState,
+      });
+    }
+    if (newZip !== "") {
+      fieldValues.push({
+        FieldName: "ZIP",
+        SystemCode: "custom-7725701",
+        Value: newZip,
+      });
+    }
+    if (newFacebook !== "") {
+      fieldValues.push({
+        FieldName: "Facebook Page URL",
+        SystemCode: "custom-7725705",
+        Value: newFacebook,
+      });
+    }
+    if (newTwitter !== "") {
+      fieldValues.push({
+        FieldName: "Twitter URL",
+        SystemCode: "custom-7725706",
+        Value: newTwitter,
+      });
+    }
+    if (newYoutube !== "") {
+      fieldValues.push({
+        FieldName: "You Tube URL",
+        SystemCode: "custom-14543949",
+        Value: newYoutube,
+      });
+    }
+    if (newHouzz !== "") {
+      fieldValues.push({
+        FieldName: "Houzz URL",
+        SystemCode: "custom-14543948",
+        Value: newHouzz,
+      });
+    }
+    if (newInstagram !== "") {
+      fieldValues.push({
+        FieldName: "Instagram URL",
+        SystemCode: "custom-14543950",
+        Value: newInstagram,
+      });
+    }
+    if (newMemberSince !== "") {
+      fieldValues.push({
+        FieldName: "Member of GFW Builders Assocition Since",
+        SystemCode: "custom-14571711",
+        Value: newMemberSince,
+      });
+    }
+    if (newEmployees !== "") {
+      fieldValues.push({
+        FieldName: "Total Paid Employees",
+        SystemCode: "custom-7725696",
+        Value: newEmployees,
+      });
+    }
+    if (newReferredBy !== "") {
+      fieldValues.push({
+        FieldName:
+          "If a member referred you to the association please list their name and company",
+        SystemCode: "custom-7725711",
+        Value: newReferredBy,
+      });
+    }
+    if (fieldValues[0]) {
+      changes.FieldValues = fieldValues;
     }
 
     let response = await fetch("/api/user/userInfo", {
@@ -180,6 +387,7 @@ export default function Profile({ imageData }) {
         // remove localStorage and redirect to a log back in page
         localStorage.removeItem("GFWBAUSER");
       }
+      window.location.reload()
     }
   };
   function cancelUpdate() {
@@ -227,6 +435,157 @@ export default function Profile({ imageData }) {
       }
     }
   });
+
+  const classifications = [
+    { name: "Accounting" },
+    { name: "Advertising/Marketing/PR" },
+    { name: "Air Conditioning/Heating" },
+    { name: "Alarm Systems" },
+    { name: "Appliances" },
+    { name: "Appraisers/Estimators" },
+    { name: "Architects" },
+    { name: "Art Services" },
+    { name: "Attic Ventilation" },
+    { name: "Audio/Visual" },
+    { name: "Automation Services" },
+    { name: "Automotive Sales/Leasing" },
+    { name: "Awards/Trophies/Gifts" },
+    { name: "Banking" },
+    { name: "Barbeque Grills" },
+    { name: "Blinds" },
+    { name: "Blueprint Services" },
+    { name: "Brick" },
+    { name: "Building Materials" },
+    { name: "Cabinets" },
+    { name: "Carpentry" },
+    { name: "Carpet Cleaning" },
+    { name: "Catering/Restaurants" },
+    { name: "Cleaning Services" },
+    { name: "Closet Organization Systems" },
+    { name: "Columns" },
+    { name: "Computer Products & Services" },
+    { name: "Concrete" },
+    { name: "Concrete Reinforcement" },
+    { name: "Concrete Staining & Stamping" },
+    { name: "Consultants" },
+    { name: "Convention Services & Planning" },
+    { name: "Countertops" },
+    { name: "Decks" },
+    { name: "Designers" },
+    { name: "Doors" },
+    { name: "Drywall" },
+    { name: "Electrical Work" },
+    { name: "Elevators/Dumbwaiters" },
+    { name: "Embroidery/Screen Print" },
+    { name: "Employee Benefits" },
+    { name: "Energy" },
+    { name: "Engineering" },
+    { name: "Environmental Consulting" },
+    { name: "Erosion Control" },
+    { name: "Estate Planning" },
+    { name: "Excavation/Grading" },
+    { name: "Fencing" },
+    { name: "Financial Services" },
+    { name: "Fire Prevention" },
+    { name: "Fireplace/Mantels" },
+    { name: "Floors" },
+    { name: "Foundation Repair" },
+    { name: "Framing" },
+    { name: "Furniture" },
+    { name: "Garage Doors" },
+    { name: "Garage Organization" },
+    { name: "Generators" },
+    { name: "Glass & Mirrors" },
+    { name: "Governments" },
+    { name: "Granite" },
+    { name: "Green Building" },
+    { name: "Gutters" },
+    { name: "Hardware" },
+    { name: "Home Theaters" },
+    { name: "Inspection Service" },
+    { name: "Insulating Concrete Forms" },
+    { name: "Insulation" },
+    { name: "Insurance" },
+    { name: "Interior Designers" },
+    { name: "Iron Work" },
+    { name: "Kitchen/Bath" },
+    { name: "Kitchen/Bath/Lighting" },
+    { name: "Land Development" },
+    { name: "Landscaping" },
+    { name: "Legal Services" },
+    { name: "Lighting/Fans" },
+    { name: "Lumber" },
+    { name: "Marble" },
+    { name: "Market Research" },
+    { name: "Mobile Trash Compaction" },
+    { name: "Mold Inhibitors" },
+    { name: "Motorized Screens" },
+    { name: "Outdoor Cooling & Heating" },
+    { name: "Outdoor Living" },
+    { name: "Overhead/Garage Doors" },
+    { name: "Paint" },
+    { name: "Personal Safety" },
+    { name: "Pest Control/Extermination" },
+    { name: "Pier Drilling" },
+    { name: "Plumbing" },
+    { name: "Portable Restrooms" },
+    { name: "Printing" },
+    { name: "Promotional Items" },
+    { name: "Propane" },
+    { name: "Publishers" },
+    { name: "Ramps and other accessibility items" },
+    { name: "Real Estate Brokers" },
+    { name: "Real Estate Photography" },
+    { name: "Remodeling/Renovation" },
+    { name: "Resurfacing/Repair" },
+    { name: "Retaining Walls" },
+    { name: "Roofing" },
+    { name: "Security" },
+    { name: "Septic" },
+    { name: "Sheet Metal" },
+    { name: "Shutters" },
+    { name: "Siding" },
+    { name: "Signs" },
+    { name: "Smart Home Technology" },
+    { name: "Sod Farm" },
+    { name: "Soil Testing" },
+    { name: "Solar Energy" },
+    { name: "Sprinklers (Fire)" },
+    { name: "Sprinklers (Lawn)" },
+    { name: "Staffing" },
+    { name: "Staging" },
+    { name: "Stairs/Handrails" },
+    { name: "Stone/Cast/Natural/Cut" },
+    { name: "Storm Shelters" },
+    { name: "Structured Wiring" },
+    { name: "Stucco" },
+    { name: "Surveyors" },
+    { name: "Swimming Pools" },
+    { name: "Tax Consultants" },
+    { name: "Technology" },
+    { name: "Telephone Systems" },
+    { name: "Telephone/Mobile/Pager" },
+    { name: "Tile" },
+    { name: "Title Insurance" },
+    { name: "Toilets/Portable" },
+    { name: "Tools/Equipment" },
+    { name: "Travel Agents" },
+    { name: "Trim" },
+    { name: "Trucking/Transportation" },
+    { name: "Trusses/Floor Joists" },
+    { name: "Utility Company" },
+    { name: "Utility Contractors" },
+    { name: "Vacuum Systems" },
+    { name: "Wall Coverings" },
+    { name: "Warranty Insurance" },
+    { name: "Waste Removal" },
+    { name: "Water Damage Restoration" },
+    { name: "Water Leak Detection" },
+    { name: "Water Treatment" },
+    { name: "Weatherization Systems" },
+    { name: "Windows" },
+    { name: "Wine Cellars" },
+  ];
 
   return (
     <main>
@@ -292,6 +651,331 @@ export default function Profile({ imageData }) {
                             value={newPassword}
                             onChange={(e) => { setNewPassword(e.target.value) }}
                         /> */}
+              <div className="text-xl font-light mb-4">
+                <label htmlFor="Organization">Organization</label>
+                <input
+                  className="hi w-[500px] text-base pl-2"
+                  type="text"
+                  placeholder={contact.Organization}
+                  value={newOrganization}
+                  onChange={(e) => {
+                    setNewOrganization(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="flex flex-row gap-8 text-xl font-light mb-4">
+                <div className="text-xl font-light mb-4 w-full">
+                  <label htmlFor="Office Phone">Office Phone</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="phone"
+
+                    placeholder={contact.Phone}
+                    value={newOfficePhone}
+                    onChange={(e) => {
+                      setNewOfficePhone(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="text-xl font-light mb-4 w-full">
+                  <label htmlFor="Title">Title</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[39].Value}
+                    value={newTitle}
+                    onChange={(e) => {
+                      setNewTitle(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row gap-8 text-xl font-light mb-4">
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Cell Phone">Cell Phone</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[40].Value}
+                    value={newCell}
+                    onChange={(e) => {
+                      setNewCell(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="text-xl font-light mb-4 w-full">
+                  <label htmlFor="Fax">Fax</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[41].Value}
+                    value={newFax}
+                    onChange={(e) => {
+                      setNewFax(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="text-xl font-light mb-4 w-full">
+                <label htmlFor="Secondary Email Address">
+                  Secondary Email Address
+                </label>
+                <input
+                  className="hi w-[300px] text-base pl-2"
+                  type="text"
+
+                  placeholder={contact.FieldValues[42].Value}
+                  value={newSecondEmail}
+                  onChange={(e) => {
+                    setNewSecondEmail(e.target.value);
+                  }}
+                />
+                <p className="text-xs mt-1">
+                  *USE THIS FIELD IF YOU NEED INVOICES SENT TO ANOTHER EMAIL
+                  ADDRESS. THIS ADDRESS WILL RECEIVE ALL EMAILS FROM THE GFWBA
+                  SYSTEM: INVOICES, EVENT NOTICES, ETC.
+                </p>
+              </div>
+              <div className="flex flex-row gap-8 text-xl font-light mb-4">
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Address">Address</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[43].Value}
+                    value={newAddress}
+                    onChange={(e) => {
+                      setNewAddress(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="City">City</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[44].Value}
+                    value={newCity}
+                    onChange={(e) => {
+                      setNewCity(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-row gap-8 text-xl font-light mb-4">
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="State">State</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[45].Value}
+                    value={newState}
+                    onChange={(e) => {
+                      setNewState(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="ZIP">ZIP</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[46].Value}
+                    value={newZip}
+                    onChange={(e) => {
+                      setNewZip(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <label className="text-xl mb-3" htmlFor="Classifications">
+                Classifications{" "}
+                <span className="text-base">(Choose all that apply.)</span>
+              </label>
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                {classifications.map((c) => (
+                  <div key={c.name}>
+                    {/* {categoriesArr.includes(c.name) ?
+                      <div className="flex">
+                        <input
+                          type="checkbox"
+                          id={c.name}
+                          name={c.name}
+                          value={c.name}
+                          checked={categoriesArr.includes(c.name)}
+                        />
+                        <label className="pl-2">{c.name}</label>
+                      </div>
+                      :
+                      <div className="flex">
+                        <input
+                          type="checkbox"
+                          id={c.name}
+                          name={c.name}
+                          value={c.name}
+                        />
+                        <label className="pl-2">{c.name}</label>
+                      </div>} */}
+                    <div className="flex">
+                      <input
+                        type="checkbox"
+                        id={c.name}
+                        name={c.name}
+                        value={c.name}
+                        // checked={categoriesArr.includes(c.name)}
+                        checked={checkboxes.includes(c.name)}
+                        onChange={() => handleCheckboxChange(c.name)}
+                      />
+                      <label className="pl-2">{c.name}</label>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-xl font-light mb-4">
+                <label htmlFor="Website">Website</label>
+                <input
+                  className="hi w-[300px] text-base pl-2"
+                  type="text"
+
+                  placeholder={contact.FieldValues[48].Value}
+                  value={newWebsite}
+                  onChange={(e) => {
+                    setNewWebsite(e.target.value);
+                  }}
+                />
+                <p className="text-xs mt-1">
+                  *Must include http:// or https://. Example:
+                  http://www.yourwebsite.com
+                </p>
+              </div>
+
+              <label className="text-xl mb-2" htmlFor="referred">
+                Member Referral
+              </label>
+              <textarea
+                value={newReferredBy}
+                onChange={(e) => {
+                  setNewReferredBy(e.target.value);
+                }}
+                rows="2"
+                cols="50"
+                placeholder={contact.FieldValues[51].Value}
+              ></textarea>
+              <p className="text-xs mt-1">
+                If someone invited you to join the GFWBA, please list their name. If
+                no one referred you please enter NA
+              </p>
+
+              {/* Social Media Links */}
+              <div className="flex flex-row gap-8 text-xl font-light">
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Facebook Page URL">Facebook Page URL</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[53].Value}
+                    value={newFacebook}
+                    onChange={(e) => {
+                      setNewFacebook(e.target.value);
+                    }}
+                  />
+                  <p className="text-xs mt-1">
+                    The URL to your company Facebook page.
+                  </p>
+                </div>
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Twitter URL">Twitter URL</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[54].Value}
+                    value={newTwitter}
+                    onChange={(e) => {
+                      setNewTwitter(e.target.value);
+                    }}
+                  />
+                  <p className="text-xs mt-1">The URL to your Twitter page.</p>
+                </div>
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Houzz URL">Houzz URL</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[55].Value}
+                    value={newHouzz}
+                    onChange={(e) => {
+                      setNewHouzz(e.target.value);
+                    }}
+                  />
+                  <p className="text-xs mt-1">The URL to your Houzz page</p>
+                </div>
+              </div>
+              <div className="flex flex-row gap-8 text-xl font-light">
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="You Tube URL">You Tube URL</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[56].Value}
+                    value={newYoutube}
+                    onChange={(e) => {
+                      setNewYoutube(e.target.value);
+                    }}
+                  />
+                  <p className="text-xs mt-1">The URL to your YouTube page</p>
+                </div>
+                <div className="text-xl font-light mb-4">
+                  <label htmlFor="Instagram URL">Instagram URL</label>
+                  <input
+                    className="hi w-[300px] text-base pl-2"
+                    type="text"
+
+                    placeholder={contact.FieldValues[57].Value}
+                    value={newInstagram}
+                    onChange={(e) => {
+                      setNewInstagram(e.target.value);
+                    }}
+                  />
+                  <p className="text-xs mt-1">The URL to your Instagram page</p>
+                </div>
+              </div>
+              <div className="text-xl font-light mb-4">
+                <label htmlFor="Member Since">Member of GFWBA Since</label>
+                <input
+                  className="hi w-[300px] text-base pl-2"
+                  type="text"
+
+                  placeholder={contact.FieldValues[58].Value}
+                  value={newMemberSince}
+                  onChange={(e) => {
+                    setNewMemberSince(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="text-xl font-light mb-4">
+                <label htmlFor="Total Paid Employees">Total Paid Employees</label>
+                <input
+                  className="hi w-[300px] text-base pl-2"
+                  type="text"
+
+                  placeholder={contact.FieldValues[60].Value}
+                  value={newEmployees}
+                  onChange={(e) => {
+                    setNewEmployees(e.target.value);
+                  }}
+                />
+              </div>
               <div className="flex gap-4">
                 <input
                   className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
