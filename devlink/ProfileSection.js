@@ -212,7 +212,7 @@ export function ProfileSection({
               className={_utils.cx(_styles, "p-main-bold")}
               tag="div"
             >
-              {"SERVICEAREAS"}
+              {"SERVICE AREAS"}
             </_Builtin.Block>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "p-main-lh")}

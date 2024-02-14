@@ -33,8 +33,9 @@ export default function RootLayout({ children }) {
               navContact={{ href: "/contact" }}
               loginLogout={<NavLog />}
             />
-            {children}
             <Marq />
+            {children}
+
             <Footer
               footerInsta={{
                 href: "https://www.instagram.com/greaterfwbuildersassociation/",

@@ -148,7 +148,7 @@ export function HammerNailsSection({ as: _Component = _Builtin.Section }) {
                   className={_utils.cx(_styles, "p-main")}
                   tag="div"
                 >
-                  {"Hammer and Nails PAC Member — $25 annually"}
+                  {"Hammer and Nails PAC Member — $30 annually"}
                 </_Builtin.Block>
               </_Builtin.ListItem>
             </_Builtin.List>
