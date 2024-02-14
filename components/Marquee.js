@@ -13,7 +13,9 @@ import ExpressionsLogo from "../public/images/sponsors/expression-logo.jpg";
 const Marq = () => {
   return (
     <div className="w-full flex flex-col mt-20">
-      <h2 className="m-auto text-xl lg:text-5xl">OUR PLATINUM PARTNERS</h2>
+      <h2 className="m-auto text-xl lg:text-5xl mb-10">
+        OUR PLATINUM PARTNERS
+      </h2>
       <Marquee className="pb-[40px] pt-[40px] lg:pb-[100px] lg:pt-[50px]">
         <Image
           src={FoxLogo}

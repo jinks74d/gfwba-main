@@ -237,47 +237,54 @@ export default function Profile({ imageData }) {
 
       {/* TODO: Style the Update Form */}
       {updating ? (
-        <div>
-          <h3>Update</h3>
-          {/* {console.log(contact)} */}
-          <form onSubmit={handleSubmit}>
-            <div className="text-xl font-light mb-6">
-              <label for="First Name">First Name</label>
-              <input
-                className="hi w-[300px] text-base pl-2"
-                type="text"
-                placeholder={contact.FirstName}
-                value={newFName}
-                onChange={(e) => {
-                  setNewFName(e.target.value);
-                }}
-              />
-            </div>
-            <div className="text-xl font-light mb-6">
-              <label for="Last Name">Last Name</label>
-              <input
-                className="hi w-[300px] text-base pl-2"
-                type="text"
-                placeholder={contact.LastName}
-                value={newLName}
-                onChange={(e) => {
-                  setNewLName(e.target.value);
-                }}
-              />
-            </div>
-            <div className="text-xl font-light mb-6">
-              <label for="Email">Email</label>
-              <input
-                className="hi w-[300px] text-base pl-2"
-                type="text"
-                placeholder={contact.Email}
-                value={newEmail}
-                onChange={(e) => {
-                  setNewEmail(e.target.value);
-                }}
-              />
-            </div>
-            {/* <label for='Password'>Password</label>
+        <div className="form-main justify-center">
+          <div className="my-10 border-[#102647] border-2 p-10 rounded-3xl">
+            <h3 className="font-light text-3xl">Update Profile</h3>
+            {/* {console.log(contact)} */}
+            <form onSubmit={handleSubmit}>
+              <div className="text-xl font-light mb-6">
+                <label className="form-label" for="First Name">
+                  First Name
+                </label>
+                <input
+                  className="hi form-input"
+                  type="text"
+                  placeholder={contact.FirstName}
+                  value={newFName}
+                  onChange={(e) => {
+                    setNewFName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="text-xl font-light mb-6">
+                <label className="form-label" for="Last Name">
+                  Last Name
+                </label>
+                <input
+                  className="hi form-input"
+                  type="text"
+                  placeholder={contact.LastName}
+                  value={newLName}
+                  onChange={(e) => {
+                    setNewLName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="text-xl font-light mb-6">
+                <label className="form-label" for="Email">
+                  Email
+                </label>
+                <input
+                  className="hi form-input"
+                  type="text"
+                  placeholder={contact.Email}
+                  value={newEmail}
+                  onChange={(e) => {
+                    setNewEmail(e.target.value);
+                  }}
+                />
+              </div>
+              {/* <label for='Password'>Password</label>
                         <input
                             className='hi'
                             type="text"
@@ -285,24 +292,26 @@ export default function Profile({ imageData }) {
                             value={newPassword}
                             onChange={(e) => { setNewPassword(e.target.value) }}
                         /> */}
-            <div></div>
-            <input
-              className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
-              type="submit"
-            />
-          </form>
-          {/* <p>{contact.DisplayName}</p>
+              <div className="flex gap-4">
+                <input
+                  className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                  type="submit"
+                />
+                <button
+                  className="cursor-pointer text-[#102647] text-xl uppercase mt-10 py-2 px-10 border-2 border-[#102647] border-solid"
+                  onClick={cancelUpdate}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+            {/* <p>{contact.DisplayName}</p>
                     <p>{contact.Email}</p>
                     <p>{contact.FirstName}</p>
                     <p>{contact.LastName}</p> */}
-          {/* <p>Membership Status: {contact.Status}</p> */}
-          {/* <p></p> */}
-          <button
-            className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
-            onClick={cancelUpdate}
-          >
-            Cancel
-          </button>
+            {/* <p>Membership Status: {contact.Status}</p> */}
+            {/* <p></p> */}
+          </div>
         </div>
       ) : (
         <>
@@ -323,17 +332,19 @@ export default function Profile({ imageData }) {
             profArea={area}
           />
           {params.id == loggedId && (
-            <button
-              className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
-              onClick={() => setUpdating(true)}
-            >
-              Update
-            </button>
+            <div className="form-main form-margin-top">
+              <button
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                onClick={() => setUpdating(true)}
+              >
+                Update
+              </button>
+            </div>
           )}
           {/* START MESSAGING APP */}
           {sendingEmail ? (
-            <div className="flex mt-10 text-base">
-              <div className="w-full max-w-[1600px] ml-auto mr-auto">
+            <div>
+              <div className="form-main">
                 <form onSubmit={sendEmail}>
                   <div className="font-light mb-4">
                     <label className="font-light mb-2" for="Reply Name">

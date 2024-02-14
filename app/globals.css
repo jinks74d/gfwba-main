@@ -25,6 +25,28 @@ textarea {
   border: 1px solid #102647;
 }
 
+/* FORMS */
+.form-main {
+  @apply flex mt-10 text-base w-full max-w-[1600px] ml-auto mr-auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-margin-top {
+  @apply mt-0;
+}
+
+.form-center {
+  @apply flex flex-col;
+}
+
+.form-label {
+  @apply font-light text-base;
+}
+
+.form-input {
+  @apply w-[400px] text-base p-2;
+}
+
 /* BEGIN OVERRIDES */
 /* FULL CALENDAR */
 .fc-daygrid-event {
