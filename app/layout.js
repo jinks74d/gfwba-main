@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
               loginLogout={<NavLog />}
             />
             <Marq />
+
             {children}
 
             <Footer

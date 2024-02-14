@@ -4324,16 +4324,16 @@ var IE = u((X) => {
   var WL = (e) => e.value;
   X.getPluginDestination = WL;
   var KL = (e, r) => {
-    var t, n;
-    let i =
+    var t;
+    let n =
       r == null ||
       (t = r.config) === null ||
       t === void 0 ||
-      (n = t.target) === null ||
-      n === void 0
+      (t = t.target) === null ||
+      t === void 0
         ? void 0
-        : n.pluginElement;
-    return i ? VL(i) : null;
+        : t.pluginElement;
+    return n ? VL(n) : null;
   };
   X.createPluginInstance = KL;
   var YL = (e, r, t) => {
