@@ -14,7 +14,7 @@ const Marq = () => {
   return (
     <div className="w-full">
       <Marquee
-        speed={40}
+        speed={20}
         pauseOnHover={true}
         className="flex flex-row justify-center items-center"
       >
