@@ -153,18 +153,10 @@ export function Navbar({
                 <_Builtin.DropdownLink
                   className={_utils.cx(_styles, "dd-link")}
                   options={{
-                    href: "/governmental-affairs",
-                  }}
-                >
-                  {"ADVOCACY"}
-                </_Builtin.DropdownLink>
-                <_Builtin.DropdownLink
-                  className={_utils.cx(_styles, "dd-link")}
-                  options={{
                     href: "/hammer-and-nails-pac",
                   }}
                 >
-                  {"HAMMER&NAILSPAC"}
+                  {"HAMMER & NAILS PAC"}
                 </_Builtin.DropdownLink>
               </_Builtin.DropdownList>
             </_Builtin.DropdownWrapper>
@@ -222,7 +214,7 @@ export function Navbar({
                     href: "/committees-and-councils",
                   }}
                 >
-                  {"COMMITTEES &COUNCILS"}
+                  {"COMMITTEES & COUNCILS"}
                 </_Builtin.DropdownLink>
               </_Builtin.DropdownList>
             </_Builtin.DropdownWrapper>
