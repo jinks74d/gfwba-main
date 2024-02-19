@@ -254,17 +254,6 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link
-          href="https://www.expressionshomegallerysouthlake.com/"
-          target="_blank"
-        >
-          <Image
-            src={ExpressionsLogo}
-            alt="Expressions Home Gallery Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
       </Marquee>
     </div>
   );
