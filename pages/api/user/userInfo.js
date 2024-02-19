@@ -72,7 +72,7 @@ export default function handler(req, res) {
                 // if (changes.Email) { original.Email = changes.Email }
                 // if (changes.Password) { original.Password = changes.Password }
                 changes.Id = `${id}`
-
+                console.log('line 75: ', changes.FieldValues[0].Value)
                 console.log(changes, `https://api.wildapricot.org/v2/Accounts/191317/Contacts/${id}`);
                 axios
                     .put(`https://api.wildapricot.org/v2.2/accounts/191317/contacts/${id}`, changes, {
