@@ -43,41 +43,10 @@ export default function handler(req, res) {
                     Accept: 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-
+                timeout: 10000
             })
             .then((response) => {
                 const accounts = response.data;
-                // Do something with the accounts
-                // console.log(typeof accounts);
-                // accounts.Contacts.forEach(contact => {
-                //     if (contact.FieldValues[49].Value !== '') {
-                //         let image = contact.FieldValues[49].Value.Url
-                //         getDataBlob(image);
-                //         async function getDataBlob(url) {
-                //             var res = await fetch(`${url}?%24async=false`, {
-                //                 headers: {
-                //                     'User-Agent': 'MySampleApplication/0.1',
-                //                     Accept: 'application/json',
-                //                     Authorization: `Bearer ${token}`,
-                //                 },
-
-                //             });
-                // var blob = await res.blob();
-                //     contact.FieldValues[49].Blob = blob
-                // res.send(blob);
-                // console.log('77: ', image, blob);
-                // }
-                // }
-                // async function parseURI(d) {
-                //     var reader = new FileReader();
-                //     reader.readAsDataURL(d);
-                //     return new Promise((res, rej) => {
-                //         reader.onload = (e) => {
-                //             res(e.target.result);
-                //         };
-                //     });
-                // }
-                // })
                 res.status(200).send(accounts);
             })
             .catch((error) => {

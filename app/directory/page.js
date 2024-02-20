@@ -122,46 +122,6 @@ export default function Directory() {
       // console.log(categoryArr);
       setCategories(categoryArr.sort());
       // setServiceAreas(areaArr);
-      json.Contacts.forEach((element) => {
-        let img = element.FieldValues[49];
-        if (img.Value != "") {
-          // console.log(
-          //   `${element.DisplayName}'s image url is: ${img.Value.Url}`
-          // );
-          // console.log(
-          // `${element.DisplayName}'s blob is: ${img.Value.Url}`
-          // element
-          // );
-          // const fetchBlobs = async () => {
-          // fetch("/api/fetchBlobs", {
-          //   method: "PUT",
-          //   headers: {
-          //     "Content-Type": "application/json;charset=utf-8",
-          //   },
-          //   body: JSON.stringify({ 'img': img.Value.Url })
-          // })
-          //   .then((response) => {
-          //     if (!response.ok) {
-          //       throw new Error(`HTTP error, status = ${response.status}`);
-          //     }
-          //     return response.arrayBuffer();
-          //   })
-          //   .then((myBlob) => {
-          //     console.log(myBlob)
-          //     const objectURL = URL.createObjectURL(myBlob);
-          //     // myImage.src = objectURL;
-          //     console.log(objectURL)
-          //   });
-          // const blob = await response.blob();
-          // console.log(blob)
-          // const objectUrl = URL.createObjectURL(blob);
-        }
-        // fetchBlobs()
-        // }
-        // Object.keys(img.Value).forEach(function (key, index) {
-        //   img.Value[key].Label
-        // })
-      });
     }
   };
 
