@@ -1,6 +1,10 @@
 // HOME PAGE
 
 import { HomeHero, HomeMain, Footer } from "@/devlink";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
+const { metadataBase } = publicRuntimeConfig;
 
 export const metadata = {
   title:
@@ -18,10 +22,8 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/654973dff5e6efeb48a605c2_gfwba-logo.png",
-        width: 800,
-        height: 600,
-        alt: "GFWBA Home Page Hero Image",
+        url: `${metadataBase}/public/images/gfwba-logo@2x.png`,
+        alt: "GFWBA Logo",
       },
     ],
   },
