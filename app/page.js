@@ -16,6 +16,14 @@ export const metadata = {
     siteName: "Greater Fort Worth Builders Association",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/654973dff5e6efeb48a605c2_gfwba-logo.png",
+        width: 800,
+        height: 600,
+        alt: "GFWBA Home Page Hero Image",
+      },
+    ],
   },
 };
 

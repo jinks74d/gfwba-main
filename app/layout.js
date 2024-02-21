@@ -1,11 +1,16 @@
 "use client";
+
 import Marq from "@/components/Marquee";
 import { DevLinkProvider, Navbar, Footer } from "@/devlink";
 import { LoggedStatusProvider } from "@/context/LoggedStatusProvider";
 import NavLog from "@/components/NavLog";
+import getConfig from "next/config";
 
 import "./globals.css";
 import "@/devlink/global.css";
+
+const { publicRuntimeConfig } = getConfig();
+const { metadataBase } = publicRuntimeConfig;
 
 // export const metadata = {
 //   title: "Create Next App",
