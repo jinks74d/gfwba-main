@@ -1,16 +1,19 @@
 // ABOUT PAGE
 
-import { InnerHero, AboutSection } from "@/devlink";
-import getConfig from "next/config";
+// Import React components and getConfig from Next.js
+import { InnerHero, AboutSection } from "@/devlink"; // Custom components for the About page layout
+import getConfig from "next/config"; // Used to access the public runtime configuration
 
+// Retrieve public runtime configuration, including the base URL for metadata
 const { publicRuntimeConfig } = getConfig();
-const { metadataBase } = publicRuntimeConfig;
+const { metadataBase } = publicRuntimeConfig; // Base URL used in metadata, e.g., for canonical URLs and open graph images
 
+// Define metadata for the About page, including SEO and Open Graph details
 export const metadata = {
-  title: "About GFWBA: Advocating for Fort Worth's Homebuilding Industry",
+  title: "About GFWBA: Advocating for Fort Worth's Homebuilding Industry", // Title of the page for SEO purposes
   description:
-    "Learn about the Greater Fort Worth Builders Association (GFWBA), our mission, history, and significant victories for the homebuilding industry in Fort Worth, Texas.",
-  authors: [
+    "Learn about the Greater Fort Worth Builders Association (GFWBA), our mission, history, and significant victories for the homebuilding industry in Fort Worth, Texas.", // Description for SEO
+  authors: [ // Authors or contributors to the page content
     {
       name: "Farside Web Development",
       url: "https://farsidedev.com",
@@ -20,61 +23,64 @@ export const metadata = {
       url: "https://gfwbatx.com",
     },
   ],
-  openGraph: {
+  openGraph: { // Open Graph metadata for social sharing
     title:
-      "Greater Fort Worth Builders Association: Shaping the Future of Homebuilding",
+      "Greater Fort Worth Builders Association: Shaping the Future of Homebuilding", // OG title
     description:
-      "Discover the mission, achievements, and impact of the Greater Fort Worth Builders Association on Fort Worth's homebuilding sector. Join us in our commitment to industry excellence.",
-    url: "https://gfwbatx.com/about",
-    siteName: "Greater Fort Worth Builders Association",
-    locale: "en_US",
-    type: "website",
-    images: [
+      "Discover the mission, achievements, and impact of the Greater Fort Worth Builders Association on Fort Worth's homebuilding sector. Join us in our commitment to industry excellence.", // OG description
+    url: "https://gfwbatx.com/about", // Canonical URL of the About page
+    siteName: "Greater Fort Worth Builders Association", // Website name for OG data
+    locale: "en_US", // Locale of the content
+    type: "website", // Type of content
+    images: [ // Images for OG sharing
       {
-        url: `${metadataBase}/public/images/gfwba-logo@2x.png`,
-        alt: "GFWBA Logo",
+        url: `${metadataBase}/public/images/gfwba-logo@2x.png`, // URL of the image to share
+        alt: "GFWBA Logo", // Alternative text for the image
       },
     ],
   },
 };
 
+// Functional component for the About page
 export default function About() {
-  const { url } = metadata.openGraph;
+  const { url } = metadata.openGraph; // Extract the canonical URL from the metadata
   
-  // Start of Schema.org JSON-LD for SEO
+  // Define breadcrumb schema for structured data (SEO)
   const breadcrumbSchema = {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
+        position: 1, // Position in the breadcrumb list
         item: {
-          "@id": `${metadataBase}`,
-          name: "Home",
+          "@id": `${metadataBase}`, // URL of the home page
+          name: "Home", // Name of the breadcrumb
         },
       },
       {
         "@type": "ListItem",
-        position: 2,
+        position: 2, // Position in the breadcrumb list for the About page
         item: {
-          "@id": `${metadataBase}/about`,
-          name: "About",
+          "@id": `${metadataBase}/about`, // Canonical URL of the About page
+          name: "About", // Name of the breadcrumb
         },
       },
     ],
   };
-  // End of Schema.org JSON-LD for SEO
 
   return (
     <>
       <head>
+        {/* Insert structured data (breadcrumb schema) for SEO */}
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
-        <link rel="canonical" href={url + "/about"} />
+        {/* Canonical link to help with SEO and prevent duplicate content */}
+        <link rel="canonical" href={url} />
       </head>
       <main>
+        {/* InnerHero and AboutSection components display page content */}
         <InnerHero
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
