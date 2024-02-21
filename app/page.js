@@ -1,5 +1,6 @@
 // HOME PAGE
 
+import Head from "next/head";
 import { HomeHero, HomeMain, Footer } from "@/devlink";
 import getConfig from "next/config";
 
@@ -57,15 +58,22 @@ export default function Home() {
   // End of Schema.org JSON-LD for SEO
 
   return (
-    <main>
-      <HomeHero
-        heroDirectory={{ href: "/directory" }}
-        heroJoin={{ href: "/" }}
-      />
-      <HomeMain
-        homeDirectory={{ href: "/directory" }}
-        homeJoin={{ href: "/" }}
-      />
-    </main>
+    <>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+      </Head>
+      <main>
+        <HomeHero
+          heroDirectory={{ href: "/directory" }}
+          heroJoin={{ href: "/" }}
+        />
+        <HomeMain
+          homeDirectory={{ href: "/directory" }}
+          homeJoin={{ href: "/" }}
+        />
+      </main>
+    </>
   );
 }
