@@ -27,7 +27,7 @@ export const metadata = {
       "Empowering Fort Worth's Homebuilding Industry - Greater Fort Worth Builders Association",
     description:
       "Discover how the Greater Fort Worth Builders Association champions the homebuilding industry through advocacy, education, and networking. Since 1945, connecting professionals for growth and community development.",
-    url: "https://gfwbatx.com",
+    url: `${metadataBase}`,
     siteName: "Greater Fort Worth Builders Association",
     locale: "en_US",
     type: "website",
