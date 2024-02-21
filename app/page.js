@@ -30,6 +30,32 @@ export const metadata = {
 };
 
 export default function Home() {
+  // Schema.org JSON-LD for SEO
+  const organizationSchema = {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name: "Greater Fort Worth Builders Association",
+    url: `${metadataBase}`,
+    logo: `${metadataBase}/public/images/gfwba-logo@2x.png`,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+1-817-284-3566",
+        contactType: "administrative support",
+        areaServed: "US",
+        availableLanguage: ["English"],
+      },
+    ],
+    sameAs: [
+      "https://www.facebook.com/GFWBA",
+      "https://twitter.com/i/flow/login?redirect_after_login=%2FFWBuildersAssoc",
+      "https://www.instagram.com/greaterfwbuildersassociation/",
+      "https://www.linkedin.com/company/greater-fort-worth-builders-association/",
+      // Add other social media profiles as needed
+    ],
+  };
+  // End of Schema.org JSON-LD for SEO
+
   return (
     <main>
       <HomeHero

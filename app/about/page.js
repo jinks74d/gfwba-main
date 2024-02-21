@@ -1,6 +1,10 @@
 // ABOUT PAGE
 
 import { InnerHero, AboutSection } from "@/devlink";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
+const { metadataBase } = publicRuntimeConfig;
 
 export const metadata = {
   title: "About GFWBA: Advocating for Fort Worth's Homebuilding Industry",
@@ -15,6 +19,12 @@ export const metadata = {
     siteName: "Greater Fort Worth Builders Association",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${metadataBase}/public/images/gfwba-logo@2x.png`,
+        alt: "GFWBA Logo",
+      },
+    ],
   },
 };
 
