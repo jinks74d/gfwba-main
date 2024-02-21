@@ -12,6 +12,16 @@ export const metadata = {
     "Greater Fort Worth Builders Association - Leading Homebuilding Industry Advocacy",
   description:
     "Join GFWBA, the premier non-profit association for homebuilding professionals in Fort Worth. Advocacy, education, networking, and member services since 1945.",
+  authors: [
+    {
+      name: "Farside Web Development",
+      url: "https://farsidedev.com",
+    },
+    {
+      name: "Greater Fort Worth Builders Association",
+      url: "https://gfwbatx.com",
+    },
+  ],
   openGraph: {
     title:
       "Empowering Fort Worth's Homebuilding Industry - Greater Fort Worth Builders Association",

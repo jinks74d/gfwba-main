@@ -10,6 +10,16 @@ export const metadata = {
   title: "About GFWBA: Advocating for Fort Worth's Homebuilding Industry",
   description:
     "Learn about the Greater Fort Worth Builders Association (GFWBA), our mission, history, and significant victories for the homebuilding industry in Fort Worth, Texas.",
+  authors: [
+    {
+      name: "Farside Web Development",
+      url: "https://farsidedev.com",
+    },
+    {
+      name: "Greater Fort Worth Builders Association",
+      url: "https://gfwbatx.com",
+    },
+  ],
   openGraph: {
     title:
       "Greater Fort Worth Builders Association: Shaping the Future of Homebuilding",

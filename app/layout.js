@@ -8,19 +8,6 @@ import NavLog from "@/components/NavLog";
 import "./globals.css";
 import "@/devlink/global.css";
 
-export const metadata = {
-  authors: [
-    {
-      name: "Farside Web Development",
-      url: "https://farsidedev.com",
-    },
-    {
-      name: "Greater Fort Worth Builders Association",
-      url: "https://gfwbatx.com",
-    },
-  ],
-};
-
 export default function RootLayout({ children }) {
   // console.log(loggedStatus)
   return (
