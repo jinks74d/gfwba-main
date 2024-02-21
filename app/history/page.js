@@ -1,4 +1,4 @@
-//
+// HISTORY PAGE
 
 // Import necessary components and functions
 import { InnerHero, HistorySection } from "@/devlink"; // Custom components used in the page
