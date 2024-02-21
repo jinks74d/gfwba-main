@@ -1,6 +1,6 @@
 // HOME PAGE
 
-import Head from "next/head";
+// import Head from "next/head";
 import { HomeHero, HomeMain, Footer } from "@/devlink";
 import getConfig from "next/config";
 
@@ -73,14 +73,14 @@ export default function Home() {
 
   return (
     <>
-      <Head>
+      <head>
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </script>
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
         </script>
-      </Head>
+      </head>
       <main>
         <HomeHero
           heroDirectory={{ href: "/directory" }}
