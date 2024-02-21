@@ -1,6 +1,6 @@
 // HOME PAGE
 
-import Head from "next/head";
+// import Head from "next/head";
 import { HomeHero, HomeMain, Footer } from "@/devlink";
 import getConfig from "next/config";
 
@@ -37,7 +37,7 @@ export default function Home() {
     "@type": "Organization",
     name: "Greater Fort Worth Builders Association",
     url: `${metadataBase}`,
-    logo: `${metadataBase}/public/images/gfwba-logo@2x.png`,
+    logo: `${metadataBase}/images/gfwba-logo@2x.png`,
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -59,11 +59,11 @@ export default function Home() {
 
   return (
     <>
-      <Head>
+      <head>
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </script>
-      </Head>
+      </head>
       <main>
         <HomeHero
           heroDirectory={{ href: "/directory" }}
