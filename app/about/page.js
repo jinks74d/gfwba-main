@@ -29,13 +29,46 @@ export const metadata = {
 };
 
 export default function About() {
+  // Start of Schema.org JSON-LD for SEO
+  const breadcrumbSchema = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@id": `${metadataBase}`,
+          name: "Home",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@id": `${metadataBase}/about`,
+          name: "About",
+        },
+      },
+    ],
+  };
+  // End of Schema.org JSON-LD for SEO
+
   return (
-    <main>
-      <InnerHero
-        heroDirectory={{ href: "/directory" }}
-        heroJoin={{ href: "/signup" }}
-      />
-      <AboutSection />
-    </main>
+    <>
+      <head>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <link rel="canonical" href="https://gfwba-main.vercel.app/about" />
+      </head>
+      <main>
+        <InnerHero
+          heroDirectory={{ href: "/directory" }}
+          heroJoin={{ href: "/signup" }}
+        />
+        <AboutSection />
+      </main>
+    </>
   );
 }
