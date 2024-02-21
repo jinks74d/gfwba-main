@@ -69,6 +69,37 @@ export default function Home() {
       "query-input": "required name=search_term_string",
     },
   };
+
+  // Define the LocalBusiness schema
+  const localBusinessSchema = {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    name: "Greater Fort Worth Builders Association",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "100 E. 15th Street, Suite 600",
+      addressLocality: "Fort Worth",
+      addressRegion: "TX",
+      postalCode: "76102",
+      addressCountry: "US",
+    },
+    telephone: "+1-817-284-3566",
+    url: metadataBase,
+  };
+
+  // Define the BreadcrumbList schema
+  const breadcrumbSchema = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://gfwbatx.com",
+      },
+    ],
+  };
   // End of Schema.org JSON-LD for SEO
 
   return (
@@ -79,6 +110,12 @@ export default function Home() {
         </script>
         <script type="application/ld+json">
           {JSON.stringify(websiteSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       </head>
       <main>
