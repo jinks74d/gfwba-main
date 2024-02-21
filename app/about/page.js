@@ -39,6 +39,8 @@ export const metadata = {
 };
 
 export default function About() {
+  const { url } = metadata.openGraph;
+  
   // Start of Schema.org JSON-LD for SEO
   const breadcrumbSchema = {
     "@context": "http://schema.org",
@@ -70,7 +72,7 @@ export default function About() {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
-        <link rel="canonical" href="https://gfwba-main.vercel.app/about" />
+        <link rel="canonical" href={url + "/about"} />
       </head>
       <main>
         <InnerHero

@@ -39,6 +39,8 @@ export const metadata = {
 };
 
 export default function History() {
+  const { url } = metadata.openGraph;
+
   // Start of Schema.org JSON-LD for SEO
   const breadcrumbSchema = {
     "@context": "http://schema.org",
@@ -71,7 +73,7 @@ export default function History() {
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </head>
-      <link rel="canonical" href="https://gfwba-main.vercel.app/history" />
+      <link rel="canonical" href={url + "/history"} />
       <main>
         <InnerHero
           heroDirectory={{ href: "/directory" }}
