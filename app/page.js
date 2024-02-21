@@ -31,6 +31,8 @@ export const metadata = {
 };
 
 export default function Home() {
+  const { url } = metadata.openGraph;
+
   // Schema.org JSON-LD for SEO
   // Define the Organization schema
   const organizationSchema = {
@@ -117,6 +119,7 @@ export default function Home() {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
+        <link rel="canonical" href={url} />
       </head>
       <main>
         <HomeHero
