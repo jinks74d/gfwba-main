@@ -1,6 +1,6 @@
 // HOME PAGE
 
-// import Head from "next/head";
+import Head from "next/head";
 import { HomeHero, HomeMain, Footer } from "@/devlink";
 import getConfig from "next/config";
 
@@ -32,6 +32,7 @@ export const metadata = {
 
 export default function Home() {
   // Schema.org JSON-LD for SEO
+  // Define the Organization schema
   const organizationSchema = {
     "@context": "http://schema.org",
     "@type": "Organization",
@@ -55,15 +56,31 @@ export default function Home() {
       // Add other social media profiles as needed
     ],
   };
+
+  // Define the Website schema
+  const websiteSchema = {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    url: metadataBase, // Use the metadataBase for the URL
+    name: "Greater Fort Worth Builders Association",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${metadataBase}/search?query={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
   // End of Schema.org JSON-LD for SEO
 
   return (
     <>
-      <head>
+      <Head>
         <script type="application/ld+json">
           {JSON.stringify(organizationSchema)}
         </script>
-      </head>
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+      </Head>
       <main>
         <HomeHero
           heroDirectory={{ href: "/directory" }}
