@@ -17,7 +17,7 @@ export function HammerNailsSection({ as: _Component = _Builtin.Section }) {
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"HAMMER&NAILS PAC"}
+          {"HAMMER & NAILS PAC"}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
           {"Become a Key Member Today!"}

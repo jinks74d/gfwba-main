@@ -38,7 +38,7 @@ export function EventsListSection({
         tag="div"
       >
         <_Builtin.Heading className={_utils.cx(_styles, "heading-1")} tag="h1">
-          {"GFWBAEVENTS"}
+          {"GFWBA EVENTS"}
         </_Builtin.Heading>
         <_Builtin.Block className={_utils.cx(_styles, "text-block")} tag="div">
           {"Register for Upcoming Events"}
@@ -82,7 +82,7 @@ export function EventsListSection({
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"UPCOMINGEVENTS"}
+              {"UPCOMING EVENTS"}
             </_Builtin.Heading>
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
