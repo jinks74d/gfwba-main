@@ -109,8 +109,56 @@ textarea {
 
 /* END OVERRIDES */
 
+@media screen and (max-width: 1600px) {
+  .HomeMain_section-2__GxDo4,
+  .AboutSection_section-2__Jx5cZ,
+  .HistorySection_section-2__M5ZeG,
+  .OrganizationSection_section-2___XbGw,
+  .HammerNailsSection_section-2__r2084,
+  .MemberSection_section-2__o3AJi,
+  .MemberBenefitsSection_section-2__K_0zj,
+  .FaqSection_section-2__OEt6G,
+  .Base21WebflowSection_section-2__4WggG,
+  .EventsListSection_section-2__oTt_r,
+  .ContactSection_section-2__fTHyQ,
+  .JoinGfwbaSection_section-2__ayd_F,
+  .ProfileSection_section-2__0c_Qr {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .btn-res-padding {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  h1 {
+    @apply text-7xl !important;
+  }
+
+  h2 {
+    @apply text-4xl !important;
+  }
+
+  .MemberSection_staff-title__h59de {
+    @apply text-lg !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     border-left: 20px solid #c3271b;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    @apply text-3xl !important;
+  }
+
+  h2 {
+    @apply text-2xl !important;
   }
 }
