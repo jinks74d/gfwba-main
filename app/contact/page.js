@@ -65,7 +65,7 @@ export default function Contact() {
         position: 2,
         item: {
           "@id": `${metadataBase}/contact`, // URL for the current contact page
-          name: "Contact GFWBA", // This should likely be updated to "Contact" to match the page's content
+          name: "Contact GFWBA", // Name of the current page
         },
       },
     ],
