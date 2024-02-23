@@ -13,12 +13,10 @@ import Head from "next/head";
 
 import { InnerHero, EventsListSection, EventListCard } from "@/devlink";
 
-
-
-const metadataBase = 'https://gfwba-main.vercel.app/';
+const metadataBase = "https://gfwba-main.vercel.app/";
 
 export default function Events() {
-  const { url } = 'https://gfwba-main.vercel.app/events';
+  const { url } = "https://gfwba-main.vercel.app/events";
 
   const breadcrumbSchema = {
     "@context": "http://schema.org",
@@ -149,8 +147,10 @@ export default function Events() {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
+        <script type="application/ld+json">
+        {<Metadata />}
+        </script>
         <link rel="canonical" href={url} />
-        <Metadata />;
       </Head>
 
       <main>
