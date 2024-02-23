@@ -143,6 +143,10 @@
   font-weight: 400;
 }
 
+.nav-link.hide {
+  display: none;
+}
+
 .dropdown-list-2 {
   background-color: #ddd;
 }

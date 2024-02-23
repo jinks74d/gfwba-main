@@ -40,6 +40,7 @@ export function FaqSection({ as: _Component = _Builtin.Section }) {
                 {"Q: Can I join right now?"}
               </_Builtin.Heading>
               <_Builtin.Paragraph className={_utils.cx(_styles, "p-main")}>
+                {"A: "}
                 <_Builtin.Link
                   className={_utils.cx(_styles, "contact-link")}
                   button={false}

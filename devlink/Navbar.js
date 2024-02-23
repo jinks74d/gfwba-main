@@ -227,7 +227,7 @@ export function Navbar({
               {"EVENTS"}
             </_Builtin.NavbarLink>
             <_Builtin.NavbarLink
-              className={_utils.cx(_styles, "nav-link")}
+              className={_utils.cx(_styles, "nav-link", "hide")}
               options={navResources}
             >
               {"RESOURCES"}
