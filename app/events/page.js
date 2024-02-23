@@ -1,14 +1,48 @@
+//EVENTS PAGE
+
 "use client";
+
 import BlueBtn from "@/components/BlueBtn";
 import SearchBar from "@/components/SearchBar";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CalendarComponent } from "@/components/Calendar";
+import { Metadata } from "./eventsMetadata";
+import Head from "next/head";
 // import useSWR from 'swr'
 
 import { InnerHero, EventsListSection, EventListCard } from "@/devlink";
 
+
+
+const metadataBase = 'https://gfwba-main.vercel.app/';
+
 export default function Events() {
+  const { url } = 'https://gfwba-main.vercel.app/events';
+
+  const breadcrumbSchema = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@id": `${metadataBase}`,
+          name: "Home",
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@id": `${metadataBase}/events`,
+          name: "Events",
+        },
+      },
+    ],
+  };
+
   const [events, setEvents] = useState("");
   const [events2, setEvents2] = useState("");
   const [allContacts, setAllContacts] = useState("");
@@ -110,48 +144,58 @@ export default function Events() {
   // console.log(data)
 
   return (
-    <main>
-      <InnerHero
-        heroDirectory={{ href: "/directory" }}
-        heroJoin={{ href: "/signup" }}
-      />
-      <EventsListSection
-        calendarPane={
-          <div>
-            {events ? (
-              <CalendarComponent events={events} />
-            ) : (
-              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
-                <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
-                <p className="text-xl leading-normal">Loading Calendar</p>
-              </div>
-            )}
-          </div>
-        }
-        listPane={
-          <div>
-            {events2 ? (
-              events2.map((e) => (
-                <>
-                  {console.log(e)}
-                  <EventListCard
-                    eventTitle={e.Name}
-                    eventDate={e.niceStartDate}
-                    eventTime={e.niceStartTime}
-                    eventLocation={e.Location}
-                    eventLink={{ href: `/event/${e.Id}` }}
-                  />
-                </>
-              ))
-            ) : (
-              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
-                <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
-                <p className="text-xl leading-normal">Loading Events</p>
-              </div>
-            )}
-          </div>
-        }
-      />
-    </main>
+    <>
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <link rel="canonical" href={url} />
+        <Metadata />;
+      </Head>
+
+      <main>
+        <InnerHero
+          heroDirectory={{ href: "/directory" }}
+          heroJoin={{ href: "/signup" }}
+        />
+        <EventsListSection
+          calendarPane={
+            <div>
+              {events ? (
+                <CalendarComponent events={events} />
+              ) : (
+                <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
+                  <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
+                  <p className="text-xl leading-normal">Loading Calendar</p>
+                </div>
+              )}
+            </div>
+          }
+          listPane={
+            <div>
+              {events2 ? (
+                events2.map((e) => (
+                  <>
+                    {console.log(e)}
+                    <EventListCard
+                      eventTitle={e.Name}
+                      eventDate={e.niceStartDate}
+                      eventTime={e.niceStartTime}
+                      eventLocation={e.Location}
+                      eventLink={{ href: `/event/${e.Id}` }}
+                    />
+                  </>
+                ))
+              ) : (
+                <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
+                  <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
+                  <p className="text-xl leading-normal">Loading Events</p>
+                </div>
+              )}
+            </div>
+          }
+        />
+      </main>
+    </>
   );
 }
