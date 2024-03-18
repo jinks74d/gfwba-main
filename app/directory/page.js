@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLoggedStatus } from '@/context/LoggedStatusProvider';
 // import useSWR from 'swr'
+const imageServer = process.env.NEXT_PUBLIC_IMAGE_SERVER;
 
 import { InnerHero, MemberListItem } from "@/devlink";
 // const fetcher = (...args) => fetch(...args).then(res => res.json())
@@ -294,20 +295,36 @@ export default function Directory() {
           )}
           <div>
             {paginationArr ? (
-              paginationArr.map((c) => (
-                <MemberListItem
-                  // memberListLogo={}
-                  memberListName={`${c.DisplayName}`}
-                  memberListCompany={`${c.Organization}`}
-                  memberListTitle={` ${c.FieldValues[39].Value}`}
-                  memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
-                  memberListWebsite={`${c.FieldValues[48].Value}`}
-                  memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
-                  memberListCategory={`${c.memberCat}`}
-                  memberListItemLink={{ href: `/profile/${c.Id}` }}
-                  key={c.Id}
-                />
-              ))
+              paginationArr.map((c) => {
+                if (c.FieldValues[49].Value) {
+                  return (<MemberListItem
+                    memberListLogo={`${imageServer}/contacts-image/${c.FieldValues[49].Value.Id}`}
+                    memberListName={`${c.DisplayName}`}
+                    memberListCompany={`${c.Organization}`}
+                    memberListTitle={` ${c.FieldValues[39].Value}`}
+                    memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
+                    memberListWebsite={`${c.FieldValues[48].Value}`}
+                    memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
+                    memberListCategory={`${c.memberCat}`}
+                    memberListItemLink={{ href: `/profile/${c.Id}` }}
+                    key={c.Id}
+                  />);
+                } else {
+                  return (<MemberListItem
+                    // memberListLogo={}
+                    memberListName={`${c.DisplayName}`}
+                    memberListCompany={`${c.Organization}`}
+                    memberListTitle={` ${c.FieldValues[39].Value}`}
+                    memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
+                    memberListWebsite={`${c.FieldValues[48].Value}`}
+                    memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
+                    memberListCategory={`${c.memberCat}`}
+                    memberListItemLink={{ href: `/profile/${c.Id}` }}
+                    key={c.Id}
+                  />);
+                }
+              }
+              )
             ) : (
               // <p className='text-xl leading-normal'>Loading Directory</p>
               <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">

@@ -3,6 +3,8 @@ import { InnerHero, ProfileSection } from "@/devlink";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useLoggedStatus } from "@/context/LoggedStatusProvider";
+import axios from 'axios';
+const imageServer = process.env.NEXT_PUBLIC_IMAGE_SERVER;
 
 export default function Profile({ imageData }) {
   // const { query } = useRouter()
@@ -121,7 +123,9 @@ export default function Profile({ imageData }) {
       // console.log(json.profLogo)
       // const logoUrl = URL.createObjectURL(json.profLogo);
       // console.log(logoUrl)
-      // setLogo(logoUrl)
+      if (json.FieldValues[48].Value) {
+        setLogo(`${imageServer}/contacts-image/${json.FieldValues[49].Value.Id}`)
+      }
       let categoryArr = [];
       let categoriesArr = [];
       let cat = json.FieldValues[47];
@@ -337,6 +341,15 @@ export default function Profile({ imageData }) {
     if (fieldValues[0]) {
       changes.FieldValues = fieldValues;
     }
+    if (newLogo !== '') {
+      try {
+        // Send base64Image to the server
+        await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
+        console.log('Image uploaded successfully');
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    }
 
     let response = await fetch("/api/user/userInfo", {
       method: "PUT",
@@ -388,6 +401,28 @@ export default function Profile({ imageData }) {
         localStorage.removeItem("GFWBAUSER");
       }
       window.location.reload()
+    }
+  };
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setNewLogo(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const updateImage = async () => {
+    try {
+      // Send base64Image to the server
+      await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
+      console.log('Image uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading image:', error);
     }
   };
   function cancelUpdate() {
@@ -975,6 +1010,10 @@ export default function Profile({ imageData }) {
                     setNewEmployees(e.target.value);
                   }}
                 />
+                <div>
+                  <label htmlFor="imageUpload">Upload Image</label>
+                  <input type="file" onChange={handleImageUpload} id="imageUpload" />
+                </div>
               </div>
               <div className="flex gap-4">
                 <input

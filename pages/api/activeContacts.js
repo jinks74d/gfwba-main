@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { Buffer } from 'buffer';
+// const ContactImage = require("./models/contactImage");
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
     // require('dotenv').config()
     const { WILD_API, WILD_CLIENT_ID, WILD_CLIENT_SECRET } = process.env
     let accessToken = '';
@@ -26,7 +27,7 @@ export default function handler(req, res) {
             // console.log('success', accessToken)
             // Do something with the access token
             if (response.data.access_token) {
-                getAccounts(accessToken)
+                getAccounts(accessToken, res)
             }
         } catch (error) {
             // Handle any errors
@@ -34,25 +35,69 @@ export default function handler(req, res) {
         }
     };
 
-    const getAccounts = (token) => {
+    const getAccounts = async (token, res) => {
         // console.log('start', accessToken);
-        axios
-            .get(`https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'`, {
+        // axios
+        //     .get(`https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'`, {
+        //         headers: {
+        //             'User-Agent': 'MySampleApplication/0.1',
+        //             Accept: 'application/json',
+        //             Authorization: `Bearer ${token}`,
+        //         },
+        //         timeout: 15000
+        //     })
+        //     .then((response) => {
+        //         const accounts = response.data;
+        //         console.log(accounts.Contacts[0])
+        //         let contacts = accounts.Contacts;
+        //         const promises = contacts.map(async (contact) => {
+        //             const existingImage = await ContactImage.findOne({
+        //                 wildapricotUserId: contact.Id,
+        //             });
+        //             console.log(existingImage)
+        //             if (existingImage) {
+        //                 contact.logo = existingImage;
+        //                 console.log(contact.DisplayName);
+        //             }
+        //         });
+        //         await Promise.all(promises);
+        //         res.status(200).send(accounts);
+        //     })
+
+        // .catch((error) => {
+        //     // Handle any errors
+        //     console.error('Error retrieving accounts:', error);
+        // });
+        try {
+            const response = await axios.get(`https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'`, {
                 headers: {
                     'User-Agent': 'MySampleApplication/0.1',
                     Accept: 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
-                timeout: 10000
-            })
-            .then((response) => {
-                const accounts = response.data;
-                res.status(200).send(accounts);
-            })
-            .catch((error) => {
-                // Handle any errors
-                console.error('Error retrieving accounts:', error);
+                timeout: 15000
             });
+
+            const accounts = response.data;
+            // console.log(accounts.Contacts[0])
+            // let contacts = accounts.Contacts;
+            // const promises = contacts.map(async (contact) => {
+            //     const existingImage = await ContactImage.findOne({
+            //         wildapricotUserId: contact.Id,
+            //     }).maxTimeMS(20000);
+            //     console.log(existingImage)
+            //     if (existingImage) {
+            //         contact.logo = existingImage;
+            //         console.log(contact.DisplayName);
+            //     }
+            // });
+            // await Promise.all(promises);
+            res.status(200).send(accounts);
+        } catch (error) {
+            // Handle any errors
+            console.error('Error retrieving accounts:', error);
+            res.status(500).send('Error retrieving accounts');
+        }
     };
 
     if (req.method === 'POST') {
@@ -60,7 +105,7 @@ export default function handler(req, res) {
     } else {
         // Handle any other HTTP method
         // console.log('trigger', accessToken)
-        getToken()
+        await getToken()
         // res.status(200).json(([{ name: 'John Doe' }, { name: 'Jane Doe' }]))
     }
 }
