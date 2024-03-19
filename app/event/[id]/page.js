@@ -36,6 +36,7 @@ export default function Profile() {
     const [registrationId, setRegistrationId] = useState("");
     const [registered, setRegistered] = useState(false);
     const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
+    const [eventImg, setEventImg] = useState('')
 
     const fetchEvent = async () => {
         if (localStorage.getItem("GFWBAUSER")) {
@@ -102,14 +103,34 @@ export default function Profile() {
             setStartDate(startDate);
             setStartTime(startTime);
             setEnd(endDate);
+            // Regular expression to match src attribute values of img tags
+            const imgSrcRegex = /<img\s+[^>]*src="([^"]*)"/gi;
+
+            // Array to store matched src attribute values
+            const srcValues = [];
+
+            let match;
+            while ((match = imgSrcRegex.exec(json.Details.DescriptionHtml)) !== null) {
+                const imagePath = match[1];
+
+                // Split the path by '/' to get an array of segments
+                const pathSegments = imagePath.split('/');
+
+                // Get the last segment, which represents the file name
+                const fileName = pathSegments[pathSegments.length - 1];
+                const decodedFileName = decodeURIComponent(fileName);
+                srcValues.push(decodedFileName);
+            }
+
+            console.log(srcValues);
             console.log(json);
             if (json.registrations[0]) {
-                console.log(json);
+                // console.log(json);
                 let attendees = [];
                 json.registrations.forEach((element) => {
                     attendees.push(element.Contact.Id);
                 });
-                console.log(attendees.includes(Id));
+                // console.log(attendees.includes(Id));
                 if (attendees.includes(Id)) {
                     setRegistered(true);
                 }
@@ -126,7 +147,7 @@ export default function Profile() {
                 console.log("response not ok");
             }
             if (response2.ok) {
-                console.log(json2);
+                // console.log(json2);
                 setUpcomingList(json2);
             }
         }

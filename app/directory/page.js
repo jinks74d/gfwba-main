@@ -212,6 +212,15 @@ export default function Directory() {
             }
           }
         }
+        if (contact.DisplayName.includes(searchTerm)) {
+          filteredContacts.push(contact)
+        }
+        if (contact.Organization.includes(searchTerm)) {
+          filteredContacts.push(contact)
+        }
+        if (contact.FieldValues[24].Value.includes(searchTerm)) {
+          filteredContacts.push(contact)
+        }
       });
       setContacts(filteredContacts);
       let pagination = paginator(filteredContacts, 1)
