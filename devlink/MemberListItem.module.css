@@ -14,9 +14,16 @@
   }
 }
 
+.member-list-item-img-blk {
+  display: flex;
+  width: 250px;
+  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
 .image-5 {
   padding-top: 40px;
-  padding-right: 20px;
   padding-bottom: 40px;
 }
 
@@ -67,7 +74,7 @@
 
 .member-list-item-rt.arrow-right {
   display: flex;
-  padding: 15px;
+  padding: 15px 30px;
   justify-content: center;
   align-items: center;
   align-self: stretch;

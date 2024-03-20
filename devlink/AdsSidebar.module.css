@@ -1,0 +1,38 @@
+.staff-item-blk {
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  grid-row-gap: 100px;
+}
+
+@media screen and (max-width: 479px) {
+  .staff-item-blk {
+    grid-row-gap: 20px;
+  }
+}
+
+.staff-item {
+  color: var(--blue);
+  text-align: left;
+}
+
+@media screen and (max-width: 479px) {
+  .staff-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-img {
+  width: 60%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(0, 0.00%, 0.00%, 0.08);
+}

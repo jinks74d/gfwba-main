@@ -19,14 +19,19 @@ export function MemberListItem({
 }) {
   return (
     <_Component className={_utils.cx(_styles, "member-list-item")} tag="div">
-      <_Builtin.Image
-        className={_utils.cx(_styles, "image-5")}
-        loading="lazy"
-        width="auto"
-        height="auto"
-        alt=""
-        src={memberListLogo}
-      />
+      <_Builtin.Block
+        className={_utils.cx(_styles, "member-list-item-img-blk")}
+        tag="div"
+      >
+        <_Builtin.Image
+          className={_utils.cx(_styles, "image-5")}
+          loading="lazy"
+          width="auto"
+          height="auto"
+          alt=""
+          src={memberListLogo}
+        />
+      </_Builtin.Block>
       <_Builtin.Block
         className={_utils.cx(_styles, "member-list-item-grid")}
         id={_utils.cx(

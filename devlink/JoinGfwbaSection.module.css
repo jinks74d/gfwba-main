@@ -255,6 +255,7 @@
   display: block;
   width: 100%;
   margin-bottom: 20px;
+  background-color: var(--white);
 }
 
 .dd-list {
@@ -263,7 +264,7 @@
 }
 
 .dropdown-list {
-  background-color: #ddd;
+  background-color: var(--white);
 }
 
 .dropdown-list:global(.w--open) {

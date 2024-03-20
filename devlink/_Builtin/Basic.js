@@ -10,20 +10,23 @@ export function Span(props) {
 export function Blockquote(props) {
   return <blockquote {...props} />;
 }
-export const Link = function Link({
-  options = { href: "#" },
-  className = "",
-  button = false,
-  children,
-  block = "",
-  ...props
-}) {
+export const Link = React.forwardRef(function Link(
+  {
+    options = { href: "#" },
+    className = "",
+    button = false,
+    children,
+    block = "",
+    ...props
+  },
+  ref
+) {
   const { renderLink: UserLink } = React.useContext(DevLinkContext);
   if (button) className += " w-button";
   if (block === "inline") className += " w-inline-block";
   if (UserLink) {
     return (
-      <UserLink className={className} {...options} {...props}>
+      <UserLink className={className} {...options} {...props} ref={ref}>
         {children}
       </UserLink>
     );
@@ -33,13 +36,13 @@ export const Link = function Link({
     preload !== "none" && typeof href === "string" && !href.startsWith("#");
   return (
     <>
-      <a href={href} target={target} className={className} {...props}>
+      <a href={href} target={target} className={className} {...props} ref={ref}>
         {children}
       </a>
       {shouldRenderResource && <link rel={preload} href={href} />}
     </>
   );
-};
+});
 export function List({
   tag = "ul",
   unstyled = true,

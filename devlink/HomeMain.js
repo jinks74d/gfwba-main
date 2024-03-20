@@ -1,5 +1,6 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
+import { AdsSidebar } from "./AdsSidebar";
 import * as _utils from "./utils";
 import _styles from "./HomeMain.module.css";
 
@@ -233,91 +234,7 @@ export function HomeMain({
             )}
             tag="div"
           >
-            <_Builtin.Heading
-              className={_utils.cx(_styles, "heading-2")}
-              tag="h2"
-            >
-              {"OUR NUMBERS"}
-            </_Builtin.Heading>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "number-item-blk")}
-              tag="div"
-            >
-              <_Builtin.Block
-                className={_utils.cx(_styles, "number-item")}
-                tag="div"
-              >
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-large")}
-                  tag="div"
-                >
-                  {"12"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-small")}
-                  tag="div"
-                >
-                  {"Committees & Councils"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "number-item")}
-                tag="div"
-              >
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-large")}
-                  tag="div"
-                >
-                  {"556"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-small")}
-                  tag="div"
-                >
-                  {"Members"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "number-item")}
-                tag="div"
-              >
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-large")}
-                  tag="div"
-                >
-                  {"1945"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "number-item-small")}
-                  tag="div"
-                >
-                  {"Year Established"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "market-guide-div")}
-                tag="div"
-              >
-                <_Builtin.Link
-                  className={_utils.cx(_styles, "market-guide-link")}
-                  button={false}
-                  block="inline"
-                  options={{
-                    href: "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/65c3b8e74ca8e3bb49e7bdef_Maximizing%20Your%20Association%20Membership.pdf",
-                    target: "_blank",
-                  }}
-                >
-                  <_Builtin.Block
-                    className={_utils.cx(_styles, "market-guide-text")}
-                    tag="div"
-                  >
-                    {"2024 GFWBA"}
-                    <br />
-                    {"MARKETING GUIDE"}
-                  </_Builtin.Block>
-                </_Builtin.Link>
-              </_Builtin.Block>
-            </_Builtin.Block>
+            <AdsSidebar />
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

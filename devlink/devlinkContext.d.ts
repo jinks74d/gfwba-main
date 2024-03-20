@@ -5,6 +5,7 @@ export type RenderLink = React.FC<{
   preload?: "none" | "prefetch" | "prerender";
   className?: string;
   children?: React.ReactNode;
+  ref?: React.Ref<HTMLAnchorElement>;
 }>;
 export type RenderImage = React.FC<
   React.DetailedHTMLProps<

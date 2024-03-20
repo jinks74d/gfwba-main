@@ -25,14 +25,7 @@ export type LinkProps = Props<
     block?: string;
   }
 >;
-export declare const Link: ({
-  options,
-  className,
-  button,
-  children,
-  block,
-  ...props
-}: LinkProps) => any;
+export declare const Link: any;
 type ListProps = Props<
   "ul",
   {

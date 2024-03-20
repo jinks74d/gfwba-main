@@ -303,7 +303,7 @@ export function JoinGfwbaSection({
                   />
                   <_Builtin.Block tag="div">
                     <_Builtin.Strong>
-                      {"Builder PP23 - $98.00 (USD)"}
+                      {"Associate PP23 - $83.00 (USD)"}
                     </_Builtin.Strong>
                   </_Builtin.Block>
                 </_Builtin.DropdownToggle>
