@@ -132,7 +132,13 @@ export default function Directory() {
     if (filters.indexOf(e) == -1) {
       filters.push(e);
     } else {
-      filters.splice(filters.indexOf(e), 1);
+      let newFilter = [];
+      console.log(filters);
+      // console.log(filters.splice(filters.indexOf(e), 1));
+      // filters.splice(filters.indexOf(e), 1);
+      filters.forEach(function (f) { if (f.toUpperCase() !== e.toUpperCase()) { newFilter.push(f) } })
+      console.log(newFilter);
+      filters = newFilter;
     }
     console.log(filters);
     setFilter(filters);
@@ -175,10 +181,11 @@ export default function Directory() {
 
   const handleSearch = (searchTerm) => {
     if (searchTerm != "") {
-      let filteredContacts = [];
-      setContacts(allContacts);
+      let filteredContacts = contacts;
+      console.log(contacts);
+      // setContacts(allContacts);
       let filters = filter;
-      // console.log(e)
+      // // console.log(e)
       for (let i = 0; i < categories.length; i++) {
         let c = categories[i];
         // console.log(c)
@@ -189,11 +196,15 @@ export default function Directory() {
           }
         }
       }
-      if (filters == filter) {
+      let filtersUpper = [];
+      filters.forEach((f) => { filtersUpper.push(f.toUpperCase()) })
+      if (filtersUpper.indexOf(searchTerm.toUpperCase()) == -1) {
         filters.push(searchTerm);
       }
+      console.log(filters);
       setFilter(filters);
-      contacts.forEach((contact) => {
+      // console.log(contacts, allContacts);
+      allContacts.forEach((contact) => {
         let contactCat = [];
         // console.log(contact)
         Object.keys(contact.FieldValues[47].Value).forEach(function (
@@ -212,15 +223,23 @@ export default function Directory() {
             }
           }
         }
-        if (contact.DisplayName.includes(searchTerm)) {
-          filteredContacts.push(contact)
+        console.log(contact.DisplayName.toUpperCase(), searchTerm.toUpperCase());
+        if (contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())) {
+          if (filteredContacts.indexOf(contact) == -1) {
+            filteredContacts.push(contact);
+          }
+          console.log(filteredContacts);
         }
-        if (contact.Organization.includes(searchTerm)) {
-          filteredContacts.push(contact)
+        if (contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())) {
+          if (filteredContacts.indexOf(contact) == -1) {
+            filteredContacts.push(contact);
+          }
+          console.log(filteredContacts);
         }
-        if (contact.FieldValues[24].Value.includes(searchTerm)) {
-          filteredContacts.push(contact)
-        }
+        // if (contact.FieldValues[24].Value.includes(searchTerm)) {
+        //   filteredContacts.push(contact)
+        //   console.log(filteredContacts);
+        // }
       });
       setContacts(filteredContacts);
       let pagination = paginator(filteredContacts, 1)
