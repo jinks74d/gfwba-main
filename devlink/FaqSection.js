@@ -179,7 +179,7 @@ export function FaqSection({ as: _Component = _Builtin.Section }) {
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
-              {"ASSOCIATIONSTAFF"}
+              {"ASSOCIATION STAFF"}
             </_Builtin.Heading>
             <StaffSidebar />
           </_Builtin.Block>

@@ -1,8 +1,8 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
-import { AdsSidebar } from "./AdsSidebar";
 import * as _utils from "./utils";
 import _styles from "./HomeMain.module.css";
+import AdSidebar from "@/components/AdSidebar";
 
 export function HomeMain({
   as: _Component = _Builtin.Section,
@@ -14,6 +14,8 @@ export function HomeMain({
   homeDirectory = {
     href: "#",
   },
+
+  sidebarSlot = <AdSidebar />,
 }) {
   return (
     <_Component
@@ -234,7 +236,7 @@ export function HomeMain({
             )}
             tag="div"
           >
-            <AdsSidebar />
+            <_Builtin.Block tag="div">{sidebarSlot}</_Builtin.Block>
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

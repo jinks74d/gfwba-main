@@ -5,4 +5,5 @@ declare function HomeMain(props: {
   as?: React.ElementType;
   homeJoin?: Types.Basic.Link;
   homeDirectory?: Types.Basic.Link;
+  sidebarSlot?: Types.Devlink.Slot;
 }): React.JSX.Element;
