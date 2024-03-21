@@ -167,6 +167,23 @@ export default function Directory() {
               filteredContacts.push(contact);
             }
           }
+          // check org and name
+          filters.forEach((f) => {
+            if (contact.DisplayName.toUpperCase().includes(f.toUpperCase())) {
+              console.log(contact);
+              if (filteredContacts.indexOf(contact) == -1) {
+                filteredContacts.push(contact);
+              }
+              console.log(filteredContacts);
+            }
+            if (contact.Organization.toUpperCase().includes(f.toUpperCase())) {
+              console.log(contact);
+              if (filteredContacts.indexOf(contact) == -1) {
+                filteredContacts.push(contact);
+              }
+              console.log(filteredContacts);
+            }
+          })
         });
       }
       // console.log(filteredContacts)
@@ -181,8 +198,12 @@ export default function Directory() {
 
   const handleSearch = (searchTerm) => {
     if (searchTerm != "") {
-      let filteredContacts = contacts;
-      console.log(contacts);
+      let filteredContacts = [];
+      console.log(filter);
+      if (filter[0]) { console.log(true); filteredContacts = contacts; } else { console.log(false); filteredContacts = []; }
+      // console.log(contacts);
+      // console.log(filteredContacts);
+      // console.log(filter)
       // setContacts(allContacts);
       let filters = filter;
       // // console.log(e)
@@ -223,24 +244,23 @@ export default function Directory() {
             }
           }
         }
-        console.log(contact.DisplayName.toUpperCase(), searchTerm.toUpperCase());
+        // console.log(contact.DisplayName.toUpperCase(), searchTerm.toUpperCase());
         if (contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())) {
+          console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
           console.log(filteredContacts);
         }
         if (contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())) {
+          console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
           console.log(filteredContacts);
         }
-        // if (contact.FieldValues[24].Value.includes(searchTerm)) {
-        //   filteredContacts.push(contact)
-        //   console.log(filteredContacts);
-        // }
       });
+      console.log(filteredContacts);
       setContacts(filteredContacts);
       let pagination = paginator(filteredContacts, 1)
       setPaginationArr(pagination.data);
