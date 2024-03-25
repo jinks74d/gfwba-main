@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import BlueBtn from "@/components/BlueBtn";
 import { useLoggedStatus } from "@/context/LoggedStatusProvider";
+const imageServer = process.env.NEXT_PUBLIC_IMAGE_SERVER;
 
 export default function Profile() {
     // const { query } = useRouter()
@@ -37,6 +38,7 @@ export default function Profile() {
     const [registered, setRegistered] = useState(false);
     const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
     const [eventImg, setEventImg] = useState('')
+    const [eventDescription, setEventDescription] = useState('');
 
     const fetchEvent = async () => {
         if (localStorage.getItem("GFWBAUSER")) {
@@ -103,26 +105,24 @@ export default function Profile() {
             setStartDate(startDate);
             setStartTime(startTime);
             setEnd(endDate);
-            // Regular expression to match src attribute values of img tags
+
             const imgSrcRegex = /<img\s+[^>]*src="([^"]*)"/gi;
 
-            // Array to store matched src attribute values
-            const srcValues = [];
-
-            let match;
-            while ((match = imgSrcRegex.exec(json.Details.DescriptionHtml)) !== null) {
-                const imagePath = match[1];
-
-                // Split the path by '/' to get an array of segments
-                const pathSegments = imagePath.split('/');
-
-                // Get the last segment, which represents the file name
+            // Replace the existing HTML content
+            const replacedHtml = json.Details.DescriptionHtml.replace(imgSrcRegex, (match, src) => {
+                // Extract the file name from the src attribute
+                const pathSegments = src.split('/');
                 const fileName = pathSegments[pathSegments.length - 1];
-                const decodedFileName = decodeURIComponent(fileName);
-                srcValues.push(decodedFileName);
-            }
 
-            console.log(srcValues);
+                // Construct the new src URL
+                const newSrc = `https://gfwbatx.com/resources/Pictures/${fileName}`;
+
+                // Replace the src attribute value with the new URL
+                return match.replace(src, newSrc);
+            });
+            setEventDescription(replacedHtml)
+
+            console.log(replacedHtml);
             console.log(json);
             if (json.registrations[0]) {
                 // console.log(json);
@@ -239,7 +239,7 @@ export default function Profile() {
                                     singleEventItemDescriptionSlot={
                                         <div
                                             dangerouslySetInnerHTML={{
-                                                __html: event.Details.DescriptionHtml,
+                                                __html: eventDescription,
                                             }}
                                         />
                                     }
