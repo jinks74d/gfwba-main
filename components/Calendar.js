@@ -10,7 +10,7 @@ import Link from "next/link";
 // ]
 
 export function CalendarComponent({ events }) {
-  console.log(events);
+  // console.log(events);
   return (
     <div className="h-full">
       <FullCalendar
@@ -31,7 +31,7 @@ export function CalendarComponent({ events }) {
 
 // a custom render function
 function renderEventContent(eventInfo) {
-  console.log(eventInfo);
+  // console.log(eventInfo);
   return (
     <Link
       className="p-1 text-sm"

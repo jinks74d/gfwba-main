@@ -344,8 +344,16 @@ export default function Profile({ imageData }) {
     if (newLogo !== '') {
       try {
         // Send base64Image to the server
-        await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
-        console.log('Image uploaded successfully');
+        console.log(params.id)
+        let imgResponse = await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
+        const imgJson = await imgResponse.json();
+        if (!response.ok) {
+          setError(json.error);
+          console.log("response not ok");
+        }
+        if (response.ok) {
+          console.log('Image uploaded successfully');
+        }
       } catch (error) {
         console.error('Error uploading image:', error);
       }
@@ -404,8 +412,27 @@ export default function Profile({ imageData }) {
     }
   };
   const handleImageUpload = (event) => {
+    var errorMessage = document.getElementById('error-message');
     const file = event.target.files[0];
     const reader = new FileReader();
+    // Check file type
+    var allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+    if (!allowedTypes.includes(file.type)) {
+      errorMessage.textContent = 'Only PNG or JPG files are allowed.';
+      event.preventDefault();
+      return;
+    }
+
+    // Check file size
+    var maxSize = 10 * 1024 * 1024; // 10 MB in bytes
+    if (file.size > maxSize) {
+      errorMessage.textContent = 'File size exceeds the maximum limit of 10MB.';
+      event.preventDefault();
+      return;
+    }
+
+    // Clear error message if everything is okay
+    errorMessage.textContent = '';
 
     reader.onloadend = () => {
       setNewLogo(reader.result);
@@ -1012,7 +1039,8 @@ export default function Profile({ imageData }) {
                 />
                 <div>
                   <label htmlFor="imageUpload">Upload Image</label>
-                  <input type="file" onChange={handleImageUpload} id="imageUpload" />
+                  <input type="file" onChange={handleImageUpload} id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <span id="error-message" className="text-red"></span>
                 </div>
               </div>
               <div className="flex gap-4">

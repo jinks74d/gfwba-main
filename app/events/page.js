@@ -11,7 +11,7 @@ import { Metadata } from "./eventsMetadata";
 import Head from "next/head";
 // import useSWR from 'swr'
 
-import { InnerHero, EventsListSection, EventListCard } from "@/devlink";
+import { InnerHero, EventsListSection, EventListCard, Base21WebflowSection, EventItemSidebar } from "@/devlink";
 
 const metadataBase = "https://gfwba-main.vercel.app/";
 
@@ -44,6 +44,7 @@ export default function Events() {
   const [events, setEvents] = useState("");
   const [events2, setEvents2] = useState("");
   const [allContacts, setAllContacts] = useState("");
+  const [upcomingEvents, setUpcomingList] = useState([]);
   //   const [categories, setCategories] = useState([]);
   //   const [serviceAreas, setServiceAreas] = useState([]);
   //   const [filter, setFilter] = useState([]);
@@ -67,24 +68,7 @@ export default function Events() {
       let formattedEvents = [];
       let formattedEvents2 = [];
       let today = new Date();
-      // json.Events.forEach((e) => {
-      //     const eventStart = new Date(e.StartDate);
-      //     const eventEnd = new Date(e.EndDate);
-      //     const options = {
-      //         weekday: 'long',
-      //         year: 'numeric',
-      //         month: 'long',
-      //         day: 'numeric',
-      //         hour: 'numeric',
-      //         minute: 'numeric'
-      //     };
-      //     if (eventEnd.getTime() > today.getTime()) {
-      //         e.start = eventStart.toLocaleDateString(undefined, options);
-      //         e.end = eventEnd.toLocaleDateString(undefined, options);
-      //         // console.log(e)
-      //         formattedEvents.push(e)
-      //     }
-      // })
+
       json.Events.forEach((e) => {
         const eventStart = new Date(e.StartDate);
         const eventEnd = new Date(e.EndDate);
@@ -130,6 +114,22 @@ export default function Events() {
 
       setEvents(formattedEvents.sort(compare));
       setEvents2(formattedEvents2.sort(compare));
+
+      let response2 = await fetch(`/api/event/upcomingEvents`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      });
+      const json2 = await response2.json();
+      if (!response2.ok) {
+        setError(json2.error);
+        console.log("response not ok");
+      }
+      if (response2.ok) {
+        console.log(json2);
+        setUpcomingList(json2);
+      }
     }
   };
 
@@ -148,7 +148,7 @@ export default function Events() {
           {JSON.stringify(breadcrumbSchema)}
         </script>
         <script type="application/ld+json">
-        {<Metadata />}
+          {<Metadata />}
         </script>
         <link rel="canonical" href={url} />
       </Head>
@@ -176,7 +176,7 @@ export default function Events() {
               {events2 ? (
                 events2.map((e) => (
                   <>
-                    {console.log(e)}
+                    {/* {console.log(e)} */}
                     <EventListCard
                       eventTitle={e.Name}
                       eventDate={e.niceStartDate}
@@ -192,6 +192,40 @@ export default function Events() {
                   <p className="text-xl leading-normal">Loading Events</p>
                 </div>
               )}
+            </div>
+          }
+
+        />
+        <Base21WebflowSection
+          baseHeading={'GFWBA EVENTS'}
+          baseSubheading={""}
+          baseSideHeading={"Upcoming Events"}
+          baseGridLeftSlot={<div>
+            {events ? (
+              <CalendarComponent events={events} />
+            ) : (
+              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
+                <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
+                <p className="text-xl leading-normal">Loading Calendar</p>
+              </div>
+            )}
+          </div>}
+          homeGridRightSlot={
+            <div className="flex flex-col">
+              {upcomingEvents &&
+                <div>
+                  {upcomingEvents.map((e) => (
+                    <EventItemSidebar
+                      key={`side-${e.Id}`}
+                      eventListItemTitle={e.Name}
+                      eventListItemDate={e.Date}
+                      eventListItemTime={e.Time}
+                      eventListItemLocation={e.Location}
+                      eventListItemLink={{ href: `/event/${e.Id}` }}
+                    />
+                  ))}
+                </div>
+              }
             </div>
           }
         />

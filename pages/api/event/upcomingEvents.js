@@ -79,7 +79,7 @@ export default function handler(req, res) {
 
                 // console.log(events)
                 let eventArr = events.Events.sort(compare);
-                let event = eventArr.slice(0, 5)
+                let event = eventArr.slice(0, 3)
                 for (let i = 0; i < event.length; i++) {
                     const eventStart = new Date(event[i].StartDate);
                     const eventEnd = new Date(event[i].EndDate);
@@ -88,20 +88,26 @@ export default function handler(req, res) {
                     let endTime = eventEnd.toLocaleDateString(undefined, options2);
                     event[i].Date = startDate;
                     let time = `${startTime} - ${endTime}`
+                    const timeRegex = /(\d{1,2}:\d{2}\s[AP]M)/g;
+
+                    const timeStart = startTime;
+                    const timeEnd = endTime;
+
+                    const times = `${timeStart.match(timeRegex)} - ${timeEnd.match(timeRegex)}`;
                     event[i].Date = startDate;
-                    event[i].Time = time;
-                    console.log(event[i])
+                    event[i].Time = times;
+                    console.log('line 99: ', times, event[i].Time)
                 }
-                let eventsArr = event.forEach((e) => {
-                    const eventStart = new Date(e.StartDate);
-                    const eventEnd = new Date(e.EndDate);
-                    let startDate = eventStart.toLocaleDateString(undefined, options1);
-                    let startTime = eventStart.toLocaleDateString(undefined, options2);
-                    let endTime = eventEnd.toLocaleDateString(undefined, options2);
-                    let time = `${startTime} - ${endTime}`
-                    e.Date = startDate;
-                    e.Time = time;
-                })
+                // let eventsArr = event.forEach((e) => {
+                //     const eventStart = new Date(e.StartDate);
+                //     const eventEnd = new Date(e.EndDate);
+                //     let startDate = eventStart.toLocaleDateString(undefined, options1);
+                //     let startTime = eventStart.toLocaleDateString(undefined, options2);
+                //     let endTime = eventEnd.toLocaleDateString(undefined, options2);
+                //     let time = `${startTime} - ${endTime}`
+                //     e.Date = startDate;
+                //     e.Time = time;
+                // })
                 res.status(200).json(event);
             })
             .catch((error) => {
