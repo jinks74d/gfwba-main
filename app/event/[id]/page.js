@@ -122,8 +122,8 @@ export default function Profile() {
             });
             setEventDescription(replacedHtml)
 
-            console.log(replacedHtml);
-            console.log(json);
+            // console.log(replacedHtml);
+            // console.log(json);
             if (json.registrations[0]) {
                 // console.log(json);
                 let attendees = [];
@@ -147,7 +147,7 @@ export default function Profile() {
                 console.log("response not ok");
             }
             if (response2.ok) {
-                // console.log(json2);
+                console.log(json2);
                 setUpcomingList(json2);
             }
         }
@@ -223,7 +223,7 @@ export default function Profile() {
                 heroJoin={{ href: "/signup" }}
             />
             <Base21WebflowSection
-                baseHeading={"Events"}
+                baseHeading={"EVENTS"}
                 baseSubheading={""}
                 baseSideHeading={"Upcoming Events"}
                 baseGridLeftSlot={
@@ -390,15 +390,19 @@ export default function Profile() {
                 homeGridRightSlot={
                     <div className="flex flex-col">
                         {upcomingList &&
-                            upcomingList.map((e) => (
-                                <EventItemSidebar
-                                    key={e.Id}
-                                    eventListItemTitle={e.Name}
-                                    eventListItemDate={e.StartDate}
-                                    eventListItemLocation={e.Location}
-                                    eventListItemLink={{ href: `/event/${e.Id}` }}
-                                />
-                            ))}
+                            <div>
+                                {upcomingList.map((e) => (
+                                    <EventItemSidebar
+                                        key={e.Id}
+                                        eventListItemTitle={e.Name}
+                                        eventListItemDate={e.Date}
+                                        eventListItemTime={e.Time}
+                                        eventListItemLocation={e.Location}
+                                        eventListItemLink={{ href: `/event/${e.Id}` }}
+                                    />
+                                ))}
+                                <a className="EventItemSidebar_red-btn__T7GSW EventItemSidebar_red-btn-sidebar__RXmzF w-button" href='/events'>View More</a>
+                            </div>}
                     </div>
                 }
             />

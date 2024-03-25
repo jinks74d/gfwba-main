@@ -70,23 +70,6 @@ export default function handler(req, res) {
             });
     };
 
-    // const getLogo = (img_url, token) => {
-    //     // Fetch image data with authorization
-    //     const imageResponse = await fetch(img_url, {
-    //         headers: {
-    //             Authorization: `Bearer ${token}`,
-    //         },
-    //     });
-
-    //     const imageData = await imageResponse.blob();
-
-    //     return {
-    //         props: {
-    //             imageData,
-    //         },
-    //     };
-    // };
-
     if (req.method === 'POST') {
         // Process a POST request
     } else {
