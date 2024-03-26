@@ -164,7 +164,7 @@ export function FaqSection({
               button={true}
               block=""
               options={{
-                href: "#",
+                href: "/signup",
               }}
             >
               {"Join Now"}

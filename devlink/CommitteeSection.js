@@ -3,7 +3,13 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./CommitteeSection.module.css";
 
-export function CommitteeSection({ as: _Component = _Builtin.Block }) {
+export function CommitteeSection({
+  as: _Component = _Builtin.Block,
+
+  emailLink = {
+    href: "/contact",
+  },
+}) {
   return (
     <_Component className={_utils.cx(_styles, "committee-section")} tag="div">
       <_Builtin.Heading className={_utils.cx(_styles, "heading-2")} tag="h2">
@@ -33,9 +39,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregle"}
           </_Builtin.Link>
@@ -100,9 +104,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton Pregler"}
           </_Builtin.Link>
@@ -132,9 +134,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -165,9 +165,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -223,9 +221,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -251,9 +247,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -286,9 +280,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -321,9 +313,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -361,9 +351,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>
@@ -398,9 +386,7 @@ export function CommitteeSection({ as: _Component = _Builtin.Block }) {
             className={_utils.cx(_styles, "p-main-link")}
             button={false}
             block=""
-            options={{
-              href: "#",
-            }}
+            options={emailLink}
           >
             {"Kimberly Eaton-Pregler"}
           </_Builtin.Link>

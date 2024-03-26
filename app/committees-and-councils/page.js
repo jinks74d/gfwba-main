@@ -96,7 +96,11 @@ export default function About() {
         <Base21WebflowSection
           baseHeading="COMMITTEES & COUNCILS"
           baseSubheading=""
-          baseGridLeftSlot={<CommitteeSection />}
+          baseGridLeftSlot={
+            <CommitteeSection
+              emailLink={{ href: "mailto:kimberly@fortworthbuilders.org" }}
+            />
+          }
           homeGridRightSlot={<AdSidebar />}
         />
       </main>
