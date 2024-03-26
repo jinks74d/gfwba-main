@@ -194,23 +194,7 @@ export default function Events() {
               )}
             </div>
           }
-
-        />
-        <Base21WebflowSection
-          baseHeading={'GFWBA EVENTS'}
-          baseSubheading={""}
-          baseSideHeading={"Upcoming Events"}
-          baseGridLeftSlot={<div>
-            {events ? (
-              <CalendarComponent events={events} />
-            ) : (
-              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
-                <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
-                <p className="text-xl leading-normal">Loading Calendar</p>
-              </div>
-            )}
-          </div>}
-          homeGridRightSlot={
+          eventsRightSlot={
             <div className="flex flex-col">
               {upcomingEvents &&
                 <div>
@@ -228,6 +212,7 @@ export default function Events() {
               }
             </div>
           }
+
         />
       </main>
     </>
