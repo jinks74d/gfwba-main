@@ -13,6 +13,7 @@ export function Base21WebflowSection({
   baseSideHeading = "ASSOCIATIONSTAFF",
   baseGridLeftSlot,
   homeGridRightSlot,
+  // homeGridRightSlot,
 }) {
   return (
     <_Component
