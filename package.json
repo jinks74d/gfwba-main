@@ -15,7 +15,7 @@
     "@fullcalendar/list": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
     "@fullcalendar/timegrid": "^6.1.10",
-    "@webflow/webflow-cli": "^1.6.5",
+    "@webflow/webflow-cli": "^1.6.9",
     "axios": "^1.6.2",
     "mongoose": "^8.2.2",
     "next": "14.0.2",

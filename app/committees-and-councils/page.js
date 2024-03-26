@@ -1,11 +1,11 @@
 // COMMITTEES & COUNCILS PAGE
 
 // Importing components and functions from dependencies
+import AdSidebar from "@/components/AdSidebar";
 import {
   InnerHero, // Custom component for displaying a hero section
   Base21WebflowSection, // Custom component for a section that might be styled using Webflow conventions
   CommitteeSection, // Custom component for displaying committee-related content
-  StaffSidebar, // Custom component for displaying staff information in a sidebar
 } from "@/devlink";
 import getConfig from "next/config"; // Function to access the Next.js public runtime configuration
 
@@ -97,8 +97,7 @@ export default function About() {
           baseHeading="COMMITTEES & COUNCILS"
           baseSubheading=""
           baseGridLeftSlot={<CommitteeSection />}
-          baseSideHeading="ASSOCIATION STAFF"
-          homeGridRightSlot={<StaffSidebar />}
+          homeGridRightSlot={<AdSidebar />}
         />
       </main>
     </>

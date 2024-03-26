@@ -6,6 +6,7 @@ import _styles from "./AboutSection.module.css";
 export function AboutSection({
   as: _Component = _Builtin.Section,
   image = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/6552a3bb6f2d2eaba84a5ea2_about-hero.jpg",
+  homeGridRightSlot,
 }) {
   return (
     <_Component
@@ -225,94 +226,7 @@ export function AboutSection({
             )}
             tag="div"
           >
-            <_Builtin.Heading
-              className={_utils.cx(_styles, "heading-2")}
-              tag="h2"
-            >
-              {"ASSOCIATION STAFF"}
-            </_Builtin.Heading>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "staff-item-blk")}
-              tag="div"
-            >
-              <_Builtin.Block
-                className={_utils.cx(_styles, "staff-item")}
-                tag="div"
-              >
-                <_Builtin.Image
-                  className={_utils.cx(_styles, "", "image-4")}
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                  alt=""
-                  src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655a86cc1de34c4d81716a2e_filller.png"
-                />
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-name")}
-                  tag="div"
-                >
-                  {"Kimberly Eaton-Pregler"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-title")}
-                  tag="div"
-                >
-                  {"Executive Vice President"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "staff-item")}
-                tag="div"
-              >
-                <_Builtin.Image
-                  className={_utils.cx(_styles, "", "image-4")}
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                  alt=""
-                  src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655a86cc1de34c4d81716a2e_filller.png"
-                />
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-name")}
-                  tag="div"
-                >
-                  {"Sharon Liles Love"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-title")}
-                  tag="div"
-                >
-                  {"Director of Operations"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-              <_Builtin.Block
-                className={_utils.cx(_styles, "staff-item")}
-                tag="div"
-              >
-                <_Builtin.Image
-                  className={_utils.cx(_styles, "", "image-4")}
-                  loading="lazy"
-                  width="auto"
-                  height="auto"
-                  alt=""
-                  src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655a86cc1de34c4d81716a2e_filller.png"
-                />
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-name")}
-                  tag="div"
-                >
-                  {"Shannon Claybaugh"}
-                </_Builtin.Block>
-                <_Builtin.Block
-                  className={_utils.cx(_styles, "staff-title")}
-                  tag="div"
-                >
-                  {"Director of Member Services/"}
-                  <br />
-                  {"Certified Master Builder Administrator"}
-                </_Builtin.Block>
-              </_Builtin.Block>
-            </_Builtin.Block>
+            {homeGridRightSlot}
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

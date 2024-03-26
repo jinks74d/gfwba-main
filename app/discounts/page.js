@@ -3,6 +3,7 @@
 // Importing necessary components and the getConfig function from Next.js
 import { InnerHero, MemberBenefitsSection } from "@/devlink"; // Custom components for page layout
 import getConfig from "next/config"; // Function to access the Next.js public runtime configuration
+import AdSidebar from "@/components/AdSidebar"; // Component for displaying ads
 
 // Retrieving the public runtime configuration to use in the component
 const { publicRuntimeConfig } = getConfig();
@@ -88,7 +89,9 @@ export default function Discounts() {
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
         />
-        <MemberBenefitsSection />
+        <MemberBenefitsSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

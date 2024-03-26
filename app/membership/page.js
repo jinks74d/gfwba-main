@@ -1,6 +1,7 @@
 // MEMBERSHIP PAGE
 
 // Import required components and functions
+import AdSidebar from "@/components/AdSidebar";
 import { InnerHero, MemberSection } from "@/devlink"; // Custom components for displaying page sections
 import getConfig from "next/config"; // Function to access public runtime configuration
 
@@ -91,8 +92,9 @@ export default function Membership() {
         />
         {/* MemberSection component to display membership information and benefits */}
         <MemberSection
-          link={{ href: "/government-affairs" }} // Link to the government affairs page
+          link={{ href: "/organization-structure" }} // Link to the government affairs page
           link2={{ href: "/signup" }} // Link to the signup page
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
         />
       </main>
     </>

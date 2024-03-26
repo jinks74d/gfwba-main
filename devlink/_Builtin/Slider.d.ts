@@ -17,55 +17,84 @@ type SliderConfig = {
   autoMax: number;
   navInvert: boolean;
 };
-export declare const SliderContext: any;
+type SlideState = {
+  current: number;
+  previous: number;
+};
+export declare const SliderContext: React.Context<
+  SliderConfig & {
+    slideAmount: number;
+    setSlideAmount: React.Dispatch<React.SetStateAction<number>>;
+    slide: SlideState;
+    setCurrentSlide: (current: number) => void;
+    goToNextSlide: () => void;
+    goToPreviousSlide: () => void;
+    isAutoplayPaused: boolean;
+    setAutoplayPause: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+>;
 type SliderChildrenType =
   | SliderSlideProps
   | SliderArrowProps
   | SliderNavProps
   | SliderMaskProps;
-type SliderWrapperProps = SliderConfig & {
-  className?: string;
-  children?:
-    | React.ReactElement<SliderChildrenType>[]
-    | React.ReactElement<SliderChildrenType>;
-};
-export declare function SliderWrapper({
-  className,
-  ...props
-}: SliderWrapperProps): any;
+export declare const SliderWrapper: React.ForwardRefExoticComponent<
+  SliderConfig & {
+    className?: string | undefined;
+    children?:
+      | React.ReactElement<
+          SliderChildrenType,
+          string | React.JSXElementConstructor<any>
+        >
+      | React.ReactElement<
+          SliderChildrenType,
+          string | React.JSXElementConstructor<any>
+        >[]
+      | undefined;
+  } & React.RefAttributes<HTMLDivElement>
+>;
 type SliderMaskProps = React.PropsWithChildren<{
   className?: string;
 }>;
-export declare function SliderMask({
-  className,
-  children,
-  ...props
-}: SliderMaskProps): any;
+export declare const SliderMask: React.ForwardRefExoticComponent<
+  {
+    className?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
+>;
 type SliderSlideProps = React.PropsWithChildren<{
   style?: React.CSSProperties;
   tag?: string;
   className?: string;
   index: number;
 }>;
-export declare function SliderSlide({
-  tag,
-  className,
-  style,
-  index,
-  ...props
-}: SliderSlideProps): React.DOMElement<any, any>;
+export declare const SliderSlide: React.ForwardRefExoticComponent<
+  {
+    style?: React.CSSProperties | undefined;
+    tag?: string | undefined;
+    className?: string | undefined;
+    index: number;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<unknown>
+>;
 type SliderArrowProps = React.PropsWithChildren<{
   className?: string;
   dir: "left" | "right";
 }>;
-export declare function SliderArrow({
-  className,
-  dir,
-  children,
-  ...props
-}: SliderArrowProps): any;
+export declare const SliderArrow: React.ForwardRefExoticComponent<
+  {
+    className?: string | undefined;
+    dir: "left" | "right";
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
+>;
 type SliderNavProps = {
   className?: string;
 };
-export declare function SliderNav({ className, ...props }: SliderNavProps): any;
+export declare const SliderNav: React.ForwardRefExoticComponent<
+  SliderNavProps & React.RefAttributes<HTMLDivElement>
+>;
 export {};

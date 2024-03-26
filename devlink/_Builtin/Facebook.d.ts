@@ -1,19 +1,13 @@
 import * as React from "react";
-type FacebookProps = React.PropsWithChildren<{
-  className?: string;
-  layout?: string;
-  width?: number;
-  height?: number;
-  url?: string;
-  locale?: string;
-}>;
-export declare function Facebook({
-  className,
-  layout,
-  width,
-  height,
-  url,
-  locale,
-  ...props
-}: FacebookProps): any;
-export {};
+export declare const Facebook: React.ForwardRefExoticComponent<
+  {
+    className?: string | undefined;
+    layout?: string | undefined;
+    width?: number | undefined;
+    height?: number | undefined;
+    url?: string | undefined;
+    locale?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
+>;

@@ -3,6 +3,7 @@
 // Import necessary components and configurations
 import { InnerHero, HammerNailsSection } from "@/devlink"; // Custom components for page layout
 import getConfig from "next/config"; // Function to access public runtime configuration
+import AdSidebar from "@/components/AdSidebar"; // Component for displaying ads
 
 // Retrieve runtime configuration to use in the application, such as base URL for metadata
 const { publicRuntimeConfig } = getConfig();
@@ -90,7 +91,9 @@ export default function HammerAndNails() {
           heroJoin={{ href: "/signup" }}
         />
         {/* HammerNailsSection component to display the main content of the "Hammer and Nails PAC" page */}
-        <HammerNailsSection />
+        <HammerNailsSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

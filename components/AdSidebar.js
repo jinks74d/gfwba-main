@@ -1,7 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Link from "next/link";
 
 export default function AdSidebar() {
   // Use an object to manage open state of multiple lightboxes
@@ -96,6 +99,50 @@ export default function AdSidebar() {
           />
         </div>
         <p>Click Image to Enlarge</p>
+      </div>
+
+      <div className="mb-8 flex flex-col justify-center items-center">
+        <div className="border border-gray-400">
+          <button type="button" onClick={() => handleOpen("lightbox5")}>
+            <Image
+              src="/images/ads/generic-savings-postcard-update-2023-crops_Page_1.png"
+              alt="2023 Contracts"
+              width={300}
+              height={600}
+            />
+          </button>
+
+          <Lightbox
+            open={open["lightbox5"]}
+            close={() => handleClose("lightbox5")}
+            slides={[
+              {
+                src: "/images/ads/generic-savings-postcard-update-2023-crops_Page_1.png",
+              },
+            ]}
+          />
+        </div>
+        <p>Click Image to Enlarge</p>
+      </div>
+
+      <div className="mb-8 flex flex-col justify-center items-center">
+        <div className="border border-gray-400">
+          <button type="button" onClick={() => handleOpen("lightbox6")}>
+            <Image
+              src="/images/ads/2024-SBGP-Clickable-ad-min.png"
+              alt="2023 Contracts"
+              width={300}
+              height={600}
+            />
+          </button>
+
+          <Lightbox
+            open={open["lightbox6"]}
+            close={() => handleClose("lightbox6")}
+            slides={[{ src: "/images/ads/2024-SBGP-Clickable-ad-min.png" }]}
+          />
+        </div>
+        <Link href="https://growthgen.typeform.com/to/bSLHKJWO">Click Here to Redeem</Link>
       </div>
 
       {/* Repeat for each lightbox, ensuring to change the identifier */}

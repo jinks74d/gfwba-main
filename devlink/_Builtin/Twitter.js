@@ -8,15 +8,19 @@ const sizeDict = {
   m: "medium",
   l: "large",
 };
-export function Twitter({
-  className = "",
-  url = "https://webflow.com",
-  mode = "tweet",
-  size = "m",
-  text = "Check out this site",
-  ...props
-}) {
-  const ref = React.useRef(null);
+export const Twitter = React.forwardRef(function Twitter(
+  {
+    className = "",
+    url = "https://webflow.com",
+    mode = "tweet",
+    size = "m",
+    text = "Check out this site",
+    ...props
+  },
+  ref
+) {
+  const innerRef = React.useRef(null);
+  React.useImperativeHandle(ref, () => innerRef.current);
   if (!isUrl(url)) {
     if (mode === "tweet") {
       url = "https://webflow.com/";
@@ -31,7 +35,7 @@ export function Twitter({
         if (window.twttr) {
           const twitterButtonOption = window.twttr.widgets[modeDict[mode]];
           if (twitterButtonOption) {
-            twitterButtonOption(url, ref?.current, {
+            twitterButtonOption(url, innerRef?.current, {
               size: sizeDict[size],
               text,
             });
@@ -47,7 +51,7 @@ export function Twitter({
     <div
       {...props}
       className={className + " w-widget w-widget-twitter"}
-      ref={ref}
+      ref={innerRef}
     />
   );
-}
+});

@@ -1,19 +1,22 @@
 import * as React from "react";
 import { cj } from "../utils";
 const DEFAULT_16_9_RATIO = 0.5617021276595745;
-export function YouTubeVideo({
-  className = "",
-  title,
-  videoId,
-  aspectRatio = DEFAULT_16_9_RATIO,
-  startAt = 0,
-  showAllRelatedVideos = false,
-  controls = true,
-  autoplay = false,
-  muted = false,
-  privacyMode = false,
-  ...props
-}) {
+export const YouTubeVideo = React.forwardRef(function YouTubeVideo(
+  {
+    className = "",
+    title,
+    videoId,
+    aspectRatio = DEFAULT_16_9_RATIO,
+    startAt = 0,
+    showAllRelatedVideos = false,
+    controls = true,
+    autoplay = false,
+    muted = false,
+    privacyMode = false,
+    ...props
+  },
+  ref
+) {
   const baseUrl = privacyMode
     ? "https://www.youtube-nocookie.com/embed"
     : "https://www.youtube.com/embed";
@@ -39,6 +42,7 @@ export function YouTubeVideo({
       {...props}
       style={{ paddingTop: `${aspectRatio * 100}%` }}
       className={cj("w-embed-youtubevideo", className)}
+      ref={ref}
     >
       <iframe
         src={`${baseUrl}/${videoId}?${urlParams}`}
@@ -51,4 +55,4 @@ export function YouTubeVideo({
       />
     </div>
   );
-}
+});

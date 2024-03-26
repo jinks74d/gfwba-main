@@ -143,26 +143,6 @@
   display: flex;
 }
 
-.heading-2 {
-  margin-bottom: 30px;
-  color: var(--blue);
-  font-size: 2.875rem;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 479px) {
-  .heading-2 {
-    margin-bottom: 15px;
-    font-size: 1.185rem;
-    text-align: center;
-  }
-}
-
-.home-grid-right-slot {
-  display: flex;
-  align-items: flex-start;
-}
-
 #w-node-_66a5b6cb-6a7b-9ddb-b18e-c74662f8aed3-62f8aecc {
   grid-column-start: span 1;
   grid-column-end: span 1;

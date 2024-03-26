@@ -1,15 +1,21 @@
 import * as React from "react";
 import { DevLinkContext } from "../devlinkContext";
 import * as utils from "../utils";
-export function Block({ tag = "div", ...props }) {
-  return React.createElement(tag, props);
-}
-export function Span(props) {
-  return <span {...props} />;
-}
-export function Blockquote(props) {
-  return <blockquote {...props} />;
-}
+export const Block = React.forwardRef(function Block(
+  { tag = "div", ...props },
+  ref
+) {
+  return React.createElement(tag, {
+    ...props,
+    ref,
+  });
+});
+export const Span = React.forwardRef(function Span(props, ref) {
+  return <span {...props} ref={ref} />;
+});
+export const Blockquote = React.forwardRef(function Blockquote(props, ref) {
+  return <blockquote {...props} ref={ref} />;
+});
 export const Link = React.forwardRef(function Link(
   {
     options = { href: "#" },
@@ -43,32 +49,40 @@ export const Link = React.forwardRef(function Link(
     </>
   );
 });
-export function List({
-  tag = "ul",
-  unstyled = true,
-  className = "",
-  ...props
-}) {
+export const List = React.forwardRef(function List(
+  { tag = "ul", unstyled = true, className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     role: "list",
     className: className + (unstyled ? " w-list-unstyled" : ""),
     ...props,
+    ref,
   });
-}
-export function ListItem(props) {
-  return React.createElement("li", props);
-}
-export function Image({ alt, ...props }) {
+});
+export const ListItem = React.forwardRef(function ListItem(props, ref) {
+  return React.createElement("li", {
+    ...props,
+    ref,
+  });
+});
+export const Image = React.forwardRef(function Image({ alt, ...props }, ref) {
   const { renderImage: UserImage } = React.useContext(DevLinkContext);
   return UserImage ? (
-    <UserImage alt={alt || ""} {...props} />
+    <UserImage alt={alt || ""} {...props} ref={ref} />
   ) : (
-    <img alt={alt || ""} {...props} />
+    <img alt={alt || ""} {...props} ref={ref} />
   );
-}
-export function Section({ tag = "section", ...props }) {
-  return React.createElement(tag, props);
-}
+});
+export const Section = React.forwardRef(function Section(
+  { tag = "section", ...props },
+  ref
+) {
+  return React.createElement(tag, {
+    ...props,
+    ref,
+  });
+});
 export const Container = React.forwardRef(function Container(
   { tag = "div", className = "", ...props },
   ref
@@ -79,71 +93,97 @@ export const Container = React.forwardRef(function Container(
     ...props,
   });
 });
-export function BlockContainer({ tag = "div", className = "", ...props }) {
+export const BlockContainer = React.forwardRef(function BlockContainer(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-blockcontainer",
     ...props,
+    ref,
   });
-}
-export function HFlex({ tag = "div", className = "", ...props }) {
+});
+export const HFlex = React.forwardRef(function HFlex(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-hflex",
     ...props,
+    ref,
   });
-}
-export function VFlex({ tag = "div", className = "", ...props }) {
+});
+export const VFlex = React.forwardRef(function VFlex(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-vflex",
     ...props,
+    ref,
   });
-}
-export function Layout({ tag = "div", className = "", ...props }) {
+});
+export const Layout = React.forwardRef(function Layout(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-layout wf-layout-layout",
     ...props,
+    ref,
   });
-}
-export function Cell({ tag = "div", className = "", ...props }) {
+});
+export const Cell = React.forwardRef(function Cell(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-cell",
     ...props,
+    ref,
   });
-}
-export function HtmlEmbed({
-  tag = "div",
-  className = "",
-  value = "",
-  ...props
-}) {
+});
+export const HtmlEmbed = React.forwardRef(function HtmlEmbed(
+  { tag = "div", className = "", value = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-embed",
     dangerouslySetInnerHTML: { __html: utils.removeUnescaped(value) },
     ...props,
+    ref,
   });
-}
-export function Grid({ tag = "div", className = "", ...props }) {
+});
+export const Grid = React.forwardRef(function Grid(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-layout-grid",
     ...props,
+    ref,
   });
-}
-export function Icon({ widget, className = "", ...props }) {
+});
+export const Icon = React.forwardRef(function Icon(
+  { widget, className = "", ...props },
+  ref
+) {
   return React.createElement("div", {
     className: className + ` w-icon-${widget.icon}`,
     ...props,
+    ref,
   });
-}
-export function Column({
-  tag = "div",
-  className = "",
-  columnClasses = "",
-  ...props
-}) {
+});
+export const Column = React.forwardRef(function Column(
+  { tag = "div", className = "", columnClasses = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     className: className + " w-col " + columnClasses,
     ...props,
+    ref,
   });
-}
+});
 const transformWidths = (width, index) => {
   const widths = width?.split("|") ?? [];
   return widths.length > 1 ? widths[index] : width;
@@ -153,16 +193,13 @@ const columnClass = (width, key) => {
   if (/main$/.test(key)) return `w-col-${width}`;
   return `w-col-${key}-${width}`;
 };
-export function Row({
-  tag = "div",
-  className = "",
-  columns,
-  children,
-  ...props
-}) {
+export const Row = React.forwardRef(function Row(
+  { tag = "div", className = "", columns, children, ...props },
+  ref
+) {
   return React.createElement(
     tag,
-    { className: className + " w-row", ...props },
+    { className: className + " w-row", ...props, ref },
     columns
       ? React.Children.map(children, (child, index) => {
           if (child && typeof child === "object" && child.type !== Column)
@@ -185,7 +222,12 @@ export function Row({
         })
       : children
   );
-}
-export function NotSupported({ _atom = "" }) {
-  return <div>{`This builtin is not currently supported: ${_atom}`}</div>;
-}
+});
+export const NotSupported = React.forwardRef(function NotSupported(
+  { _atom = "" },
+  ref
+) {
+  return (
+    <div ref={ref}>{`This builtin is not currently supported: ${_atom}`}</div>
+  );
+});

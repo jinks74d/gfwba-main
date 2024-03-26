@@ -3,6 +3,7 @@
 // Import React components and getConfig from Next.js
 import { InnerHero, AboutSection } from "@/devlink"; // Custom components for the About page layout
 import getConfig from "next/config"; // Used to access the public runtime configuration
+import AdSidebar from "@/components/AdSidebar";
 
 // Retrieve public runtime configuration, including the base URL for metadata
 const { publicRuntimeConfig } = getConfig();
@@ -13,7 +14,8 @@ export const metadata = {
   title: "About GFWBA: Advocating for Fort Worth's Homebuilding Industry", // Title of the page for SEO purposes
   description:
     "Learn about the Greater Fort Worth Builders Association (GFWBA), our mission, history, and significant victories for the homebuilding industry in Fort Worth, Texas.", // Description for SEO
-  authors: [ // Authors or contributors to the page content
+  authors: [
+    // Authors or contributors to the page content
     {
       name: "Farside Web Development",
       url: "https://farsidedev.com",
@@ -23,7 +25,8 @@ export const metadata = {
       url: "https://gfwbatx.com",
     },
   ],
-  openGraph: { // Open Graph metadata for social sharing
+  openGraph: {
+    // Open Graph metadata for social sharing
     title:
       "Greater Fort Worth Builders Association: Shaping the Future of Homebuilding", // OG title
     description:
@@ -32,7 +35,8 @@ export const metadata = {
     siteName: "Greater Fort Worth Builders Association", // Website name for OG data
     locale: "en_US", // Locale of the content
     type: "website", // Type of content
-    images: [ // Images for OG sharing
+    images: [
+      // Images for OG sharing
       {
         url: `${metadataBase}/public/images/gfwba-logo@2x.png`, // URL of the image to share
         alt: "GFWBA Logo", // Alternative text for the image
@@ -44,7 +48,7 @@ export const metadata = {
 // Functional component for the About page
 export default function About() {
   const { url } = metadata.openGraph; // Extract the canonical URL from the metadata
-  
+
   // Define breadcrumb schema for structured data (SEO)
   const breadcrumbSchema = {
     "@context": "http://schema.org",
@@ -85,7 +89,9 @@ export default function About() {
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
         />
-        <AboutSection />
+        <AboutSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

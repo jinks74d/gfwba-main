@@ -140,15 +140,7 @@ export function Navbar({
                     href: "/organization-structure",
                   }}
                 >
-                  {"ORGANIZATION SRUCTURE"}
-                </_Builtin.DropdownLink>
-                <_Builtin.DropdownLink
-                  className={_utils.cx(_styles, "dd-link")}
-                  options={{
-                    href: "#",
-                  }}
-                >
-                  {"LEADERSHIP"}
+                  {"ORGANIZATION STRUCTURE"}
                 </_Builtin.DropdownLink>
                 <_Builtin.DropdownLink
                   className={_utils.cx(_styles, "dd-link")}

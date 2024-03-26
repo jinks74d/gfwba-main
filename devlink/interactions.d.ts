@@ -1,7 +1,10 @@
 import * as React from "react";
 import { CSSModules } from "./types";
 type IXData = any;
-export declare const IXContext: any;
+export declare const IXContext: React.Context<{
+  initEngine: ((data: IXData, styles?: CSSModules) => void) | null;
+  restartEngine: (() => void) | null;
+}>;
 type IXEngine = {
   init: (data: IXData) => void;
 };

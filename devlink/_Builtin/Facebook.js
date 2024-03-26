@@ -1,14 +1,17 @@
 import * as React from "react";
 import { isUrl } from "../utils";
-export function Facebook({
-  className = "",
-  layout = "standard",
-  width = 250,
-  height = 50,
-  url = "https://facebook.com/webflow",
-  locale = "en_US",
-  ...props
-}) {
+export const Facebook = React.forwardRef(function Facebook(
+  {
+    className = "",
+    layout = "standard",
+    width = 250,
+    height = 50,
+    url = "https://facebook.com/webflow",
+    locale = "en_US",
+    ...props
+  },
+  ref
+) {
   if (!isUrl(url)) {
     url = "https://facebook.com/webflow";
   }
@@ -30,7 +33,11 @@ export function Facebook({
     "&"
   )}`;
   return (
-    <div {...props} className={className + " w-widget w-widget-facebook"}>
+    <div
+      {...props}
+      className={className + " w-widget w-widget-facebook"}
+      ref={ref}
+    >
       <iframe
         title="Facebook Like Button"
         src={frameSrc}
@@ -38,4 +45,4 @@ export function Facebook({
       ></iframe>
     </div>
   );
-}
+});

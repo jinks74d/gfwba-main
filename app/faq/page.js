@@ -3,6 +3,7 @@
 // Import necessary components and the configuration function from Next.js and custom components
 import { InnerHero, FaqSection } from "@/devlink"; // Custom UI components for rendering specific sections of the FAQ page
 import getConfig from "next/config"; // Function to access the Next.js public runtime configuration
+import AdSidebar from "@/components/AdSidebar"; // Component for displaying ads
 
 // Retrieve public runtime configuration to use throughout the component
 const { publicRuntimeConfig } = getConfig();
@@ -106,7 +107,9 @@ export default function Discounts() {
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
         />
-        <FaqSection />
+        <FaqSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

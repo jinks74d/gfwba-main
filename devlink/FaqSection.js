@@ -4,7 +4,10 @@ import { StaffSidebar } from "./StaffSidebar";
 import * as _utils from "./utils";
 import _styles from "./FaqSection.module.css";
 
-export function FaqSection({ as: _Component = _Builtin.Section }) {
+export function FaqSection({
+  as: _Component = _Builtin.Section,
+  homeGridRightSlot,
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -175,13 +178,17 @@ export function FaqSection({ as: _Component = _Builtin.Section }) {
             )}
             tag="div"
           >
-            <_Builtin.Heading
-              className={_utils.cx(_styles, "heading-2")}
-              tag="h2"
-            >
-              {"ASSOCIATION STAFF"}
-            </_Builtin.Heading>
-            <StaffSidebar />
+            {homeGridRightSlot ?? (
+              <>
+                <_Builtin.Heading
+                  className={_utils.cx(_styles, "heading-2")}
+                  tag="h2"
+                >
+                  {"ASSOCIATIONSTAFF"}
+                </_Builtin.Heading>
+                <StaffSidebar />
+              </>
+            )}
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

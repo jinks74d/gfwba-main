@@ -11,4 +11,5 @@ declare function Base21WebflowSection(props: {
   baseSideHeading?: React.ReactNode;
   baseGridLeftSlot?: Types.Devlink.Slot;
   homeGridRightSlot?: Types.Devlink.Slot;
+  homeGridRightSlot?: Types.Devlink.Slot;
 }): React.JSX.Element;

@@ -51,18 +51,7 @@ export function Base21WebflowSection({
             )}
             tag="div"
           >
-            <_Builtin.Heading
-              className={_utils.cx(_styles, "heading-2")}
-              tag="h2"
-            >
-              {baseSideHeading}
-            </_Builtin.Heading>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "home-grid-right-slot")}
-              tag="div"
-            >
-              {homeGridRightSlot}
-            </_Builtin.Block>
+            {homeGridRightSlot}
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

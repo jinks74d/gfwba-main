@@ -17,11 +17,15 @@ const INITIAL_DROPDOWN_STATE = {
   isOpen: false,
   openingCount: 0,
 };
-export function DropdownWrapper({ delay, hover, ...props }) {
+export const DropdownWrapper = React.forwardRef(function DropdownWrapper(
+  { delay, hover, ...props },
+  ref
+) {
   const root = React.useRef(null);
   const [{ isOpen }, setIsOpen] = React.useState(INITIAL_DROPDOWN_STATE);
   const [focusedLink, setFocusedLink] = React.useState(-1);
   const closeTimeoutRef = React.useRef();
+  React.useImperativeHandle(ref, () => root.current);
   React.useEffect(() => {
     return () => {
       clearTimeout(closeTimeoutRef.current);
@@ -73,7 +77,7 @@ export function DropdownWrapper({ delay, hover, ...props }) {
       <Dropdown {...props} />
     </DropdownContext.Provider>
   );
-}
+});
 function Dropdown({ tag = "div", className = "", ...props }) {
   const { root, setFocusedLink, hover, toggleOpen } =
     React.useContext(DropdownContext);
@@ -142,7 +146,10 @@ function Dropdown({ tag = "div", className = "", ...props }) {
     ),
   });
 }
-export function DropdownToggle({ tag = "div", className = "", ...props }) {
+export const DropdownToggle = React.forwardRef(function DropdownToggle(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   const { isOpen, toggleOpen, hover } = React.useContext(DropdownContext);
   const { isOpen: isNavbarOpen } = React.useContext(NavbarContext);
   return React.createElement(tag, {
@@ -166,9 +173,13 @@ export function DropdownToggle({ tag = "div", className = "", ...props }) {
     },
     role: "button",
     tabIndex: 0,
+    ref,
   });
-}
-export function DropdownList({ tag = "nav", className = "", ...props }) {
+});
+export const DropdownList = React.forwardRef(function DropdownList(
+  { tag = "nav", className = "", ...props },
+  ref
+) {
   const { isOpen } = React.useContext(DropdownContext);
   const { isOpen: isNavbarOpen } = React.useContext(NavbarContext);
   return React.createElement(tag, {
@@ -179,9 +190,13 @@ export function DropdownList({ tag = "nav", className = "", ...props }) {
       isOpen && "w--open",
       isNavbarOpen && "w--nav-dropdown-list-open"
     ),
+    ref,
   });
-}
-export function DropdownLink({ className = "", ...props }) {
+});
+export const DropdownLink = React.forwardRef(function DropdownLink(
+  { className = "", ...props },
+  ref
+) {
   const { isOpen: isNavbarOpen } = React.useContext(NavbarContext);
   return React.createElement(Link, {
     ...props,
@@ -191,5 +206,6 @@ export function DropdownLink({ className = "", ...props }) {
       isNavbarOpen && "w--nav-link-open"
     ),
     tabIndex: 0,
+    ref,
   });
-}
+});

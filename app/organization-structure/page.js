@@ -2,6 +2,7 @@
 
 // Import necessary React components from the project's design system or component library.
 import { InnerHero, OrganizationSection } from "@/devlink";
+import AdSidebar from "@/components/AdSidebar";
 
 // Import missing getConfig and publicRuntimeConfig for metadataBase usage.
 import getConfig from "next/config";
@@ -90,7 +91,9 @@ export default function Organization() {
           heroJoin={{ href: "/signup" }}
         />
         {/* OrganizationSection - A component detailing the organizational structure of GFWBA. */}
-        <OrganizationSection />
+        <OrganizationSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

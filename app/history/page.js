@@ -3,6 +3,7 @@
 // Import necessary components and functions
 import { InnerHero, HistorySection } from "@/devlink"; // Custom components used in the page
 import getConfig from "next/config"; // Function to access public runtime configuration
+import AdSidebar from "@/components/AdSidebar"; // Component for displaying ads
 
 // Retrieve public runtime configuration settings
 const { publicRuntimeConfig } = getConfig();
@@ -89,7 +90,9 @@ export default function History() {
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
         />
-        <HistorySection />
+        <HistorySection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );

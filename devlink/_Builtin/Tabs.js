@@ -6,14 +6,17 @@ const tabsContext = React.createContext({
   onTabClick: () => undefined,
   onLinkKeyDown: () => undefined,
 });
-export function TabsWrapper({
-  className = "",
-  fadeIn,
-  fadeOut,
-  easing,
-  current: initialCurrent,
-  ...props
-}) {
+export const TabsWrapper = React.forwardRef(function TabsWrapper(
+  {
+    className = "",
+    fadeIn,
+    fadeOut,
+    easing,
+    current: initialCurrent,
+    ...props
+  },
+  ref
+) {
   const [current, setCurrent] = React.useState("");
   const changeTab = React.useCallback(
     (next) => {
@@ -88,31 +91,45 @@ export function TabsWrapper({
   });
   return (
     <tabsContext.Provider value={{ current, onTabClick, onLinkKeyDown }}>
-      <div {...props} className={cj(className, "w-tabs")} />
+      <div {...props} className={cj(className, "w-tabs")} ref={ref} />
     </tabsContext.Provider>
   );
-}
-export function TabsMenu({ tag = "div", className = "", ...props }) {
+});
+export const TabsMenu = React.forwardRef(function TabsMenu(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     ...props,
     className: cj(className, "w-tab-menu"),
     role: "tablist",
+    ref,
   });
-}
-export function TabsLink({ className = "", children, ...props }) {
+});
+export const TabsLink = React.forwardRef(function TabsLink(
+  { className = "", children, ...props },
+  ref
+) {
   const { current, onTabClick, onLinkKeyDown } = React.useContext(tabsContext);
   const isCurrent = current === props["data-w-tab"];
-  const ref = React.useCallback(
+  const innerRef = React.useCallback(
     (node) => {
       if (!node) return;
       triggerIXEvent(node, isCurrent);
+      if (ref) {
+        if (typeof ref === "function") {
+          ref(node);
+        } else {
+          ref.current = node;
+        }
+      }
     },
-    [isCurrent]
+    [isCurrent, ref]
   );
   return (
     <a
       {...props}
-      ref={ref}
+      ref={innerRef}
       className={cj(
         className,
         "w-inline-block w-tab-link",
@@ -128,14 +145,21 @@ export function TabsLink({ className = "", children, ...props }) {
       {children}
     </a>
   );
-}
-export function TabsContent({ tag = "div", className = "", ...props }) {
+});
+export const TabsContent = React.forwardRef(function TabsContent(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   return React.createElement(tag, {
     ...props,
     className: cj(className, "w-tab-content"),
+    ref,
   });
-}
-export function TabsPane({ tag = "div", className = "", ...props }) {
+});
+export const TabsPane = React.forwardRef(function TabsPane(
+  { tag = "div", className = "", ...props },
+  ref
+) {
   const { current } = React.useContext(tabsContext);
   const isCurrent = current === props["data-w-tab"];
   return React.createElement(tag, {
@@ -143,5 +167,6 @@ export function TabsPane({ tag = "div", className = "", ...props }) {
     className: cj(className, "w-tab-pane", isCurrent && "w--tab-active"),
     role: "tabpanel",
     "aria-labelledby": props["data-w-tab"],
+    ref,
   });
-}
+});

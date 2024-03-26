@@ -4,35 +4,62 @@ type DropdownProps = React.PropsWithChildren<{
   tag?: keyof HTMLElementTagNameMap;
   className?: string;
 }>;
-type DropdownWrapperProps = DropdownProps & {
-  children: React.ReactElement<DropdownToggleProps | DropdownListProps>;
-  delay: number;
-  hover: boolean;
-};
-export declare function DropdownWrapper({
-  delay,
-  hover,
-  ...props
-}: DropdownWrapperProps): any;
+export declare const DropdownWrapper: React.ForwardRefExoticComponent<
+  {
+    tag?: keyof HTMLElementTagNameMap | undefined;
+    className?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & {
+    children: React.ReactElement<DropdownToggleProps | DropdownListProps>;
+    delay: number;
+    hover: boolean;
+  } & React.RefAttributes<unknown>
+>;
 type DropdownToggleProps = DropdownProps;
-export declare function DropdownToggle({
-  tag,
-  className,
-  ...props
-}: DropdownToggleProps): any;
+export declare const DropdownToggle: React.ForwardRefExoticComponent<
+  {
+    tag?: keyof HTMLElementTagNameMap | undefined;
+    className?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<unknown>
+>;
 type DropdownListProps = DropdownProps & {
   children:
     | React.ReactElement<DropdownLinkProps>
     | React.ReactElement<DropdownLinkProps>[];
 };
-export declare function DropdownList({
-  tag,
-  className,
-  ...props
-}: DropdownListProps): any;
+export declare const DropdownList: React.ForwardRefExoticComponent<
+  {
+    tag?: keyof HTMLElementTagNameMap | undefined;
+    className?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & {
+    children:
+      | React.ReactElement<DropdownLinkProps>
+      | React.ReactElement<DropdownLinkProps>[];
+  } & React.RefAttributes<unknown>
+>;
 type DropdownLinkProps = DropdownProps & LinkProps;
-export declare function DropdownLink({
-  className,
-  ...props
-}: DropdownLinkProps): any;
+export declare const DropdownLink: React.ForwardRefExoticComponent<
+  {
+    tag?: keyof HTMLElementTagNameMap | undefined;
+    className?: string | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & import("./Basic").ElementProps<"a"> & {
+      options?:
+        | {
+            href: string;
+            target?: "_self" | "_blank" | undefined;
+            preload?: "none" | "prerender" | "prefetch" | undefined;
+          }
+        | undefined;
+      className?: string | undefined;
+      button?: boolean | undefined;
+      block?: string | undefined;
+    } & React.RefAttributes<HTMLAnchorElement>
+>;
 export {};

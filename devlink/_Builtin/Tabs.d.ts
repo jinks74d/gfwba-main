@@ -1,47 +1,47 @@
 import * as React from "react";
 import { EASING_FUNCTIONS } from "../utils";
 import { Props } from "./Basic";
-type TabsWrapperProps = Props<
-  "div",
-  {
+export declare const TabsWrapper: React.ForwardRefExoticComponent<
+  import("./Basic").ElementProps<"div"> & {
     current: string;
     easing: keyof typeof EASING_FUNCTIONS;
     fadeIn: number;
     fadeOut: number;
     children?:
-      | React.ReactElement<TabsMenuProps | TabsContentProps>[]
-      | React.ReactElement<TabsMenuProps | TabsContentProps>;
-  }
+      | React.ReactElement<
+          TabsMenuProps | TabsContentProps,
+          string | React.JSXElementConstructor<any>
+        >
+      | React.ReactElement<
+          TabsMenuProps | TabsContentProps,
+          string | React.JSXElementConstructor<any>
+        >[]
+      | undefined;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
 >;
-export declare function TabsWrapper({
-  className,
-  fadeIn,
-  fadeOut,
-  easing,
-  current: initialCurrent,
-  ...props
-}: TabsWrapperProps): any;
 type TabsMenuProps = {
   tag?: React.ElementType;
   className?: string;
   children?: React.ReactElement<TabsLinkProps>[];
 };
-export declare function TabsMenu({
-  tag,
-  className,
-  ...props
-}: TabsMenuProps): any;
+export declare const TabsMenu: React.ForwardRefExoticComponent<
+  TabsMenuProps & React.RefAttributes<unknown>
+>;
 type TabsLinkProps = Props<
   "a",
   {
     "data-w-tab": string;
   }
 >;
-export declare function TabsLink({
-  className,
-  children,
-  ...props
-}: TabsLinkProps): any;
+export declare const TabsLink: React.ForwardRefExoticComponent<
+  import("./Basic").ElementProps<"a"> & {
+    "data-w-tab": string;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<HTMLAnchorElement>
+>;
 type TabsContentProps = {
   tag?: React.ElementType;
   className?: string;
@@ -49,19 +49,21 @@ type TabsContentProps = {
     | React.ReactElement<TabsPaneProps>[]
     | React.ReactElement<TabsPaneProps>;
 };
-export declare function TabsContent({
-  tag,
-  className,
-  ...props
-}: TabsContentProps): any;
+export declare const TabsContent: React.ForwardRefExoticComponent<
+  TabsContentProps & React.RefAttributes<unknown>
+>;
 type TabsPaneProps = React.PropsWithChildren<{
   tag?: React.ElementType;
   className?: string;
   "data-w-tab": string;
 }>;
-export declare function TabsPane({
-  tag,
-  className,
-  ...props
-}: TabsPaneProps): any;
+export declare const TabsPane: React.ForwardRefExoticComponent<
+  {
+    tag?: React.ElementType<any> | undefined;
+    className?: string | undefined;
+    "data-w-tab": string;
+  } & {
+    children?: React.ReactNode;
+  } & React.RefAttributes<unknown>
+>;
 export {};

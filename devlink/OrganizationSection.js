@@ -1,10 +1,12 @@
 import React from "react";
 import * as _Builtin from "./_Builtin";
-import { AdsSidebar } from "./AdsSidebar";
 import * as _utils from "./utils";
 import _styles from "./OrganizationSection.module.css";
 
-export function OrganizationSection({ as: _Component = _Builtin.Section }) {
+export function OrganizationSection({
+  as: _Component = _Builtin.Section,
+  homeGridRightSlot,
+}) {
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -133,7 +135,7 @@ export function OrganizationSection({ as: _Component = _Builtin.Section }) {
             )}
             tag="div"
           >
-            <AdsSidebar />
+            {homeGridRightSlot}
           </_Builtin.Block>
         </_Builtin.Block>
       </_Builtin.Block>

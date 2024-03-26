@@ -3,6 +3,7 @@
 // Import necessary components and functions from Next.js and other libraries
 import { InnerHero, ContactSection } from "@/devlink"; // Custom components for the contact page
 import getConfig from "next/config"; // Function to access public runtime config in Next.js
+import AdSidebar from "@/components/AdSidebar"; // Component for displaying ads
 
 // Retrieve public runtime configuration settings
 const { publicRuntimeConfig } = getConfig();
@@ -88,7 +89,9 @@ export default function Contact() {
           heroDirectory={{ href: "/directory" }}
           heroJoin={{ href: "/signup" }}
         />
-        <ContactSection />
+        <ContactSection
+          homeGridRightSlot={<AdSidebar />} // AdSidebar component for displaying ads
+        />
       </main>
     </>
   );
