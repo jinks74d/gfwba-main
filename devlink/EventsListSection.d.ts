@@ -10,4 +10,5 @@ declare function EventsListSection(props: {
   eventLink?: Types.Basic.Link;
   calendarPane?: Types.Devlink.Slot;
   listPane?: Types.Devlink.Slot;
+  eventsRightSlot?: Types.Devlink.Slot;
 }): React.JSX.Element;
