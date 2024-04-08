@@ -43,7 +43,8 @@ export default function Profile({ imageData }) {
   const [newCell, setNewCell] = useState("");
   const [newFax, setNewFax] = useState("");
   const [newWebsite, setNewWebsite] = useState("");
-  const [newLogo, setNewLogo] = useState("");
+  const [newLogoBase, setNewLogoBase] = useState("");
+  const [newLogoFile, setNewLogoFile] = useState("");
   const [newPhoto, setNewPhoto] = useState("");
   const [newArea, setNewArea] = useState("");
   const [newOrganization, setNewOrganization] = useState("");
@@ -59,6 +60,7 @@ export default function Profile({ imageData }) {
   const [newMemberSince, setNewMemberSince] = useState("");
   const [newEmployees, setNewEmployees] = useState("");
   const [newReferredBy, setNewReferredBy] = useState("");
+  const [tempImg, setTempImg] = useState('');
 
   const [checkboxes, setCheckboxes] = useState(categoriesArr);
 
@@ -77,6 +79,11 @@ export default function Profile({ imageData }) {
       var { Id, DisplayName, Email } = JSON.parse(
         localStorage.getItem("GFWBAUSER")
       );
+      // if (localStorage.getItem("GFWBATEMP")) {
+      //   var imgJson = JSON.parse(localStorage.getItem("GFWBATEMP"));
+      //   setTempImg(imgJson.tempImg);
+      //   console.log(tempImg);
+      // }
       setLoggedId(Id);
       if (params.id == Id) {
         setEmailReplyToAddress(Email);
@@ -125,6 +132,11 @@ export default function Profile({ imageData }) {
       // console.log(logoUrl)
       if (json.FieldValues[48].Value) {
         setLogo(`${imageServer}/contacts-image/${json.FieldValues[49].Value.Id}`)
+      }
+      if (tempImg != '') {
+        if (tempImg !== logo) {
+          setLogo(`${imageServer}/contacts-image/${tempImg}`)
+        }
       }
       let categoryArr = [];
       let categoriesArr = [];
@@ -341,19 +353,16 @@ export default function Profile({ imageData }) {
     if (fieldValues[0]) {
       changes.FieldValues = fieldValues;
     }
-    if (newLogo !== '') {
+    if (newLogoFile !== '') {
       try {
         // Send base64Image to the server
-        console.log(params.id)
-        let imgResponse = await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
-        const imgJson = await imgResponse.json();
-        if (!response.ok) {
-          setError(json.error);
-          console.log("response not ok");
-        }
-        if (response.ok) {
-          console.log('Image uploaded successfully');
-        }
+        console.log(params.id, newLogoFile)
+        let imgResponse = await axios.post(`${imageServer}/contact/update`, { contactID: params.id, contactUrl: contact.Url, image: newLogoBase, file: newLogoFile });
+        const imgJson = await imgResponse.data;
+        console.log(imgJson);
+        // setTempImg(imgJson)
+        // setLogo(`${imageServer}/contacts-image/${imgJson.newImg}`)
+        // localStorage.setItem("GFWBATEMP", JSON.stringify({ tempImg: imgJson.newImg }));
       } catch (error) {
         console.error('Error uploading image:', error);
       }
@@ -408,12 +417,13 @@ export default function Profile({ imageData }) {
         // remove localStorage and redirect to a log back in page
         localStorage.removeItem("GFWBAUSER");
       }
-      window.location.reload()
+      // window.location.reload()
     }
   };
   const handleImageUpload = (event) => {
     var errorMessage = document.getElementById('error-message');
     const file = event.target.files[0];
+    console.log(file);
     const reader = new FileReader();
     // Check file type
     var allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
@@ -435,7 +445,8 @@ export default function Profile({ imageData }) {
     errorMessage.textContent = '';
 
     reader.onloadend = () => {
-      setNewLogo(reader.result);
+      setNewLogoBase(reader.result);
+      setNewLogoFile(file);
     };
 
     if (file) {
@@ -446,7 +457,7 @@ export default function Profile({ imageData }) {
   const updateImage = async () => {
     try {
       // Send base64Image to the server
-      await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogo });
+      await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogoBase });
       console.log('Image uploaded successfully');
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -490,13 +501,13 @@ export default function Profile({ imageData }) {
   };
 
   useEffect(() => {
-    if (contact === "") {
-      fetchContact();
-      if (localStorage.getItem("GFWBAUSER")) {
-        updateLoggedStatus(true);
-      }
+    // if (contact === "") {
+    fetchContact();
+    if (localStorage.getItem("GFWBAUSER")) {
+      updateLoggedStatus(true);
     }
-  });
+    // }
+  }, []);
 
   const classifications = [
     { name: "Accounting" },
