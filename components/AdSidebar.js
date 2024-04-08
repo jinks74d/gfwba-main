@@ -20,7 +20,7 @@ export default function AdSidebar() {
     <>
       {/* Each lightbox section now has a unique identifier */}
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox1")}>
             <Image
               src="/images/ads/2023Contracts_w-qr1pgx700-min.jpg"
@@ -40,7 +40,7 @@ export default function AdSidebar() {
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox2")}>
             <Image
               src="/images/ads/2024ModelSafety_HalfPg.jpg"
@@ -60,7 +60,7 @@ export default function AdSidebar() {
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox3")}>
             <Image
               src="/images/ads/TABInsuranceProgram-w-QRx720-min.png"
@@ -82,7 +82,7 @@ export default function AdSidebar() {
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox4")}>
             <Image
               src="/images/ads/TAB-Q4'22-Flyer-min.jpg"
@@ -102,7 +102,7 @@ export default function AdSidebar() {
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox5")}>
             <Image
               src="/images/ads/generic-savings-postcard-update-2023-crops_Page_1.png"
@@ -126,7 +126,7 @@ export default function AdSidebar() {
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
-        <div className="border border-gray-400">
+        <div className="border border-gray-400 side-img">
           <button type="button" onClick={() => handleOpen("lightbox6")}>
             <Image
               src="/images/ads/2024-SBGP-Clickable-ad-min.png"
@@ -142,7 +142,9 @@ export default function AdSidebar() {
             slides={[{ src: "/images/ads/2024-SBGP-Clickable-ad-min.png" }]}
           />
         </div>
-        <Link href="https://growthgen.typeform.com/to/bSLHKJWO">Click Here to Redeem</Link>
+        <Link href="https://growthgen.typeform.com/to/bSLHKJWO">
+          Click Here to Redeem
+        </Link>
       </div>
 
       {/* Repeat for each lightbox, ensuring to change the identifier */}

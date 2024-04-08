@@ -214,4 +214,8 @@ textarea {
   .EventsListSection_text-block-5__MFNv8 {
     @apply text-base !important;
   }
+
+  .side-img {
+    @apply w-1/2 !important;
+  }
 }
