@@ -4,6 +4,8 @@ import path from "path";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
+      // Print directory where this file is located
+      console.log("Current directory:", __dirname);
       const { contactID, image } = req.body;
 
       // Check if image data and contactID are provided
@@ -28,12 +30,10 @@ export default async function handler(req, res) {
       fs.writeFile(imagePath, imageData, "base64", function (err) {
         if (err) {
           console.error("Error:", err);
-          return res
-            .status(500)
-            .json({
-              success: false,
-              message: "Image uploading to local machine failed",
-            });
+          return res.status(500).json({
+            success: false,
+            message: "Image uploading to local machine failed",
+          });
         } else {
           console.log("Image saved successfully at:", imagePath);
           return res
