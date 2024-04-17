@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useLoggedStatus } from '@/context/LoggedStatusProvider';
+import { useLoggedStatus } from "@/context/LoggedStatusProvider";
 
 export default function Login() {
   const { loggedStatus, updateLoggedStatus } = useLoggedStatus();

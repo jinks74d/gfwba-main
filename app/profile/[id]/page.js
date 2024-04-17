@@ -131,11 +131,11 @@ export default function Profile({ imageData }) {
       // const logoUrl = URL.createObjectURL(json.profLogo);
       // console.log(logoUrl)
       if (json.FieldValues[48].Value) {
-        setLogo(`${imageServer}/contacts-image/${json.FieldValues[49].Value.Id}`)
+        setLogo(`${json.FieldValues[49].Value.Id}`)
       }
       if (tempImg != '') {
         if (tempImg !== logo) {
-          setLogo(`${imageServer}/contacts-image/${tempImg}`)
+          setLogo(`${tempImg}`)
         }
       }
       let categoryArr = [];
@@ -357,11 +357,11 @@ export default function Profile({ imageData }) {
       try {
         // Send base64Image to the server
         console.log(params.id, newLogoFile)
-        let imgResponse = await axios.post(`${imageServer}/contact/update`, { contactID: params.id, contactUrl: contact.Url, image: newLogoBase, file: newLogoFile });
+        let imgResponse = await axios.post(`/api/cron/update`, { contactID: params.id, contactUrl: contact.Url, image: newLogoBase, file: newLogoFile });
         const imgJson = await imgResponse.data;
         console.log(imgJson);
         // setTempImg(imgJson)
-        // setLogo(`${imageServer}/contacts-image/${imgJson.newImg}`)
+        //setLogo(`${imageServer}/contacts-image/${imgJson.newImg}`)
         // localStorage.setItem("GFWBATEMP", JSON.stringify({ tempImg: imgJson.newImg }));
       } catch (error) {
         console.error('Error uploading image:', error);

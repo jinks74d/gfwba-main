@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Buffer } from 'buffer';
 
+
 export default function handler(req, res) {
     // require('dotenv').config()
     const { WILD_API, WILD_CLIENT_ID, WILD_CLIENT_SECRET } = process.env

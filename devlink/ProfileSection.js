@@ -22,12 +22,13 @@ export function ProfileSection({
   profEmailAddress = {
     href: "#",
   },
-
   profWebsiteAddress = {
     href: "#",
     target: "_blank",
   },
 }) {
+  console.log(profLogo, "dfjdkfjkf")
+
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -186,7 +187,7 @@ export function ProfileSection({
               width="auto"
               height="auto"
               alt=""
-              src={profLogo}
+              src={`/contacts-image/${profLogo}`}
             />
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main-bold")}
