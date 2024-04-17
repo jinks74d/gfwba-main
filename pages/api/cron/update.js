@@ -17,7 +17,6 @@ export default async function handler(req, res) {
 
       const imageData = image.split(";base64,").pop(); // Extract base64 data
       const imagePath = path.join(
-        process.cwd(),
         "public",
         "contacts-image",
         `image_${contactID}.jpg`
@@ -36,7 +35,7 @@ export default async function handler(req, res) {
       console.error("Error:", error);
       return res.status(500).json({
         success: false,
-        message: "Image uploading to local machine failed",
+        message: "Image uploading failed",
         error: error.message,
       });
     }
