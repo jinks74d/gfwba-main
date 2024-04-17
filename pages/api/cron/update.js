@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
+import { promisify } from "util";
+const writeFileAsync = promisify(fs.writeFile);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      // Print directory where this file is located
-      console.log("Current directory:", __dirname);
       const { contactID, image } = req.body;
 
       // Check if image data and contactID are provided
@@ -18,34 +18,31 @@ export default async function handler(req, res) {
       const imageData = image.split(";base64,").pop(); // Extract base64 data
       const imagePath = path.join(
         process.cwd(),
-        "public/contacts-image",
+        "public",
+        "contacts-image",
         `image_${contactID}.jpg`
       );
 
-      // Check if directory exists, if not create it
-      if (!fs.existsSync(path.dirname(imagePath))) {
-        fs.mkdirSync(path.dirname(imagePath), { recursive: true });
-      }
+      // Print current directory
+      console.log("Current directory:", process.cwd());
 
-      fs.writeFile(imagePath, imageData, "base64", function (err) {
-        if (err) {
-          console.error("Error:", err);
-          return res.status(500).json({
-            success: false,
-            message: "Image uploading to local machine failed",
-          });
-        } else {
-          console.log("Image saved successfully at:", imagePath);
-          return res
-            .status(200)
-            .json({ success: true, message: "Image uploaded successfully" });
-        }
-      });
+      await writeFileAsync(imagePath, imageData, "base64");
+
+      console.log("Image saved successfully at:", imagePath);
+      return res
+        .status(200)
+        .json({ success: true, message: "Image uploaded successfully" });
     } catch (error) {
-      console.log("Error:", error);
-      res.status(500).json({ success: false, message: error });
+      console.error("Error:", error);
+      return res.status(500).json({
+        success: false,
+        message: "Image uploading to local machine failed",
+        error: error.message,
+      });
     }
   } else {
-    res.status(405).json({ success: false, message: "Method not allowed" });
+    return res
+      .status(405)
+      .json({ success: false, message: "Method not allowed" });
   }
 }
