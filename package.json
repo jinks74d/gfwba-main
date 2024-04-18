@@ -15,6 +15,7 @@
     "@fullcalendar/list": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
     "@fullcalendar/timegrid": "^6.1.10",
+    "@vercel/blob": "^0.23.0",
     "@webflow/webflow-cli": "^1.6.9",
     "axios": "^1.6.2",
     "mongoose": "^8.2.2",

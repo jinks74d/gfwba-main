@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { put } from "@vercel/blob";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -14,36 +13,29 @@ export default async function handler(req, res) {
       }
 
       const imageData = image.split(";base64,").pop(); // Extract base64 data
-      const imagePath = path.join(
-        process.cwd(),
-        "public",
-        `image_${contactID}.jpg`
+
+      // Upload image to Vercel Blob Storage
+      const blob = await put(
+        `image_${contactID}.jpg`,
+        Buffer.from(imageData, "base64"),
+        { access: "public" }
       );
 
-      // Check if directory exists, if not create it
-      if (!fs.existsSync(path.dirname(imagePath))) {
-        fs.mkdirSync(path.dirname(imagePath), { recursive: true });
-      }
-
-      fs.writeFile(imagePath, imageData, "base64", function (err) {
-        if (err) {
-          console.error("Error:", err);
-          return res.status(500).json({
-            success: false,
-            message: "Image uploading to local machine failed",
-          });
-        } else {
-          console.log("Image saved successfully at:", imagePath);
-          return res
-            .status(200)
-            .json({ success: true, message: "Image uploaded successfully" });
-        }
+      return res.status(200).json({
+        success: true,
+        message: "Image uploaded to Vercel Blob Storage",
+        url: blob,
       });
     } catch (error) {
       console.log("Error:", error);
-      res.status(500).json({ success: false, message: error });
+      return res.status(500).json({
+        success: false,
+        message: error,
+      });
     }
   } else {
-    res.status(405).json({ success: false, message: "Method not allowed" });
+    return res
+      .status(405)
+      .json({ success: false, message: "Method not allowed" });
   }
 }
