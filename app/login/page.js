@@ -31,6 +31,8 @@ export default function Login() {
       },
       body: JSON.stringify(data),
     });
+
+    const json = await response.json();
     if (!response.ok) {
       console.log(json);
       setError(json.error_description);
