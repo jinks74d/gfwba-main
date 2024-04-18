@@ -2,38 +2,42 @@ import axios from "axios";
 import { Buffer } from "buffer";
 import path from "path";
 import fs from "fs";
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import connectDB from "@/components/lib/mongoDB";
+import { put } from "@vercel/blob";
 
 const { WILD_API, SERVER_URL } = process.env;
 
-const initContactImageModel = () => {
+export const initContactImageModel = async () => {
   let ContactImage;
+  await connectDB();
 
   if (mongoose.models.ContactImage) {
-    ContactImage = mongoose.model('ContactImage');
+    ContactImage = mongoose.model("ContactImage");
   } else {
     const contactImageSchema = new mongoose.Schema({
-  
-        wildapricotUserId: { type: String, required: true },
-        // localUrl: { type: String },
-        wildapricotUrl: { type: String },
-        profileUpdatedDate: { type: Date },
-        createdAt: { type: Date, default: Date.now },
-        updatedAt: { type: Date }
+      wildapricotUserId: { type: String, required: true },
+      vercelBolbUrl: { type: String },
+
+      wildapricotUrl: { type: String },
+      profileUpdatedDate: { type: Date },
+      createdAt: { type: Date, default: Date.now },
+      updatedAt: { type: Date },
     });
 
-    ContactImage = mongoose.model('ContactImage', contactImageSchema);
+    ContactImage = mongoose.model("ContactImage", contactImageSchema);
   }
 
   return ContactImage;
 };
 
-const ContactImage = initContactImageModel();
+export const ContactImage = await initContactImageModel();
 
 const getToken = async () => {
   try {
-    const authHeader = `Basic ${Buffer.from(`APIKEY:${WILD_API}`).toString("base64")}`;
+    const authHeader = `Basic ${Buffer.from(`APIKEY:${WILD_API}`).toString(
+      "base64"
+    )}`;
 
     const response = await axios.post(
       "https://oauth.wildapricot.org/auth/token",
@@ -53,11 +57,10 @@ const getToken = async () => {
 };
 
 export default async function handler(req, res) {
-  await connectDB();
-
   if (req.method === "GET") {
     const token = await getToken();
-    console.log("token",token)
+    console.log("token", token);
+    console.log("contact", ContactImage);
 
     try {
       const response = await axios.get(
@@ -111,25 +114,21 @@ export default async function handler(req, res) {
             }
           );
 
-          const imagePath = path.join(
-            process.cwd(),
-            'public/contacts-image',
-            `${imageName}`
+          const blob = await put(
+            `${contact.Id}.jpg`,
+            Buffer.from(imageResponse.data, "binary"), // Convert arraybuffer to Buffer
+            { access: "public" }
           );
-
-          fs.writeFileSync(imagePath, imageResponse.data);
-
           if (!existingImage) {
             const newImage = new ContactImage({
               wildapricotUserId: contact.Id,
               wildapricotUrl: contact.FieldValues[49].Value.Url,
-            //   localUrl: `${SERVER_URL}/contacts-image/${imageName}`,
+              vercelBolbUrl: blob.url,
               updatedAt: Date.now(),
             });
             await newImage.save();
           } else {
             existingImage.updatedAt = Date.now();
-            // existingImage.localUrl = `${SERVER_URL}/contacts-image/${imageName}`;
             await existingImage.save();
           }
         } else {
@@ -140,7 +139,9 @@ export default async function handler(req, res) {
       res.status(200).json({ success: true });
     } catch (error) {
       console.log("error", error);
-      res.status(500).json({ success: false, message: "Internal server error" });
+      res
+        .status(500)
+        .json({ success: false, message: "Internal server error" });
     }
   } else {
     res.status(405).json({ success: false, message: "Method not allowed" });

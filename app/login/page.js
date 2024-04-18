@@ -32,52 +32,44 @@ export default function Login() {
       body: JSON.stringify(data),
     });
 
-    const json = await response.json();
-    if (!response.ok) {
-      console.log(json);
-      setError(json.error_description);
-      console.log("response not ok");
-    }
-    if (response.ok) {
-      // console.log('response ok')
-      const { accounts, token } = json;
-      const {
+    // console.log('response ok')
+    const { accounts, token } = json;
+    const {
+      Id,
+      DisplayName,
+      Email,
+      FirstName,
+      LastName,
+      IsAccountAdministrator,
+      MembershipLevel,
+      Status,
+    } = accounts;
+    console.log(json);
+    setUsername("");
+    setPassword("");
+    if (Status == "Active") {
+      setLoggedUser(DisplayName);
+      setError(null);
+      setSubmitted(true);
+      const profile = {
         Id,
         DisplayName,
         Email,
         FirstName,
         LastName,
         IsAccountAdministrator,
-        MembershipLevel,
+        MembershipLevel: MembershipLevel.Name,
         Status,
-      } = accounts;
-      console.log(json);
-      setUsername("");
-      setPassword("");
-      if (Status == "Active") {
-        setLoggedUser(DisplayName);
-        setError(null);
-        setSubmitted(true);
-        const profile = {
-          Id,
-          DisplayName,
-          Email,
-          FirstName,
-          LastName,
-          IsAccountAdministrator,
-          MembershipLevel: MembershipLevel.Name,
-          Status,
-          token,
-        };
-        localStorage.setItem("GFWBAUSER", JSON.stringify(profile));
-        updateLoggedStatus(true);
-        router.push(`/profile/${Id}`);
-      } else {
-        setError(
-          `Your current status is ${Status}. Please contact ______ for support.`
-        );
-        setDisabled(true);
-      }
+        token,
+      };
+      localStorage.setItem("GFWBAUSER", JSON.stringify(profile));
+      updateLoggedStatus(true);
+      router.push(`/profile/${Id}`);
+    } else {
+      setError(
+        `Your current status is ${Status}. Please contact ______ for support.`
+      );
+      setDisabled(true);
     }
   };
 

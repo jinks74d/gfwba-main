@@ -6,8 +6,9 @@ const contactImageSchema = new mongoose.Schema({
   localUrl: { type: String },
   wildapricotUrl: { type: String },
   profileUpdatedDate: { type: Date },
+  vercelBolbUrl: { type: String },
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date }
+  updatedAt: { type: Date },
 });
 
 const ContactImage = mongoose.model("ContactImage", contactImageSchema);

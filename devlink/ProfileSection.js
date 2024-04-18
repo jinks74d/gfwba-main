@@ -2,7 +2,7 @@ import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./ProfileSection.module.css";
-
+import { ProfileImage } from "./ProfileImage";
 export function ProfileSection({
   as: _Component = _Builtin.Section,
   profileMainName = {},
@@ -27,7 +27,7 @@ export function ProfileSection({
     target: "_blank",
   },
 }) {
-  console.log(profLogo, "dfjdkfjkf")
+  console.log(profLogo, "dfjdkfjkf");
 
   return (
     <_Component
@@ -181,14 +181,16 @@ export function ProfileSection({
             >
               {"COMPANY"}
             </_Builtin.Heading>
-            <_Builtin.Image
+            {/* <_Builtin.Image
               className={_utils.cx(_styles, "profile-logo")}
               loading="lazy"
               width="auto"
               height="auto"
               alt=""
               src={`/contacts-image/${profLogo}`}
-            />
+            /> */}
+            <ProfileImage profLogo={profLogo} />
+
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main-bold")}
               tag="div"
