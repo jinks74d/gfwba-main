@@ -29,7 +29,7 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      token: "qS864dTnHkaqR1wMLcbcKhAK5ys-",
+      body: JSON.stringify(data),
     });
     if (!response.ok) {
       console.log(json);
