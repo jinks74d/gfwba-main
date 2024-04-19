@@ -4,7 +4,8 @@ import BlueBtn from "@/components/BlueBtn";
 import SearchBar from "@/components/SearchBar";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useLoggedStatus } from '@/context/LoggedStatusProvider';
+import axios from "axios";
+import { useLoggedStatus } from "@/context/LoggedStatusProvider";
 // import useSWR from 'swr'
 const imageServer = process.env.NEXT_PUBLIC_IMAGE_SERVER;
 
@@ -27,13 +28,13 @@ export default function Directory() {
   const [filter, setFilter] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [paginationObj, setPaginationObj] = useState({});
-  const [paginationArr, setPaginationArr] = useState('');
+  const [paginationArr, setPaginationArr] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   function paginator(items, current_page, per_page_items) {
     let page = current_page || 1,
       per_page = per_page_items || 10,
       offset = (page - 1) * per_page,
-
       paginatedItems = items.slice(offset).slice(0, per_page),
       total_pages = Math.ceil(items.length / per_page);
 
@@ -41,10 +42,10 @@ export default function Directory() {
       page: page,
       per_page: per_page,
       pre_page: page - 1 ? page - 1 : null,
-      next_page: (total_pages > page) ? page + 1 : null,
+      next_page: total_pages > page ? page + 1 : null,
       total: items.length,
       total_pages: total_pages,
-      data: paginatedItems
+      data: paginatedItems,
     };
   }
 
@@ -80,24 +81,24 @@ export default function Directory() {
       // }
       let formatedContacts = [];
       json.Contacts.forEach((c) => {
-        if (typeof c.FieldValues[48].Value != 'object') {
+        if (typeof c.FieldValues[48].Value != "object") {
           // console.log(c.FieldValues[48].Value)
-          if (c.FieldValues[48].Value.startsWith('http')) {
+          if (c.FieldValues[48].Value.startsWith("http")) {
             //str starts with http
           } else {
             //str does not start with http
-            if (c.FieldValues[48].Value !== '') {
-              c.FieldValues[48].Value = `http://${c.FieldValues[48].Value}`
+            if (c.FieldValues[48].Value !== "") {
+              c.FieldValues[48].Value = `http://${c.FieldValues[48].Value}`;
             }
           }
         }
-        formatedContacts.push(c)
-      })
+        formatedContacts.push(c);
+      });
       console.log(formatedContacts);
-      let pagination = paginator(formatedContacts, 1)
+      let pagination = paginator(formatedContacts, 1);
       setPaginationArr(pagination.data);
       setPaginationObj(pagination);
-      setContacts(formatedContacts)
+      setContacts(formatedContacts);
       setAllContacts(formatedContacts);
       json.Contacts.forEach((element) => {
         let cat = element.FieldValues[47];
@@ -136,7 +137,11 @@ export default function Directory() {
       console.log(filters);
       // console.log(filters.splice(filters.indexOf(e), 1));
       // filters.splice(filters.indexOf(e), 1);
-      filters.forEach(function (f) { if (f.toUpperCase() !== e.toUpperCase()) { newFilter.push(f) } })
+      filters.forEach(function (f) {
+        if (f.toUpperCase() !== e.toUpperCase()) {
+          newFilter.push(f);
+        }
+      });
       console.log(newFilter);
       filters = newFilter;
     }
@@ -144,9 +149,9 @@ export default function Directory() {
     setFilter(filters);
     if (filters.length == 0) {
       console.log(allContacts);
-      let pagination = paginator(allContacts, 1)
+      let pagination = paginator(allContacts, 1);
       setPaginationArr(pagination.data);
-      setPaginationObj(pagination)
+      setPaginationObj(pagination);
       // setContacts(allContacts);
     } else {
       let filteredContacts = [];
@@ -183,15 +188,15 @@ export default function Directory() {
               }
               console.log(filteredContacts);
             }
-          })
+          });
         });
       }
       // console.log(filteredContacts)
       filterContacts(allContacts, filters);
-      let pagination = paginator(filteredContacts, 1)
+      let pagination = paginator(filteredContacts, 1);
       setContacts(filteredContacts);
-      setPaginationArr(pagination.data)
-      setPaginationObj(pagination)
+      setPaginationArr(pagination.data);
+      setPaginationObj(pagination);
       // setContacts(filteredContacts);
     }
   };
@@ -200,7 +205,13 @@ export default function Directory() {
     if (searchTerm != "") {
       let filteredContacts = [];
       console.log(filter);
-      if (filter[0]) { console.log(true); filteredContacts = contacts; } else { console.log(false); filteredContacts = []; }
+      if (filter[0]) {
+        console.log(true);
+        filteredContacts = contacts;
+      } else {
+        console.log(false);
+        filteredContacts = [];
+      }
       // console.log(contacts);
       // console.log(filteredContacts);
       // console.log(filter)
@@ -218,7 +229,9 @@ export default function Directory() {
         }
       }
       let filtersUpper = [];
-      filters.forEach((f) => { filtersUpper.push(f.toUpperCase()) })
+      filters.forEach((f) => {
+        filtersUpper.push(f.toUpperCase());
+      });
       if (filtersUpper.indexOf(searchTerm.toUpperCase()) == -1) {
         filters.push(searchTerm);
       }
@@ -245,14 +258,18 @@ export default function Directory() {
           }
         }
         // console.log(contact.DisplayName.toUpperCase(), searchTerm.toUpperCase());
-        if (contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())) {
+        if (
+          contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())
+        ) {
           console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
           console.log(filteredContacts);
         }
-        if (contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())) {
+        if (
+          contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())
+        ) {
           console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
@@ -262,16 +279,16 @@ export default function Directory() {
       });
       console.log(filteredContacts);
       setContacts(filteredContacts);
-      let pagination = paginator(filteredContacts, 1)
+      let pagination = paginator(filteredContacts, 1);
       setPaginationArr(pagination.data);
     }
   };
 
   useEffect(() => {
-    if (allContacts === '') {
+    if (allContacts === "") {
       fetchContacts();
       if (localStorage.getItem("GFWBAUSER")) {
-        updateLoggedStatus(true)
+        updateLoggedStatus(true);
       }
     }
   });
@@ -290,9 +307,9 @@ export default function Directory() {
           <div
             onClick={() => {
               setFilter([]);
-              let pagination = paginator(allContacts, 1)
+              let pagination = paginator(allContacts, 1);
               setContacts(allContacts);
-              setPaginationArr(pagination)
+              setPaginationArr(pagination);
             }}
             className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
           >
@@ -345,34 +362,43 @@ export default function Directory() {
             {paginationArr ? (
               paginationArr.map((c) => {
                 if (c.FieldValues[49].Value) {
-                  return (<MemberListItem
-                    memberListLogo={`${imageServer}/contacts-image/${c.FieldValues[49].Value.Id}`}
-                    memberListName={`${c.DisplayName}`}
-                    memberListCompany={`${c.Organization}`}
-                    memberListTitle={` ${c.FieldValues[39].Value}`}
-                    memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
-                    memberListWebsite={`${c.FieldValues[48].Value}`}
-                    memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
-                    memberListCategory={`${c.memberCat}`}
-                    memberListItemLink={{ href: `/profile/${c.Id}` }}
-                    key={c.Id}
-                  />);
+                  return (
+                    <MemberListItem
+                      memberListLogo={`${c.Id}`}
+                      memberListName={`${c.DisplayName}`}
+                      memberListCompany={`${c.Organization}`}
+                      memberListTitle={` ${c.FieldValues[39].Value}`}
+                      memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
+                      memberListWebsite={`${c.FieldValues[48].Value}`}
+                      memberListWebsiteLink={{
+                        href: `${c.FieldValues[48].Value}`,
+                        target: "_blank",
+                      }}
+                      memberListCategory={`${c.memberCat}`}
+                      memberListItemLink={{ href: `/profile/${c.Id}` }}
+                      key={c.Id}
+                    />
+                  );
                 } else {
-                  return (<MemberListItem
-                    // memberListLogo={}
-                    memberListName={`${c.DisplayName}`}
-                    memberListCompany={`${c.Organization}`}
-                    memberListTitle={` ${c.FieldValues[39].Value}`}
-                    memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
-                    memberListWebsite={`${c.FieldValues[48].Value}`}
-                    memberListWebsiteLink={{ href: `${c.FieldValues[48].Value}`, target: "_blank" }}
-                    memberListCategory={`${c.memberCat}`}
-                    memberListItemLink={{ href: `/profile/${c.Id}` }}
-                    key={c.Id}
-                  />);
+                  return (
+                    <MemberListItem
+                      // memberListLogo={}
+                      memberListName={`${c.DisplayName}`}
+                      memberListCompany={`${c.Organization}`}
+                      memberListTitle={` ${c.FieldValues[39].Value}`}
+                      memberListLocation={`${c.FieldValues[44].Value}, ${c.FieldValues[45].Value}`}
+                      memberListWebsite={`${c.FieldValues[48].Value}`}
+                      memberListWebsiteLink={{
+                        href: `${c.FieldValues[48].Value}`,
+                        target: "_blank",
+                      }}
+                      memberListCategory={`${c.memberCat}`}
+                      memberListItemLink={{ href: `/profile/${c.Id}` }}
+                      key={c.Id}
+                    />
+                  );
                 }
-              }
-              )
+              })
             ) : (
               // <p className='text-xl leading-normal'>Loading Directory</p>
               <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
@@ -381,30 +407,48 @@ export default function Directory() {
               </div>
             )}
           </div>
-          {paginationObj && <div className="flex justify-between">
-            <div>
-              {paginationObj.pre_page && <div className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" onClick={() => {
-                console.log(paginationObj, contacts)
-                let pagination = paginator(contacts, paginationObj.pre_page)
-                console.log(pagination)
-                setPaginationArr(pagination.data);
-                setPaginationObj(pagination)
-              }}>
-                <p className="mb-0">Prev Page</p>
-              </div>}
+          {paginationObj && (
+            <div className="flex justify-between">
+              <div>
+                {paginationObj.pre_page && (
+                  <div
+                    className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                    onClick={() => {
+                      console.log(paginationObj, contacts);
+                      let pagination = paginator(
+                        contacts,
+                        paginationObj.pre_page
+                      );
+                      console.log(pagination);
+                      setPaginationArr(pagination.data);
+                      setPaginationObj(pagination);
+                    }}
+                  >
+                    <p className="mb-0">Prev Page</p>
+                  </div>
+                )}
+              </div>
+              <div>
+                {paginationObj.next_page && (
+                  <div
+                    className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                    onClick={() => {
+                      console.log(paginationObj, contacts);
+                      let pagination = paginator(
+                        contacts,
+                        paginationObj.next_page
+                      );
+                      console.log(pagination);
+                      setPaginationArr(pagination.data);
+                      setPaginationObj(pagination);
+                    }}
+                  >
+                    <p className="mb-0">Next Page</p>
+                  </div>
+                )}
+              </div>
             </div>
-            <div>
-              {paginationObj.next_page && <div className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" onClick={() => {
-                console.log(paginationObj, contacts)
-                let pagination = paginator(contacts, paginationObj.next_page)
-                console.log(pagination)
-                setPaginationArr(pagination.data);
-                setPaginationObj(pagination)
-              }}>
-                <p className="mb-0">Next Page</p>
-              </div>}
-            </div>
-          </div>}
+          )}
         </div>
       </section>
     </main>

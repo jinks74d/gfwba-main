@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useLoggedStatus } from '@/context/LoggedStatusProvider';
+import { useLoggedStatus } from "@/context/LoggedStatusProvider";
 
 export default function Login() {
   const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
@@ -24,42 +24,21 @@ export default function Login() {
     };
     // console.log(data, JSON.stringify(data));
 
-    // let response = await fetch("/api/user/userLogin", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json;charset=utf-8",
-    //   },
-    //   body: JSON.stringify(data),
-    // });
-
-
-    const json = {
-      "accounts": {
-          "AdministrativeRoleTypes": [
-              "AccountAdministrator"
-          ],
-          "FirstName": "Raymond",
-          "LastName": "Jenkins",
-          "Email": "raymond@farsidedev.com",
-          "DisplayName": "Jenkins, Raymond",
-          "Organization": "FarsideDev, Inc",
-          "PasswordExpiration": "2024-10-23T17:48:27+00:00",
-          "MembershipLevel": {
-              "Id": 1468735,
-              "Url": "https://api.wildapricot.com/v2.1/accounts/191317/MembershipLevels/1468735",
-              "Name": "Associate PP23"
-          },
-          "Status": "Active",
-          "Id": 53140893,
-          "Url": "https://api.wildapricot.com/v2.1/accounts/191317/Contacts/53140893",
-          "IsAccountAdministrator": true,
-          "TermsOfUseAccepted": true
+    let response = await fetch("/api/user/userLogin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
       },
-      "token": "hMPFwBtTI-XNlNPTE--CH6GbS9o-"
-  };
-    
-    
-   
+      body: JSON.stringify(data),
+    });
+
+    const json = await response.json();
+    if (!response.ok) {
+      console.log(json);
+      setError(json.error_description);
+      console.log("response not ok");
+    }
+    if (response.ok) {
       // console.log('response ok')
       const { accounts, token } = json;
       const {
@@ -99,7 +78,7 @@ export default function Login() {
         );
         setDisabled(true);
       }
-    
+    }
   };
 
   return (
