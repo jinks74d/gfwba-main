@@ -25,11 +25,12 @@ export function MemberListItem({
 
   const getImage = async () => {
     try {
-      // const res = await axios.get(
-      //   `/api/cron/get-contacts-image?id=${memberListLogo}`
-      // );
-      // setImageURL(res.data.wildapricotUrl);
-      // // console.log(res.data.wildapricotUrl, "res");
+      const res = await axios.get(
+        `/api/cron/get-contacts-image?id=${memberListLogo}`
+      );
+
+      setImageURL(res.data.wildapricotUrl);
+      // console.log(res.data.wildapricotUrl, "res");
     } catch (e) {
       console.log(e);
     }

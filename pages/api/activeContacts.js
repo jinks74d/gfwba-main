@@ -35,20 +35,22 @@ export default async function handler(req, res) {
   };
   const getAccounts = async (token, req, res) => {
     let skip = req.query.page;
+    let simpleQuery = req.query.search;
     try {
       let apiUrl = `https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'`;
-      if (!Count) {
-        const countResponse = await axios.get(
-          `https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'&$count=true`,
-          {
-            headers: {
-              "User-Agent": "MySampleApplication/0.1",
-              Accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            timeout: 15000,
-          }
-        );
+      if (!Count || simpleQuery) {
+        let countUrl = `https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'&$count=true`;
+        if (simpleQuery) {
+          countUrl += `&simpleQuery=${simpleQuery}`;
+        }
+        const countResponse = await axios.get(countUrl, {
+          headers: {
+            "User-Agent": "MySampleApplication/0.1",
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          timeout: 15000,
+        });
         Count = countResponse.data.Count;
       }
       if (skip === "0") {
@@ -57,6 +59,10 @@ export default async function handler(req, res) {
         skip = skip * 10;
         apiUrl += `&$skip=${skip}&$top=10`; // Set top to 10 if skip is 0
       }
+      if (simpleQuery) {
+        apiUrl += `&simpleQuery=${simpleQuery}`;
+      }
+      console.log(apiUrl);
       const response = await axios.get(apiUrl, {
         headers: {
           "User-Agent": "MySampleApplication/0.1",

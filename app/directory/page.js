@@ -111,12 +111,13 @@ export default function Directory() {
         });
         element.memberCat = memberCat;
       });
-      setCategories(categoryArr.sort());
+      // setCategories(categoryArr.sort());
     }
     setIsLoading(false);
   };
 
   const toggleFilter = async (category) => {
+    console.log(category, "categorysdsd");
     if (filter.includes(category)) {
       setFilter(filter.filter((cat) => cat !== category));
     } else {
@@ -269,10 +270,10 @@ export default function Directory() {
     //   setPaginationArr(pagination.data);
     // }
 
-    if (searchTerm != "") {
-      setSearchResults(searchTerm);
-      setPage(0);
-    }
+    // if (searchTerm != "") {
+    setSearchResults(searchTerm);
+    setPage(0);
+    // }
   };
 
   // useEffect(() => {
@@ -296,7 +297,17 @@ export default function Directory() {
 
   useEffect(() => {
     fetchContacts();
+    getCateory();
   }, [page, filter, searchResults]);
+
+  const getCateory = async () => {
+    try {
+      const { data } = await axios.get("/api/cron/get-category-name");
+      console.log(data.data, "data");
+      setCategories([...data.data]);
+      console.log(res, "res");
+    } catch (e) {}
+  };
 
   return (
     <main>
@@ -310,9 +321,9 @@ export default function Directory() {
           <div
             onClick={() => {
               setFilter([]);
-              let pagination = paginator(allContacts, 1);
+              // let pagination = paginator(allContacts, 1);
               setContacts(allContacts);
-              setPaginationArr(pagination);
+              // setPaginationArr(pagination);
             }}
             className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
           >
@@ -327,7 +338,7 @@ export default function Directory() {
                 categories.map((c) => (
                   <li
                     className="flex gap-1 text-base cursor-pointer"
-                    onClick={() => toggleFilter(c)}
+                    // onClick={() => toggleFilter(c)}
                     key={c}
                   >
                     {filter.includes(c) ? (
@@ -335,7 +346,7 @@ export default function Directory() {
                     ) : (
                       <p className="text-red-500">☐</p>
                     )}
-                    {c}
+                    {c?.categoryName}
                   </li>
                 ))}
             </ul>
@@ -403,10 +414,11 @@ export default function Directory() {
                 }
               })
             ) : (
-              // <p className='text-xl leading-normal'>Loading Directory</p>
               <></>
             )}
-
+            {!isLoading && paginationArr.length === 0 && (
+              <p className="text-xl leading-normal">No Data Found</p>
+            )}
             {isLoading && (
               <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
                 <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
