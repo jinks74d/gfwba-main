@@ -6,7 +6,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = () => {
     onSearch(searchTerm);
-    setSearchTerm("");
+    // setSearchTerm("");
   };
 
   return (

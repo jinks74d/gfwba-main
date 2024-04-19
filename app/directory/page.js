@@ -75,7 +75,11 @@ export default function Directory() {
     if (response.ok) {
       console.log(json);
       console.log(json.Contacts);
-      setTotalPages(Math.ceil(json.count / contactsPerPage));
+      if (json.Contacts.length > 0) {
+        setTotalPages(Math.ceil(json.count / contactsPerPage));
+      } else {
+        setTotalPages(null);
+      }
       // const alphaSorted = json.Contacts.sort();
       let categoryArr = [];
 
