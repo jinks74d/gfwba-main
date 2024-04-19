@@ -1,66 +1,38 @@
-import { put } from "@vercel/blob";
-import { initContactImageModel } from "./hit";
+import fs from 'fs';
+import path from 'path';
 
 export default async function handler(req, res) {
-  console.log("run");
   if (req.method === "POST") {
     try {
-      const ContactImage = await initContactImageModel();
       const { contactID, image } = req.body;
-
+      
       // Check if image data and contactID are provided
       if (!contactID || !image) {
-        return res
-          .status(400)
-          .json({ success: false, message: "Missing required fields" });
+        return res.status(400).json({ success: false, message: "Missing required fields" });
       }
 
-      const imageData = image.split(";base64,").pop(); // Extract base64 data
-
-      // Upload image to Vercel Blob Storage
-      const blob = await put(
-        `${contactID}.jpg`,
-        Buffer.from(imageData, "base64"),
-        { access: "public" }
-      );
-      //console.log(await get(`${contactID}.jpg`));
-      // Check if ContactImage exists with the same contactID
-      console.log("ContactImage", ContactImage);
-      const existingContact = await ContactImage.findOne({
-        wildapricotUserId: contactID,
-      });
-
-      if (existingContact) {
-        // Update existing document
-        existingContact.vercelBolbUrl = blob.url;
-        existingContact.profileUpdatedDate = Date.now();
-        await existingContact.save();
-      } else {
-        // Create new document
-        const newContactImage = new ContactImage({
-          wildapricotUserId: contactID,
-          vercelBolbUrl: blob.url,
-          profileUpdatedDate: Date.now(),
-        });
-        await newContactImage.save();
+      const imageData = image.split(';base64,').pop(); // Extract base64 data
+      const imagePath = path.join(process.cwd(), 'public/contacts-image', `image_${contactID}.jpg`);
+      
+      // Check if directory exists, if not create it
+      if (!fs.existsSync(path.dirname(imagePath))) {
+        fs.mkdirSync(path.dirname(imagePath), { recursive: true });
       }
 
-      return res.status(200).json({
-        success: true,
-        message:
-          "Image uploaded to Vercel Blob Storage and ContactImage updated/created",
-        url: { blob: blob.url, contactID },
+      fs.writeFile(imagePath, imageData, 'base64', function (err) {
+        if (err) {
+          console.error('Error:', err);
+          return res.status(500).json({ success: false, message: "Image uploading to local machine failed" });
+        } else {
+          console.log('Image saved successfully at:', imagePath);
+          return res.status(200).json({ success: true, message: "Image uploaded successfully" });
+        }
       });
     } catch (error) {
       console.log("Error:", error);
-      return res.status(500).json({
-        success: false,
-        message: error,
-      });
+      res.status(500).json({ success: false, message: "Internal server error" });
     }
   } else {
-    return res
-      .status(405)
-      .json({ success: false, message: "Method not allowed" });
+    res.status(405).json({ success: false, message: "Method not allowed" });
   }
 }

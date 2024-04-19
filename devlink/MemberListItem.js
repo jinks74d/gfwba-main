@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./MemberListItem.module.css";
-import axios from "axios";
+
 export function MemberListItem({
   as: _Component = _Builtin.Block,
   memberListLogo = "https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/657736e55d97c9cd83d3d38c_gfwba-logo-steer.png",
@@ -17,24 +17,6 @@ export function MemberListItem({
     href: "#",
   },
 }) {
-  const [imageURL, setImageURL] = useState("");
-
-  useEffect(() => {
-    getImage();
-  }, []);
-
-  const getImage = async () => {
-    try {
-      const res = await axios.get(
-        `/api/cron/get-contacts-image?id=${memberListLogo}`
-      );
-
-      setImageURL(res.data.wildapricotUrl);
-      // console.log(res.data.wildapricotUrl, "res");
-    } catch (e) {
-      console.log(e);
-    }
-  };
   return (
     <_Component className={_utils.cx(_styles, "member-list-item")} tag="div">
       <_Builtin.Block
@@ -47,7 +29,7 @@ export function MemberListItem({
           width="auto"
           height="auto"
           alt=""
-          src={imageURL}
+          src={memberListLogo}
         />
       </_Builtin.Block>
       <_Builtin.Block
