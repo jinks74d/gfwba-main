@@ -301,9 +301,12 @@ export default function Directory() {
         heroDirectory={{ href: "/directory" }}
         heroJoin={{ href: "/signup" }}
       />
-      <section className="pt-24 px-24 flex">
+      <section className="pt-2 px-0 md:pt-24 md:px-24 flex flex-col md:flex-row">
         {/* MAIN DIRECTORY LEFT */}
-        <div className="w-[25%] pt-28">
+        <div className="md:hidden">
+          <SearchBar onSearch={handleSearch} />
+        </div>
+        <div className="md:w-[25%] pt-2 md:pt-28">
           <div
             onClick={() => {
               setFilter([]);
@@ -311,19 +314,19 @@ export default function Directory() {
               setContacts(allContacts);
               setPaginationArr(pagination);
             }}
-            className="flex items-center justify-center border border-red-500 w-52 h-14 mb-[30px] cursor-pointer"
+            className="flex items-center justify-center mx-auto md:ml-0 border border-red-500 w-[240px] md:w-52 md:h-14 md:mb-[30px] cursor-pointer"
           >
-            <p className="text-xl p-0 m-0 uppercase text-[#102647]">
+            <p className="text-base md:text-xl p-0 m-0 uppercase text-[#102647]">
               Clear Filters
             </p>
           </div>
-          <div className="border border-[#B3B3B3] max-w-[386px] p-[15px] max-h-[633px] overflow-auto mr-[60px]">
-            <p className="text-xl uppercase">Categories</p>
+          <div className="mx-auto md:ml-0 border border-[#B3B3B3] max-w-[240px] md:max-w-[386px] p-[15px] max-h-[250px] md:max-h-[633px] overflow-auto md:mr-[60px]">
+            <p className="text-base md:text-xl uppercase">Categories</p>
             <ul className="list-none p-0">
               {categories &&
                 categories.map((c) => (
                   <li
-                    className="flex gap-1 text-base cursor-pointer"
+                    className="flex gap-1 text-sm md:text-base cursor-pointer"
                     onClick={() => toggleFilter(c)}
                     key={c}
                   >
@@ -340,10 +343,12 @@ export default function Directory() {
         </div>
 
         {/* MAIN DIRECTORY RIGHT */}
-        <div className="w-[75%]">
-          <div className="flex justify-between items-center pb-10">
+        <div className="w-full md:w-[75%]">
+          <div className="flex flex-col-reverse md:flex-row justify-between items-center pb-10">
             <h2>MEMBER DIRECTORY</h2>
-            <SearchBar onSearch={handleSearch} />
+            <div className="hidden md:block">
+              <SearchBar onSearch={handleSearch} />
+            </div>
           </div>
           {filter && (
             <div className="flex gap-[20px] cursor-pointer">
@@ -412,7 +417,7 @@ export default function Directory() {
               <div>
                 {paginationObj.pre_page && (
                   <div
-                    className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                    className="bg-[#102647] text-white text-sm md:text-xl uppercase mt-10 py-2 px-2 md:px-10 cursor-pointer"
                     onClick={() => {
                       console.log(paginationObj, contacts);
                       let pagination = paginator(
@@ -431,7 +436,7 @@ export default function Directory() {
               <div>
                 {paginationObj.next_page && (
                   <div
-                    className="bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                    className="bg-[#102647] text-white text-sm md:text-xl uppercase mt-10 py-2 px-2 md:px-10 cursor-pointer"
                     onClick={() => {
                       console.log(paginationObj, contacts);
                       let pagination = paginator(

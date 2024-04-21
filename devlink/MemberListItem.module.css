@@ -22,6 +22,14 @@
   align-items: center;
 }
 
+@media screen and (max-width: 479px) {
+  .member-list-item-img-blk {
+    width: 75px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 .image-5 {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -31,7 +39,7 @@
   .image-5 {
     padding-top: 10px;
     padding-right: 0px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     align-self: center;
   }
 }
@@ -59,8 +67,8 @@
 @media screen and (max-width: 479px) {
   .member-list-item-grid {
     padding-top: 10px;
-    padding-bottom: 10px;
-    grid-row-gap: 10px;
+    padding-bottom: 0px;
+    grid-row-gap: 0px;
   }
 }
 
@@ -86,8 +94,8 @@
 
 @media screen and (max-width: 479px) {
   .member-list-item-rt.arrow-right {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 5px 10px;
+    align-self: center;
   }
 }
 
@@ -105,7 +113,8 @@
 
 @media screen and (max-width: 479px) {
   .member-list-item-h3.member-name {
-    font-size: 1.5rem;
+    margin-bottom: 0px;
+    font-size: 1.2rem;
   }
 }
 
@@ -117,7 +126,7 @@
 
 @media screen and (max-width: 479px) {
   .member-list-item-company {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
@@ -141,7 +150,7 @@
 
 @media screen and (max-width: 479px) {
   .member-list-item-list {
-    padding-left: 20px;
+    padding-left: 0px;
   }
 }
 
@@ -152,7 +161,7 @@
 
 @media screen and (max-width: 479px) {
   .member-list-item-list-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 
@@ -176,13 +185,13 @@
 
 @media screen and (max-width: 479px) {
   .text-block-3 {
-    font-size: 1.125rem;
+    font-size: 0.85rem;
   }
 }
 
 @media screen and (max-width: 479px) {
   .image-7 {
-    height: 20px;
+    height: 15px;
   }
 }
 
