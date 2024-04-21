@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import { cj, loadScript } from "../utils";
 function buildTitle(title, tooltip) {

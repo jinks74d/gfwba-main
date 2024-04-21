@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { useIXEvent } from "../interactions";
 import { cj, useClickOut, KEY_CODES } from "../utils";

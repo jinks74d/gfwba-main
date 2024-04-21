@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./ProfileSection.module.css";
-import { ProfileImage } from "./ProfileImage";
+
 export function ProfileSection({
   as: _Component = _Builtin.Section,
   profileMainName = {},
@@ -22,13 +23,12 @@ export function ProfileSection({
   profEmailAddress = {
     href: "#",
   },
+
   profWebsiteAddress = {
     href: "#",
     target: "_blank",
   },
 }) {
-  console.log(profLogo, "dfjdkfjkf");
-
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -181,16 +181,14 @@ export function ProfileSection({
             >
               {"COMPANY"}
             </_Builtin.Heading>
-            {/* <_Builtin.Image
+            <_Builtin.Image
               className={_utils.cx(_styles, "profile-logo")}
               loading="lazy"
               width="auto"
               height="auto"
               alt=""
-              src={`/contacts-image/${profLogo}`}
-            /> */}
-            <ProfileImage profLogo={profLogo} />
-
+              src={profLogo}
+            />
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main-bold")}
               tag="div"

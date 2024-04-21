@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { cj, debounce } from "../utils";
 const BgVideoContext = React.createContext({

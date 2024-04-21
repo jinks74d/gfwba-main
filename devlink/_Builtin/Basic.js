@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { DevLinkContext } from "../devlinkContext";
 import * as utils from "../utils";

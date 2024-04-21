@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { loadScript } from "../utils";
 function onKeyDownInputHandlers(e) {

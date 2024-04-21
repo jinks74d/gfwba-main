@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { IXContext, triggerIXEvent } from "../interactions";
 import { EASING_FUNCTIONS, KEY_CODES, cj, debounce } from "../utils";

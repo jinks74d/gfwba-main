@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import {
   EASING_FUNCTIONS,
@@ -188,19 +189,25 @@ function Navbar({ tag = "div", className = "", children, config, ...props }) {
     [children, shouldExtractMenu]
   );
   const handleFocus = (e) => {
+    const inputFocused =
+      document.activeElement?.tagName.toLowerCase() === "input";
     const linkList = root.current ? Array.from(getLinksList(root.current)) : [];
     const linkAmount = linkList.length;
     switch (e.key) {
       case KEY_CODES.ARROW_LEFT:
       case KEY_CODES.ARROW_UP: {
-        e.preventDefault();
-        setFocusedLink((prev) => Math.max(prev - 1, 0));
+        if (!inputFocused) {
+          e.preventDefault();
+          setFocusedLink((prev) => Math.max(prev - 1, 0));
+        }
         break;
       }
       case KEY_CODES.ARROW_RIGHT:
       case KEY_CODES.ARROW_DOWN: {
-        e.preventDefault();
-        setFocusedLink((prev) => Math.min(prev + 1, linkAmount - 1));
+        if (!inputFocused) {
+          e.preventDefault();
+          setFocusedLink((prev) => Math.min(prev + 1, linkAmount - 1));
+        }
         break;
       }
       case KEY_CODES.HOME: {
@@ -222,7 +229,9 @@ function Navbar({ tag = "div", className = "", children, config, ...props }) {
         break;
       }
       case KEY_CODES.SPACE: {
-        e.preventDefault();
+        if (!inputFocused) {
+          e.preventDefault();
+        }
         break;
       }
       default: {

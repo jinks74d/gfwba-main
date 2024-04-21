@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 export const Heading = React.forwardRef(function Heading(
   { tag = "h1", ...props },

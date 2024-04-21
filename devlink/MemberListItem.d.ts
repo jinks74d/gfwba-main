@@ -3,7 +3,6 @@ import * as Types from "./types";
 
 declare function MemberListItem(props: {
   as?: React.ElementType;
-  memberId: number;
   memberListLogo?: Types.Asset.Image;
   memberListName?: React.ReactNode;
   memberListCompany?: React.ReactNode;

@@ -11,6 +11,7 @@ export * from "./AdvocacySection";
 export * from "./Base21WebflowSection";
 export * from "./CommitteeSection";
 export * from "./ContactSection";
+export * from "./DevLinkProvider";
 export * from "./EventItemSidebar";
 export * from "./EventListCard";
 export * from "./EventsListSection";

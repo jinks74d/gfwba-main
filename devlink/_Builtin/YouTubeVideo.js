@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { cj } from "../utils";
 const DEFAULT_16_9_RATIO = 0.5617021276595745;

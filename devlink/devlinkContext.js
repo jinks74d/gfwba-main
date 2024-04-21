@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { InteractionsProvider } from "./interactions";
 import { createIX2Engine } from "./devlink";

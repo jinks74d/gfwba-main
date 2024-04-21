@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { isUrl } from "../utils";
 export const Facebook = React.forwardRef(function Facebook(
