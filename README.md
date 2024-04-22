@@ -1,36 +1,45 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Code That Needs to Be Implemented/Verified on Every Update
 
-First, run the development server:
+**devlink/Base21WebflowSection.js**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Remove the second homeGridRightSlot
+
+```
+export function Base21WebflowSection({
+  as: _Component = _Builtin.Section,
+  heading = {},
+  subHeading = {},
+  sideHeading = {},
+  baseHeading = "THE FEDERATION",
+  baseSubheading = "Your Three Tiered Membership",
+  baseSideHeading = "ASSOCIATIONSTAFF",
+  baseGridLeftSlot,
+  homeGridRightSlot,
+}) {
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**devlink/MemberListItem.js**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Ensure the following is added to the file before the return statement
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+const [imageURL, setImageURL] = useState("");
 
-## Learn More
+useEffect(() => {
+    getImage();
+}, []);
 
-To learn more about Next.js, take a look at the following resources:
+const getImage = async () => {
+   try {
+    const res = await axios.get(
+        `api/cron/get-contacts-image?id=${memberListLogo}`
+    );
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    setImageURL(res.data.wildapricotUrl);
+   } catch (e) {
+    console.log(e);
+   }
+};
+```

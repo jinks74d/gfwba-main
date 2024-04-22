@@ -18,6 +18,23 @@ export function MemberListItem({
     href: "#",
   },
 }) {
+  const [imageURL, setImageURL] = useState("");
+
+  useEffect(() => {
+    getImage();
+  }, []);
+
+  const getImage = async () => {
+    try {
+      const res = await axios.get(
+        `api/cron/get-contacts-image?id=${memberListLogo}`
+      );
+
+      setImageURL(res.data.wildapricotUrl);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <_Component className={_utils.cx(_styles, "member-list-item")} tag="div">
       <_Builtin.Block
