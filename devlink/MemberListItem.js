@@ -48,7 +48,7 @@ export function MemberListItem({
           width="auto"
           height="auto"
           alt=""
-          src={memberListLogo}
+          src={imageURL}
         />
       </_Builtin.Block>
       <_Builtin.Block
