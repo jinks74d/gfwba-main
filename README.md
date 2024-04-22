@@ -43,3 +43,10 @@ const getImage = async () => {
    }
 };
 ```
+
+Don't forget to import useState and useEffect from react and axios
+
+```
+import { useState, useEffect } from "react";
+import axios from "axios";
+```
