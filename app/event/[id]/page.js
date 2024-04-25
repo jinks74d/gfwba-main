@@ -40,7 +40,9 @@ export default function Profile() {
   const [eventImg, setEventImg] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [reg, setReg] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const fetchEvent = async () => {
+    setIsLoading(true);
     if (localStorage.getItem("GFWBAUSER")) {
       var {
         Id,
@@ -75,6 +77,7 @@ export default function Profile() {
     if (!response.ok) {
       setError(json.error);
       console.log("response not ok");
+      setIsLoading(false);
     }
     if (response.ok) {
       // console.log(json)
@@ -162,6 +165,7 @@ export default function Profile() {
         console.log(json2);
         setUpcomingList(json2);
       }
+      setIsLoading(false);
     }
   };
 
@@ -239,7 +243,7 @@ export default function Profile() {
         baseSideHeading={"Upcoming Events"}
         baseGridLeftSlot={
           <>
-            {event.Details && (
+            {event.Details ? (
               <>
                 {/* {console.log(event.Details.DescriptionHtml)} */}
                 <SingleEventItem
@@ -264,15 +268,14 @@ export default function Profile() {
                             event.Details.RegistrationTypes,
                             "..................event desc"
                           )} */}
-                              {event.Details &&
-                                event.Details.RegistrationTypes.map((e) => (
-                                  <li key={e.Id}>
-                                    <h4>{e.Name}</h4>
-                                    <p>{e.Description}</p>
-                                    <p className="text-xl">
-                                      Price: ${e.BasePrice}
-                                    </p>
-                                    {/* {registering ? (
+                              {event.Details.RegistrationTypes.map((e) => (
+                                <li key={e.Id}>
+                                  <h4>{e.Name}</h4>
+                                  <p>{e.Description}</p>
+                                  <p className="text-xl">
+                                    Price: ${e.BasePrice}
+                                  </p>
+                                  {/* {registering ? (
                                     <div>
                                       <h3>Registration</h3>
                                        {console.log(contact)} 
@@ -391,20 +394,20 @@ export default function Profile() {
                                       </button>
                                     </div>
                                   ) : ( */}
-                                    {!registering && (
-                                      <div
-                                        onClick={() => {
-                                          setRegistering(true);
-                                          setRegistrationId(e.Id);
-                                        }}
-                                      >
-                                        <p className="SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button">
-                                          Register
-                                        </p>
-                                      </div>
-                                    )}
-                                  </li>
-                                ))}
+                                  {!registering && (
+                                    <div
+                                      onClick={() => {
+                                        setRegistering(true);
+                                        setRegistrationId(e.Id);
+                                      }}
+                                    >
+                                      <p className="SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button">
+                                        Register
+                                      </p>
+                                    </div>
+                                  )}
+                                </li>
+                              ))}
                               {registering && (
                                 <div>
                                   <h3>Registration</h3>
@@ -541,6 +544,11 @@ export default function Profile() {
                   }
                 />
               </>
+            ) : (
+              <div className="flex gap-[10px] <p className='text-xl leading-normal'>Loading Directory</p>">
+                <div className="animate-spin rounded-full border-t-4 border-red-500 border-solid h-5 w-5"></div>
+                <p className="text-xl leading-normal">Loading Event</p>
+              </div>
             )}
           </>
         }
