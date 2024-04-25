@@ -11,7 +11,13 @@ import { Metadata } from "./eventsMetadata";
 import Head from "next/head";
 // import useSWR from 'swr'
 
-import { InnerHero, EventsListSection, EventListCard, Base21WebflowSection, EventItemSidebar } from "@/devlink";
+import {
+  InnerHero,
+  EventsListSection,
+  EventListCard,
+  Base21WebflowSection,
+  EventItemSidebar,
+} from "@/devlink";
 
 const metadataBase = "https://gfwba-main.vercel.app/";
 
@@ -97,10 +103,14 @@ export default function Events() {
           e.niceStartDate = eventStart.toLocaleDateString(undefined, options1);
           e.niceStartTime = eventStart.toLocaleDateString(undefined, options2);
           e.EndDate = eventEnd.toLocaleDateString(undefined, options);
-          // console.log(e)
           formattedEvents2.push(e);
         }
-        formattedEvents.push(e);
+        // -----------AdminOnly access level won't be pushed in formatted events-----------------
+        if (e.AccessLevel != "AdminOnly") {
+          formattedEvents.push(e);
+        }
+        // -----------If want to push AdminOnly access level too in formatted events-----------------
+        // formattedEvents.push(e);
       });
       function compare(a, b) {
         if (a.EndDate < b.EndDate) {
@@ -147,9 +157,7 @@ export default function Events() {
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
-        <script type="application/ld+json">
-          {<Metadata />}
-        </script>
+        <script type="application/ld+json">{<Metadata />}</script>
         <link rel="canonical" href={url} />
       </Head>
 
@@ -196,7 +204,7 @@ export default function Events() {
           }
           eventsRightSlot={
             <div className="flex flex-col">
-              {upcomingEvents &&
+              {upcomingEvents && (
                 <div>
                   {upcomingEvents.map((e) => (
                     <EventItemSidebar
@@ -209,10 +217,9 @@ export default function Events() {
                     />
                   ))}
                 </div>
-              }
+              )}
             </div>
           }
-
         />
       </main>
     </>
