@@ -3,7 +3,7 @@ import { InnerHero, ProfileSection } from "@/devlink";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useLoggedStatus } from "@/context/LoggedStatusProvider";
-import axios from 'axios';
+import axios from "axios";
 const imageServer = process.env.NEXT_PUBLIC_IMAGE_SERVER;
 
 export default function Profile({ imageData }) {
@@ -19,6 +19,7 @@ export default function Profile({ imageData }) {
   const [cell, setCell] = useState("");
   const [website, setWebsite] = useState("");
   const [logo, setLogo] = useState("");
+  console.log(logo, "logo");
   const [categories, setCategories] = useState("");
   const [categoriesArr, setCategoriesArr] = useState("");
   const [area, setArea] = useState("");
@@ -36,7 +37,7 @@ export default function Profile({ imageData }) {
   const [emailReplyToName, setEmailReplyToName] = useState("");
   const [sendingEmail, setSendingEmail] = useState(false);
   const [membershipOptions, setMembershipOptions] = useState("");
-  // 
+  //
   const [newAddress, setNewAddress] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [newOfficePhone, setNewOfficePhone] = useState("");
@@ -60,7 +61,7 @@ export default function Profile({ imageData }) {
   const [newMemberSince, setNewMemberSince] = useState("");
   const [newEmployees, setNewEmployees] = useState("");
   const [newReferredBy, setNewReferredBy] = useState("");
-  const [tempImg, setTempImg] = useState('');
+  const [tempImg, setTempImg] = useState("");
 
   const [checkboxes, setCheckboxes] = useState(categoriesArr);
 
@@ -106,21 +107,21 @@ export default function Profile({ imageData }) {
     if (response.ok) {
       console.log(json);
       setContact(json);
-      setFieldValues(json.FieldValues)
+      setFieldValues(json.FieldValues);
       setAddress(
         ` ${json.FieldValues[43].Value}, ${json.FieldValues[44].Value}, ${json.FieldValues[45].Value} ${json.FieldValues[46].Value}`
       );
       setTitle(` ${json.FieldValues[39].Value}`);
       setOffice(` ${json.FieldValues[25].Value}`);
       setCell(` ${json.FieldValues[40].Value}`);
-      if (typeof json.FieldValues[48].Value != 'object') {
+      if (typeof json.FieldValues[48].Value != "object") {
         // console.log(c.FieldValues[48].Value)
-        if (json.FieldValues[48].Value.startsWith('http')) {
+        if (json.FieldValues[48].Value.startsWith("http")) {
           //str starts with http
         } else {
           //str does not start with http
-          if (json.FieldValues[48].Value !== '') {
-            json.FieldValues[48].Value = `http://${json.FieldValues[48].Value}`
+          if (json.FieldValues[48].Value !== "") {
+            json.FieldValues[48].Value = `http://${json.FieldValues[48].Value}`;
           }
         }
       }
@@ -130,12 +131,13 @@ export default function Profile({ imageData }) {
       // console.log(json.profLogo)
       // const logoUrl = URL.createObjectURL(json.profLogo);
       // console.log(logoUrl)
+      // console.log(json, "json");
       if (json.FieldValues[48].Value) {
-        setLogo(`${json.FieldValues[49].Value.Id}`)
+        setLogo(`${json.FieldValues[49].Value.Id}`);
       }
-      if (tempImg != '') {
+      if (tempImg != "") {
         if (tempImg !== logo) {
-          setLogo(`${tempImg}`)
+          setLogo(`${tempImg}`);
         }
       }
       let categoryArr = [];
@@ -154,8 +156,8 @@ export default function Profile({ imageData }) {
           }
         });
         setCategories(categoryArr);
-        setCategoriesArr(categoriesArr)
-        setCheckboxes(categoriesArr)
+        setCategoriesArr(categoriesArr);
+        setCheckboxes(categoriesArr);
         // console.log(categoryArr)
       }
       let areaArr = [];
@@ -221,7 +223,7 @@ export default function Profile({ imageData }) {
         FieldName: "Title",
         SystemCode: "custom-7725697",
         Value: newTitle,
-      })
+      });
     }
     if (newOfficePhone !== "") {
       changes.Phone = newOfficePhone;
@@ -248,9 +250,11 @@ export default function Profile({ imageData }) {
       });
     }
     if (arr !== categoriesArr) {
-      console.log(arr)
-      let formattedArr = []
-      arr.forEach((e) => { formattedArr.push({ Label: e }) })
+      console.log(arr);
+      let formattedArr = [];
+      arr.forEach((e) => {
+        formattedArr.push({ Label: e });
+      });
       fieldValues.push({
         FieldName: contact.FieldValues[47].FieldName,
         SystemCode: contact.FieldValues[47].SystemCode,
@@ -353,18 +357,23 @@ export default function Profile({ imageData }) {
     if (fieldValues[0]) {
       changes.FieldValues = fieldValues;
     }
-    if (newLogoFile !== '') {
+    if (newLogoFile !== "") {
       try {
         // Send base64Image to the server
-        console.log(params.id, newLogoFile)
-        let imgResponse = await axios.post(`/api/cron/update`, { contactID: params.id, contactUrl: contact.Url, image: newLogoBase, file: newLogoFile });
+        console.log(params.id, newLogoFile);
+        let imgResponse = await axios.post(`/api/cron/update`, {
+          contactID: params.id,
+          contactUrl: contact.Url,
+          image: newLogoBase,
+          file: newLogoFile,
+        });
         const imgJson = await imgResponse.data;
         console.log(imgJson);
         // setTempImg(imgJson)
         //setLogo(`${imageServer}/contacts-image/${imgJson.newImg}`)
         // localStorage.setItem("GFWBATEMP", JSON.stringify({ tempImg: imgJson.newImg }));
       } catch (error) {
-        console.error('Error uploading image:', error);
+        console.error("Error uploading image:", error);
       }
     }
 
@@ -421,14 +430,14 @@ export default function Profile({ imageData }) {
     }
   };
   const handleImageUpload = (event) => {
-    var errorMessage = document.getElementById('error-message');
+    var errorMessage = document.getElementById("error-message");
     const file = event.target.files[0];
     console.log(file);
     const reader = new FileReader();
     // Check file type
-    var allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+    var allowedTypes = ["image/png", "image/jpeg", "image/jpg"];
     if (!allowedTypes.includes(file.type)) {
-      errorMessage.textContent = 'Only PNG or JPG files are allowed.';
+      errorMessage.textContent = "Only PNG or JPG files are allowed.";
       event.preventDefault();
       return;
     }
@@ -436,13 +445,13 @@ export default function Profile({ imageData }) {
     // Check file size
     var maxSize = 10 * 1024 * 1024; // 10 MB in bytes
     if (file.size > maxSize) {
-      errorMessage.textContent = 'File size exceeds the maximum limit of 10MB.';
+      errorMessage.textContent = "File size exceeds the maximum limit of 10MB.";
       event.preventDefault();
       return;
     }
 
     // Clear error message if everything is okay
-    errorMessage.textContent = '';
+    errorMessage.textContent = "";
 
     reader.onloadend = () => {
       setNewLogoBase(reader.result);
@@ -457,10 +466,13 @@ export default function Profile({ imageData }) {
   const updateImage = async () => {
     try {
       // Send base64Image to the server
-      await axios.post(`${imageServer}/contact/update`, { contactID: params.id, image: newLogoBase });
-      console.log('Image uploaded successfully');
+      await axios.post(`${imageServer}/contact/update`, {
+        contactID: params.id,
+        image: newLogoBase,
+      });
+      console.log("Image uploaded successfully");
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error("Error uploading image:", error);
     }
   };
   function cancelUpdate() {
@@ -742,7 +754,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="phone"
-
                     placeholder={contact.Phone}
                     value={newOfficePhone}
                     onChange={(e) => {
@@ -755,7 +766,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[39].Value}
                     value={newTitle}
                     onChange={(e) => {
@@ -770,7 +780,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[40].Value}
                     value={newCell}
                     onChange={(e) => {
@@ -783,7 +792,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[41].Value}
                     value={newFax}
                     onChange={(e) => {
@@ -799,7 +807,6 @@ export default function Profile({ imageData }) {
                 <input
                   className="hi w-[300px] text-base pl-2"
                   type="text"
-
                   placeholder={contact.FieldValues[42].Value}
                   value={newSecondEmail}
                   onChange={(e) => {
@@ -818,7 +825,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[43].Value}
                     value={newAddress}
                     onChange={(e) => {
@@ -831,7 +837,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[44].Value}
                     value={newCity}
                     onChange={(e) => {
@@ -846,7 +851,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[45].Value}
                     value={newState}
                     onChange={(e) => {
@@ -859,7 +863,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[46].Value}
                     value={newZip}
                     onChange={(e) => {
@@ -916,7 +919,6 @@ export default function Profile({ imageData }) {
                 <input
                   className="hi w-[300px] text-base pl-2"
                   type="text"
-
                   placeholder={contact.FieldValues[48].Value}
                   value={newWebsite}
                   onChange={(e) => {
@@ -942,8 +944,8 @@ export default function Profile({ imageData }) {
                 placeholder={contact.FieldValues[51].Value}
               ></textarea>
               <p className="text-xs mt-1">
-                If someone invited you to join the GFWBA, please list their name. If
-                no one referred you please enter NA
+                If someone invited you to join the GFWBA, please list their
+                name. If no one referred you please enter NA
               </p>
 
               {/* Social Media Links */}
@@ -953,7 +955,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[53].Value}
                     value={newFacebook}
                     onChange={(e) => {
@@ -969,7 +970,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[54].Value}
                     value={newTwitter}
                     onChange={(e) => {
@@ -983,7 +983,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[55].Value}
                     value={newHouzz}
                     onChange={(e) => {
@@ -999,7 +998,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[56].Value}
                     value={newYoutube}
                     onChange={(e) => {
@@ -1013,7 +1011,6 @@ export default function Profile({ imageData }) {
                   <input
                     className="hi w-[300px] text-base pl-2"
                     type="text"
-
                     placeholder={contact.FieldValues[57].Value}
                     value={newInstagram}
                     onChange={(e) => {
@@ -1028,7 +1025,6 @@ export default function Profile({ imageData }) {
                 <input
                   className="hi w-[300px] text-base pl-2"
                   type="text"
-
                   placeholder={contact.FieldValues[58].Value}
                   value={newMemberSince}
                   onChange={(e) => {
@@ -1037,11 +1033,12 @@ export default function Profile({ imageData }) {
                 />
               </div>
               <div className="text-xl font-light mb-4">
-                <label htmlFor="Total Paid Employees">Total Paid Employees</label>
+                <label htmlFor="Total Paid Employees">
+                  Total Paid Employees
+                </label>
                 <input
                   className="hi w-[300px] text-base pl-2"
                   type="text"
-
                   placeholder={contact.FieldValues[60].Value}
                   value={newEmployees}
                   onChange={(e) => {
@@ -1050,7 +1047,12 @@ export default function Profile({ imageData }) {
                 />
                 <div>
                   <label htmlFor="imageUpload">Upload Image</label>
-                  <input type="file" onChange={handleImageUpload} id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <input
+                    type="file"
+                    onChange={handleImageUpload}
+                    id="imageUpload"
+                    accept=".png, .jpg, .jpeg"
+                  />
                   <span id="error-message" className="text-red"></span>
                 </div>
               </div>
@@ -1089,7 +1091,7 @@ export default function Profile({ imageData }) {
             // profEmailAddress={{ href: `mailto:${contact.Email}` }}
             profWebsite={website}
             profWebsiteAddress={{ href: website, target: "_blank" }}
-            profLogo={logo}
+            profLogo={params.id}
             profCategories={categories}
             profArea={area}
           />

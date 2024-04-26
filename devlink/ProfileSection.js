@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./ProfileSection.module.css";
-
+import axios from "axios";
 export function ProfileSection({
   as: _Component = _Builtin.Section,
   profileMainName = {},
@@ -29,6 +29,26 @@ export function ProfileSection({
     target: "_blank",
   },
 }) {
+  const [imageURL, setImageURL] = useState("");
+  console.log(imageURL, "logo url");
+  console.log(profLogo, "logo state");
+  useEffect(() => {
+    if (profLogo) {
+      getImage();
+    }
+  }, [profLogo]);
+
+  const getImage = async () => {
+    try {
+      const res = await axios.get(
+        `/api/cron/get-contacts-image?id=${profLogo}`
+      );
+
+      setImageURL(res.data.wildapricotUrl);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <_Component
       className={_utils.cx(_styles, "section-2")}
@@ -187,7 +207,7 @@ export function ProfileSection({
               width="auto"
               height="auto"
               alt=""
-              src={profLogo}
+              src={imageURL}
             />
             <_Builtin.Block
               className={_utils.cx(_styles, "p-main-bold")}
