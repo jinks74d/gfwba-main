@@ -6,6 +6,8 @@ import _styles from "./MemberBenefitsSection.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
+// TEST PULL
+
 export function MemberBenefitsSection({
   as: _Component = _Builtin.Section,
   homeGridRightSlot,
@@ -71,12 +73,11 @@ export function MemberBenefitsSection({
                 className={_utils.cx(_styles, "p-main", "space-20")}
                 tag="div"
               >
-                {
-                  "The NAHB Member Savings Program continues to make a big impact in boosting members' bottom lines. "
-                }
+                {"The  "}
                 {
                   <Link
                     href="https://www.nahb.org/nahb-community/member-benefits/savings"
+                    target="_blank"
                     style={{ textDecoration: "underline" }}
                   >
                     NAHB Member Savings Program
@@ -89,7 +90,44 @@ export function MemberBenefitsSection({
                 {""}
               </_Builtin.Block>
             </div>
+            <br />
+            <_Builtin.Heading
+              className={_utils.cx(_styles, "heading-2")}
+              tag="h2"
+            >
+              {"Texas Association of Builders"}
+            </_Builtin.Heading>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Image
+                loading="lazy"
+                width="230"
+                height="250"
+                alt="NAHB Logo"
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655391c05614887a99abe38c_TAB-facebook-logo-image2.jpg"
+              />
+              <_Builtin.Block
+                className={_utils.cx(_styles, "p-main", "space-20")}
+                tag="div"
+              >
+                {"The "}
+                {
+                  <Link
+                    href="https://www.texasbuilders.org/member-programs/"
+                    target="_blank"
+                    style={{ textDecoration: "underline" }}
+                  >
+                    Texas Association of Builders
+                  </Link>
+                }
+                {
+                  " members have access to programs and services that are not available to the public, some of which are discounted or enhanced for TAB members. They also provide revenue back to TAB and your local HBA."
+                }
+                <br />
+                {""}
+              </_Builtin.Block>
+            </div>
           </_Builtin.Block>
+
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
             id={_utils.cx(
