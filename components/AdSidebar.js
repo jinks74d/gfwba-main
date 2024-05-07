@@ -6,6 +6,10 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Link from "next/link";
 
+// THIS IS A CHANGE FOR GIT HUB MERGE TEST
+
+
+
 export default function AdSidebar() {
   // Use an object to manage open state of multiple lightboxes
   const [open, setOpen] = useState({});
