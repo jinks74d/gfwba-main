@@ -99,7 +99,7 @@ export function CommitteeSection({
           <br />
           <br />
           {
-            "f you are a Builder or Associate Member and would be willing to serve on the Board of Directors, please contact "
+            "If you are a Builder or Associate Member and would be willing to serve on the Board of Directors, please contact "
           }
           <_Builtin.Link
             className={_utils.cx(_styles, "p-main-link")}
