@@ -3,6 +3,8 @@ import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./MemberBenefitsSection.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 export function MemberBenefitsSection({
   as: _Component = _Builtin.Section,
@@ -57,16 +59,36 @@ export function MemberBenefitsSection({
             >
               {"National Association of Home Builders (NAHB) Member Savings"}
             </_Builtin.Heading>
-            <_Builtin.Block
-              className={_utils.cx(_styles, "p-main", "space-20")}
-              tag="div"
-            >
-              {
-                "The NAHB Member Savings Program continues to make a big impact in boosting members' bottom lines. Through the exclusive discounts from a variety of leading companies, NAHB members saved an estimated total of $37 million in 2022."
-              }
-              <br />
-              {""}
-            </_Builtin.Block>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Image
+                loading="lazy"
+                width="300"
+                height="250"
+                alt="NAHB Logo"
+                src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/655391c0ad009d50dcdfb26c_2019.jpg"
+              />
+              <_Builtin.Block
+                className={_utils.cx(_styles, "p-main", "space-20")}
+                tag="div"
+              >
+                {
+                  "The NAHB Member Savings Program continues to make a big impact in boosting members' bottom lines. "
+                }
+                {
+                  <Link
+                    href="https://www.nahb.org/nahb-community/member-benefits/savings"
+                    style={{ textDecoration: "underline" }}
+                  >
+                    NAHB Member Savings Program
+                  </Link>
+                }
+                {
+                  " continues to make a big impact in boosting members' bottom lines."
+                }
+                <br />
+                {""}
+              </_Builtin.Block>
+            </div>
           </_Builtin.Block>
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
