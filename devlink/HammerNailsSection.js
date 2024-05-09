@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./HammerNailsSection.module.css";
@@ -62,7 +63,7 @@ export function HammerNailsSection({
               tag="div"
             >
               {
-                "The Hammer and Nails PAC offers opportunities for GFWBA members to interact with and build relationships with local, state and federal officials. You can have a voice in electing candidates who support the building industry. Interesting in getting involved? Become a part of the Hammer and Nails PAC!"
+                "The Hammer and Nails PAC offers opportunities for GFWBA members to interact with and build relationships with local, state and federal officials. You can have a voice in electing candidates who support the building industry. Interested in getting involved? Become a part of the Hammer and Nails PAC!"
               }
             </_Builtin.Block>
             <_Builtin.List
@@ -156,7 +157,15 @@ export function HammerNailsSection({
                 </_Builtin.Block>
               </_Builtin.ListItem>
             </_Builtin.List>
+            <Link
+              className="link-btn"
+              href="https://hnpac.org/"
+              target="_blank"
+            >
+              DONATE
+            </Link>
           </_Builtin.Block>
+
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
             id={_utils.cx(
