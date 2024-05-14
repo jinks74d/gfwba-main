@@ -47,10 +47,11 @@ export function FaqSection({
                 {"A: "}
                 <_Builtin.Link
                   className={_utils.cx(_styles, "contact-link")}
+                  style={{ textDecoration: "underline" }}
                   button={false}
                   block=""
                   options={{
-                    href: "#",
+                    href: "/signup",
                   }}
                 >
                   {"Click/Touch here"}

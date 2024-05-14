@@ -26,7 +26,7 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.structuresure.com/" target="_blank">
+        <Link href="https://www.strucsure.com/" target="_blank">
           <Image
             src={StrucLogo}
             alt="StructSure Logo"
@@ -85,7 +85,7 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.structuresure.com/" target="_blank">
+        <Link href="https://www.strucsure.com/" target="_blank">
           <Image
             src={StrucLogo}
             alt="StructSure Logo"
@@ -144,7 +144,7 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.structuresure.com/" target="_blank">
+        <Link href="https://www.strucsure.com/" target="_blank">
           <Image
             src={StrucLogo}
             alt="StructSure Logo"
@@ -203,7 +203,7 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.structuresure.com/" target="_blank">
+        <Link href="https://www.strucsure.com/" target="_blank">
           <Image
             src={StrucLogo}
             alt="StructSure Logo"

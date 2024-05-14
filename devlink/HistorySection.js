@@ -71,7 +71,7 @@ export function HistorySection({
               <br />
               <br />
               {
-                "Today, the GFWBA has approximately 500 members and comprises seven counties including Tarrant, Johnson, Hood, Wise, Parker, Somervell, and Palo Pinto. The GFWBA members fall into two categories: builder members and associate members. Builder members are engaged in single and multi-family building, land development, remodeling, and general light construction. Associate members are subcontractors, sales and marketing specialists, architects, interior designers, title and settlement experts, lawyers, people in the financial services industry, product suppliers and manufacturers, and many more who are essential to the challenging task of providing housing for a growing population."
+                "Today, the GFWBA has more than 600 members and comprises seven counties including Tarrant, Johnson, Hood, Wise, Parker, Somervell, and Palo Pinto. The GFWBA members fall into two categories: builder members and associate members. Builder members are engaged in single and multi-family building, land development, remodeling, and general light construction. Associate members are subcontractors, sales and marketing specialists, architects, interior designers, title and settlement experts, lawyers, people in the financial services industry, product suppliers and manufacturers, and many more who are essential to the challenging task of providing housing for a growing population."
               }
               <br />
               <br />

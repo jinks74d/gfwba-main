@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./HammerNailsSection.module.css";
@@ -155,6 +156,10 @@ export function HammerNailsSection({
                   {"Hammer and Nails PAC Member — $30 annually"}
                 </_Builtin.Block>
               </_Builtin.ListItem>
+              <Link href="https://HNPAC.org" target="_blank">
+              <button  className="donate-btn">DONATE</button>
+              </Link>
+              
             </_Builtin.List>
           </_Builtin.Block>
           <_Builtin.Block
