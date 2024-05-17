@@ -103,11 +103,11 @@ export default function Events() {
           e.niceStartDate = eventStart.toLocaleDateString(undefined, options1);
           e.niceStartTime = eventStart.toLocaleDateString(undefined, options2);
           e.EndDate = eventEnd.toLocaleDateString(undefined, options);
-          formattedEvents2.push(e);
         }
         // -----------AdminOnly access level won't be pushed in formatted events-----------------
         if (e.AccessLevel != "AdminOnly") {
           formattedEvents.push(e);
+          formattedEvents2.push(e);
         }
         // -----------If want to push AdminOnly access level too in formatted events-----------------
         // formattedEvents.push(e);
@@ -144,7 +144,7 @@ export default function Events() {
   };
   function parseDateTime(niceStartDate, niceStartTime) {
     // Combine date and time strings
-    const dateTimeString = `${niceStartDate} ${niceStartTime.split(" ")[1]}`;
+    const dateTimeString = `${niceStartDate} ${niceStartTime?.split(" ")[1]}`;
 
     // Parse into a Date object
     return new Date(dateTimeString);
