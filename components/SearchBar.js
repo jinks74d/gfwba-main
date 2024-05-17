@@ -17,6 +17,9 @@ const SearchBar = ({ onSearch }) => {
         // placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={(event) => {
+          event.key === "Enter" && handleSearch();
+        }}
       />
       <button
         className="bg-[#B3B3B3] text-white p-[5px] text-[20px]"

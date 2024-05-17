@@ -153,10 +153,18 @@ export default function Events() {
   // Function to sort data based on parsed Date objects
   function sortDataByDateTime(data) {
     return data.sort((a, b) => {
-      const dateA = parseDateTime(a.niceStartDate, a.niceStartTime);
-      const dateB = parseDateTime(b.niceStartDate, b.niceStartTime);
-
-      return dateA - dateB;
+      if (
+        a.niceStartDate &&
+        a.niceStartTime &&
+        b.niceStartDate &&
+        b.niceStartTime
+      ) {
+        const dateA = parseDateTime(a.niceStartDate, a.niceStartTime);
+        const dateB = parseDateTime(b.niceStartDate, b.niceStartTime);
+        return dateA - dateB;
+      } else {
+        return;
+      }
     });
   }
 
@@ -199,15 +207,14 @@ export default function Events() {
           listPane={
             <div>
               {events2 ? (
-                sortDataByDateTime(events2).map((e) => (
+                sortDataByDateTime(events2).map((ee) => (
                   <>
-                    {/* {console.log(e)} */}
                     <EventListCard
-                      eventTitle={e.Name}
-                      eventDate={e.niceStartDate}
-                      eventTime={e.niceStartTime}
-                      eventLocation={e.Location}
-                      eventLink={{ href: `/event/${e.Id}` }}
+                      eventTitle={ee.Name}
+                      eventDate={ee.niceStartDate}
+                      eventTime={ee.niceStartTime}
+                      eventLocation={ee.Location}
+                      eventLink={{ href: `/event/${ee.Id}` }}
                     />
                   </>
                 ))

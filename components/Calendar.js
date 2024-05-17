@@ -10,7 +10,7 @@ import Link from "next/link";
 // ]
 
 export function CalendarComponent({ events }) {
-  console.log(events);
+  // console.log(events);
   return (
     <div className="h-full">
       <FullCalendar
