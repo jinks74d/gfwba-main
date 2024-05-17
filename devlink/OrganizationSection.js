@@ -3,7 +3,6 @@ import React from "react";
 import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./OrganizationSection.module.css";
-import Link from "next/link";
 
 export function OrganizationSection({
   as: _Component = _Builtin.Section,
@@ -79,16 +78,7 @@ export function OrganizationSection({
                 tag="div"
               >
                 {
-                  <Link
-                    href="https://www.texasbuilders.org/"
-                    target="blank"
-                    style={{ textDecoration: "underline" }}
-                  >
-                    The Texas Association of Builders
-                  </Link>
-                }
-                {
-                  " (TAB) is dedicated to creating a positive business environment for the housing industry by addressing the housing issues of the people of Texas."
+                  "The Texas Association of Builders (TAB) is dedicated to creating a positive business environment for the housing industry by addressing the housing issues of the people of Texas."
                 }
                 <br />
                 <br />
@@ -113,20 +103,8 @@ export function OrganizationSection({
                 className={_utils.cx(_styles, "p-main")}
                 tag="div"
               >
-              {
-                "Founded in the 1940's, the "
-              }
-              {
-                  <Link
-                    href="https://www.texasbuilders.org/"
-                    target="blank"
-                    style={{ textDecoration: "underline" }}
-                  >
-                    National Association of Home Builders
-                  </Link>
-                }
                 {
-                  " (NAHB) strives to protect the American Dream of housing opportunities for all, while working to achieve professional success for its members who build communities, create jobs and strengthen our economy."
+                  "Founded in the 1940's, NAHB strives to protect the American Dream of housing opportunities for all, while working to achieve professional success for its members who build communities, create jobs and strengthen our economy."
                 }
                 <br />
                 <br />
@@ -147,39 +125,6 @@ export function OrganizationSection({
             >
               {
                 "The Greater Fort Worth Builders Association (GFWBA) is operated by a full-time staff, which is always available by phone, email or make an appointment to visit our downtown Fort Worth offices, located directly across from the historic “Water Gardens”. Dedicated to delivering personalized, professional and thorough service to our members; the Greater Fort Worth Builders Association staff is here to answer your questions and help you get the most out of your membership."
-              }
-              <br />
-              <br />
-              {
-                <Link
-                  href="mailto:kimberly@fortworthbuilders.org"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Kimberly Eaton-Pregler
-                </Link>
-              }
-              {", Executive Vice President"}
-              <br />
-              {
-                <Link
-                  href="mailto:sharon@fortworthbuilders.org"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Sharon Liles Love
-                </Link>
-              }
-              {", Director of Operations"}
-              <br />
-              {
-                <Link
-                  href="mailto:shannon@fortworthbuilders.org"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Shannon Claybaugh
-                </Link>
-              }
-              {
-                ", Director of Member Services/Certified Master Builder Administrator"
               }
             </_Builtin.Block>
           </_Builtin.Block>

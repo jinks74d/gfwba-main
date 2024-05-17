@@ -109,7 +109,7 @@ export function MemberListItem({
                   target="_blank"
                   block=""
                   options={{
-                    href: memberListWebsite,
+                    href: "http://www.bigtexrenovations.com/",
                   }}
                 >
                   {memberListWebsite}

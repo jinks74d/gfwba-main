@@ -65,7 +65,7 @@ export function HomeMain({
               button={false}
               block=""
               options={{
-                href: "/about",
+                href: "#",
               }}
             >
               {"LEARN MORE"}
@@ -88,7 +88,7 @@ export function HomeMain({
             </_Builtin.Heading>
             <_Builtin.Block className={_utils.cx(_styles, "p-main")} tag="div">
               {
-                "The GFWBA represents all segments of the residential building industry and promotes home building and home ownership in a variety of ways."
+                "Membership in GFWBA offers businesses and individuals GFWBA represents all segments of the residentialbuilding industry and promotes home building and home ownership in a variety of ways."
               }
             </_Builtin.Block>
             <_Builtin.Block
@@ -110,7 +110,7 @@ export function HomeMain({
                 <_Builtin.Strong>{"AFFILIATIONS"}</_Builtin.Strong>
                 <br />
                 {
-                  "The GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the Texas Association of Builders (TAB)."
+                  "GFWBA is affiliated with the National Association of Home Builders and the Texas Association of Builders. Your three-tiered membership includes the National Association of Homebuilders (NAHB), and the Texas Association of Builders (TAB)."
                 }
               </_Builtin.Block>
             </_Builtin.Block>
@@ -131,7 +131,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"EDUCATION & ADVICE"}
+                  {"EDUCATION&ADVICE"}
                   <br />
                 </_Builtin.Strong>
                 {
@@ -156,7 +156,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"CONNECTIONG & COLLABORATING"}
+                  {"CONNECTIONG &COLLABORATING"}
                   <br />
                 </_Builtin.Strong>
                 {
@@ -181,7 +181,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"BENEFITS & DISCOUNTS"}
+                  {"BENEFITS &DISCOUNTS"}
                   <br />
                 </_Builtin.Strong>
                 {

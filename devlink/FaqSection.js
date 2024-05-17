@@ -97,6 +97,21 @@ export function FaqSection({
                 tag="h3"
               >
                 {
+                  "Q: What exactly does the Greater Fort Worth Builders Association do?"
+                }
+              </_Builtin.Heading>
+              <_Builtin.Paragraph className={_utils.cx(_styles, "p-main")}>
+                {
+                  "A: We serve the homebuilding industry of the Greater Fort Worth region in many ways including advocacy on important issues, education of our members on current practices, consumer education, disseminating trends and changes forthcoming, and working with committees to resolve industry wide issues, to name a few."
+                }
+              </_Builtin.Paragraph>
+            </_Builtin.Block>
+            <_Builtin.Block className={_utils.cx(_styles, "faq-div")} tag="div">
+              <_Builtin.Heading
+                className={_utils.cx(_styles, "faq-heading")}
+                tag="h3"
+              >
+                {
                   "Q: What do I get for joining the Greater Fort Worth Builders Association and why should I?"
                 }
               </_Builtin.Heading>

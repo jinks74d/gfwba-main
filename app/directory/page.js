@@ -20,6 +20,7 @@ import { InnerHero, MemberListItem } from "@/devlink";
 // };
 
 export default function Directory() {
+  // console.log("I am in directory");
   const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
   const [contacts, setContacts] = useState("");
   const [allContacts, setAllContacts] = useState("");
@@ -64,7 +65,7 @@ export default function Directory() {
       console.log("response not ok");
     }
     if (response.ok) {
-      console.log(response);
+      // console.log(response);
       // const alphaSorted = json.Contacts.sort();
       let categoryArr = [];
       let areaArr = [];
@@ -94,20 +95,20 @@ export default function Directory() {
         }
         formatedContacts.push(c);
       });
-      console.log(formatedContacts);
+      // console.log(formatedContacts);
       let pagination = paginator(formatedContacts, 1);
       setPaginationArr(pagination.data);
       setPaginationObj(pagination);
       setContacts(formatedContacts);
       setAllContacts(formatedContacts);
-      json.Contacts.forEach((element) => {
+      json?.Contacts?.forEach((element) => {
         let cat = element.FieldValues[47];
         let memberCat = [];
-        Object.keys(cat.Value).forEach(function (key, index) {
-          if (categoryArr.indexOf(cat.Value[key].Label) == -1) {
-            categoryArr.push(cat.Value[key].Label);
+        Object?.keys(cat?.Value)?.forEach(function (key, index) {
+          if (categoryArr?.indexOf(cat.Value[key].Label) == -1) {
+            categoryArr?.push(cat.Value[key].Label);
           }
-          memberCat.push(` ${cat.Value[key].Label}`);
+          memberCat?.push(` ${cat.Value[key].Label}`);
         });
         element.memberCat = memberCat;
 
@@ -202,6 +203,7 @@ export default function Directory() {
   };
 
   const handleSearch = (searchTerm) => {
+    console.log(searchTerm);
     if (searchTerm != "") {
       let filteredContacts = [];
       console.log(filter);

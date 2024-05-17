@@ -19,25 +19,8 @@ export function CommitteeSection({
       <_Builtin.Block
         className={_utils.cx(_styles, "committee-item")}
         tag="div"
-        style={{ fontSize: "18px" }}
       >
-        {"* If you would like to join a council committee, please contact "}
-        <_Builtin.Link
-          className={_utils.cx(_styles, "p-main-link")}
-          button={false}
-          block=""
-          options={emailLink}
-        >
-          {"Kimberly Eaton-Pregler"}
-        </_Builtin.Link>
-        {", Executive Vice President."}
-      </_Builtin.Block>
-      <br />
-      <_Builtin.Block
-        className={_utils.cx(_styles, "committee-item")}
-        tag="div"
-      >
-        <_Builtin.Heading tag="h3">{"Associates' council"}</_Builtin.Heading>
+        <_Builtin.Heading tag="h3">{"Associate's council"}</_Builtin.Heading>
         <_Builtin.Block
           className={_utils.cx(_styles, "p-main", "space-40")}
           tag="div"
@@ -50,6 +33,18 @@ export function CommitteeSection({
           {
             "The Committee meets every other month to discuss Associate Council business and plan association events and philanthropic projects. All Associate and Affiliate Members of the GFWBA are welcome to attend and join the council. "
           }
+          <br />
+          <br />
+          {"If you would like to join this committee, please contact "}
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregle"}
+          </_Builtin.Link>
+          {"r, Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -101,6 +96,22 @@ export function CommitteeSection({
           {
             "The Board is responsible for establishing general policies for the management and ongoing operations of the Association. The Board consists of Builder and Associate members. Members of the Executive Committee are not elected to the Board. Also included on the Board of Directors are the GFWBA Past Presidents and GFWBA Life Directors. "
           }
+          <br />
+          <br />
+          {
+            "f you are a Builder or Associate Member and would be willing to serve on the Board of Directors, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton Pregler"}
+          </_Builtin.Link>
+          {
+            ", Executive Vice President. Your name will be given to the Nominating Committee for consideration in the next election."
+          }
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -115,6 +126,22 @@ export function CommitteeSection({
           {
             "The Budget and Finance Committee is composed of 7 Builder members. The First Vice President is a standing member. The chair of the committee is the Secretary/Treasurer. The Budget and Finance Committee establishes an annual budget for approval by the board and has quarterly teleconference meetings to review the budget, event performance, accounts receivable, etc. "
           }
+          <br />
+          <br />
+          {
+            "If you are a Builder Member and would be willing to serve on this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {
+            ", Executive Vice President. Your name will be given to the Secretary/Treasurer for consideration."
+          }
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -128,6 +155,23 @@ export function CommitteeSection({
         >
           {
             "The Education Committee works to develop a calendar of educational events of interest to GFWBA members. Educational events are typically held once a month and include lunch. Topics may include building codes, legal information, business development, feature new materials or methods, etc."
+          }
+          <br />
+          {"‍"}
+          <br />
+          {
+            "If you are an Associate, Affiliate or Builder Member and would be willing to serve on this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {
+            ", Executive Vice President. Your name will be given to the Secretary/Treasurer for consideration."
           }
         </_Builtin.Block>
       </_Builtin.Block>
@@ -169,6 +213,20 @@ export function CommitteeSection({
           {
             "The Government Affairs Committee also plans and executes our annual Municipal Awards Night. "
           }
+          <br />
+          <br />
+          {
+            "If you are a GFWBA Member and would like to join this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -183,6 +241,18 @@ export function CommitteeSection({
           {
             "The Hammer and Nails Political Action Committee (PAC) is an important element of GFWBA’s advocacy program, and is the political voice for the greater Fort Worth seven county home building industry. The purpose of the Hammer & Nails PAC is to contribute money to local and state candidates who understand and support the efforts of the building industry, and organize effective political action on behalf of our members and the home building industry. "
           }
+          <br />
+          <br />
+          {"To learn more about the Hammer and Nails PAC, contact "}
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -202,6 +272,20 @@ export function CommitteeSection({
           {
             "The committee meets once a month. All GFWBA members are welcome to attend the Membership Committee meetings. "
           }
+          <br />
+          <br />
+          {
+            "If you are a GFWBA Member and would like to join this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -221,6 +305,20 @@ export function CommitteeSection({
           {
             "The Nominating Committee annually solicits and recommends nominees for the Board of Directors. It reviews the duties and responsibilities of the Board positions with proposed nominees. The committee prepares and sends ballots to members of the association. The committee also presents the incoming Board with the slate of officers. "
           }
+          <br />
+          <br />
+          {
+            "If you are a GFWBA Member and would like to serve on this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -245,6 +343,20 @@ export function CommitteeSection({
           <br />
           <br />
           {"Dues are $75.00 per year. "}
+          <br />
+          <br />
+          {
+            "If you are a GFWBA Member and would like to join this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
       <_Builtin.Block
@@ -266,6 +378,20 @@ export function CommitteeSection({
           {
             "The Young Professionals Committee is active in all areas of the association. They host many events including a chili cookoff, a Fall Social and the Santa Claus Project – providing Christmas gifts and a party for area youth in need. "
           }
+          <br />
+          <br />
+          {
+            "If you are a GFWBA Member and would like to join this committee, please contact "
+          }
+          <_Builtin.Link
+            className={_utils.cx(_styles, "p-main-link")}
+            button={false}
+            block=""
+            options={emailLink}
+          >
+            {"Kimberly Eaton-Pregler"}
+          </_Builtin.Link>
+          {", Executive Vice President."}
         </_Builtin.Block>
       </_Builtin.Block>
     </_Component>

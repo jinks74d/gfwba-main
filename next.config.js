@@ -4,9 +4,6 @@ const nextConfig = {
     // Set the base URL of your site here. Replace "https://yourdomain.com" with your actual domain.
     metadataBase: "https://gfwba-main.vercel.app",
   },
-  images: {
-    domains: ["uploads-ssl.webflow.com"],
-  },
   // Add other configuration options here as needed.
 };
 

@@ -113,11 +113,6 @@ textarea {
   display: none;
 }
 
-/* LINK BUTTON H&N PAGE */
-.link-btn {
-  @apply text-white text-lg bg-[#102647] px-7 py-2;
-}
-
 /* END OVERRIDES */
 
 /* RESPONSIVE STYLES */
