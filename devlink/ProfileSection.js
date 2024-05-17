@@ -204,8 +204,8 @@ export function ProfileSection({
             <_Builtin.Image
               className={_utils.cx(_styles, "profile-logo")}
               loading="lazy"
-              width="auto"
-              height="auto"
+              width={150}
+              height={150}
               alt=""
               src={imageURL}
             />
