@@ -142,6 +142,23 @@ export default function Events() {
       }
     }
   };
+  function parseDateTime(niceStartDate, niceStartTime) {
+    // Combine date and time strings
+    const dateTimeString = `${niceStartDate} ${niceStartTime.split(" ")[1]}`;
+
+    // Parse into a Date object
+    return new Date(dateTimeString);
+  }
+
+  // Function to sort data based on parsed Date objects
+  function sortDataByDateTime(data) {
+    return data.sort((a, b) => {
+      const dateA = parseDateTime(a.niceStartDate, a.niceStartTime);
+      const dateB = parseDateTime(b.niceStartDate, b.niceStartTime);
+
+      return dateA - dateB;
+    });
+  }
 
   useEffect(() => {
     if (events === "") {
@@ -149,7 +166,7 @@ export default function Events() {
     }
   });
 
-  // console.log(data)
+  console.log(events2);
 
   return (
     <>
@@ -182,7 +199,7 @@ export default function Events() {
           listPane={
             <div>
               {events2 ? (
-                events2.map((e) => (
+                sortDataByDateTime(events2).map((e) => (
                   <>
                     {/* {console.log(e)} */}
                     <EventListCard
