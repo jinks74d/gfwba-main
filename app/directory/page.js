@@ -312,7 +312,7 @@ export default function Directory() {
     }
   });
 
-  console.log(paginationArr);
+  console.log(paginationArr, "...............pagination");
 
   return (
     <main>
@@ -387,7 +387,7 @@ export default function Directory() {
             {paginationArr ? (
               paginationArr?.map((c) => {
                 // console.log(c.FieldValues[49].Value);
-                if (c.Status === "Active")
+                if (c.MembershipEnabled)
                   if (c.FieldValues[49].Value) {
                     return (
                       <MemberListItem
