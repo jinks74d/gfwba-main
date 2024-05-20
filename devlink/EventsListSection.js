@@ -209,25 +209,25 @@ export function EventsListSection({
                             {"Register"}
                           </_Builtin.Link>
                         </_Builtin.Block>
-                        // <_Builtin.Block
-                        //   className={_utils.cx(
-                        //     _styles,
-                        //     "event-list-item-right"
-                        //   )}
-                        //   tag="div"
-                        // >
-                        //   // <_Builtin.Image
-                        //   //   className={_utils.cx(
-                        //   //     _styles,
-                        //   //     "event-list-item-image"
-                        //   //   )}
-                        //   //   width="auto"
-                        //   //   height="auto"
-                        //   //   loading="lazy"
-                        //   //   alt=""
-                        //   //   src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/659c4411b9d7b8c85929985d_PWB%202024%20January%20Meeting.png"
-                        //   // />
-                        // </_Builtin.Block>
+                        <_Builtin.Block
+                          className={_utils.cx(
+                            _styles,
+                            "event-list-item-right"
+                          )}
+                          tag="div"
+                        >
+                          <_Builtin.Image
+                            className={_utils.cx(
+                              _styles,
+                              "event-list-item-image"
+                            )}
+                            width="auto"
+                            height="auto"
+                            loading="lazy"
+                            alt=""
+                            src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/659c4411b9d7b8c85929985d_PWB%202024%20January%20Meeting.png"
+                          />
+                        </_Builtin.Block>
                       </_Builtin.Block>
                     </>
                   )}
