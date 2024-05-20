@@ -225,7 +225,7 @@ export function EventsListSection({
                             height="auto"
                             loading="lazy"
                             alt=""
-                            src="https://uploads-ssl.webflow.com/6549729854ffbc32e05dfa25/659c4411b9d7b8c85929985d_PWB%202024%20January%20Meeting.png"
+                            src="#"
                           />
                         </_Builtin.Block>
                       </_Builtin.Block>
