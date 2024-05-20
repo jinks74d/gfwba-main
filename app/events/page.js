@@ -107,8 +107,8 @@ export default function Events() {
         // -----------AdminOnly access level won't be pushed in formatted events-----------------
         if (e.AccessLevel != "AdminOnly") {
           formattedEvents.push(e);
-          formattedEvents2.push(e);
         }
+        formattedEvents2.push(e);
         // -----------If want to push AdminOnly access level too in formatted events-----------------
         // formattedEvents.push(e);
       });
@@ -209,13 +209,17 @@ export default function Events() {
               {events2 ? (
                 sortDataByDateTime(events2).map((ee) => (
                   <>
-                    <EventListCard
-                      eventTitle={ee.Name}
-                      eventDate={ee.niceStartDate}
-                      eventTime={ee.niceStartTime}
-                      eventLocation={ee.Location}
-                      eventLink={{ href: `/event/${ee.Id}` }}
-                    />
+                    {ee.niceStartDate &&
+                      ee.niceStartDate &&
+                      ee.AccessLevel === "AdminOnly" && (
+                        <EventListCard
+                          eventTitle={ee.Name}
+                          eventDate={ee.niceStartDate}
+                          eventTime={ee.niceStartTime}
+                          eventLocation={ee.Location}
+                          eventLink={{ href: `/event/${ee.Id}` }}
+                        />
+                      )}
                   </>
                 ))
               ) : (
