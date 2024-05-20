@@ -113,6 +113,11 @@ textarea {
   display: none;
 }
 
+/* EVENT LIST ITEM CARD IMAGE */
+.EventListCard_event-list-item-image__Wgv5e {
+  display: none !important;
+}
+
 /* END OVERRIDES */
 
 /* RESPONSIVE STYLES */
