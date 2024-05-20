@@ -197,7 +197,7 @@ export function Footer({
           button={false}
           block=""
           options={{
-            href: "https://gfwbatx.com/admin",
+            href: "https://gfwba38.wildapricot.org/admin",
             target: "_blank",
           }}
         >
