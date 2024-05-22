@@ -137,8 +137,51 @@ export default function Events() {
         console.log("response not ok");
       }
       if (response2.ok) {
-        console.log(json2);
-        setUpcomingList(json2);
+        let formattedEvents = [];
+        let formattedEvents2 = [];
+        let today = new Date();
+        json2.forEach((e) => {
+          const eventStart = new Date(e.StartDate);
+          const eventEnd = new Date(e.EndDate);
+          const options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+          };
+          const options1 = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          };
+          const options2 = {
+            weekday: "long",
+            hour: "numeric",
+            minute: "numeric",
+          };
+          e.start = e.StartDate;
+          e.title = e.Name;
+          e.id = e.Id;
+          if (eventEnd.getTime() > today.getTime()) {
+            e.niceStartDate = eventStart.toLocaleDateString(
+              undefined,
+              options1
+            );
+            e.niceStartTime = eventStart.toLocaleDateString(
+              undefined,
+              options2
+            );
+            e.EndDate = eventEnd.toLocaleDateString(undefined, options);
+          }
+
+          formattedEvents.push(e);
+
+          // -----------If want to push AdminOnly access level too in formatted events-----------------
+          // formattedEvents.push(e);
+        });
+        setUpcomingList(formattedEvents);
       }
     }
   };
@@ -173,8 +216,6 @@ export default function Events() {
       fetchEvents();
     }
   });
-
-  console.log(events2);
 
   return (
     <>
@@ -233,14 +274,16 @@ export default function Events() {
               {upcomingEvents && (
                 <div>
                   {upcomingEvents.map((e) => (
-                    <EventItemSidebar
-                      key={`side-${e.Id}`}
-                      eventListItemTitle={e.Name}
-                      eventListItemDate={e.Date}
-                      eventListItemTime={e.Time}
-                      eventListItemLocation={e.Location}
-                      eventListItemLink={{ href: `/event/${e.Id}` }}
-                    />
+                    <>
+                      <EventItemSidebar
+                        key={`side-${e.Id}`}
+                        eventListItemTitle={e.Name}
+                        eventListItemDate={e.niceStartDate}
+                        eventListItemTime={e.niceStartTime}
+                        eventListItemLocation={e.Location}
+                        eventListItemLink={{ href: `/event/${e.Id}` }}
+                      />
+                    </>
                   ))}
                 </div>
               )}
