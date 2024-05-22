@@ -13,7 +13,7 @@ import ReeceLogo from "../public/images/sponsors/reese-expressions.png";
 const Marq = () => {
   return (
     <div className="w-full">
-      <h2 className="mt-4 mb-2 text-lg text-center uppercase">Platinum Sponsors</h2>
+      <h2 className="mt-4 mb-2 text-lg text-center uppercase font-bold tracking-wide">Platinum Sponsors</h2>
       <Marquee
         speed={20}
         pauseOnHover={true}
