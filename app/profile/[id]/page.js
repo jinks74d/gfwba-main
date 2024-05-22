@@ -1186,7 +1186,7 @@ export default function Profile({ imageData }) {
           ) : (
             <div className="ml-auto mr-auto flex w-full max-w-[1600px]">
               <button
-                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10 btn-res-padding"
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-2 py-2 px-10 btn-res-padding"
                 onClick={() => setSendingEmail(true)}
               >
                 MESSAGE MEMBER
