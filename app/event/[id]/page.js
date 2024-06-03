@@ -41,6 +41,10 @@ export default function Profile() {
   const [eventDescription, setEventDescription] = useState("");
   const [reg, setReg] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [inviteCode, setInviteCode] = useState("");
+  const [requiresInviteCode, setRequiresInviteCode] = useState(false)
+  const [eventKeys, setEventKeys] = useState([]);
+  const [registrationOption, setRegistrationOption] = useState('');
   const fetchEvent = async () => {
     setIsLoading(true);
     if (localStorage.getItem("GFWBAUSER")) {
@@ -150,6 +154,23 @@ export default function Profile() {
           setRegistered(true);
         }
       }
+      function hasKey(array) {
+        var keyArray = [];
+        for (let i = 0; i < array.length; i++) {
+          console.log(array[i])
+          if (array[i].Availability == 'CodeRequired') {
+            keyArray.push({ registration: array[i], index: i })
+          }
+        }
+        setEventKeys(keyArray);
+        return false; // Key not found in any object
+      }
+      // Assuming events.Details.RegistrationTypes is an array of objects
+      hasKey(json.Details.RegistrationTypes);
+
+      // console.log(hasKey(array, 'name')); // Output: true
+      // console.log(hasKey(array, 'email')); // Output: false
+
       let response2 = await fetch(`/api/event/upcomingEvents`, {
         method: "GET",
         headers: {
@@ -192,25 +213,46 @@ export default function Profile() {
       contactId: Id,
       registrationType: registrationId,
     };
+    if (registrationOption.Availability == 'CodeRequired') {
+      if (inviteCode == registrationOption.RegistrationCode) {
+        let response = await fetch("/api/event/eventRegistration", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({ token, registrationInfo, id: event.Id }),
+        });
 
-    let response = await fetch("/api/event/eventRegistration", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ token, registrationInfo, id: event.Id }),
-    });
+        const json = await response.json();
+        if (!response.ok) {
+          setError(json.error);
+          console.log("response not ok");
+        }
+        if (response.ok) {
+          // console.log(json)
+          setRegistering(false);
+        }
+      } else { setError('incorrect code') }
+    } else {
+      let response = await fetch("/api/event/eventRegistration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({ token, registrationInfo, id: event.Id }),
+      });
 
-    const json = await response.json();
-    if (!response.ok) {
-      setError(json.error);
-      console.log("response not ok");
-    }
-    if (response.ok) {
-      // console.log(json)
-      setRegistering(false);
-    }
-  };
+      const json = await response.json();
+      if (!response.ok) {
+        setError(json.error);
+        console.log("response not ok");
+      }
+      if (response.ok) {
+        // console.log(json)
+        setRegistering(false);
+      }
+    };
+  }
   function cancelRegistration() {
     setRegistering(false);
   }
@@ -399,6 +441,7 @@ export default function Profile() {
                                       onClick={() => {
                                         setRegistering(true);
                                         setRegistrationId(e.Id);
+                                        setRegistrationOption(e);
                                       }}
                                     >
                                       <p className="SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button">
@@ -416,6 +459,22 @@ export default function Profile() {
                                     onSubmit={handleRegistration}
                                     className="text-xl font-light mb-4 w-full"
                                   >
+                                    {registrationOption.Availability == 'CodeRequired' ? <>
+                                      <label for="invite code">
+                                        Invite Code
+                                      </label>
+                                      <input
+                                        className="hi w-[300px] text-base pl-2"
+                                        type="text"
+                                        placeholder="Invite Code"
+                                        value={inviteCode}
+                                        onChange={(e) => {
+                                          setInviteCode(e.target.value);
+                                        }}
+                                      />
+                                    </> :
+                                      console.log(eventKeys)
+                                    }
                                     <label for="First Name">First Name</label>
                                     <input
                                       className="hi w-[300px] text-base pl-2"
@@ -425,6 +484,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setNewFName(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="Last Name">Last Name</label>
                                     <input
@@ -435,6 +495,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setNewLName(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="Email">Email</label>
                                     <input
@@ -445,6 +506,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setNewEmail(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="organization">
                                       Organization
@@ -457,6 +519,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setOrganization(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="phone">Office Phone</label>
                                     <input
@@ -467,6 +530,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setPhone(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="billing">
                                       Accounting or Billing Address
@@ -479,6 +543,7 @@ export default function Profile() {
                                       onChange={(e) => {
                                         setBillingEmail(e.target.value);
                                       }}
+                                      required
                                     />
                                     <label for="consent">
                                       We would like to send you relevant text
@@ -512,9 +577,9 @@ export default function Profile() {
                                     <input
                                       className="cursor-pointer bg-gfwba-blue text-white text-xl uppercase mt-6 py-2 px-10"
                                       type="submit"
-                                      // onClick={() => {
-                                      //   setRegistrationId(e.Id);
-                                      // }}
+                                    // onClick={() => {
+                                    //   setRegistrationId(e.Id);
+                                    // }}
                                     />
                                   </form>
                                   <button
