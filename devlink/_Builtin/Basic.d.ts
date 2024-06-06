@@ -7,7 +7,7 @@ export type Props<
 > = ElementProps<T> & React.PropsWithChildren<U>;
 export declare const Block: React.ForwardRefExoticComponent<
   {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.HTMLAttributes<HTMLOrSVGElement> &
@@ -50,7 +50,7 @@ export declare const Link: React.ForwardRefExoticComponent<
 >;
 export declare const List: React.ForwardRefExoticComponent<
   ElementProps<"ul"> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
     unstyled?: boolean | undefined;
   } & {
     children?: React.ReactNode;
@@ -83,49 +83,49 @@ export type TagProps = Props<
 >;
 export declare const Container: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const BlockContainer: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const HFlex: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const VFlex: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const Layout: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const Cell: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>
 >;
 export declare const HtmlEmbed: React.ForwardRefExoticComponent<
   ElementProps<"div"> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
     value: string;
   } & {
     children?: React.ReactNode;
@@ -133,7 +133,7 @@ export declare const HtmlEmbed: React.ForwardRefExoticComponent<
 >;
 export declare const Grid: React.ForwardRefExoticComponent<
   ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>

@@ -59,7 +59,7 @@ type TabsPaneProps = React.PropsWithChildren<{
 }>;
 export declare const TabsPane: React.ForwardRefExoticComponent<
   {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
     className?: string | undefined;
     "data-w-tab": string;
   } & {

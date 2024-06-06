@@ -266,7 +266,7 @@ export default function Signup() {
     if (membershipOptions === "") {
       fetchMemberships();
     }
-  });
+  }, []);
 
   const classifications = [
     { name: "Accounting" },
@@ -427,10 +427,10 @@ export default function Signup() {
           <select id="membership" className="border text-xl mb-6 pl-2">
             {membershipOptions
               ? membershipOptions.map((m) => (
-                  <option value={m.Id} key={m.Id}>
-                    {m.Name}
-                  </option>
-                ))
+                <option value={m.Id} key={m.Id}>
+                  {m.Name}
+                </option>
+              ))
               : null}
           </select>
           <div className="flex flex-row gap-8 text-xl font-light mb-4 w-full">

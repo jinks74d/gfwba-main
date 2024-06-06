@@ -52,7 +52,7 @@ type NavbarContainerProps = TagProps & {
 };
 export declare const NavbarContainer: React.ForwardRefExoticComponent<
   import("./Basic").ElementProps<keyof HTMLElementTagNameMap> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & {
@@ -85,7 +85,7 @@ type NavbarMenuProps = React.PropsWithChildren<{
 }>;
 export declare const NavbarMenu: React.ForwardRefExoticComponent<
   {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
     className?: string | undefined;
     isOpen?: boolean | undefined;
   } & {
@@ -114,7 +114,7 @@ type NavbarButtonProps = React.PropsWithChildren<{
 }>;
 export declare const NavbarButton: React.ForwardRefExoticComponent<
   {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
     className?: string | undefined;
   } & {
     children?: React.ReactNode;

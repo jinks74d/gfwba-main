@@ -49,7 +49,7 @@ export declare const Superscript: React.ForwardRefExoticComponent<
 >;
 export declare const RichText: React.ForwardRefExoticComponent<
   import("./Basic").ElementProps<"div"> & {
-    tag?: React.ElementType<any> | undefined;
+    tag?: React.ElementType<any, keyof React.JSX.IntrinsicElements> | undefined;
   } & {
     children?: React.ReactNode;
   } & React.RefAttributes<unknown>

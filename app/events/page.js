@@ -215,7 +215,7 @@ export default function Events() {
     if (events === "") {
       fetchEvents();
     }
-  });
+  }, []);
 
   return (
     <>
