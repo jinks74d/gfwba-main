@@ -86,8 +86,8 @@ export default function handler(req, res) {
             ],
             "ShowToPublic": false,
             "RegistrationDate": new Date(),
-            "Memo": "string",
-            "RecreateInvoice": false
+            "Memo": "",
+            "RecreateInvoice": true
         }
         axios
             .post(`https://api.wildapricot.org/v2.2/accounts/191317/eventregistrations`, registrationData, {

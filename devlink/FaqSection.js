@@ -47,11 +47,10 @@ export function FaqSection({
                 {"A: "}
                 <_Builtin.Link
                   className={_utils.cx(_styles, "contact-link")}
-                  style={{ textDecoration: "underline" }}
                   button={false}
                   block=""
                   options={{
-                    href: "/signup",
+                    href: "#",
                   }}
                 >
                   {"Click/Touch here"}
@@ -88,21 +87,6 @@ export function FaqSection({
               <_Builtin.Paragraph className={_utils.cx(_styles, "p-main")}>
                 {
                   "A: No. The Greater Fort Worth Builders Association does not offer “Corporate Memberships”; however, if your company is a “Builder” or “Associate” member of the association, you are eligible to become an “Affiliate” member of the Greater Fort Worth Builders Association. An “Affiliate” membership costs $125 annually and must be under an active “Builder” or “Associate” member. As an “Affiliate” member, you will have access to all of the same benefits and opportunities as other members, excluding service on the Board of Directors or State and National Directors."
-                }
-              </_Builtin.Paragraph>
-            </_Builtin.Block>
-            <_Builtin.Block className={_utils.cx(_styles, "faq-div")} tag="div">
-              <_Builtin.Heading
-                className={_utils.cx(_styles, "faq-heading")}
-                tag="h3"
-              >
-                {
-                  "Q: What exactly does the Greater Fort Worth Builders Association do?"
-                }
-              </_Builtin.Heading>
-              <_Builtin.Paragraph className={_utils.cx(_styles, "p-main")}>
-                {
-                  "A: We serve the homebuilding industry of the Greater Fort Worth region in many ways including advocacy on important issues, education of our members on current practices, consumer education, disseminating trends and changes forthcoming, and working with committees to resolve industry wide issues, to name a few."
                 }
               </_Builtin.Paragraph>
             </_Builtin.Block>

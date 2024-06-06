@@ -45,150 +45,7 @@ export default function Profile() {
   const [requiresInviteCode, setRequiresInviteCode] = useState(false)
   const [eventKeys, setEventKeys] = useState([]);
   const [registrationOption, setRegistrationOption] = useState('');
-  const fetchEvent = async () => {
-    setIsLoading(true);
-    if (localStorage.getItem("GFWBAUSER")) {
-      var {
-        Id,
-        DisplayName,
-        Email,
-        FirstName,
-        LastName,
-        MembershipLevel,
-        Status,
-        token,
-      } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-      setLoggedId(Id);
-      setFirstName(FirstName);
-      setLastName(LastName);
-      setEmail(Email);
-      setNewFName(FirstName);
-      setNewLName(LastName);
-      setNewEmail(Email);
-      updateLoggedStatus(true);
-    } else {
-      setRegistered(true);
-    }
-    // let response = await fetch('/api/allContacts', {
-    let response = await fetch(`/api/event/${params.id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-    });
-
-    const json = await response.json();
-    if (!response.ok) {
-      setError(json.error);
-      console.log("response not ok");
-      setIsLoading(false);
-    }
-    if (response.ok) {
-      // console.log(json)
-      const eventStart = new Date(json.StartDate);
-      const eventEnd = new Date(json.EndDate);
-      const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-      };
-      const options1 = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-      const options2 = {
-        weekday: "long",
-        hour: "numeric",
-        minute: "numeric",
-      };
-      let startDate = eventStart.toLocaleDateString(undefined, options1);
-      let startTime = eventStart.toLocaleDateString(undefined, options2);
-      let endDate = eventEnd.toLocaleDateString(undefined, options2);
-      setEvent(json);
-      json.Details.RegistrationTypes?.map((item) => {
-        console.log(item?.Id, "..........................event id");
-        reg.push({
-          opened: false,
-          id: item.Id,
-        });
-      });
-      setReg(reg);
-      console.log(json.Details.RegistrationTypes);
-      setStartDate(startDate);
-      setStartTime(startTime);
-      setEnd(endDate);
-
-      const imgSrcRegex = /<img\s+[^>]*src="([^"]*)"/gi;
-
-      // Replace the existing HTML content
-      const replacedHtml = json.Details.DescriptionHtml.replace(
-        imgSrcRegex,
-        (match, src) => {
-          // Extract the file name from the src attribute
-          const pathSegments = src.split("/");
-          const fileName = pathSegments[pathSegments.length - 1];
-
-          // Construct the new src URL
-          const newSrc = `https://gfwbatx.com/resources/Pictures/${fileName}`;
-
-          // Replace the src attribute value with the new URL
-          return match.replace(src, newSrc);
-        }
-      );
-      setEventDescription(replacedHtml);
-
-      // console.log(replacedHtml);
-      // console.log(json);
-      if (json.registrations[0]) {
-        // console.log(json);
-        let attendees = [];
-        json.registrations.forEach((element) => {
-          attendees.push(element.Contact.Id);
-        });
-        // console.log(attendees.includes(Id));
-        if (attendees.includes(Id)) {
-          setRegistered(true);
-        }
-      }
-      function hasKey(array) {
-        var keyArray = [];
-        for (let i = 0; i < array.length; i++) {
-          console.log(array[i])
-          if (array[i].Availability == 'CodeRequired') {
-            keyArray.push({ registration: array[i], index: i })
-          }
-        }
-        setEventKeys(keyArray);
-        return false; // Key not found in any object
-      }
-      // Assuming events.Details.RegistrationTypes is an array of objects
-      hasKey(json.Details.RegistrationTypes);
-
-      // console.log(hasKey(array, 'name')); // Output: true
-      // console.log(hasKey(array, 'email')); // Output: false
-
-      let response2 = await fetch(`/api/event/upcomingEvents`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-      });
-      const json2 = await response2.json();
-      if (!response2.ok) {
-        setError(json2.error);
-        console.log("response not ok");
-      }
-      if (response2.ok) {
-        console.log(json2);
-        setUpcomingList(json2);
-      }
-      setIsLoading(false);
-    }
-  };
+  const { id } = params;
 
   const handleRegistration = async (e) => {
     var {
@@ -256,23 +113,118 @@ export default function Profile() {
   function cancelRegistration() {
     setRegistering(false);
   }
+  // Separate function to initialize user data from localStorage
+  const initializeUserData = () => {
+    const user = localStorage.getItem("GFWBAUSER");
+    if (user) {
+      const {
+        Id,
+        DisplayName,
+        Email,
+        FirstName,
+        LastName,
+        MembershipLevel,
+        Status,
+        token,
+      } = JSON.parse(user);
+      setLoggedId(Id);
+      setFirstName(FirstName);
+      setLastName(LastName);
+      setEmail(Email);
+      setNewFName(FirstName);
+      setNewLName(LastName);
+      setNewEmail(Email);
+      updateLoggedStatus(true);
+
+      if (Status === 'Lapsed') {
+        router.push('/login');
+        return false; // Stop further processing
+      }
+      return true; // Continue further processing
+    } else {
+      setRegistered(true);
+      return false; // Stop further processing
+    }
+  };
 
   useEffect(() => {
-    // if (!localStorage.getItem("GFWBAUSER")) {
-    //     router.push('/login');
-    // } else {
-    // var { Id, DisplayName, Email, FirstName, LastName, MembershipLevel, Status, token } = JSON.parse(localStorage.getItem("GFWBAUSER"));
-    // if (Status === 'Lapsed') {
-    //     router.push('/login');
-    // }
-    if (event === "") {
-      fetchEvent();
-      if (localStorage.getItem("GFWBAUSER")) {
-        updateLoggedStatus(true);
+    console.log('triggered', id)
+    const fetchEvent = async () => {
+      setIsLoading(true);
+
+      if (!initializeUserData()) return;
+
+      try {
+        const response = await fetch(`/api/event/${id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        });
+
+        const json = await response.json();
+
+        if (!response.ok) {
+          setError(json.error);
+          console.log("response not ok");
+          setIsLoading(false);
+          return;
+        }
+
+        const eventStart = new Date(json.StartDate);
+        const eventEnd = new Date(json.EndDate);
+        const options1 = { year: "numeric", month: "long", day: "numeric" };
+        const options2 = { weekday: "long", hour: "numeric", minute: "numeric" };
+        setEvent(json);
+        setStartDate(eventStart.toLocaleDateString(undefined, options1));
+        setStartTime(eventStart.toLocaleDateString(undefined, options2));
+        setEnd(eventEnd.toLocaleDateString(undefined, options2));
+
+        const imgSrcRegex = /<img\s+[^>]*src="([^"]*)"/gi;
+        const replacedHtml = json.Details.DescriptionHtml.replace(imgSrcRegex, (match, src) => {
+          const pathSegments = src.split("/");
+          const fileName = pathSegments[pathSegments.length - 1];
+          const newSrc = `https://gfwbatx.com/resources/Pictures/${fileName}`;
+          return match.replace(src, newSrc);
+        });
+        setEventDescription(replacedHtml);
+
+        const attendees = json.registrations.map(reg => reg.Contact.Id);
+        if (attendees.includes(loggedId)) {
+          setRegistered(true);
+        }
+
+        const keyArray = json.Details.RegistrationTypes.filter(item => item.Availability === 'CodeRequired').map((item, index) => ({
+          registration: item,
+          index
+        }));
+        setEventKeys(keyArray);
+
+        const response2 = await fetch(`/api/event/upcomingEvents`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+        });
+
+        const json2 = await response2.json();
+        if (!response2.ok) {
+          setError(json2.error);
+          console.log("response not ok");
+        } else {
+          setUpcomingList(json2);
+        }
+
+      } catch (err) {
+        setError('An error occurred while fetching the event');
+        console.error(err);
+      } finally {
+        setIsLoading(false);
       }
-    }
-    // }
-  }, []);
+    };
+
+    fetchEvent();
+  }, [id]); // Only re-run the effect if 'id' changes
   return (
     <main>
       <InnerHero

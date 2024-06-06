@@ -22,7 +22,7 @@ export default function Login() {
       username,
       password,
     };
-    // console.log(data, JSON.stringify(data));
+    console.log(data, JSON.stringify(data));
 
     let response = await fetch("/api/user/userLogin", {
       method: "POST",
