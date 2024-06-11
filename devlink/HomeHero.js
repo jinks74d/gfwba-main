@@ -53,7 +53,7 @@ export function HomeHero({
           button={false}
           block="inline"
           options={{
-            href: "/membership",
+            href: "/signup",
           }}
         >
           <_Builtin.Block
