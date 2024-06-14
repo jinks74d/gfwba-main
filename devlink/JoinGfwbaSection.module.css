@@ -260,7 +260,7 @@
 
 .dd-list {
   position: relative;
-  background-image: linear-gradient(to bottom, var(--lt-gray),var(--lt-gray));
+  background-image: linear-gradient(to bottom, var(--lt-gray), var(--lt-gray));
 }
 
 .dropdown-list {
@@ -287,10 +287,15 @@
   grid-row-start: span 1;
   grid-row-end: span 1;
 }
+
 #w-node-_3fd8a6cc-3f8a-56be-ef07-a5bc06f5ed1a-06f5ecff {
   grid-column-start: span 1;
   grid-column-end: span 1;
   grid-row-start: span 1;
   grid-row-end: span 1;
   justify-self: start;
+}
+
+.JoinGfwbaSection_dd-list___4AAb.JoinGfwbaSection_dd-list-1__5vNux {
+  background-color: white;
 }

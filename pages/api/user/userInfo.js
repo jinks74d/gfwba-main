@@ -45,7 +45,7 @@ export default function handler(req, res) {
                 }
             );
 
-            console.log('success', response.data.access_token)
+            console.log('--LINE 48: success--', response.data.access_token)
             let accessToken = response.data.access_token;
             // Do something with the access token
             if (response.data.access_token) {
@@ -67,12 +67,8 @@ export default function handler(req, res) {
             if (Object.keys(changes).length === 0) {
                 console.log('The object is empty');
             } else {
-                // if (changes.FirstName) { original.FirstName = changes.FirstName }
-                // if (changes.LastName) { original.LastName = changes.LastName }
-                // if (changes.Email) { original.Email = changes.Email }
-                // if (changes.Password) { original.Password = changes.Password }
                 changes.Id = `${id}`
-                console.log('line 75: ', changes.FieldValues[0].Value)
+                console.log('line 71: ', changes.FieldValues[0].Value)
                 console.log(changes, `https://api.wildapricot.org/v2/Accounts/191317/Contacts/${id}`);
                 axios
                     .put(`https://api.wildapricot.org/v2.2/accounts/191317/contacts/${id}`, changes, {
