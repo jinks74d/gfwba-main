@@ -1748,6 +1748,7 @@ textarea.w-select {
 
 .w-dropdown-list.w--open {
   display: block;
+  z-index: 10;
 }
 
 .w-dropdown-link {
