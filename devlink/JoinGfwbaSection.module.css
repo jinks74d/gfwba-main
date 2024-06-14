@@ -299,3 +299,7 @@
 .JoinGfwbaSection_dd-list___4AAb.JoinGfwbaSection_dd-list-1__5vNux {
   background-color: white;
 }
+
+.w-dropdown-list.w--open {
+  z-index: 20;
+}
