@@ -63,6 +63,7 @@ export default function Profile({ imageData }) {
   const [newReferredBy, setNewReferredBy] = useState("");
   const [tempImg, setTempImg] = useState("");
   const [userId, setUserId] = useState('');
+  const [errorStateMsg, setErrorStateMsg] = useState('');
 
   const [checkboxes, setCheckboxes] = useState(categoriesArr);
 
@@ -179,6 +180,34 @@ export default function Profile({ imageData }) {
     }
   };
 
+  const validatePassword = (password) => {
+    const minLength = 12;
+    const upperCase = /[A-Z]/;
+    const lowerCase = /[a-z]/;
+    const number = /[0-9]/;
+    const specialChar = /[#!@$%^*-]/;
+
+    if (password.length < minLength) {
+      return `Password must be at least ${minLength} characters long.`;
+    }
+    if (!upperCase.test(password)) {
+      return 'Password must contain at least one uppercase letter.';
+    }
+    if (!lowerCase.test(password)) {
+      return 'Password must contain at least one lowercase letter.';
+    }
+    if (!number.test(password)) {
+      return 'Password must contain at least one number.';
+    }
+    if (!specialChar.test(password)) {
+      return 'Password must contain at least one special character #?!@$%^*-.';
+    }
+    if (password.includes('&')) {
+      return 'Password must not contain the "&" character.';
+    }
+    return '';
+  };
+
   const handleSubmit = async (e) => {
     let arr = [];
     let checkboxes = document.querySelectorAll(
@@ -211,7 +240,12 @@ export default function Profile({ imageData }) {
       changes.Email = newEmail;
     }
     if (newPassword !== "") {
+      const errorMsg = validatePassword(newPassword);
+      setErrorStateMsg(errorMsg)
       changes.Password = newPassword;
+      if (newEmail == '') {
+        changes.Email = contact.Email;
+      }
     }
     if (newAddress !== "") {
       fieldValues.push({
@@ -378,57 +412,60 @@ export default function Profile({ imageData }) {
         console.error("Error uploading image:", error);
       }
     }
+    const errorMsg = validatePassword(newPassword);
+    if (errorMsg == '') {
+      console.log(errorMsg)
+      let response = await fetch("/api/user/userInfo", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({ token, changes, id: contact.Id, loggedId: Id }),
+      });
 
-    let response = await fetch("/api/user/userInfo", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ token, changes, id: contact.Id, loggedId: Id }),
-    });
-
-    const json = await response.json();
-    if (!response.ok) {
-      setError(json.error);
-      console.log("response not ok");
-    }
-    if (response.ok) {
-      // console.log(json)
-      setUpdating(false);
-      setNewFName("");
-      setNewLName("");
-      setNewEmail("");
-      setNewPassword("");
-      const { accounts, critChange, token } = json;
-      const {
-        Id,
-        DisplayName,
-        Email,
-        FirstName,
-        LastName,
-        IsAccountAdministrator,
-        MembershipLevel,
-        Status,
-      } = accounts;
-      setContact(accounts);
-      const contact = {
-        Id,
-        DisplayName,
-        Email,
-        FirstName,
-        LastName,
-        IsAccountAdministrator,
-        MembershipLevel: MembershipLevel.Name,
-        Status,
-        token,
-      };
-      // console.log(contact)
-      localStorage.setItem("GFWBAUSER", JSON.stringify(contact));
-      if (critChange) {
-        // remove localStorage and redirect to a log back in page
-        localStorage.removeItem("GFWBAUSER");
+      const json = await response.json();
+      if (!response.ok) {
+        setError(json.error);
+        console.log("response not ok");
       }
-      // window.location.reload()
+      if (response.ok) {
+        // console.log(json)
+        setUpdating(false);
+        setNewFName("");
+        setNewLName("");
+        setNewEmail("");
+        setNewPassword("");
+        const { accounts, critChange, token } = json;
+        const {
+          Id,
+          DisplayName,
+          Email,
+          FirstName,
+          LastName,
+          IsAccountAdministrator,
+          MembershipLevel,
+          Status,
+        } = accounts;
+        setContact(accounts);
+        const contact = {
+          Id,
+          DisplayName,
+          Email,
+          FirstName,
+          LastName,
+          IsAccountAdministrator,
+          MembershipLevel: MembershipLevel.Name,
+          Status,
+          token,
+        };
+        // console.log(contact)
+        localStorage.setItem("GFWBAUSER", JSON.stringify(contact));
+        if (critChange) {
+          // remove localStorage and redirect to a log back in page
+          localStorage.removeItem("GFWBAUSER");
+        }
+        // window.location.reload()
+      }
     }
   };
   const handleImageUpload = (event) => {
@@ -479,6 +516,8 @@ export default function Profile({ imageData }) {
   };
   function cancelUpdate() {
     setUpdating(false);
+    setNewPassword('');
+    setErrorStateMsg('');
   }
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -730,14 +769,14 @@ export default function Profile({ imageData }) {
                   }}
                 />
               </div>
-              {/* <label for='Password'>Password</label>
-                        <input
-                            className='hi'
-                            type="text"
-                            placeholder="Password"
-                            value={newPassword}
-                            onChange={(e) => { setNewPassword(e.target.value) }}
-                        /> */}
+              <label for='Password'>Password</label>
+              <input
+                className='hi'
+                type="text"
+                placeholder="Password"
+                value={newPassword}
+                onChange={(e) => { setNewPassword(e.target.value) }}
+              />
               <div className="text-xl font-light mb-4">
                 <label htmlFor="Organization">Organization</label>
                 <input
@@ -1058,6 +1097,7 @@ export default function Profile({ imageData }) {
                   <span id="error-message" className="text-red"></span>
                 </div>
               </div>
+              {errorStateMsg && <p style={{ color: 'red' }}>{errorStateMsg}</p>}
               <div className="flex gap-4">
                 <input
                   className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
