@@ -93,35 +93,38 @@ export default function Login() {
         <div className="p-10 border-2 rounded-2xl border-[#102647]">
           <h1 className="text-6xl">LOGIN</h1>
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="p-4">
-              <label className="text-base font-light">Username</label>
-              <input
-                className="p-2"
-                type="text"
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
-              <label className="text-base font-light mt-4">Password</label>
-              <input
-                className="p-2"
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-              <div></div>
-              {disabled ? (
-                <input disable type="submit" />
-              ) : (
+            <div>
+              <form onSubmit={handleSubmit} className="p-4">
+                <label className="text-base font-light">Username</label>
                 <input
-                  className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
-                  type="submit"
+                  className="p-2"
+                  type="text"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
                 />
-              )}
-            </form>
+                <label className="text-base font-light mt-4">Password</label>
+                <input
+                  className="p-2"
+                  type="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <div></div>
+                {disabled ? (
+                  <input disable type="submit" />
+                ) : (
+                  <input
+                    className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                    type="submit"
+                  />
+                )}
+              </form>
+              <a className="cursor-pointer text-[#102647] p-4" href="https://gfwba38.wildapricot.org/Sys/ResetPasswordRequest" target="_blank">Forgot Password?</a>
+            </div>
           ) : (
             <h2>{loggedUser}</h2>
           )}

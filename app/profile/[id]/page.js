@@ -187,6 +187,7 @@ export default function Profile({ imageData }) {
     const number = /[0-9]/;
     const specialChar = /[#!@$%^*-]/;
 
+
     if (password.length < minLength) {
       return `Password must be at least ${minLength} characters long.`;
     }
@@ -1139,12 +1140,13 @@ export default function Profile({ imageData }) {
           />
           {params.id == loggedId && (
             <div className="form-main form-margin-top">
-              <button
+              {/* <button
                 className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
                 onClick={() => setUpdating(true)}
               >
                 Update
-              </button>
+              </button> */}
+              <a className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" href={`https://gfwba38.wildapricot.org/Sys/Profile`} target="_blank"> Update </a>
               <a className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10 ms-2" href={`https://gfwba38.wildapricot.org/Sys/Profile/Finances?memberId=${params.id}`} target="_blank">Make Payment</a>
             </div>
           )}
