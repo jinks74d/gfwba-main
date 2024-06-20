@@ -123,7 +123,7 @@ export default function Login() {
                   />
                 )}
               </form>
-              <a className="cursor-pointer text-[#102647] p-4" href="https://gfwba38.wildapricot.org/Sys/ResetPasswordRequest" target="_blank">Forgot Password?</a>
+              <a className="cursor-pointer text-[#102647] p-4" href="https://www.portal.gfwbatx.com/Sys/ResetPasswordRequest" target="_blank">Forgot Password?</a>
             </div>
           ) : (
             <h2>{loggedUser}</h2>
