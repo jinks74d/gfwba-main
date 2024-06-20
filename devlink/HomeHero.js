@@ -53,7 +53,8 @@ export function HomeHero({
           button={false}
           block="inline"
           options={{
-            href: "/signup",
+            href: `https://gfwba38.wildapricot.org/Join`,
+            target: '_blank'
           }}
         >
           <_Builtin.Block
