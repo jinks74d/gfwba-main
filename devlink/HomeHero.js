@@ -53,7 +53,7 @@ export function HomeHero({
           button={false}
           block="inline"
           options={{
-            href: `https://www.portal.gfwbatx.com/Join`,
+            href: `https://gfwba38.wildapricot.org/Join`,
             target: '_blank'
           }}
         >

@@ -105,7 +105,7 @@ export default function Profile() {
         const replacedHtml = json.Details.DescriptionHtml.replace(imgSrcRegex, (match, src) => {
           const pathSegments = src.split("/");
           const fileName = pathSegments[pathSegments.length - 1];
-          const newSrc = `https://www.portal.gfwbatx.com/resources/Pictures/${fileName}`;
+          const newSrc = `https://gfwba38.wildapricot.org/resources/Pictures/${fileName}`;
           return match.replace(src, newSrc);
         });
         setEventDescription(replacedHtml);
@@ -184,7 +184,7 @@ export default function Profile() {
                           </li>
                         ))}
                       </ul>
-                      <a className="SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button mt-5" href={`https://www.portal.gfwbatx.com/event-${id}/Registration`} target="_blank">
+                      <a className="SingleEventItem_red-btn__h_K6G SingleEventItem_red-btn-sidebar__qltLF w-button mt-5" href={`https://gfwba38.wildapricot.org/event-${id}/Registration`} target="_blank">
                         Register
                       </a>
                     </div>
