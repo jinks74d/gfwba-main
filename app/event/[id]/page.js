@@ -20,60 +20,17 @@ export default function Profile() {
   const [startTime, setStartTime] = useState("");
   const [startDate, setStartDate] = useState("");
   const [end, setEnd] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [newFName, setNewFName] = useState("");
-  const [newLName, setNewLName] = useState("");
-  const [newEmail, setNewEmail] = useState("");
   const [loggedId, setLoggedId] = useState("");
   const [registered, setRegistered] = useState(false);
-  const { loggedStatus, updateLoggedStatus } = useLoggedStatus();
   const [eventDescription, setEventDescription] = useState("");
   const [reg, setReg] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = params;
 
-  // Separate function to initialize user data from localStorage
-  const initializeUserData = () => {
-    const user = localStorage.getItem("GFWBAUSER");
-    if (user) {
-      const {
-        Id,
-        DisplayName,
-        Email,
-        FirstName,
-        LastName,
-        MembershipLevel,
-        Status,
-        token,
-      } = JSON.parse(user);
-      setLoggedId(Id);
-      setFirstName(FirstName);
-      setLastName(LastName);
-      setEmail(Email);
-      setNewFName(FirstName);
-      setNewLName(LastName);
-      setNewEmail(Email);
-      updateLoggedStatus(true);
-
-      if (Status === 'Lapsed') {
-        router.push('/login');
-        return false; // Stop further processing
-      }
-      return true; // Continue further processing
-    } else {
-      setRegistered(true);
-      return false; // Stop further processing
-    }
-  };
-
   useEffect(() => {
-    console.log('triggered', id)
+    // console.log('triggered', id)
     const fetchEvent = async () => {
       setIsLoading(true);
-
-      if (!initializeUserData()) return;
 
       try {
         const response = await fetch(`/api/event/${id}`, {
@@ -87,7 +44,7 @@ export default function Profile() {
 
         if (!response.ok) {
           setError(json.error);
-          console.log("response not ok");
+          // console.log("response not ok");
           setIsLoading(false);
           return;
         }
@@ -125,7 +82,7 @@ export default function Profile() {
         const json2 = await response2.json();
         if (!response2.ok) {
           setError(json2.error);
-          console.log("response not ok");
+          // console.log("response not ok");
         } else {
           setUpcomingList(json2);
         }
@@ -225,7 +182,7 @@ export default function Profile() {
         }
       />
       {/* {console.log(event)} */}
-      {console.log(reg, "...............reg")}
+      {/* {console.log(reg, "...............reg")} */}
     </main>
   );
 }
