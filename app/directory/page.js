@@ -94,7 +94,9 @@ export default function Directory() {
             }
           }
         }
-        formatedContacts.push(c);
+        if (c.DisplayName !== 'Mattingley, Patrick') {
+          formatedContacts.push(c);
+        }
       });
       // console.log(formatedContacts);
       let pagination = paginator(formatedContacts, 1);
