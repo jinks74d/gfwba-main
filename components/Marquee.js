@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import Link from "next/link";
 
-import FoxLogo from "../public/images/sponsors/Fox Energy Logo-color-whitebg-01.png";
+import FoxLogo from "../public/images/sponsors/fox-logo-2.png";
 import BRSLogo from "../public/images/sponsors/brs-logo.webp";
 import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";
@@ -13,7 +13,9 @@ import ReeceLogo from "../public/images/sponsors/reese-expressions.png";
 const Marq = () => {
   return (
     <div className="w-full">
-      <h2 className="mt-4 mb-2 text-lg text-center uppercase font-bold tracking-wide">2024 Platinum Sponsors</h2>
+      <h2 className="mt-4 mb-2 text-lg text-center uppercase font-bold tracking-wide">
+        2024 Platinum Sponsors
+      </h2>
       <Marquee
         speed={20}
         pauseOnHover={true}
@@ -23,7 +25,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -82,7 +84,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -141,7 +143,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -200,7 +202,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
