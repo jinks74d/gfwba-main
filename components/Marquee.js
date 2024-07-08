@@ -60,7 +60,7 @@ const Marq = () => {
             src={AtmosLogo}
             alt="Atmos Energy Logo"
             width={175}
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -119,7 +119,7 @@ const Marq = () => {
             src={AtmosLogo}
             alt="Atmos Energy Logo"
             width={175}
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -178,7 +178,7 @@ const Marq = () => {
             src={AtmosLogo}
             alt="Atmos Energy Logo"
             width={175}
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -237,7 +237,7 @@ const Marq = () => {
             src={AtmosLogo}
             alt="Atmos Energy Logo"
             width={175}
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
