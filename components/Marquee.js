@@ -68,7 +68,7 @@ const Marq = () => {
           <Image
             src={TDTLogo}
             alt="Texas Door and Trim Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -127,7 +127,7 @@ const Marq = () => {
           <Image
             src={TDTLogo}
             alt="Texas Door and Trim Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -186,7 +186,7 @@ const Marq = () => {
           <Image
             src={TDTLogo}
             alt="Texas Door and Trim Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -245,7 +245,7 @@ const Marq = () => {
           <Image
             src={TDTLogo}
             alt="Texas Door and Trim Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
