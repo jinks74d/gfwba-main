@@ -8,7 +8,7 @@ import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";
 import AtmosLogo from "../public/images/sponsors/Atmos_energy_logo.png";
 import TDTLogo from "../public/images/sponsors/tdt-logo.webp";
-import ReeceLogo from "../public/images/sponsors/reese-expressions.png";
+import ReeceLogo from "../public/images/sponsors/reese-bath.png";
 
 const Marq = () => {
   return (
@@ -76,7 +76,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -135,7 +135,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -194,7 +194,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
@@ -253,7 +253,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={75}
+            height={99}
             className="image-scroll-item"
           />
         </Link>
