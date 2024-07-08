@@ -76,7 +76,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={99}
+            height={75}
             className="image-scroll-item"
           />
         </Link>
@@ -135,7 +135,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={99}
+            height={75}
             className="image-scroll-item"
           />
         </Link>
@@ -194,7 +194,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={99}
+            height={75}
             className="image-scroll-item"
           />
         </Link>
@@ -253,7 +253,7 @@ const Marq = () => {
           <Image
             src={ReeceLogo}
             alt="Reece Logo"
-            height={99}
+            height={75}
             className="image-scroll-item"
           />
         </Link>
