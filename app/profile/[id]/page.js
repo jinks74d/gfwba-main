@@ -108,6 +108,9 @@ export default function Profile({ imageData }) {
     }
     if (response.ok) {
       console.log(json);
+      if (json.DisplayName == 'Mattingley, Patrick') {
+        json.DisplayName = json.Organization;
+      }
       setContact(json);
       setFieldValues(json.FieldValues);
       setAddress(
