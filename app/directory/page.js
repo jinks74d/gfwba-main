@@ -95,6 +95,10 @@ export default function Directory() {
           }
         }
         if (c.DisplayName !== 'Mattingley, Patrick') {
+          c.FullName = `${c.FirstName} ${c.LastName}`
+          formatedContacts.push(c);
+        } else if (c.DisplayName == 'Mattingley, Patrick') {
+          c.DisplayName = c.Organization;
           formatedContacts.push(c);
         }
       });
@@ -175,7 +179,7 @@ export default function Directory() {
       function filterContacts(contacts, filters) {
         contacts.forEach((contact) => {
           let contactCat = [];
-          // console.log(contact)
+          console.log(contact)
           Object.keys(contact.FieldValues[47].Value || {}).forEach(function (
             key,
             index
@@ -190,22 +194,53 @@ export default function Directory() {
             }
           }
           // check org and name
+          // filters.forEach((f) => {
+          //   if (contact.DisplayName.toUpperCase().includes(f.toUpperCase())) {
+          //     console.log(contact);
+          //     if (filteredContacts.indexOf(contact) == -1) {
+          //       filteredContacts.push(contact);
+          //     }
+          //     console.log(filteredContacts);
+          //   }
+          //   if (contact.Organization.toUpperCase().includes(f.toUpperCase())) {
+          //     console.log(contact);
+          //     if (filteredContacts.indexOf(contact) == -1) {
+          //       filteredContacts.push(contact);
+          //     }
+          //     console.log(filteredContacts);
+          //   }
+          // });
           filters.forEach((f) => {
-            if (contact.DisplayName.toUpperCase().includes(f.toUpperCase())) {
+            const displayName = contact.DisplayName.toUpperCase();
+            const organization = contact.Organization.toUpperCase();
+            const searchFilter = f.toUpperCase();
+
+            // Split the display name by comma
+            const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
+
+            // Create the "First Name, Last Name" format
+            const firstNameLastName = displayNameParts.length === 2 &&
+              (displayNameParts[1] + ' ' + displayNameParts[0]).includes(filterUpperCase);
+
+            // Check if any format matches the search filter
+            // if (displayName.includes(searchFilter) || firstNameLastName.includes(searchFilter)) {
+            //   console.log(contact);
+            //   if (filteredContacts.indexOf(contact) === -1) {
+            //     filteredContacts.push(contact);
+            //   }
+            //   console.log(filteredContacts);
+            // }
+
+            // Check if the organization matches the search filter
+            if (organization.includes(searchFilter)) {
               console.log(contact);
-              if (filteredContacts.indexOf(contact) == -1) {
-                filteredContacts.push(contact);
-              }
-              console.log(filteredContacts);
-            }
-            if (contact.Organization.toUpperCase().includes(f.toUpperCase())) {
-              console.log(contact);
-              if (filteredContacts.indexOf(contact) == -1) {
+              if (filteredContacts.indexOf(contact) === -1) {
                 filteredContacts.push(contact);
               }
               console.log(filteredContacts);
             }
           });
+
         });
       }
       // console.log(filteredContacts)
@@ -279,14 +314,32 @@ export default function Directory() {
           }
         }
         // console.log(contact.DisplayName.toUpperCase(), searchTerm.toUpperCase());
-        if (
-          contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())
-        ) {
-          console.log(contact);
-          if (filteredContacts.indexOf(contact) == -1) {
-            filteredContacts.push(contact);
+        // if (
+        //   contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase())
+        // ) {
+        //   console.log(contact.FullName);
+        //   if (filteredContacts.indexOf(contact) == -1) {
+        //     filteredContacts.push(contact);
+        //   }
+        //   console.log(filteredContacts);
+        // }
+        if (contact.DisplayName) {
+          const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
+
+          // Check for "Last Name, First Name"
+          const lastNameFirstName = contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase());
+
+          // Check for "First Name Last Name"
+          const firstNameLastName = displayNameParts.length === 2 &&
+            (displayNameParts[1] + ' ' + displayNameParts[0]).includes(searchTerm.toUpperCase());
+
+          if (lastNameFirstName || firstNameLastName) {
+            console.log(contact);
+            if (filteredContacts.indexOf(contact) === -1) {
+              filteredContacts.push(contact);
+            }
+            console.log(filteredContacts);
           }
-          console.log(filteredContacts);
         }
         if (
           contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())
