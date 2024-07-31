@@ -334,17 +334,35 @@ export default function Directory() {
             (displayNameParts[1] + ' ' + displayNameParts[0]).includes(searchTerm.toUpperCase());
 
           if (lastNameFirstName || firstNameLastName) {
-            console.log(contact);
+            // console.log(contact);
             if (filteredContacts.indexOf(contact) === -1) {
               filteredContacts.push(contact);
             }
-            console.log(filteredContacts);
+            // console.log(filteredContacts);
           }
         }
         if (
           contact.Organization.toUpperCase().includes(searchTerm.toUpperCase())
         ) {
-          console.log(contact);
+          // console.log(contact);
+          if (filteredContacts.indexOf(contact) == -1) {
+            filteredContacts.push(contact);
+          }
+          // console.log(filteredContacts);
+        }
+        if (
+          contact.FieldValues[44].Value.toUpperCase().includes(searchTerm.toUpperCase())
+        ) {
+          // console.log(contact);
+          if (filteredContacts.indexOf(contact) == -1) {
+            filteredContacts.push(contact);
+          }
+          console.log(filteredContacts);
+        }
+        if (
+          `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() == searchTerm.toUpperCase()
+        ) {
+          // console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
