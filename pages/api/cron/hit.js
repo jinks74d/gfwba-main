@@ -168,7 +168,7 @@ export default async function handler(req, res) {
 
       const contactsData = response.data.Contacts;
 
-      for (let i = 0; i < contactsData.length; i++) {
+      for (let i = contactsData.length - 1; i >= 0; i--) {
         const existingImage = await ContactImage.findOne({
           wildapricotUserId: contactsData[i].Id,
         });
@@ -219,6 +219,7 @@ export default async function handler(req, res) {
               Buffer.from(imageResponse.data, "binary"), // Convert arraybuffer to Buffer
               { access: "public" }
             );
+            console.log("blob", blob);
             existingImage.vercelBolbUrl = blob.url;
             await existingImage.save();
           }
