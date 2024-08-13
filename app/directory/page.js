@@ -215,26 +215,49 @@ export default function Directory() {
             const organization = contact.Organization.toUpperCase();
             const searchFilter = f.toUpperCase();
 
-            // Split the display name by comma
-            const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
+            if (contact.DisplayName) {
+              const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
 
-            // Create the "First Name, Last Name" format
-            const firstNameLastName = displayNameParts.length === 2 &&
-              (displayNameParts[1] + ' ' + displayNameParts[0]).includes(filterUpperCase);
+              // Check for "Last Name, First Name"
+              const lastNameFirstName = contact.DisplayName.toUpperCase().includes(searchFilter.toUpperCase());
 
-            // Check if any format matches the search filter
-            // if (displayName.includes(searchFilter) || firstNameLastName.includes(searchFilter)) {
-            //   console.log(contact);
-            //   if (filteredContacts.indexOf(contact) === -1) {
-            //     filteredContacts.push(contact);
-            //   }
-            //   console.log(filteredContacts);
-            // }
+              // Check for "First Name Last Name"
+              const firstNameLastName = displayNameParts.length === 2 &&
+                (displayNameParts[1] + ' ' + displayNameParts[0]).includes(searchFilter.toUpperCase());
+
+              if (lastNameFirstName || firstNameLastName) {
+                // console.log(contact);
+                if (filteredContacts.indexOf(contact) === -1) {
+                  filteredContacts.push(contact);
+                }
+                // console.log(filteredContacts);
+              }
+            }
 
             // Check if the organization matches the search filter
             if (organization.includes(searchFilter)) {
               console.log(contact);
               if (filteredContacts.indexOf(contact) === -1) {
+                filteredContacts.push(contact);
+              }
+              console.log(filteredContacts);
+            }
+            // Check if city matches
+            if (
+              contact.FieldValues[44].Value.toUpperCase().includes(searchFilter)
+            ) {
+              // console.log(contact);
+              if (filteredContacts.indexOf(contact) == -1) {
+                filteredContacts.push(contact);
+              }
+              console.log(filteredContacts);
+            }
+            // Check if City, ST matches
+            if (
+              `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() == searchFilter
+            ) {
+              // console.log(contact);
+              if (filteredContacts.indexOf(contact) == -1) {
                 filteredContacts.push(contact);
               }
               console.log(filteredContacts);
