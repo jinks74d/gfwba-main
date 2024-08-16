@@ -35,7 +35,7 @@ export default function Directory() {
   const [initialLoad, setInitialLoad] = useState(false);
 
   function paginator(items, current_page, per_page_items) {
-    console.log('paginator hit');
+    // console.log('paginator hit');
     let page = current_page || 1,
       per_page = per_page_items || 10,
       offset = (page - 1) * per_page,
@@ -54,7 +54,7 @@ export default function Directory() {
   }
 
   const fetchContacts = async () => {
-    console.log("fetchContacts hit")
+    // console.log("fetchContacts hit")
     // let response = await fetch('/api/allContacts', {
     let response = await fetch("/api/activeContacts", {
       method: "GET",
@@ -105,7 +105,7 @@ export default function Directory() {
           formatedContacts.push(c);
         }
       });
-      console.log(formatedContacts);
+      // console.log(formatedContacts);
       let pagination = paginator(formatedContacts, 1);
       setFetchedData(pagination.data);
       setPaginationArr(pagination.data);
@@ -151,7 +151,7 @@ export default function Directory() {
   };
   const toggleFilter = async (e) => {
     let filters = filter;
-    console.log(e)
+    // console.log(e)
     if (filters.indexOf(e) == -1) {
       filters.push(e);
     } else {
@@ -164,16 +164,16 @@ export default function Directory() {
           newFilter.push(f);
         }
       });
-      console.log(newFilter);
+      // console.log(newFilter);
       filters = newFilter;
     }
-    console.log(filters);
+    // console.log(filters);
     setFilter(filters);
     if (filters.length == 0) {
-      console.log(allContacts);
+      // console.log(allContacts);
       let pagination = paginator(allContacts, 1);
       // setPaginationArr(pagination.data);
-      console.log(pagination, ".................pagination");
+      // console.log(pagination, ".................pagination");
       setPaginationArr(pagination?.data);
       setPaginationObj(pagination);
       // setContacts(allContacts);
@@ -182,7 +182,7 @@ export default function Directory() {
       function filterContacts(contacts, filters) {
         contacts.forEach((contact) => {
           let contactCat = [];
-          console.log(contact)
+          // console.log(contact)
           Object.keys(contact.FieldValues[47].Value || {}).forEach(function (
             key,
             index
@@ -239,11 +239,11 @@ export default function Directory() {
 
             // Check if the organization matches the search filter
             if (organization.includes(searchFilter)) {
-              console.log(contact);
+              // console.log(contact);
               if (filteredContacts.indexOf(contact) === -1) {
                 filteredContacts.push(contact);
               }
-              console.log(filteredContacts);
+              // console.log(filteredContacts);
             }
             // Check if city matches
             if (
@@ -253,7 +253,7 @@ export default function Directory() {
               if (filteredContacts.indexOf(contact) == -1) {
                 filteredContacts.push(contact);
               }
-              console.log(filteredContacts);
+              // console.log(filteredContacts);
             }
             // Check if City, ST matches
             if (
@@ -263,7 +263,7 @@ export default function Directory() {
               if (filteredContacts.indexOf(contact) == -1) {
                 filteredContacts.push(contact);
               }
-              console.log(filteredContacts);
+              // console.log(filteredContacts);
             }
           });
 
@@ -278,23 +278,23 @@ export default function Directory() {
       // setContacts(filteredContacts);
     }
   };
-  console.log(paginationArr, "........pag after clear filter");
+  // console.log(paginationArr, "........pag after clear filter");
   const handleSearch = (searchTerm) => {
-    console.log(searchTerm);
+    // console.log(searchTerm);
     if (searchTerm != "") {
       let filteredContacts = [];
-      console.log(filter);
+      // console.log(filter);
       if (filter[0]) {
-        console.log("fsdfsdffsdfsf");
-        console.log(true);
+        // console.log("fsdfsdffsdfsf");
+        // console.log(true);
         filteredContacts = contacts;
       } else {
-        console.log(false);
+        // console.log(false);
         filteredContacts = [];
       }
-      console.log(contacts);
-      console.log(filteredContacts);
-      console.log(filter);
+      // console.log(contacts);
+      // console.log(filteredContacts);
+      // console.log(filter);
       // setContacts(allContacts);
       let filters = filter;
       // // console.log(e)
@@ -315,10 +315,10 @@ export default function Directory() {
       if (filtersUpper.indexOf(searchTerm.toUpperCase()) == -1) {
         filters.push(searchTerm);
       }
-      console.log(filters);
+      // console.log(filters);
       setFilter(filters);
 
-      console.log(allContacts, "allContacts");
+      // console.log(allContacts, "allContacts");
       // console.log(contacts, allContacts);
       allContacts.forEach((contact) => {
         let contactCat = [];
@@ -335,7 +335,10 @@ export default function Directory() {
           let a = contactCat[i];
           if (a) {
             if (a.toUpperCase().indexOf(searchTerm.toUpperCase()) > -1) {
-              filteredContacts.push(contact);
+              if (filteredContacts.indexOf(contact) == -1) {
+                filteredContacts.push(contact);
+              }
+              // filteredContacts.push(contact);
             }
           }
         }
@@ -383,7 +386,7 @@ export default function Directory() {
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
-          console.log(filteredContacts);
+          // console.log(filteredContacts);
         }
         if (
           `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() == searchTerm.toUpperCase()
@@ -392,18 +395,18 @@ export default function Directory() {
           if (filteredContacts.indexOf(contact) == -1) {
             filteredContacts.push(contact);
           }
-          console.log(filteredContacts);
+          // console.log(filteredContacts);
         }
       });
       setContacts(filteredContacts);
       let pagination = paginator(filteredContacts, 1);
       setPaginationArr(pagination.data);
-      console.log(filteredContacts);
+      // console.log(filteredContacts);
       // setSearched(filteredContacts);
     }
   };
   useEffect(() => {
-    console.log("useEffect hit")
+    // console.log("useEffect hit")
     // setInitialLoad(true)
     if (allContacts === "") {
       fetchContacts();
@@ -413,7 +416,7 @@ export default function Directory() {
     }
   }, []);
 
-  console.log(paginationArr, "...............pagination");
+  // console.log(paginationArr, "...............pagination");
 
   return (
     <main>
