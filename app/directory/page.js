@@ -32,8 +32,10 @@ export default function Directory() {
   const [fetchedData, setFetchedData] = useState([]);
   const [imageURL, setImageURL] = useState("");
   const [searched, setSearched] = useState([]);
+  const [initialLoad, setInitialLoad] = useState(false);
 
   function paginator(items, current_page, per_page_items) {
+    console.log('paginator hit');
     let page = current_page || 1,
       per_page = per_page_items || 10,
       offset = (page - 1) * per_page,
@@ -52,6 +54,7 @@ export default function Directory() {
   }
 
   const fetchContacts = async () => {
+    console.log("fetchContacts hit")
     // let response = await fetch('/api/allContacts', {
     let response = await fetch("/api/activeContacts", {
       method: "GET",
@@ -102,7 +105,7 @@ export default function Directory() {
           formatedContacts.push(c);
         }
       });
-      // console.log(formatedContacts);
+      console.log(formatedContacts);
       let pagination = paginator(formatedContacts, 1);
       setFetchedData(pagination.data);
       setPaginationArr(pagination.data);
@@ -148,7 +151,7 @@ export default function Directory() {
   };
   const toggleFilter = async (e) => {
     let filters = filter;
-    // console.log(e)
+    console.log(e)
     if (filters.indexOf(e) == -1) {
       filters.push(e);
     } else {
@@ -400,13 +403,15 @@ export default function Directory() {
     }
   };
   useEffect(() => {
+    console.log("useEffect hit")
+    // setInitialLoad(true)
     if (allContacts === "") {
       fetchContacts();
       if (localStorage.getItem("GFWBAUSER")) {
         updateLoggedStatus(true);
       }
     }
-  });
+  }, []);
 
   console.log(paginationArr, "...............pagination");
 
