@@ -17,12 +17,12 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Sending");
+    // console.log("Sending");
     let data = {
       username,
       password,
     };
-    console.log(data, JSON.stringify(data));
+    // console.log(data, JSON.stringify(data));
 
     let response = await fetch("/api/user/userLogin", {
       method: "POST",
@@ -34,9 +34,13 @@ export default function Login() {
 
     const json = await response.json();
     if (!response.ok) {
-      console.log(json);
-      setError(json.error_description);
-      console.log("response not ok");
+      // console.log(json);
+      if (json.error_description == "No account can be accessed with specified credentials.") {
+        setError(`${json.error_description} Your email and/or password may be incorrect.`);
+      } else {
+        setError(json.error_description);
+      }
+      // console.log("response not ok");
     }
     if (response.ok) {
       // console.log('response ok')
@@ -51,7 +55,7 @@ export default function Login() {
         MembershipLevel,
         Status,
       } = accounts;
-      console.log(json);
+      // console.log(json);
       setUsername("");
       setPassword("");
       if (Status == "Active") {
@@ -74,7 +78,7 @@ export default function Login() {
         router.push(`/profile/${Id}`);
       } else {
         setError(
-          `Your current status is ${Status}. Please contact ______ for support.`
+          `Your current status is ${Status}. Please contact GFWBA for support. If you are renewing, please use the payment link provided in your invoice.`
         );
         setDisabled(true);
       }
