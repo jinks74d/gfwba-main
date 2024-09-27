@@ -69,7 +69,7 @@ export default async function handler(req, res) {
         //     console.error('Error retrieving accounts:', error);
         // });
         try {
-            const response = await axios.get(`https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=Status%20eq%20'Active'`, {
+            const response = await axios.get(`https://api.wildapricot.com/v2.2/accounts/191317/contacts?%24async=false&%24filter=(Status%20eq%20'Active'%20or%20Status%20eq%20'PendingRenewal')`, {
                 headers: {
                     'User-Agent': 'MySampleApplication/0.1',
                     Accept: 'application/json',
@@ -77,6 +77,7 @@ export default async function handler(req, res) {
                 },
                 timeout: 15000
             });
+
 
             const accounts = response.data;
             // console.log(accounts.Contacts[0])
