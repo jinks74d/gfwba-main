@@ -121,6 +121,10 @@ export default function Profile() {
                 options2
               );
               e.EndDate = eventEnd.toLocaleDateString(undefined, options);
+              e.niceEndTime = eventEnd.toLocaleDateString(
+                undefined,
+                options2
+              );
             }
 
             formattedEvents.push(e);
@@ -130,7 +134,7 @@ export default function Profile() {
           });
           setUpcomingList(formattedEvents);
           // setUpcomingList(json2);
-          // console.log(upcomingList);
+          console.log(formattedEvents[0].Time);
           // console.log(event);
         }
 
@@ -212,7 +216,8 @@ export default function Profile() {
                     key={e.Id}
                     eventListItemTitle={e.Name}
                     eventListItemDate={e.Date}
-                    eventListItemTime={e.Time}
+                    // eventListItemTime={`${e.niceStartTime} - ${e.niceEndTime}`}
+                    eventListItemTime={e.niceStartTime}
                     eventListItemLocation={e.Location}
                     eventListItemLink={{ href: `/event/${e.Id}` }}
                   />
