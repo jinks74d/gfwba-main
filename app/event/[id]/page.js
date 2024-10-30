@@ -84,7 +84,54 @@ export default function Profile() {
           setError(json2.error);
           // console.log("response not ok");
         } else {
-          setUpcomingList(json2);
+          let formattedEvents = [];
+          let formattedEvents2 = [];
+          let today = new Date();
+          json2.forEach((e) => {
+            const eventStart = new Date(e.StartDate);
+            const eventEnd = new Date(e.EndDate);
+            const options = {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+            };
+            const options1 = {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            };
+            const options2 = {
+              weekday: "long",
+              hour: "numeric",
+              minute: "numeric",
+            };
+            e.start = e.StartDate;
+            e.title = e.Name;
+            e.id = e.Id;
+            if (eventEnd.getTime() > today.getTime()) {
+              e.niceStartDate = eventStart.toLocaleDateString(
+                undefined,
+                options1
+              );
+              e.niceStartTime = eventStart.toLocaleDateString(
+                undefined,
+                options2
+              );
+              e.EndDate = eventEnd.toLocaleDateString(undefined, options);
+            }
+
+            formattedEvents.push(e);
+
+            // -----------If want to push AdminOnly access level too in formatted events-----------------
+            // formattedEvents.push(e);
+          });
+          setUpcomingList(formattedEvents);
+          // setUpcomingList(json2);
+          // console.log(upcomingList);
+          // console.log(event);
         }
 
       } catch (err) {
