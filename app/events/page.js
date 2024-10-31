@@ -70,7 +70,7 @@ export default function Events() {
       console.log("response not ok");
     }
     if (response.ok) {
-      console.log(json);
+      // console.log(json);
       let formattedEvents = [];
       let formattedEvents2 = [];
       let today = new Date();
@@ -279,7 +279,8 @@ export default function Events() {
                         key={`side-${e.Id}`}
                         eventListItemTitle={e.Name}
                         eventListItemDate={e.niceStartDate}
-                        eventListItemTime={e.niceStartTime}
+                        // eventListItemTime={e.niceStartTime}
+                        eventListItemTime={`${e.niceStartTime} - ${e.niceEndTime}`}
                         eventListItemLocation={e.Location}
                         eventListItemLink={{ href: `/event/${e.Id}` }}
                       />

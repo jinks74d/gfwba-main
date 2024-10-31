@@ -35,9 +35,9 @@ export default function handler(req, res) {
     };
 
     const getEvents = (token) => {
-        console.log('start', accessToken);
+        // console.log('start', accessToken);
         let currentDate = new Date().toISOString();
-        console.log('-----CURRENT DATE------', currentDate)
+        // console.log('-----CURRENT DATE------', currentDate)
         axios
             .get(`https://api.wildapricot.com/v2.1/accounts/191317/events?$async=true&%24filter=IsUpcoming%20eq%20true`, {
                 headers: {
@@ -47,7 +47,7 @@ export default function handler(req, res) {
                 },
             })
             .then((response) => {
-                (console.log('triggered'))
+                // (console.log('triggered'))
                 const events = response.data;
                 function compare(a, b) {
                     if (a.EndDate < b.EndDate) {
@@ -96,7 +96,7 @@ export default function handler(req, res) {
                     const times = `${timeStart.match(timeRegex)} - ${timeEnd.match(timeRegex)}`;
                     event[i].Date = startDate;
                     event[i].Time = times;
-                    console.log('line 99: ', times, event[i].Time)
+                    // console.log('line 99: ', times, event[i].Time)
                 }
                 // let eventsArr = event.forEach((e) => {
                 //     const eventStart = new Date(e.StartDate);
