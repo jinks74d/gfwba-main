@@ -174,6 +174,10 @@ export default function Events() {
               options2
             );
             e.EndDate = eventEnd.toLocaleDateString(undefined, options);
+            e.niceEndTime = eventEnd.toLocaleDateString(
+              undefined,
+              options2
+            );
           }
 
           formattedEvents.push(e);
