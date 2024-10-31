@@ -134,7 +134,7 @@ export default function Profile() {
           });
           setUpcomingList(formattedEvents);
           // setUpcomingList(json2);
-          console.log(formattedEvents[0].Time);
+          // console.log(formattedEvents[0].Time);
           // console.log(event);
         }
 
@@ -216,8 +216,7 @@ export default function Profile() {
                     key={e.Id}
                     eventListItemTitle={e.Name}
                     eventListItemDate={e.Date}
-                    // eventListItemTime={`${e.niceStartTime} - ${e.niceEndTime}`}
-                    eventListItemTime={e.niceStartTime}
+                    eventListItemTime={`${e.niceStartTime} - ${e.niceEndTime}`}
                     eventListItemLocation={e.Location}
                     eventListItemLink={{ href: `/event/${e.Id}` }}
                   />
