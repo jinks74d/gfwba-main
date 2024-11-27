@@ -131,7 +131,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"EDUCATION&ADVICE"}
+                  {"EDUCATION & ADVICE"}
                   <br />
                 </_Builtin.Strong>
                 {
@@ -156,7 +156,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"CONNECTIONG &COLLABORATING"}
+                  {"CONNECTING & COLLABORATING"}
                   <br />
                 </_Builtin.Strong>
                 {
@@ -181,7 +181,7 @@ export function HomeMain({
                 tag="div"
               >
                 <_Builtin.Strong>
-                  {"BENEFITS &DISCOUNTS"}
+                  {"BENEFITS & DISCOUNTS"}
                   <br />
                 </_Builtin.Strong>
                 {
