@@ -76,13 +76,13 @@ export function AboutSection({
                 "Our primary purposes are to provide information exchange, communication and education for members; to interact with local, state and federal legislative bodies to foster a positive building climate; to provide a forum to implement policies that affect the building industry; and to promote professionalism among our members."
               }
             </_Builtin.Block>
-            <_Builtin.Heading
+            {/* <_Builtin.Heading
               className={_utils.cx(_styles, "heading-2")}
               tag="h2"
             >
               {"2022 VICTORY - TEXAS SUPREME COURT"}
-            </_Builtin.Heading>
-            <_Builtin.Block
+            </_Builtin.Heading> */}
+            {/* <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
               tag="div"
             >
@@ -166,16 +166,16 @@ export function AboutSection({
               {
                 "* State law and the Texas constitution prohibited the creation of a tax on revenue and/or income."
               }
-            </_Builtin.Block>
-            <_Builtin.Image
+            </_Builtin.Block> */}
+            {/* <_Builtin.Image
               className={_utils.cx(_styles, "space-40")}
               loading="lazy"
               width="auto"
               height="auto"
               alt=""
               src={image}
-            />
-            <_Builtin.Block
+            /> */}
+            {/* <_Builtin.Block
               className={_utils.cx(_styles, "p-main", "space-40")}
               tag="div"
             >
@@ -217,7 +217,7 @@ export function AboutSection({
               {
                 "We congratulate Garabedian Properties and Builder Recovery Services LLC on their victory and thank them for the massive commitment of time, money and resources in defense of our industry."
               }
-            </_Builtin.Block>
+            </_Builtin.Block> */}
           </_Builtin.Block>
           <_Builtin.Block
             className={_utils.cx(_styles, "home-grid-right")}
