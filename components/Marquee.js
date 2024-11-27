@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import Link from "next/link";
 
-import FoxLogo from "../public/images/sponsors/fox-logo-2.png";
+import FoxLogo from "../public/images/sponsors/FoxEnergy_logo_2013_color_noCircle-wREG_LcS (1).png";
 import BRSLogo from "../public/images/sponsors/brs-logo.webp";
 import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";

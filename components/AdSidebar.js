@@ -40,7 +40,7 @@ export default function AdSidebar() {
             slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
           />
         </div>
-        <p>Click Image to Enlarge</p>
+        <a href="https://teaxasbuilders.org">TexasBuilders.org</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
