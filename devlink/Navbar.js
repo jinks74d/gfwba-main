@@ -146,7 +146,8 @@ export function Navbar({
                 <_Builtin.DropdownLink
                   className={_utils.cx(_styles, "dd-link")}
                   options={{
-                    href: "/hammer-and-nails-pac",
+                    href: "https://hnpac.org/",
+                    target: "_blank",
                   }}
                 >
                   {"HAMMER & NAILS PAC"}
