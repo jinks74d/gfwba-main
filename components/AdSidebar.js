@@ -8,8 +8,6 @@ import Link from "next/link";
 
 // THIS IS A CHANGE FOR GIT HUB MERGE TEST
 
-
-
 export default function AdSidebar() {
   // Use an object to manage open state of multiple lightboxes
   const [open, setOpen] = useState({});
@@ -25,20 +23,22 @@ export default function AdSidebar() {
       {/* Each lightbox section now has a unique identifier */}
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox1")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox1")}> */}
+          <a href="https://texasbuiders.org" target="_blank">
             <Image
               src="/images/ads/2023Contracts_w-qr1pgx700-min.jpg"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+          </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox1"]}
             close={() => handleClose("lightbox1")}
             slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
-          />
+          /> */}
         </div>
         <a href="https://teaxasbuilders.org">TexasBuilders.org</a>
       </div>
