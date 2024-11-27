@@ -24,7 +24,7 @@ export default function AdSidebar() {
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
           {/* <button type="button" onClick={() => handleOpen("lightbox1")}> */}
-          <a href="https://texasbuilders.org" target="_blank">
+          <a href="https://texasbuilders.org/contracts-package/" target="_blank">
             <Image
               src="/images/ads/2023Contracts_w-qr1pgx700-min.jpg"
               alt="2023 Contracts"
