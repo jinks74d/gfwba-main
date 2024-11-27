@@ -40,83 +40,91 @@ export default function AdSidebar() {
             slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
           /> */}
         </div>
-        <a href="https://teaxasbuilders.org">TexasBuilders.org</a>
+        <a href="https://texasbuilders.org/contracts-package/" target="_blank">Learn More</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox2")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox2")}> */}
+          <a href="https://www.texasbuilders.org/model-construction-safety-program-and-jobsite-safety-standards-package/" target="_blank">
             <Image
               src="/images/ads/2024ModelSafety_HalfPg.jpg"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+            </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox2"]}
             close={() => handleClose("lightbox2")}
             slides={[{ src: "/images/ads/2024ModelSafety_HalfPg.jpg" }]}
-          />
+          /> */}
         </div>
-        <p>Click Image to Enlarge</p>
+        <a href="https://www.texasbuilders.org/model-construction-safety-program-and-jobsite-safety-standards-package/" target="_blank">Learn More</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox3")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox3")}> */}
+          <a href="https://www.texasbuilders.org/tabs-comprehensive-insurance-program/" target="_blank">
             <Image
               src="/images/ads/TABInsuranceProgram-w-QRx720-min.png"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+            </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox3"]}
             close={() => handleClose("lightbox3")}
             slides={[
               { src: "/images/ads/TABInsuranceProgram-w-QRx720-min.png" },
             ]}
-          />
+          /> */}
         </div>
-        <p>Click Image to Enlarge</p>
+        <a href="https://www.texasbuilders.org/tabs-comprehensive-insurance-program/" target="_blank">Learn More</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox4")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox4")}> */}
+          <a href="https://hbarebates.com/registration/" target="_blank">
             <Image
               src="/images/ads/TAB-Q4'22-Flyer-min.jpg"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+            </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox4"]}
             close={() => handleClose("lightbox4")}
             slides={[{ src: "/images/ads/TAB-Q4'22-Flyer-min.jpg" }]}
-          />
+          /> */}
         </div>
-        <p>Click Image to Enlarge</p>
+        <a href="https://hbarebates.com/registration/" target="_blank">Learn More</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox5")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox5")}> */}
+          <a href="https://www.nahb.org/nahb-community/member-benefits/savings" target="_blank">
             <Image
               src="/images/ads/generic-savings-postcard-update-2023-crops_Page_1.png"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+            </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox5"]}
             close={() => handleClose("lightbox5")}
             slides={[
@@ -124,29 +132,31 @@ export default function AdSidebar() {
                 src: "/images/ads/generic-savings-postcard-update-2023-crops_Page_1.png",
               },
             ]}
-          />
+          /> */}
         </div>
-        <p>Click Image to Enlarge</p>
+        <a href="https://www.nahb.org/nahb-community/member-benefits/savings" target="_blank">Learn More</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <button type="button" onClick={() => handleOpen("lightbox6")}>
+          {/* <button type="button" onClick={() => handleOpen("lightbox6")}> */}
+          <a href="https://growthgen.typeform.com/to/bSLHKJWO" target="_blank">
             <Image
               src="/images/ads/2024-SBGP-Clickable-ad-min.png"
               alt="2023 Contracts"
               width={300}
               height={600}
             />
-          </button>
+            </a>
+          {/* </button> */}
 
-          <Lightbox
+          {/* <Lightbox
             open={open["lightbox6"]}
             close={() => handleClose("lightbox6")}
             slides={[{ src: "/images/ads/2024-SBGP-Clickable-ad-min.png" }]}
-          />
+          /> */}
         </div>
-        <Link href="https://growthgen.typeform.com/to/bSLHKJWO">
+        <Link href="https://growthgen.typeform.com/to/bSLHKJWO" target="_blank">
           Click Here to Redeem
         </Link>
       </div>
