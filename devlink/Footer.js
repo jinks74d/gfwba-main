@@ -192,7 +192,7 @@ export function Footer({
         className={_utils.cx(_styles, "container-1600", "footer-bar")}
         tag="div"
       >
-        <_Builtin.Link
+        {/* <_Builtin.Link
           className={_utils.cx(_styles, "admin-link")}
           button={false}
           block=""
@@ -202,7 +202,7 @@ export function Footer({
           }}
         >
           {"Admin Login"}
-        </_Builtin.Link>
+        </_Builtin.Link> */}
       </_Builtin.Block>
     </_Component>
   );
