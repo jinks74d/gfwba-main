@@ -38,6 +38,12 @@ export default function AdSidebar() {
             slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
           /> */}
         </div>
+        <button
+          type="button"
+          onClick={() => window.open('public/images/ads/MARKETING GUIDE 2025 (7).pdf', '_blank')}
+        >
+          Open PDF
+        </button>
         <a href="https://drive.google.com/file/d/1QRvLWUYgCtsKpuJKh2zgUhmbBCCH6CP1/view?usp=drive_link" target="_blank" rel="noopener noreferrer">2025 Marketing Guide</a>
         <a href="https://drive.google.com/file/d/1fF77CAVzQ4LQ8pVwUqhoD3KXblSvQMAA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Sponsor Commit Form</a>
       </div>
