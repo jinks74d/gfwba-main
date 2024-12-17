@@ -23,7 +23,7 @@ export default function AdSidebar() {
       {/* Each lightbox section now has a unique identifier */}
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/file/d/1QRvLWUYgCtsKpuJKh2zgUhmbBCCH6CP1/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
             <Image
               src="/images/ads/MARKETING GUIDE 2025 (7)_Page_01.png"
               alt="2025 Marketing Guide"
@@ -38,8 +38,8 @@ export default function AdSidebar() {
             slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
           /> */}
         </div>
-        <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank">2025 Marketing Guide</a>
-        <a href="public/images/ads/2025 GFWBA Marketing Guide_SponsorCommitForm-Portrait.pdf" target="_blank">Sponsor Commit Form</a>
+        <a href="https://drive.google.com/file/d/1QRvLWUYgCtsKpuJKh2zgUhmbBCCH6CP1/view?usp=drive_link" target="_blank" rel="noopener noreferrer">2025 Marketing Guide</a>
+        <a href="https://drive.google.com/file/d/1fF77CAVzQ4LQ8pVwUqhoD3KXblSvQMAA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Sponsor Commit Form</a>
       </div>
 
       <div className="mb-8 flex flex-col justify-center items-center">
