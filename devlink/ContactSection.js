@@ -103,7 +103,7 @@ export function ContactSection({
                   button={false}
                   block=""
                   options={{
-                    href: "#",
+                    href: "mailto:info@fortworthbuilders.org",
                   }}
                 >
                   {"info@fortworthbuilders.org"}
