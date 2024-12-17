@@ -23,8 +23,7 @@ export default function AdSidebar() {
       {/* Each lightbox section now has a unique identifier */}
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
-          {/* <button type="button" onClick={() => handleOpen("lightbox1")}> */}
-          <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank">
+          <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank" rel="noopener noreferrer">
             <Image
               src="/images/ads/MARKETING GUIDE 2025 (7)_Page_01.png"
               alt="2025 Marketing Guide"
@@ -32,7 +31,6 @@ export default function AdSidebar() {
               height={600}
             />
           </a>
-          {/* </button> */}
 
           {/* <Lightbox
             open={open["lightbox1"]}
