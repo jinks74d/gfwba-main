@@ -24,6 +24,29 @@ export default function AdSidebar() {
       <div className="mb-8 flex flex-col justify-center items-center">
         <div className="border border-gray-400 side-img">
           {/* <button type="button" onClick={() => handleOpen("lightbox1")}> */}
+          <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank">
+            <Image
+              src="/images/ads/MARKETING GUIDE 2025 (7)_Page_01.png"
+              alt="2025 Marketing Guide"
+              width={300}
+              height={600}
+            />
+          </a>
+          {/* </button> */}
+
+          {/* <Lightbox
+            open={open["lightbox1"]}
+            close={() => handleClose("lightbox1")}
+            slides={[{ src: "/images/ads/2023Contracts_w-qr1pgx700-min.jpg" }]}
+          /> */}
+        </div>
+        <a href="public/images/ads/MARKETING GUIDE 2025 (7).pdf" target="_blank">2025 Marketing Guide</a>
+        <a href="public/images/ads/2025 GFWBA Marketing Guide_SponsorCommitForm-Portrait.pdf" target="_blank">Sponsor Commit Form</a>
+      </div>
+
+      <div className="mb-8 flex flex-col justify-center items-center">
+        <div className="border border-gray-400 side-img">
+          {/* <button type="button" onClick={() => handleOpen("lightbox1")}> */}
           <a href="https://texasbuilders.org/contracts-package/" target="_blank">
             <Image
               src="/images/ads/2023Contracts_w-qr1pgx700-min.jpg"
