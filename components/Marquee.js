@@ -84,6 +84,195 @@ const Marq = () => {
             className="image-scroll-item max-size"
           />
         </Link>
+        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
+          <Image
+            src={FoxLogo}
+            alt="Fox Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.strucsure.com/" target="_blank">
+          <Image
+            src={StrucLogo}
+            alt="StructSure Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.brs.com/" target="_blank">
+          <Image
+            src={BRSLogo}
+            alt="BRS Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.hotchkiss.com/" target="_blank">
+          <Image
+            src={HotchkissLogo}
+            alt="Hotchkiss Logo"
+            width={260}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.atmosenergy.com/" target="_blank">
+          <Image
+            src={AtmosLogo}
+            alt="Atmos Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.westernpacific.com/" target="_blank">
+          <Image
+            src={WPLogo}
+            alt="Western Pacific Logo"
+            width={170}
+            height={170}
+            className="image-scroll-item"
+          />
+        </Link>
+        <Link href="https://www.reece.com/" target="_blank">
+          <Image
+            src={ReeceLogo}
+            alt="Reece Bath Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
+          <Image
+            src={FoxLogo}
+            alt="Fox Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.strucsure.com/" target="_blank">
+          <Image
+            src={StrucLogo}
+            alt="StructSure Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.brs.com/" target="_blank">
+          <Image
+            src={BRSLogo}
+            alt="BRS Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.hotchkiss.com/" target="_blank">
+          <Image
+            src={HotchkissLogo}
+            alt="Hotchkiss Logo"
+            width={260}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.atmosenergy.com/" target="_blank">
+          <Image
+            src={AtmosLogo}
+            alt="Atmos Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.westernpacific.com/" target="_blank">
+          <Image
+            src={WPLogo}
+            alt="Western Pacific Logo"
+            width={170}
+            height={170}
+            className="image-scroll-item"
+          />
+        </Link>
+        <Link href="https://www.reece.com/" target="_blank">
+          <Image
+            src={ReeceLogo}
+            alt="Reece Bath Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
+          <Image
+            src={FoxLogo}
+            alt="Fox Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.strucsure.com/" target="_blank">
+          <Image
+            src={StrucLogo}
+            alt="StructSure Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.brs.com/" target="_blank">
+          <Image
+            src={BRSLogo}
+            alt="BRS Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.hotchkiss.com/" target="_blank">
+          <Image
+            src={HotchkissLogo}
+            alt="Hotchkiss Logo"
+            width={260}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.atmosenergy.com/" target="_blank">
+          <Image
+            src={AtmosLogo}
+            alt="Atmos Energy Logo"
+            width={220}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
+        <Link href="https://www.westernpacific.com/" target="_blank">
+          <Image
+            src={WPLogo}
+            alt="Western Pacific Logo"
+            width={170}
+            height={170}
+            className="image-scroll-item"
+          />
+        </Link>
+        <Link href="https://www.reece.com/" target="_blank">
+          <Image
+            src={ReeceLogo}
+            alt="Reece Bath Logo"
+            width={300}
+            height={150}
+            className="image-scroll-item max-size"
+          />
+        </Link>
       </Marquee>
     </div>
   );
