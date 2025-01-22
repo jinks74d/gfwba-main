@@ -25,6 +25,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
+            width={150}
             height={99}
             className="image-scroll-item"
           />
@@ -38,19 +39,20 @@ const Marq = () => {
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.brstexas.com/" target="_blank">
+        <Link href="https://www.brs.com/" target="_blank">
           <Image
             src={BRSLogo}
-            alt="Bush, Rednicki, and Shelton Logo"
+            alt="BRS Logo"
             width={300}
             height={75}
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://hotchkissinsurance.com/" target="_blank">
+        <Link href="https://www.hotchkiss.com/" target="_blank">
           <Image
             src={HotchkissLogo}
-            alt="Hotchkiss Insurance Logo"
+            alt="Hotchkiss Logo"
+            width={300}
             height={75}
             className="image-scroll-item"
           />
@@ -59,15 +61,16 @@ const Marq = () => {
           <Image
             src={AtmosLogo}
             alt="Atmos Energy Logo"
-            width={175}
-            height={99}
+            width={300}
+            height={75}
             className="image-scroll-item"
           />
         </Link>
-        <Link href="https://www.gowestpac.com/" target="_blank">
+        <Link href="https://www.westernpacific.com/" target="_blank">
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
+            width={300}
             height={75}
             className="image-scroll-item"
           />
@@ -75,187 +78,8 @@ const Marq = () => {
         <Link href="https://www.reece.com/" target="_blank">
           <Image
             src={ReeceLogo}
-            alt="Reece Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
-          <Image
-            src={FoxLogo}
-            alt="Fox Energy Logo"
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.strucsure.com/" target="_blank">
-          <Image
-            src={StrucLogo}
-            alt="StructSure Logo"
+            alt="Reece Bath Logo"
             width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.brstexas.com/" target="_blank">
-          <Image
-            src={BRSLogo}
-            alt="Bush, Rednicki, and Shelton Logo"
-            width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://hotchkissinsurance.com/" target="_blank">
-          <Image
-            src={HotchkissLogo}
-            alt="Hotchkiss Insurance Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.atmosenergy.com/" target="_blank">
-          <Image
-            src={AtmosLogo}
-            alt="Atmos Energy Logo"
-            width={175}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.gowestpac.com/" target="_blank">
-          <Image
-            src={WPLogo}
-            alt="Western Pacific Logo"
-            width={99}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.reece.com/" target="_blank">
-          <Image
-            src={ReeceLogo}
-            alt="Reece Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
-          <Image
-            src={FoxLogo}
-            alt="Fox Energy Logo"
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.strucsure.com/" target="_blank">
-          <Image
-            src={StrucLogo}
-            alt="StructSure Logo"
-            width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.brstexas.com/" target="_blank">
-          <Image
-            src={BRSLogo}
-            alt="Bush, Rednicki, and Shelton Logo"
-            width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://hotchkissinsurance.com/" target="_blank">
-          <Image
-            src={HotchkissLogo}
-            alt="Hotchkiss Insurance Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.atmosenergy.com/" target="_blank">
-          <Image
-            src={AtmosLogo}
-            alt="Atmos Energy Logo"
-            width={175}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.gowestpac.com/" target="_blank">
-          <Image
-            src={WPLogo}
-            alt="Western Pacific Logo"
-            width={99}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.reece.com/" target="_blank">
-          <Image
-            src={ReeceLogo}
-            alt="Reece Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.foxenergyspecialists.com/" target="_blank">
-          <Image
-            src={FoxLogo}
-            alt="Fox Energy Logo"
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.strucsure.com/" target="_blank">
-          <Image
-            src={StrucLogo}
-            alt="StructSure Logo"
-            width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.brstexas.com/" target="_blank">
-          <Image
-            src={BRSLogo}
-            alt="Bush, Rednicki, and Shelton Logo"
-            width={300}
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://hotchkissinsurance.com/" target="_blank">
-          <Image
-            src={HotchkissLogo}
-            alt="Hotchkiss Insurance Logo"
-            height={75}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.atmosenergy.com/" target="_blank">
-          <Image
-            src={AtmosLogo}
-            alt="Atmos Energy Logo"
-            width={175}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.gowestpac.com/" target="_blank">
-          <Image
-            src={WPLogo}
-            alt="Western Pacific Logo"
-            width={99}
-            height={99}
-            className="image-scroll-item"
-          />
-        </Link>
-        <Link href="https://www.reece.com/" target="_blank">
-          <Image
-            src={ReeceLogo}
-            alt="Reece Logo"
             height={75}
             className="image-scroll-item"
           />
