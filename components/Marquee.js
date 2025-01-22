@@ -7,7 +7,7 @@ import BRSLogo from "../public/images/sponsors/brs-logo.webp";
 import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";
 import AtmosLogo from "../public/images/sponsors/Atmos_energy_logo.png";
-import TDTLogo from "../public/images/sponsors/tdt-logo.webp";
+import WPLogo from "../public/images/sponsors/WP.jpg";
 import ReeceLogo from "../public/images/sponsors/reese-bath.png";
 
 const Marq = () => {
@@ -66,8 +66,8 @@ const Marq = () => {
         </Link>
         <Link href="https://www.tdt-inc.com/" target="_blank">
           <Image
-            src={TDTLogo}
-            alt="Texas Door and Trim Logo"
+            src={WPLogo}
+            alt="Western Pacific Logo"
             height={99}
             className="image-scroll-item"
           />
@@ -125,8 +125,8 @@ const Marq = () => {
         </Link>
         <Link href="https://www.tdt-inc.com/" target="_blank">
           <Image
-            src={TDTLogo}
-            alt="Texas Door and Trim Logo"
+            src={WPLogo}
+            alt="Western Pacific Logo"
             height={99}
             className="image-scroll-item"
           />
@@ -184,8 +184,8 @@ const Marq = () => {
         </Link>
         <Link href="https://www.tdt-inc.com/" target="_blank">
           <Image
-            src={TDTLogo}
-            alt="Texas Door and Trim Logo"
+            src={WPLogo}
+            alt="Western Pacific Logo"
             height={99}
             className="image-scroll-item"
           />
@@ -243,8 +243,8 @@ const Marq = () => {
         </Link>
         <Link href="https://www.tdt-inc.com/" target="_blank">
           <Image
-            src={TDTLogo}
-            alt="Texas Door and Trim Logo"
+            src={WPLogo}
+            alt="Western Pacific Logo"
             height={99}
             className="image-scroll-item"
           />
