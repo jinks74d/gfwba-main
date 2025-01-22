@@ -47,6 +47,11 @@ textarea {
   @apply w-[400px] text-base p-2;
 }
 
+.max-size {
+  max-width: 300px;
+  max-height: 100px;
+}
+
 /* BEGIN OVERRIDES */
 /* FULL CALENDAR */
 .fc-daygrid-event {

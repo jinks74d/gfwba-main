@@ -27,7 +27,7 @@ const Marq = () => {
             alt="Fox Energy Logo"
             width={150}
             height={99}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
         <Link href="https://www.strucsure.com/" target="_blank">
@@ -36,7 +36,7 @@ const Marq = () => {
             alt="StructSure Logo"
             width={300}
             height={75}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
         <Link href="https://www.brs.com/" target="_blank">
@@ -45,7 +45,7 @@ const Marq = () => {
             alt="BRS Logo"
             width={300}
             height={75}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
         <Link href="https://www.hotchkiss.com/" target="_blank">
@@ -54,7 +54,7 @@ const Marq = () => {
             alt="Hotchkiss Logo"
             width={300}
             height={75}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
         <Link href="https://www.atmosenergy.com/" target="_blank">
@@ -63,7 +63,7 @@ const Marq = () => {
             alt="Atmos Energy Logo"
             width={300}
             height={75}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
         <Link href="https://www.westernpacific.com/" target="_blank">
@@ -81,7 +81,7 @@ const Marq = () => {
             alt="Reece Bath Logo"
             width={300}
             height={75}
-            className="image-scroll-item"
+            className="image-scroll-item max-size"
           />
         </Link>
       </Marquee>
