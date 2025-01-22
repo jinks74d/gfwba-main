@@ -7,7 +7,7 @@ import BRSLogo from "../public/images/sponsors/brs-logo.webp";
 import StrucLogo from "../public/images/sponsors/structure-logo.png";
 import HotchkissLogo from "../public/images/sponsors/hotchkiss-logo.svg";
 import AtmosLogo from "../public/images/sponsors/Atmos_energy_logo.png";
-import WPLogo from "../public/images/sponsors/Western-Pacific.jpg";
+import WPLogo from "../public/images/sponsors/Western-Pacific.png";
 import ReeceLogo from "../public/images/sponsors/reese-bath.png";
 
 const Marq = () => {
