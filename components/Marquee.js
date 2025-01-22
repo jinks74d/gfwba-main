@@ -52,7 +52,7 @@ const Marq = () => {
           <Image
             src={HotchkissLogo}
             alt="Hotchkiss Logo"
-            width={300}
+            width={220}
             height={150}
             className="image-scroll-item max-size"
           />
