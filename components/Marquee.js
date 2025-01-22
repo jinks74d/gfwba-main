@@ -25,7 +25,7 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            width={150}
+            width={250}
             height={150}
             className="image-scroll-item max-size"
           />
