@@ -68,7 +68,7 @@ const Marq = () => {
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
-            width={175}
+            width={99}
             height={99}
             className="image-scroll-item"
           />
@@ -128,6 +128,7 @@ const Marq = () => {
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
+            width={99}
             height={99}
             className="image-scroll-item"
           />
@@ -187,6 +188,7 @@ const Marq = () => {
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
+            width={99}
             height={99}
             className="image-scroll-item"
           />
@@ -246,6 +248,7 @@ const Marq = () => {
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
+            width={99}
             height={99}
             className="image-scroll-item"
           />
