@@ -25,8 +25,8 @@ const Marq = () => {
           <Image
             src={FoxLogo}
             alt="Fox Energy Logo"
-            width={150}
-            height={99}
+            width={300}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
@@ -35,7 +35,7 @@ const Marq = () => {
             src={StrucLogo}
             alt="StructSure Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
@@ -44,7 +44,7 @@ const Marq = () => {
             src={BRSLogo}
             alt="BRS Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
@@ -53,7 +53,7 @@ const Marq = () => {
             src={HotchkissLogo}
             alt="Hotchkiss Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
@@ -62,7 +62,7 @@ const Marq = () => {
             src={AtmosLogo}
             alt="Atmos Energy Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
@@ -71,7 +71,7 @@ const Marq = () => {
             src={WPLogo}
             alt="Western Pacific Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item"
           />
         </Link>
@@ -80,7 +80,7 @@ const Marq = () => {
             src={ReeceLogo}
             alt="Reece Bath Logo"
             width={300}
-            height={75}
+            height={300}
             className="image-scroll-item max-size"
           />
         </Link>
