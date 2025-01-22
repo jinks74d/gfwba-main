@@ -70,8 +70,8 @@ const Marq = () => {
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
-            width={100}
-            height={100}
+            width={120}
+            height={120}
             className="image-scroll-item"
           />
         </Link>
