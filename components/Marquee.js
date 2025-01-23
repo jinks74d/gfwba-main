@@ -14,7 +14,7 @@ const Marq = () => {
   return (
     <div className="w-full">
       <h2 className="mt-4 mb-2 text-lg text-center uppercase font-bold tracking-wide">
-        2026 Platinum Sponsors
+        2025 Platinum Sponsors
       </h2>
       <Marquee
         speed={20}
