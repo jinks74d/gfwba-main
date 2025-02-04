@@ -66,7 +66,7 @@ const Marq = () => {
             className="image-scroll-item max-size"
           />
         </Link>
-        <Link href="https://www.westernpacific.com/" target="_blank">
+        <Link href="https://www.gowestpac.com/" target="_blank">
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
@@ -129,7 +129,7 @@ const Marq = () => {
             className="image-scroll-item max-size"
           />
         </Link>
-        <Link href="https://www.westernpacific.com/" target="_blank">
+        <Link href="https://www.gowestpac.com/" target="_blank">
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
@@ -192,7 +192,7 @@ const Marq = () => {
             className="image-scroll-item max-size"
           />
         </Link>
-        <Link href="https://www.westernpacific.com/" target="_blank">
+        <Link href="https://www.gowestpac.com/" target="_blank">
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
@@ -255,7 +255,7 @@ const Marq = () => {
             className="image-scroll-item max-size"
           />
         </Link>
-        <Link href="https://www.westernpacific.com/" target="_blank">
+        <Link href="https://www.gowestpac.com/" target="_blank">
           <Image
             src={WPLogo}
             alt="Western Pacific Logo"
