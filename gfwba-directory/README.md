@@ -12,7 +12,7 @@ This WordPress plugin allows you to display the Greater Fort Worth Builders Asso
 
 ## Installation
 
-1. Download the plugin files and upload them to your `/wp-content/plugins/gfwba-directory` directory
+1. Upload the `gfwba-directory` folder to your `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to Settings > GFWBA Directory to configure your Wild Apricot API key
 4. Add the shortcode `[gfwba_directory]` to any page where you want to display the directory
@@ -53,7 +53,6 @@ The plugin includes CSS that matches the styling of the original GFWBA website. 
 
 - The plugin creates a database table to store member images for better performance
 - Member profiles are linked using query parameters (e.g., `?profile_id=123`)
-- You'll need to add a chevron-right.png image to the assets/images directory for the arrow icons
 
 ## Troubleshooting
 
@@ -63,3 +62,8 @@ If the directory doesn't display properly:
 2. Check that your Wild Apricot account ID is correct in the plugin code
 3. Verify that your Wild Apricot members have the correct field values (the plugin expects specific field IDs)
 4. Check your browser console for any JavaScript errors
+5. Use the included debug file (`gfwba-directory-debug.php`) to diagnose issues:
+   - Access it via your browser at `/wp-content/plugins/gfwba-directory/gfwba-directory-debug.php`
+   - You must be logged in as an admin to view the debug information
+   - The debug page will check your API connection, field mappings, and more
+   - **Important:** Delete this file after debugging is complete as it may expose sensitive information
