@@ -36,6 +36,11 @@ export default function Profile({ imageData }) {
   const [emailReplyToAddress, setEmailReplyToAddress] = useState("");
   const [emailReplyToName, setEmailReplyToName] = useState("");
   const [sendingEmail, setSendingEmail] = useState(false);
+  const [emailSuccess, setEmailSuccess] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
+  const [notificationType, setNotificationType] = useState(""); // "success" or "error"
   const [membershipOptions, setMembershipOptions] = useState("");
   //
   const [newAddress, setNewAddress] = useState("");
@@ -62,8 +67,8 @@ export default function Profile({ imageData }) {
   const [newEmployees, setNewEmployees] = useState("");
   const [newReferredBy, setNewReferredBy] = useState("");
   const [tempImg, setTempImg] = useState("");
-  const [userId, setUserId] = useState('');
-  const [errorStateMsg, setErrorStateMsg] = useState('');
+  const [userId, setUserId] = useState("");
+  const [errorStateMsg, setErrorStateMsg] = useState("");
 
   const [checkboxes, setCheckboxes] = useState(categoriesArr);
 
@@ -108,7 +113,7 @@ export default function Profile({ imageData }) {
     }
     if (response.ok) {
       console.log(json);
-      if (json.DisplayName == 'Mattingley, Patrick') {
+      if (json.DisplayName == "Mattingley, Patrick") {
         json.DisplayName = json.Organization;
       }
       setContact(json);
@@ -178,7 +183,7 @@ export default function Profile({ imageData }) {
           }
         });
         setArea(areaArr);
-        setUserId(params.id)
+        setUserId(params.id);
       }
     }
   };
@@ -190,26 +195,25 @@ export default function Profile({ imageData }) {
     const number = /[0-9]/;
     const specialChar = /[#!@$%^*-]/;
 
-
     if (password.length < minLength) {
       return `Password must be at least ${minLength} characters long.`;
     }
     if (!upperCase.test(password)) {
-      return 'Password must contain at least one uppercase letter.';
+      return "Password must contain at least one uppercase letter.";
     }
     if (!lowerCase.test(password)) {
-      return 'Password must contain at least one lowercase letter.';
+      return "Password must contain at least one lowercase letter.";
     }
     if (!number.test(password)) {
-      return 'Password must contain at least one number.';
+      return "Password must contain at least one number.";
     }
     if (!specialChar.test(password)) {
-      return 'Password must contain at least one special character #?!@$%^*-.';
+      return "Password must contain at least one special character #?!@$%^*-.";
     }
-    if (password.includes('&')) {
+    if (password.includes("&")) {
       return 'Password must not contain the "&" character.';
     }
-    return '';
+    return "";
   };
 
   const handleSubmit = async (e) => {
@@ -245,9 +249,9 @@ export default function Profile({ imageData }) {
     }
     if (newPassword !== "") {
       const errorMsg = validatePassword(newPassword);
-      setErrorStateMsg(errorMsg)
+      setErrorStateMsg(errorMsg);
       changes.Password = newPassword;
-      if (newEmail == '') {
+      if (newEmail == "") {
         changes.Email = contact.Email;
       }
     }
@@ -417,8 +421,8 @@ export default function Profile({ imageData }) {
       }
     }
     const errorMsg = validatePassword(newPassword);
-    if (errorMsg == '') {
-      console.log(errorMsg)
+    if (errorMsg == "") {
+      console.log(errorMsg);
       let response = await fetch("/api/user/userInfo", {
         method: "PUT",
         headers: {
@@ -520,14 +524,114 @@ export default function Profile({ imageData }) {
   };
   function cancelUpdate() {
     setUpdating(false);
-    setNewPassword('');
-    setErrorStateMsg('');
+    setNewPassword("");
+    setErrorStateMsg("");
   }
+  // Function to show notification
+  const showNotificationMessage = (message, type) => {
+    setNotificationMessage(message);
+    setNotificationType(type);
+    setShowNotification(true);
+
+    // Hide notification after 5 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
+    // Reset any previous success/error messages
+    setEmailSuccess(false);
+    setEmailError("");
+
+    // Create a well-formatted HTML email with CSS styling
+    const formattedBody = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message from GFWBA Member</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .email-container {
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .header {
+      background-color: #102647;
+      color: white;
+      padding: 15px;
+      border-radius: 5px 5px 0 0;
+      margin: -20px -20px 20px -20px;
+    }
+    .sender-info {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .message-content {
+      padding: 15px;
+      border-left: 4px solid #102647;
+      background-color: #f9f9f9;
+      white-space: pre-wrap;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777777;
+      border-top: 1px solid #dddddd;
+      padding-top: 15px;
+    }
+    h2 {
+      margin: 0;
+      color: white;
+    }
+    .label {
+      font-weight: bold;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <h2>Message from GFWBA Website</h2>
+    </div>
+    
+    <div class="sender-info">
+      <p><span class="label">From:</span> ${emailReplyToName}</p>
+      <p><span class="label">Email:</span> ${emailReplyToAddress}</p>
+      <p><span class="label">Subject:</span> ${emailSubject}</p>
+    </div>
+    
+    <div>
+      <p class="label">Message:</p>
+      <div class="message-content">${emailBody.replace(/\n/g, '<br>')}</div>
+    </div>
+    
+    <div class="footer">
+      <p>This message was sent through the Greater Fort Worth Builders Association website.</p>
+      <p>To reply to this message, please contact the sender directly at ${emailReplyToAddress}.</p>
+    </div>
+  </div>
+</body>
+</html>
+    `;
+    
     let sender = {
       subject: emailSubject,
-      body: emailBody,
+      body: formattedBody,
       ReplyToAddress: emailReplyToAddress,
       ReplyToName: emailReplyToName,
     };
@@ -536,24 +640,48 @@ export default function Profile({ imageData }) {
       Name: contact.DisplayName,
       Email: contact.Email,
     };
-    let response = await fetch("/api/sendEmail", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ sender, recipient }),
-    });
-    const json = await response.json();
-    if (!response.ok) {
-      setError(json.error);
-      console.log("response not ok");
-    }
-    if (response.ok) {
-      setEmailSubject("");
-      setEmailBody("");
-      setEmailReplyToAddress("");
-      setEmailReplyToName("");
-      setSendingEmail(false);
+
+    try {
+      let response = await fetch("/api/sendEmail", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify({ sender, recipient }),
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        const errorMsg =
+          json.error || "Failed to send message. Please try again.";
+        setEmailError(errorMsg);
+        showNotificationMessage(errorMsg, "error");
+        console.log("response not ok");
+      } else {
+        // Success case
+        setEmailSuccess(true);
+        setEmailSubject("");
+        setEmailBody("");
+        setEmailReplyToAddress("");
+        setEmailReplyToName("");
+
+        showNotificationMessage(
+          "Your message has been sent successfully",
+          "success"
+        );
+
+        // Hide the form after 5 seconds to show the success message
+        setTimeout(() => {
+          setSendingEmail(false);
+        }, 5000);
+      }
+    } catch (error) {
+      const errorMsg =
+        "An error occurred while sending the message. Please try again.";
+      setEmailError(errorMsg);
+      showNotificationMessage(errorMsg, "error");
+      console.error("Error sending email:", error);
     }
   };
 
@@ -719,6 +847,32 @@ export default function Profile({ imageData }) {
 
   return (
     <main>
+      {/* Notification component */}
+      {showNotification && (
+        <div
+          className={`fixed top-0 left-0 right-0 z-50 p-4 text-white text-center transition-transform duration-500 transform translate-y-0 ${
+            notificationType === "success" ? "bg-green-500" : "bg-red-500"
+          }`}
+          style={{
+            animation: "slideDown 0.5s ease-out forwards",
+          }}
+        >
+          {notificationMessage}
+        </div>
+      )}
+
+      {/* Add the CSS animation */}
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            transform: translateY(-100%);
+          }
+          to {
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+
       <InnerHero
         heroDirectory={{ href: "/directory" }}
         heroJoin={{ href: "/signup" }}
@@ -773,13 +927,15 @@ export default function Profile({ imageData }) {
                   }}
                 />
               </div>
-              <label for='Password'>Password</label>
+              <label for="Password">Password</label>
               <input
-                className='hi'
+                className="hi"
                 type="text"
                 placeholder="Password"
                 value={newPassword}
-                onChange={(e) => { setNewPassword(e.target.value) }}
+                onChange={(e) => {
+                  setNewPassword(e.target.value);
+                }}
               />
               <div className="text-xl font-light mb-4">
                 <label htmlFor="Organization">Organization</label>
@@ -1101,7 +1257,7 @@ export default function Profile({ imageData }) {
                   <span id="error-message" className="text-red"></span>
                 </div>
               </div>
-              {errorStateMsg && <p style={{ color: 'red' }}>{errorStateMsg}</p>}
+              {errorStateMsg && <p style={{ color: "red" }}>{errorStateMsg}</p>}
               <div className="flex gap-4">
                 <input
                   className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
@@ -1149,8 +1305,21 @@ export default function Profile({ imageData }) {
               >
                 Update
               </button> */}
-              <a className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10" href={`https://gfwba38.wildapricot.org/Sys/Profile`} target="_blank"> Update </a>
-              <a className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10 ms-2" href={`https://gfwba38.wildapricot.org/Sys/Profile/Finances?memberId=${params.id}`} target="_blank">Make Payment</a>
+              <a
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                href={`https://gfwba38.wildapricot.org/Sys/Profile`}
+                target="_blank"
+              >
+                {" "}
+                Update{" "}
+              </a>
+              <a
+                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10 ms-2"
+                href={`https://gfwba38.wildapricot.org/Sys/Profile/Finances?memberId=${params.id}`}
+                target="_blank"
+              >
+                Make Payment
+              </a>
             </div>
           )}
           {/* START MESSAGING APP */}

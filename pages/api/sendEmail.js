@@ -62,10 +62,14 @@ export default function handler(req, res) {
             })
             .then((response) => {
                 console.log(response)
-                res.status(200).json({ message: 'email sent' });
+                res.status(200).json({ message: 'Message sent successfully' });
             })
             .catch((error) => {
-                console.error('Error retrieving accounts:', error);
+                console.error('Error sending email:', error);
+                // Send a proper error response to the client
+                res.status(500).json({ 
+                    error: error.response?.data?.message || 'Failed to send message. Please try again.' 
+                });
             });
     };
 
