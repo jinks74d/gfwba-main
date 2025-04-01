@@ -97,10 +97,10 @@ export default function Directory() {
             }
           }
         }
-        if (c.DisplayName !== 'Mattingley, Patrick') {
-          c.FullName = `${c.FirstName} ${c.LastName}`
+        if (c.DisplayName !== "Mattingley, Patrick") {
+          c.FullName = `${c.FirstName} ${c.LastName}`;
           formatedContacts.push(c);
-        } else if (c.DisplayName == 'Mattingley, Patrick') {
+        } else if (c.DisplayName == "Mattingley, Patrick") {
           c.DisplayName = c.Organization;
           formatedContacts.push(c);
         }
@@ -219,14 +219,22 @@ export default function Directory() {
             const searchFilter = f.toUpperCase();
 
             if (contact.DisplayName) {
-              const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
+              const displayNameParts = contact.DisplayName.split(",").map(
+                (part) => part.trim().toUpperCase()
+              );
 
               // Check for "Last Name, First Name"
-              const lastNameFirstName = contact.DisplayName.toUpperCase().includes(searchFilter.toUpperCase());
+              const lastNameFirstName =
+                contact.DisplayName.toUpperCase().includes(
+                  searchFilter.toUpperCase()
+                );
 
               // Check for "First Name Last Name"
-              const firstNameLastName = displayNameParts.length === 2 &&
-                (displayNameParts[1] + ' ' + displayNameParts[0]).includes(searchFilter.toUpperCase());
+              const firstNameLastName =
+                displayNameParts.length === 2 &&
+                (displayNameParts[1] + " " + displayNameParts[0]).includes(
+                  searchFilter.toUpperCase()
+                );
 
               if (lastNameFirstName || firstNameLastName) {
                 // console.log(contact);
@@ -257,7 +265,8 @@ export default function Directory() {
             }
             // Check if City, ST matches
             if (
-              `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() == searchFilter
+              `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() ==
+              searchFilter
             ) {
               // console.log(contact);
               if (filteredContacts.indexOf(contact) == -1) {
@@ -266,7 +275,6 @@ export default function Directory() {
               // console.log(filteredContacts);
             }
           });
-
         });
       }
       // console.log(filteredContacts)
@@ -353,14 +361,21 @@ export default function Directory() {
         //   console.log(filteredContacts);
         // }
         if (contact.DisplayName) {
-          const displayNameParts = contact.DisplayName.split(',').map(part => part.trim().toUpperCase());
+          const displayNameParts = contact.DisplayName.split(",").map((part) =>
+            part.trim().toUpperCase()
+          );
 
           // Check for "Last Name, First Name"
-          const lastNameFirstName = contact.DisplayName.toUpperCase().includes(searchTerm.toUpperCase());
+          const lastNameFirstName = contact.DisplayName.toUpperCase().includes(
+            searchTerm.toUpperCase()
+          );
 
           // Check for "First Name Last Name"
-          const firstNameLastName = displayNameParts.length === 2 &&
-            (displayNameParts[1] + ' ' + displayNameParts[0]).includes(searchTerm.toUpperCase());
+          const firstNameLastName =
+            displayNameParts.length === 2 &&
+            (displayNameParts[1] + " " + displayNameParts[0]).includes(
+              searchTerm.toUpperCase()
+            );
 
           if (lastNameFirstName || firstNameLastName) {
             // console.log(contact);
@@ -380,7 +395,9 @@ export default function Directory() {
           // console.log(filteredContacts);
         }
         if (
-          contact.FieldValues[44].Value.toUpperCase().includes(searchTerm.toUpperCase())
+          contact.FieldValues[44].Value.toUpperCase().includes(
+            searchTerm.toUpperCase()
+          )
         ) {
           // console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {
@@ -389,7 +406,8 @@ export default function Directory() {
           // console.log(filteredContacts);
         }
         if (
-          `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() == searchTerm.toUpperCase()
+          `${contact.FieldValues[44].Value}, ${contact.FieldValues[45].Value}`.toUpperCase() ==
+          searchTerm.toUpperCase()
         ) {
           // console.log(contact);
           if (filteredContacts.indexOf(contact) == -1) {

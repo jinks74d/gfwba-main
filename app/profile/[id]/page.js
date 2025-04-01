@@ -1323,92 +1323,96 @@ export default function Profile({ imageData }) {
             </div>
           )}
           {/* START MESSAGING APP */}
-          {sendingEmail ? (
-            <div>
-              <div className="form-main">
-                <form onSubmit={sendEmail}>
-                  <div className="font-light mb-4">
-                    <label className="font-light mb-2" for="Reply Name">
-                      Name
-                    </label>
-                    <input
-                      className="hi w-[400px] text-base p-2"
-                      type="text"
-                      // placeholder={contact.FirstName}
-                      value={emailReplyToName}
-                      onChange={(e) => {
-                        setEmailReplyToName(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div className="font-light mb-4">
-                    <label className="font-light mb-2" for="Reply Email">
-                      Email
-                    </label>
-                    <input
-                      className="hi w-[400px] text-base p-2"
-                      type="text"
-                      // placeholder={contact.FirstName}
-                      value={emailReplyToAddress}
-                      onChange={(e) => {
-                        setEmailReplyToAddress(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div className="font-light mb-4">
-                    <label className="font-light mb-2" for="Subject">
-                      Subject
-                    </label>
-                    <input
-                      className="hi w-[400px] text-base p-2"
-                      type="text"
-                      // placeholder='subject'
-                      value={emailSubject}
-                      onChange={(e) => {
-                        setEmailSubject(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div className="font-light mb-4">
-                    <label className="font-light mb-2" for="Body">
-                      Message
-                    </label>
-                    <textarea
-                      className="hi w-[400px] text-base p-2"
-                      type="text"
-                      // placeholder='Email Body'
-                      value={emailBody}
-                      onChange={(e) => {
-                        setEmailBody(e.target.value);
-                      }}
-                    />
-                  </div>
+          {params.id !== "77184071" && (
+            <>
+              {sendingEmail ? (
+                <div>
+                  <div className="form-main">
+                    <form onSubmit={sendEmail}>
+                      <div className="font-light mb-4">
+                        <label className="font-light mb-2" for="Reply Name">
+                          Name
+                        </label>
+                        <input
+                          className="hi w-[400px] text-base p-2"
+                          type="text"
+                          // placeholder={contact.FirstName}
+                          value={emailReplyToName}
+                          onChange={(e) => {
+                            setEmailReplyToName(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="font-light mb-4">
+                        <label className="font-light mb-2" for="Reply Email">
+                          Email
+                        </label>
+                        <input
+                          className="hi w-[400px] text-base p-2"
+                          type="text"
+                          // placeholder={contact.FirstName}
+                          value={emailReplyToAddress}
+                          onChange={(e) => {
+                            setEmailReplyToAddress(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="font-light mb-4">
+                        <label className="font-light mb-2" for="Subject">
+                          Subject
+                        </label>
+                        <input
+                          className="hi w-[400px] text-base p-2"
+                          type="text"
+                          // placeholder='subject'
+                          value={emailSubject}
+                          onChange={(e) => {
+                            setEmailSubject(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="font-light mb-4">
+                        <label className="font-light mb-2" for="Body">
+                          Message
+                        </label>
+                        <textarea
+                          className="hi w-[400px] text-base p-2"
+                          type="text"
+                          // placeholder='Email Body'
+                          value={emailBody}
+                          onChange={(e) => {
+                            setEmailBody(e.target.value);
+                          }}
+                        />
+                      </div>
 
-                  <p>reCAPTCHA?</p>
-                  <div className="flex gap-4">
-                    <input
-                      className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
-                      type="submit"
-                    />
-                    <button
-                      className="cursor-pointer text-[#102647] border-2 border-[#102647] border-solid text-xl uppercase mt-10 py-2 px-10"
-                      onClick={() => setSendingEmail(false)}
-                    >
-                      Cancel
-                    </button>
+                      <p>reCAPTCHA?</p>
+                      <div className="flex gap-4">
+                        <input
+                          className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-10 py-2 px-10"
+                          type="submit"
+                        />
+                        <button
+                          className="cursor-pointer text-[#102647] border-2 border-[#102647] border-solid text-xl uppercase mt-10 py-2 px-10"
+                          onClick={() => setSendingEmail(false)}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                </form>
-              </div>
-            </div>
-          ) : (
-            <div className="ml-auto mr-auto flex w-full max-w-[1600px]">
-              <button
-                className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-2 py-2 px-10 btn-res-padding"
-                onClick={() => setSendingEmail(true)}
-              >
-                MESSAGE MEMBER
-              </button>
-            </div>
+                </div>
+              ) : (
+                <div className="ml-auto mr-auto flex w-full max-w-[1600px]">
+                  <button
+                    className="cursor-pointer bg-[#102647] text-white text-xl uppercase mt-2 py-2 px-10 btn-res-padding"
+                    onClick={() => setSendingEmail(true)}
+                  >
+                    MESSAGE MEMBER
+                  </button>
+                </div>
+              )}
+            </>
           )}
           {/* END MESSAGING APP */}
         </>
